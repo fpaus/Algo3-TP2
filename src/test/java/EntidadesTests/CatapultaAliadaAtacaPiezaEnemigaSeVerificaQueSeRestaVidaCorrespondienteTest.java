@@ -1,0 +1,4 @@
+package EntidadesTests;
+
+public class CatapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest {
+}
