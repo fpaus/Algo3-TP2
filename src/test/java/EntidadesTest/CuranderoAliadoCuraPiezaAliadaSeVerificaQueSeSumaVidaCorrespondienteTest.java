@@ -1,4 +1,4 @@
-package TestEntidades;
+package EntidadesTest;
 
 public class CuranderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest {
 }
