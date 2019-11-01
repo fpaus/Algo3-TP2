@@ -1,4 +1,4 @@
-package EntidadesTest;
+package EntidadesTests;
 
 public class JineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest {
 }
