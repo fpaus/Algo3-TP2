@@ -4,8 +4,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+<<<<<<< HEAD
   <groupId>Algo3-TP2</groupId>
   <artifactId>Algo3-TP2</artifactId>
+=======
+  <groupId>tp2</groupId>
+  <artifactId>tp2</artifactId>
+>>>>>>> 67b216ed592955e2565a481a3c4c590f9db818f2
   <version>1.0-SNAPSHOT</version>
 
   <name>Algo3-TP2</name>
