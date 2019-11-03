@@ -19,10 +19,6 @@
 *.tar.gz
 *.rar
 
-<<<<<<< HEAD
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-=======
 # Mac
 .DS_Store
 
@@ -71,4 +67,3 @@ hs_err_pid*
 *.iml
 *.iws
 
->>>>>>> 67b216ed592955e2565a481a3c4c590f9db818f2
