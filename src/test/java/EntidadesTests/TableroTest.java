@@ -5,7 +5,6 @@ import Algo3TP2.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.*;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -120,14 +119,17 @@ public class TableroTest {
 
     @Test
     public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest() {
+        assert(false);
     }
 
     @Test
     public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorEnemigoTest() {
+        assert(false);
     }
 
     @Test
     public void seColocaUnaPiezaAliadaEnUnCasilleroDelSectorAliadoVacioConExitoTest() {
+        assert(false);
     }
 
 }
