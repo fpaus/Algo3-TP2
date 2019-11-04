@@ -16,7 +16,7 @@ public class Casillero {
         estado = new CasilleroVacio();
     }
 
-    public void setEstado(CasilleroEstado estado) {
+    protected void setEstado(CasilleroEstado estado) {
         this.estado = estado;
     }
 
