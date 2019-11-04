@@ -31,4 +31,8 @@ public class Casillero {
     public void quitarUnidad() throws CasilleroVacioExcepcion {
         estado.quitarUnidad(this);
     }
+
+    public Bando getBando(){
+        return this.duenio;
+    }
 }
