@@ -1,4 +1,5 @@
 package Algo3TP2.Modelos;
+import Algo3TP2.ExcepcionesCasillero.*;
 
 public class Casillero {
 
@@ -6,18 +7,28 @@ public class Casillero {
     private int y;
     private Unidad unidadEnCasillero;
     private Bando duenio;
+    private CasilleroEstado estado;
 
-    public Casillero(int x, int y, Jugador jugador){
+    public Casillero(int x, int y, Jugador jugador) {
         this.x = x;
         this.y = y;
-        this.duenio.setDuenio(jugador);
-    }
-    public void setUnidad(Unidad unidad){
-        this.unidadEnCasillero = unidad;
-    }
-    public Unidad getUnidad() {
-        return unidadEnCasillero;
+        this.duenio = new Bando(jugador);
+        estado = new CasilleroVacio();
     }
 
+    public void setEstado(CasilleroEstado estado) {
+        this.estado = estado;
+    }
 
+    public void setUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
+        estado.setUnidad(this, unidad);
+    }
+
+    public Unidad getUnidad() throws CasilleroVacioExcepcion {
+        return estado.getUnidad();
+    }
+
+    public void quitarUnidad() throws CasilleroVacioExcepcion {
+        estado.quitarUnidad(this);
+    }
 }

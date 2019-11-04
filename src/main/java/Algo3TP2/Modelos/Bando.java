@@ -4,8 +4,7 @@ public class Bando {
 
     private Jugador duenio;
 
-
-    public void setDuenio(Jugador jugador) {
+    public Bando(Jugador duenio) {
         this.duenio = duenio;
     }
 }

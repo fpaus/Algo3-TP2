@@ -1,5 +1,6 @@
 package EntidadesTests;
 
+import Algo3TP2.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.Casillero;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Soldado;
