@@ -1,4 +1,4 @@
-package ExcepcionesCasillero;
+package Algo3TP2.ExcepcionesCasillero;
 
 public class CasilleroVacioExcepcion extends Exception{
     public CasilleroVacioExcepcion(){
