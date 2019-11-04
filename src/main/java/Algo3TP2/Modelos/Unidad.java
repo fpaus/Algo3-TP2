@@ -1,14 +1,20 @@
 package Algo3TP2.Modelos;
 
-public class Unidad {
+public abstract class Unidad {
 
+    private Casillero casillero;
+    protected int costo;
 
-    public void colocarEnPosicion(Casillero casillero) {
-    }
+    protected Salud vida;
 
-    public void mover(Casillero casilleroEn) {
+    public void colocarEnCasillero(Casillero casillero) {
+        this.casillero = casillero;
     }
 
     public Casillero getCasillero() {
+        return casillero;
     }
+    public int getCosto(){
+        return costo;
+    };
 }

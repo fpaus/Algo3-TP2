@@ -1,21 +1,19 @@
 package EntidadesTests;
 import static org.junit.Assert.assertTrue;
 
-import Algo3TP2.Modelos.Tablero;
-import Algo3TP2.Modelos.Unidad;
-import Algo3TP2.Modelos.Casillero;
+import Algo3TP2.Modelos.*;
 import org.junit.Test;
 
 public class UnidadTest {
 
     @Test
     public void unidadMovibleSePuedeMoverEnTodasDireccionesTest(){
+        Jugador j1 = new Jugador();
+        Tablero tablero = new Tablero(20,20, j1, new Jugador());
 
-        Tablero tablero = new Tablero();
-
-        Unidad unidad = new Unidad();
+        Unidad unidad = new Soldado();
         Casillero casillero = tablero.getCasilleroEnPosicion(2,2);
-        unidad.colocarEnPosicion(casillero);
+        unidad.colocarEnCasillero(casillero);
         //me muevo hacia arriba
         unidad.mover(tablero.getCasilleroEnPosicion(2,3));
         assertTrue(unidad.getCasillero() == tablero.getCasilleroEnPosicion(2,3));
@@ -42,5 +40,28 @@ public class UnidadTest {
         assertTrue(unidad.getCasillero() == tablero.getCasilleroEnPosicion(3,3));
 
     }
+    @Test
+    public void unidadMovibleNoPuedeMoverseAUnCasilleroOcupadoTest(){
+
+    }
+    @Test
+    public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest(){
+
+    }
+
+    @Test
+    public void jineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest(){
+
+    }
+    @Test
+    public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest(){
+
+    }
+
+    @Test
+    public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest(){
+
+    }
+
 
 }
