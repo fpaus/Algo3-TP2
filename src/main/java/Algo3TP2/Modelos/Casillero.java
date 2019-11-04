@@ -7,7 +7,7 @@ public class Casillero {
     private int y;
     private Unidad unidadEnCasillero;
     private Bando duenio;
-    private CasilleroEstado estado;
+    private CasilleroEstado estado; //Patron de diseño State
 
     public Casillero(int x, int y, Jugador jugador) {
         this.x = x;
