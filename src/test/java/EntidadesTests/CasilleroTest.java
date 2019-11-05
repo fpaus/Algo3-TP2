@@ -1,10 +1,7 @@
 package EntidadesTests;
 
 import Algo3TP2.ExcepcionesCasillero.*;
-import Algo3TP2.Modelos.Casillero;
-import Algo3TP2.Modelos.Jugador;
-import Algo3TP2.Modelos.Soldado;
-import Algo3TP2.Modelos.Unidad;
+import Algo3TP2.Modelos.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -27,7 +24,9 @@ public class CasilleroTest {
     public void casilleroNuevoSeEncuentraVacioTest() {
         // Arrenge
         Casillero casillero = new Casillero(1, 1, new Jugador());
-        Unidad unidadEnCasillero = new Soldado();
+        Jugador jugador = new Jugador();
+        Bando bando = new Bando(jugador);
+        Unidad unidadEnCasillero = new Soldado(bando);
 
         // act, assert
         // Intento setear una unidad en un casillero que deberia estar vacio
@@ -44,8 +43,10 @@ public class CasilleroTest {
     public void casilleroNuevoSeLeSeteaUnidadAhoraSeEncuentraOcupadoTest() throws CasilleroOcupadoExcepcion {
         // Arrenge
         Casillero casillero = new Casillero(1, 1, new Jugador());
-        Unidad unidadEnCasillero = new Soldado();
-        Unidad unidadNueva = new Soldado();
+        Jugador jugador = new Jugador();
+        Bando bando = new Bando(jugador);
+        Unidad unidadEnCasillero = new Soldado(bando);
+        Unidad unidadNueva = new Soldado(bando);
 
         // act
         casillero.setUnidad(unidadEnCasillero);
@@ -65,7 +66,9 @@ public class CasilleroTest {
     public void casilleroVacioGetUnidadLanzaExcepcion() throws CasilleroOcupadoExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
-        Unidad unidad = new Soldado();
+        Jugador jugador = new Jugador();
+        Bando bando = new Bando(jugador);
+        Unidad unidad = new Soldado(bando);
 
         // Assert
         try {
@@ -80,7 +83,9 @@ public class CasilleroTest {
     public void casilleroSeLeSeteaUnidadGetUnidadRetornaUnidadEnCuestion() throws CasilleroOcupadoExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
-        Unidad unidad = new Soldado();
+        Jugador jugador = new Jugador();
+        Bando bando = new Bando(jugador);
+        Unidad unidad = new Soldado(bando);
 
         // Act
         casillero.setUnidad(unidad);
@@ -112,7 +117,9 @@ public class CasilleroTest {
     public void casilleroOcupadoQuitarUnidadNoLanzaExcepcion() throws CasilleroOcupadoExcepcion{
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
-        Unidad unidad = new Soldado();
+        Jugador jugador = new Jugador();
+        Bando bando = new Bando(jugador);
+        Unidad unidad = new Soldado(bando);
 
         // Act
         casillero.setUnidad(unidad);
@@ -130,7 +137,9 @@ public class CasilleroTest {
     public void casilleroOcupadoQuitarUnidadCasilleroQuedaVacio() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion{
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
-        Unidad unidad = new Soldado();
+        Jugador jugador = new Jugador();
+        Bando bando = new Bando(jugador);
+        Unidad unidad = new Soldado(bando);
 
         // Act
         casillero.setUnidad(unidad);
