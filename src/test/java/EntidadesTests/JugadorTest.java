@@ -1,5 +1,6 @@
 package EntidadesTests;
 
+import Algo3TP2.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Catapulta;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero;
@@ -9,7 +10,8 @@ import org.junit.Test;
 public class JugadorTest {
 
     @Test//(expected = PuntosInsuficientesException.class)
-    public void jugadorNoPuedeTomarMásEntidadesDeLoQueSusPuntosLePermitenTest() {
+    public void jugadorNoPuedeTomarMásEntidadesDeLoQueSusPuntosLePermitenTest()
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         Jugador jugador = new Jugador();
         Tablero tablero = new Tablero(20, 20 , jugador, new Jugador());
 

@@ -1,29 +1,135 @@
 package EntidadesTests;
 
+import Algo3TP2.ExcepcionesTablero.*;
+import Algo3TP2.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.*;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class TableroTest {
 
     @Test
-    public void correctaInicializacionDelTablero (){
-        Tablero tablero = new Tablero(20 ,20, new Jugador(), new Jugador());
-        Unidad unidad = new Soldado();
+    public void TableroNuevoEsDistintoAnull() {
+        // Arrenge
+        Tablero tablero;
+
+        // Act
+        tablero = new Tablero(20, 20, new Jugador(), new Jugador());
+
+        // Assert
+        assertFalse(tablero == null);
+    }
+
+    @Test
+    public void tableroGetCasilleroEnPosicionRetornaUnCasillero() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        // Arrange
+        Tablero tablero = new Tablero(20, 20, new Jugador(), new Jugador());
         Casillero casillero;
 
-        casillero = tablero.getCasilleroEnPosicion(0,0);
-        unidad.colocarEnCasillero(casillero);
-        assertTrue(casillero != null);
-        //assertEquals(unidad, casillero.getUnidad());
+        // Act
+        casillero = tablero.getCasilleroEnPosicion(5, 5);
+
+        // Assert
+        assertEquals(Casillero.class, casillero.getClass());
     }
+
     @Test
-    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest (){}
+    public void tableroGetCasilleroEnPosicionFueraDeRangoLanzaUnaExcepcion() {
+        // Arrange
+        Tablero tablero = new Tablero(20, 20, new Jugador(), new Jugador());
+
+        // Assert
+        try {
+            Casillero casillero = tablero.getCasilleroEnPosicion(50, 50);
+            assert (false);
+        } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
+            assert (true);
+        }
+    }
+
     @Test
-    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorEnemigoTest (){}
+    public void tableroNuevoPoseeElTamanioCorrecto() {
+        // Arrange
+        int x = 20, y = 20;
+        Tablero tablero = new Tablero(x, y, new Jugador(), new Jugador());
+
+        // Assert
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                try {
+                    Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                    assert (true);
+                } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
+                    assert (false);
+                }
+            }
+        }
+    }
+
     @Test
-    public void seColocaUnaPiezaAliadaEnUnCasilleroDelSectorAliadoVacioConExitoTest (){}
+    public void tableroNuevoPoseeTodasLasCasillasVacias() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        // Arrange
+        int x = 20, y = 20;
+        Tablero tablero = new Tablero(x, y, new Jugador(), new Jugador());
+
+        // Assert
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                try {
+                    Unidad unidad = casillero.getUnidad();
+                    assert (false);
+                } catch (CasilleroVacioExcepcion ex) {
+                    assert (true);
+                }
+            }
+        }
+    }
+
+    @Test
+    public void tableroNuevoPoseeLaMitadDeLasCasillasCorrespondientesAUnBandoDistintoAlDeLaOtraMitad()
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        // Arrange
+        int x = 20, y = 20;
+        Jugador jugador1 = new Jugador(), jugador2 = new Jugador();
+        Tablero tablero = new Tablero(x, y, jugador1, jugador2);
+
+        // Assert
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                if (j < y / 2) {
+                    assertEquals(jugador1, casillero.getBando().getDuenio());
+                } else {
+                    assertEquals(jugador2, casillero.getBando().getDuenio());
+                }
+            }
+        }
+    }
+
+    @Test
+    public void correctaInicializacionDelTablero() throws Exception {
+        // Solicitado por la catedra
+        tableroNuevoPoseeElTamanioCorrecto();
+        tableroNuevoPoseeTodasLasCasillasVacias();
+        tableroNuevoPoseeLaMitadDeLasCasillasCorrespondientesAUnBandoDistintoAlDeLaOtraMitad();
+    }
+
+    @Test
+    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest() {
+        assert(false);
+    }
+
+    @Test
+    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorEnemigoTest() {
+        assert(false);
+    }
+
+    @Test
+    public void seColocaUnaPiezaAliadaEnUnCasilleroDelSectorAliadoVacioConExitoTest() {
+        assert(false);
+    }
 
 }
