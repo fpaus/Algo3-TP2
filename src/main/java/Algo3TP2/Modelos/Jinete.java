@@ -8,9 +8,10 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
 
-    public Jinete(){
+    public Jinete(Bando bando){
         this.costo = Properties.costoJinete;
         this.vida = new Salud(Properties.vidaJinete);
+        this.duenio = bando;
     }
 
     @Override

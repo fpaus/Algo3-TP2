@@ -8,10 +8,11 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
 
-    public Soldado(){
+    public Soldado(Bando bando){
         this.costo = Properties.costoSoldado;
         this.vida = new Salud(Properties.vidaSoldado);
         this.estrategiaDeAtaque = new AtaqueDeSoldado();
+        this.duenio = bando;
     }
 
     @Override
