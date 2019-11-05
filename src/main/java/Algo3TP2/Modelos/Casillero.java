@@ -35,4 +35,12 @@ public class Casillero {
     public Bando getBando(){
         return this.duenio;
     }
+
+    public int getCoordenadaX(){
+        return this.x;
+    }
+
+    public int getCoordenadaY(){
+        return this.y;
+    }
 }

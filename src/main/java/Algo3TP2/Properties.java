@@ -13,8 +13,14 @@ public class Properties {
 
     public static int danioSoldadoCaC = 10;
     public static int danioJineteCaC = 5;
+
     public static int danioJineteDistancia = 15;
     public static int danioCatapultaDistancia = 20;
 
     public static int curacionCurandero = 15;
+
+    public static int alcanceMaxDistanciaCorta = 2;
+    public static int alcanceMaxDistanciaMedia = 5;
+    public static int alcanceMinDistanciaMedia = 3;
+    public static int alcanceMinDistanciaLarga = 6;
 }
