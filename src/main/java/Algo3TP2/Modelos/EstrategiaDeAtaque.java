@@ -12,13 +12,13 @@ public abstract class EstrategiaDeAtaque {
     protected int medirDistanciaEnX(Unidad unidadAtacante, Unidad unidadVictima) {
         int unidadAtacanteCoordenadaX = unidadAtacante.getCasillero().getCoordenadaX();
         int unidadVictimaCoordenadaX = unidadVictima.getCasillero().getCoordenadaX();
-        return (int)(Math.abs(unidadVictimaCoordenadaX - unidadAtacanteCoordenadaX));
+        return (Math.abs(unidadVictimaCoordenadaX - unidadAtacanteCoordenadaX));
     }
 
     protected int medirDistanciaEnY(Unidad unidadAtacante, Unidad unidadVictima) {
         int unidadAtacanteCoordenadaY = unidadAtacante.getCasillero().getCoordenadaY();
         int unidadVictimaCoordenadaY = unidadVictima.getCasillero().getCoordenadaY();
-        return (int)(Math.abs(unidadVictimaCoordenadaY - unidadAtacanteCoordenadaY));
+        return (Math.abs(unidadVictimaCoordenadaY - unidadAtacanteCoordenadaY));
     }
 
     protected void unidadVictimaEsEnemigaDeUnidadAtacante(Unidad unidadAtacante, Unidad unidadVictima) throws UnidadAtacadaEsAliadaExcepcion{

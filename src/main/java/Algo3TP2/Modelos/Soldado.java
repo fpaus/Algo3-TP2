@@ -25,7 +25,4 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         estrategiaDeAtaque.atacar(this, unidadVictima);
     }
 
-    protected int getDanioCuerpoACurpo(){
-        return Properties.danioSoldadoCaC;
-    }
 }

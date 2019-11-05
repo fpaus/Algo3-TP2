@@ -33,4 +33,8 @@ public abstract class Unidad {
         this.vida.curar(vida);
     }
 
+    public int getVida(){
+        return this.vida.getPuntosDeVida();
+    }
+
 }
