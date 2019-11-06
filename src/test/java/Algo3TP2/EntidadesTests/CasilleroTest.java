@@ -157,4 +157,34 @@ public class CasilleroTest {
             assert (true);
         }
     }
+
+    @Test
+    public void casilleroSetUnidadAlInicioDelJuegoGetUnidadRetornaUnidadEnCuestion()
+            throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion, CasilleroEnemigoExcepcion {
+        // Arrange
+        Jugador jugador = new Jugador();
+        Casillero casillero = new Casillero(1, 1, jugador);
+        Bando bando = new Bando(jugador);
+        Unidad unidad = new Soldado(bando);
+
+        // Act
+        casillero.setUnidadAlInicioDelJuego(unidad);
+
+        // Assert
+        assertEquals(unidad, casillero.getUnidad());
+    }
+
+    @Test(expected = CasilleroEnemigoExcepcion.class)
+    public void casilleroSetUnidadAlInicioDelJuegoCasilleroEnemigoRetornaExcepcion()
+            throws CasilleroOcupadoExcepcion, CasilleroEnemigoExcepcion {
+        // Arrange
+        Jugador jugador = new Jugador();
+        Bando bando = new Bando(jugador);
+        Unidad unidad = new Soldado(bando);
+        Jugador jugadorEnemigo = new Jugador();
+        Casillero casillero = new Casillero(1, 1, jugadorEnemigo);
+
+        // Act Assert
+        casillero.setUnidadAlInicioDelJuego(unidad);
+    }
 }
