@@ -64,7 +64,7 @@ public class Jugador {
     }
 
     public boolean sigueEnJuego() {
-        return this.sigueEnJuego();
+        return this.sigueEnJuego;
     }
 
 }
