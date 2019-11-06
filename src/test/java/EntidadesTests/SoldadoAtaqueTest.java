@@ -82,7 +82,7 @@ public class SoldadoAtaqueTest {
         Bando bando2 = new Bando(jugador2);
         Casillero casillero2 = new Casillero(2, 2, jugador2);
         Soldado soldadoAtacado = new Soldado(bando2);
-        soldadoAtacado.colocarEnCasillero(casillero1);
+        soldadoAtacado.colocarEnCasillero(casillero2);
 
         // Act
         soldadoAtacante.atacar(soldadoAtacado);
