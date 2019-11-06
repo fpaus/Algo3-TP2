@@ -44,7 +44,7 @@ public class CuranderoTests {
     }
 
     @Test
-    public void CuranderoNuevoTrasGenerarDanioNoTiene75DeVida() {
+    public void CuranderoNuevoTrasGenerarDanioNoTiene75DeVida() throws UnidadInvalidaException {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -59,7 +59,7 @@ public class CuranderoTests {
     }
 
     @Test
-    public void CuranderoNuevoTrasGenerarDanioPor15PuntosAhoraTiene60DeVida() {
+    public void CuranderoNuevoTrasGenerarDanioPor15PuntosAhoraTiene60DeVida() throws UnidadInvalidaException {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -173,7 +173,7 @@ public class CuranderoTests {
     @Test
     public void CuranderoCuraAUnidadAliadaQueLeSacaron5PuntosYHaceQueSuVidaSeaMaxima()
         throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
-            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
+            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

@@ -12,18 +12,27 @@ public class Salud {
     }
 
     public void generarDanio(int danio) {
-        this.vida -= danio;
+        if (this.vida > danio) {
+            this.vida -= danio;
+        } else {
+            this.vida = 0;
+        }
     }
 
     public void curar(int vida) {
-        this.vida += vida;
-    }
+        if (this.vidaMaxima - this.vida > vida) {
+            this.vida += vida;
+        } else {
+            this.vida = this.vidaMaxima;
+        }
 
-    public void curarVidaCompleta() { this.vida = vidaMaxima; }
+    }
 
     public int getPuntosDeVida() {
         return this.vida;
     }
 
-    public int getPuntosVidaMaxima() { return this.vidaMaxima; }
+    public int getPuntosVidaMaxima() {
+        return this.vidaMaxima;
+    }
 }

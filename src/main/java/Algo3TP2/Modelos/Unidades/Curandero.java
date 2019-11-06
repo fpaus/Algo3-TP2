@@ -35,32 +35,28 @@ public class Curandero extends UnidadMovible {
 
     private void validarCuracion(Unidad unidadAliada)
             throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
-                CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion {
-        if(this.duenio.getDuenio() != unidadAliada.duenio.getDuenio()){
+            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion {
+        if (this.duenio.getDuenio() != unidadAliada.duenio.getDuenio()) {
             throw new UnidadCuradaEsEnemigaExcepcion();
         }
         int distanciaEnX = this.medirDistanciaEnX(this, unidadAliada);
         int distanciaEnY = this.medirDistanciaEnY(this, unidadAliada);
-        boolean condicionDistancia = (distanciaEnX <= Properties.alcanceMaxDistanciaCorta &&
-                distanciaEnY <= Properties.alcanceMaxDistanciaCorta);
+        boolean condicionDistancia = (distanciaEnX <= Properties.alcanceMaxDistanciaCorta
+                && distanciaEnY <= Properties.alcanceMaxDistanciaCorta);
         if (!condicionDistancia) {
             throw new DistanciaParaCurarIncorrectaExcepcion();
         }
-        if(unidadAliada.getVida() == unidadAliada.getVidaMaxima()){
+        if (unidadAliada.getVida() == unidadAliada.getVidaMaxima()) {
             throw new AliadoConSaludCompletaNoSePuedeCurarExcepcion();
         }
     }
 
     public void curar(Unidad unidadAliada)
             throws CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
-                DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
+            DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
         this.validarCuracion(unidadAliada);
-        if(unidadAliada.getVida() + Properties.curacionCurandero >= unidadAliada.getVidaMaxima()){
-            unidadAliada.vida.curarVidaCompleta();
-        }
-        else{
-            unidadAliada.curar(Properties.curacionCurandero);
-        }
+        unidadAliada.curar(Properties.curacionCurandero);
+
     }
 
 }

@@ -41,7 +41,7 @@ public class SoldadoAtaqueTest {
     }
 
     @Test
-    public void SoladoNuevoTrasGenerarDanioNoTiene100DeVida() {
+    public void SoladoNuevoTrasGenerarDanioNoTiene100DeVida() throws UnidadInvalidaException {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -56,7 +56,7 @@ public class SoldadoAtaqueTest {
     }
 
     @Test
-    public void SoladoNuevoTrasGenerarDanioPor15PuntosAhoraTiene85DeVida() {
+    public void SoladoNuevoTrasGenerarDanioPor15PuntosAhoraTiene85DeVida() throws UnidadInvalidaException {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -116,7 +116,7 @@ public class SoldadoAtaqueTest {
 
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
     public void SoladoAtacaASoldadoAliadoLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -134,7 +134,7 @@ public class SoldadoAtaqueTest {
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void SoladoAtacaASoldadoEnemigoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -154,7 +154,7 @@ public class SoldadoAtaqueTest {
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class) //Caso Borde
     public void SoladoAtacaASoldadoEnemigoUbicadoADistancia3LanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -174,7 +174,7 @@ public class SoldadoAtaqueTest {
 
     @Test //Caso Borde
     public void SoladoAtacaASoldadoEnemigoUbicadoADistancia2GeneraDanio()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
