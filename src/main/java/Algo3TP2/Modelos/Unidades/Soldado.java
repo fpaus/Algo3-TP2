@@ -19,10 +19,7 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         this.duenio = bando;
     }
 
-    @Override
-    public void mover(Casillero casillero) {
 
-    }
 
     @Override
     public void atacar(Unidad unidadVictima) throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion {
