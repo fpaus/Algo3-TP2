@@ -43,7 +43,7 @@ public class JineteAtaqueTest {
     }
 
     @Test
-    public void JineteNuevoTrasGenerarDanioNoTiene100DeVida() {
+    public void JineteNuevoTrasGenerarDanioNoTiene100DeVida() throws UnidadInvalidaException {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -58,7 +58,7 @@ public class JineteAtaqueTest {
     }
 
     @Test
-    public void JineteNuevoTrasGenerarDanioPor15PuntosAhoraTiene90DeVida() {
+    public void JineteNuevoTrasGenerarDanioPor15PuntosAhoraTiene90DeVida() throws UnidadInvalidaException {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -167,7 +167,7 @@ public class JineteAtaqueTest {
 
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
     public void JineteAtacaConEstrategiaEspadaAJineteAliadoLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -186,7 +186,7 @@ public class JineteAtaqueTest {
 
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteAliadoLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -206,7 +206,7 @@ public class JineteAtaqueTest {
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void JineteAtacaConEstrategiaEspadaAJineteEnemigoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -227,7 +227,7 @@ public class JineteAtaqueTest {
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteEnemigoUbicadoADistanciaMayorQueLaMediaLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -248,7 +248,7 @@ public class JineteAtaqueTest {
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteEnemigoUbicadoADistanciaMenorQueLaMediaLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

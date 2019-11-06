@@ -80,7 +80,7 @@ public class UnidadTest {
 
     @Test
     public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -103,7 +103,7 @@ public class UnidadTest {
 
     @Test
     public void jineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         // Arrange Ataque con espada a distancia corta
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -137,7 +137,7 @@ public class UnidadTest {
     @Test
     public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest()
             throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
-            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion {
+            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -158,7 +158,7 @@ public class UnidadTest {
 
     @Test
     public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
