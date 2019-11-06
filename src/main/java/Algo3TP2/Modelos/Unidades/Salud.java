@@ -1,4 +1,4 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Unidades;
 
 public class Salud {
 
@@ -8,11 +8,11 @@ public class Salud {
         this.vida = vida;
     }
 
-    public void generarDanio(int danio){
+    public void generarDanio(int danio) {
         this.vida -= danio;
     }
 
-    public void curar(int vida){
+    public void curar(int vida) {
         this.vida += vida;
     }
 

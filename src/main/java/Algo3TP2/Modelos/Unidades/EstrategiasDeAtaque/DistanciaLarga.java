@@ -1,6 +1,7 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque;
 
-import Algo3TP2.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
+import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Properties;
 
 public abstract class DistanciaLarga extends EstrategiaDeAtaque {

@@ -1,14 +1,18 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Unidades;
 
-import Algo3TP2.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
-import Algo3TP2.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
+import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeSoldado;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 import Algo3TP2.Properties;
 
 public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
 
-    public Soldado(Bando bando){
+    public Soldado(Bando bando) {
         this.costo = Properties.costoSoldado;
         this.vida = new Salud(Properties.vidaSoldado);
         this.estrategiaDeAtaque = new AtaqueDeSoldado();

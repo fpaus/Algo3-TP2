@@ -1,7 +1,10 @@
 package EntidadesTests;
 
-import Algo3TP2.ExcepcionesCasillero.*;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.*;
+import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Unidades.Soldado;
+import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -100,7 +103,7 @@ public class CasilleroTest {
     }
 
     @Test
-    public void casilleroVacioQuitarUnidadLanzaExcepcion(){
+    public void casilleroVacioQuitarUnidadLanzaExcepcion() {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
 
@@ -108,13 +111,13 @@ public class CasilleroTest {
         try {
             casillero.quitarUnidad();
             assert (false);
-        } catch (CasilleroVacioExcepcion ex){
+        } catch (CasilleroVacioExcepcion ex) {
             assert (true);
         }
     }
 
     @Test
-    public void casilleroOcupadoQuitarUnidadNoLanzaExcepcion() throws CasilleroOcupadoExcepcion{
+    public void casilleroOcupadoQuitarUnidadNoLanzaExcepcion() throws CasilleroOcupadoExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
         Jugador jugador = new Jugador();
@@ -128,13 +131,13 @@ public class CasilleroTest {
         try {
             casillero.quitarUnidad();
             assert (true);
-        } catch (CasilleroVacioExcepcion ex){
+        } catch (CasilleroVacioExcepcion ex) {
             assert (false);
         }
     }
 
     @Test
-    public void casilleroOcupadoQuitarUnidadCasilleroQuedaVacio() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion{
+    public void casilleroOcupadoQuitarUnidadCasilleroQuedaVacio() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
         Jugador jugador = new Jugador();
@@ -150,7 +153,7 @@ public class CasilleroTest {
         try {
             casillero.getUnidad();
             assert (false);
-        } catch (CasilleroVacioExcepcion ex){
+        } catch (CasilleroVacioExcepcion ex) {
             assert (true);
         }
     }

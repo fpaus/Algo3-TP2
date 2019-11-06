@@ -1,4 +1,4 @@
-package Algo3TP2.ExcepcionesTablero;
+package Algo3TP2.Modelos.Tablero.ExcepcionesTablero;
 
 public class CasilleroFueraDelLosLimitesDelTableroExcepcion extends Exception {
     public CasilleroFueraDelLosLimitesDelTableroExcepcion(){
