@@ -5,7 +5,7 @@ import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Catapulta;
-import Algo3TP2.Modelos.Unidades.PuntosInsuficientesExcepcion;
+import Algo3TP2.Modelos.PuntosInsuficientesExcepcion;
 import org.junit.Test;
 
 public class JugadorTest {

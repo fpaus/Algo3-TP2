@@ -1,4 +1,4 @@
-package Algo3TP2.Modelos.Unidades;
+package Algo3TP2.Modelos;
 
 public class PuntosInsuficientesExcepcion extends Exception {
     public PuntosInsuficientesExcepcion(){

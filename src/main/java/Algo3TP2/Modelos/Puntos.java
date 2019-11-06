@@ -1,6 +1,5 @@
 package Algo3TP2.Modelos;
 
-import Algo3TP2.Modelos.Unidades.PuntosInsuficientesExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 
 public class Puntos {
