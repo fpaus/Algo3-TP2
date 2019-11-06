@@ -8,7 +8,7 @@ public class Bando {
         this.duenio = duenio;
     }
 
-    public Jugador getDuenio(){
+    public Jugador getDuenio() {
         return duenio;
     }
 }

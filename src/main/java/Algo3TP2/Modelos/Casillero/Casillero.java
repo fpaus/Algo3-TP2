@@ -1,5 +1,8 @@
-package Algo3TP2.Modelos;
-import Algo3TP2.ExcepcionesCasillero.*;
+package Algo3TP2.Modelos.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
+import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Jugador;
+import Algo3TP2.Modelos.Unidades.Unidad;
 
 public class Casillero {
 

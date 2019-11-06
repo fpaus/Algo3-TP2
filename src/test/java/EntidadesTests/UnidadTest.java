@@ -1,4 +1,5 @@
 package EntidadesTests;
+
 import static org.junit.Assert.assertTrue;
 
 import Algo3TP2.Modelos.*;
@@ -7,7 +8,7 @@ import org.junit.Test;
 public class UnidadTest {
 
     @Test
-    public void unidadMovibleSePuedeMoverEnTodasDireccionesTest(){
+    public void unidadMovibleSePuedeMoverEnTodasDireccionesTest() {
         /*Jugador j1 = new Jugador();
         Tablero tablero = new Tablero(20,20, j1, new Jugador());
 
@@ -40,26 +41,29 @@ public class UnidadTest {
         assertTrue(unidad.getCasillero() == tablero.getCasilleroEnPosicion(3,3));
         */
     }
-    @Test
-    public void unidadMovibleNoPuedeMoverseAUnCasilleroOcupadoTest(){
 
-    }
     @Test
-    public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest(){
+    public void unidadMovibleNoPuedeMoverseAUnCasilleroOcupadoTest() {
 
     }
 
     @Test
-    public void jineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest(){
-
-    }
-    @Test
-    public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest(){
+    public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest() {
 
     }
 
     @Test
-    public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest(){
+    public void jineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest() {
+
+    }
+
+    @Test
+    public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest() {
+
+    }
+
+    @Test
+    public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest() {
 
     }
 

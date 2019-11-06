@@ -1,13 +1,17 @@
 package Algo3TP2.Modelos;
 
+import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Unidades.Unidad;
+
 public class Jugador {
 
     private Puntos puntos;
-    public Jugador(){
+
+    public Jugador() {
         this.puntos = new Puntos();
     }
 
-    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero){
+    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) {
         puntos.comprarUnidad(unidad).colocarEnCasillero(casillero);
     }
 

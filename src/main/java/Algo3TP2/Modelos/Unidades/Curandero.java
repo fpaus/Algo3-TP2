@@ -1,10 +1,11 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Unidades;
 
+import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Properties;
 
-public class Curandero extends UnidadMovible{
+public class Curandero extends UnidadMovible {
 
-    public Curandero(){
+    public Curandero() {
         this.costo = Properties.costoCurandero;
         this.vida = new Salud(Properties.vidaCurandero);
     }

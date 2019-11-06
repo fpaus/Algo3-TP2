@@ -1,7 +1,6 @@
 package EntidadesTests;
 
-import Algo3TP2.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Modelos.*;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import org.junit.Test;
 
 public class JugadorTest {
@@ -32,7 +31,6 @@ public class JugadorTest {
 //        jugador.colocarUnidadEnCasillero(unidad, tablero.getCasilleroEnPosicion(1,2));
 //        unidad.morir();
 //        assertEqual(juego.siguienteTurno());}
-
 
 
 }

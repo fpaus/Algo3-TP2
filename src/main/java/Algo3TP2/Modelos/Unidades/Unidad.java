@@ -1,4 +1,8 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Unidades;
+
+import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 
 public abstract class Unidad {
 
@@ -21,19 +25,19 @@ public abstract class Unidad {
         return costo;
     }
 
-    public Bando getBando(){
+    public Bando getBando() {
         return this.duenio;
     }
 
-    public void generarDanio(int danio){
+    public void generarDanio(int danio) {
         vida.generarDanio(danio);
     }
 
-    public void curar(int vida){
+    public void curar(int vida) {
         this.vida.curar(vida);
     }
 
-    public int getVida(){
+    public int getVida() {
         return this.vida.getPuntosDeVida();
     }
 

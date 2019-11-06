@@ -1,8 +1,11 @@
 package EntidadesTests;
 
-import Algo3TP2.ExcepcionesTablero.*;
-import Algo3TP2.ExcepcionesCasillero.*;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.*;
+import Algo3TP2.Modelos.Tablero.Tablero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.*;
+import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -119,17 +122,17 @@ public class TableroTest {
 
     @Test
     public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest() {
-        assert(false);
+        assert (false);
     }
 
     @Test
     public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorEnemigoTest() {
-        assert(false);
+        assert (false);
     }
 
     @Test
     public void seColocaUnaPiezaAliadaEnUnCasilleroDelSectorAliadoVacioConExitoTest() {
-        assert(false);
+        assert (false);
     }
 
 }

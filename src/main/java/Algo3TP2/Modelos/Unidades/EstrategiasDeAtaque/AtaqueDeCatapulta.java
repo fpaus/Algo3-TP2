@@ -1,11 +1,13 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque;
 
-import Algo3TP2.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
+import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Properties;
 
-public class AtaqueDeCatapulta extends DistanciaLarga{
+public class AtaqueDeCatapulta extends DistanciaLarga {
 
-    public AtaqueDeCatapulta(){}
+    public AtaqueDeCatapulta() {
+    }
 
     @Override
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima) throws DistanciaDeAtaqueIncorrectaExcepcion {

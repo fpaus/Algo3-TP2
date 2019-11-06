@@ -1,6 +1,8 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Tablero;
 
-import Algo3TP2.ExcepcionesTablero.*;
+import Algo3TP2.Modelos.Jugador;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.*;
+import Algo3TP2.Modelos.Casillero.Casillero;
 
 public class Tablero {
 
