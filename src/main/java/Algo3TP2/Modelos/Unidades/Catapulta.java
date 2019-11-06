@@ -15,6 +15,7 @@ public class Catapulta extends Unidad implements IUnidadDeAtaque {
         this.vida = new Salud(Properties.vidaCatapulta);
         this.estrategiaDeAtaque = new AtaqueDeCatapulta();
         this.duenio = bando;
+        this.vidaMaxima = Properties.vidaCatapulta;
     }
 
     @Override

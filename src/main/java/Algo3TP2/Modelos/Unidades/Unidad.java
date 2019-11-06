@@ -13,6 +13,8 @@ public abstract class Unidad {
 
     protected Salud vida;
 
+    protected int vidaMaxima;
+
     public void colocarEnCasillero(Casillero casillero) {
         this.casillero = casillero;
     }

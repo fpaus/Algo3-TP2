@@ -15,6 +15,7 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
         this.costo = Properties.costoJinete;
         this.vida = new Salud(Properties.vidaJinete);
         this.duenio = bando;
+        this.vidaMaxima = Properties.vidaJinete;
     }
 
     @Override

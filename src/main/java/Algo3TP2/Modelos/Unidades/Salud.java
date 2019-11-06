@@ -16,6 +16,8 @@ public class Salud {
         this.vida += vida;
     }
 
+    public void curarVidaCompleta(int vida) { this.vida = vida; }
+
     public int getPuntosDeVida() {
         return this.vida;
     }

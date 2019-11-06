@@ -17,6 +17,7 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         this.vida = new Salud(Properties.vidaSoldado);
         this.estrategiaDeAtaque = new AtaqueDeSoldado();
         this.duenio = bando;
+        this.vidaMaxima = Properties.vidaSoldado;
     }
 
     @Override

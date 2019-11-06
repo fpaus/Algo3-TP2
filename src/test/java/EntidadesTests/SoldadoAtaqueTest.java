@@ -56,7 +56,7 @@ public class SoldadoAtaqueTest {
     }
 
     @Test
-    public void SoladoNuevoTrasGenerarDanioPor15PuntosAhoraTiene90DeVida() {
+    public void SoladoNuevoTrasGenerarDanioPor15PuntosAhoraTiene85DeVida() {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
