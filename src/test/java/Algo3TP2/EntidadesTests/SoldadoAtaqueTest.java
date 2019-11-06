@@ -1,4 +1,4 @@
-package EntidadesTests;
+package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;

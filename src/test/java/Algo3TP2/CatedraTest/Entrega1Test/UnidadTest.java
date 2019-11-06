@@ -1,4 +1,4 @@
-package CatedraTest.Entrega1Test;
+package Algo3TP2.CatedraTest.Entrega1Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

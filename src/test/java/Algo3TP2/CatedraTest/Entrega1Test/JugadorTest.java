@@ -1,4 +1,4 @@
-package CatedraTest.Entrega1Test;
+package Algo3TP2.CatedraTest.Entrega1Test;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Jugador;

@@ -1,56 +1,17 @@
-package EntidadesTests;
+package Algo3TP2.CatedraTest.Entrega1Test;
 
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.*;
-import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
-import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Jugador;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+
 
 public class TableroTest {
-
-    @Test
-    public void TableroNuevoEsDistintoAnull() {
-        // Arrenge
-        Tablero tablero;
-
-        // Act
-        tablero = new Tablero(20, 20, new Jugador(), new Jugador());
-
-        // Assert
-        assertFalse(tablero == null);
-    }
-
-    @Test
-    public void tableroGetCasilleroEnPosicionRetornaUnCasillero() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        // Arrange
-        Tablero tablero = new Tablero(20, 20, new Jugador(), new Jugador());
-        Casillero casillero;
-
-        // Act
-        casillero = tablero.getCasilleroEnPosicion(5, 5);
-
-        // Assert
-        assertEquals(Casillero.class, casillero.getClass());
-    }
-
-    @Test
-    public void tableroGetCasilleroEnPosicionFueraDeRangoLanzaUnaExcepcion() {
-        // Arrange
-        Tablero tablero = new Tablero(20, 20, new Jugador(), new Jugador());
-
-        // Assert
-        try {
-            Casillero casillero = tablero.getCasilleroEnPosicion(50, 50);
-            assert (false);
-        } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
-            assert (true);
-        }
-    }
 
     @Test
     public void tableroNuevoPoseeElTamanioCorrecto() {
@@ -112,4 +73,25 @@ public class TableroTest {
         }
     }
 
+    @Test
+    public void correctaInicializacionDelTablero() throws Exception {
+        tableroNuevoPoseeElTamanioCorrecto();
+        tableroNuevoPoseeTodasLasCasillasVacias();
+        tableroNuevoPoseeLaMitadDeLasCasillasCorrespondientesAUnBandoDistintoAlDeLaOtraMitad();
+    }
+
+    @Test
+    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest() {
+        assert (false);
+    }
+
+    @Test
+    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorEnemigoTest() {
+        assert (false);
+    }
+
+    @Test
+    public void seColocaUnaPiezaAliadaEnUnCasilleroDelSectorAliadoVacioConExitoTest() {
+        assert (false);
+    }
 }
