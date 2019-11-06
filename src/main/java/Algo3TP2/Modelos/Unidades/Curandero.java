@@ -21,19 +21,19 @@ public class Curandero extends UnidadMovible {
 
     }
 
-    protected int medirDistanciaEnX(Unidad unidadActual, Unidad unidadAliada) {
+    private int medirDistanciaEnX(Unidad unidadActual, Unidad unidadAliada) {
         int unidadActualCoordenadaX = unidadActual.getCasillero().getCoordenadaX();
         int unidadAliadaCoordenadaX = unidadAliada.getCasillero().getCoordenadaX();
         return (Math.abs(unidadAliadaCoordenadaX - unidadActualCoordenadaX));
     }
 
-    protected int medirDistanciaEnY(Unidad unidadActual, Unidad unidadAliada) {
+    private int medirDistanciaEnY(Unidad unidadActual, Unidad unidadAliada) {
         int unidadActualCoordenadaY = unidadActual.getCasillero().getCoordenadaY();
         int unidadAliadaCoordenadaY = unidadAliada.getCasillero().getCoordenadaY();
         return (Math.abs(unidadAliadaCoordenadaY - unidadActualCoordenadaY));
     }
 
-    public void validarCuracion(Unidad unidadAliada)
+    private void validarCuracion(Unidad unidadAliada)
             throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
                 CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion {
         if(this.duenio.getDuenio() != unidadAliada.duenio.getDuenio()){
