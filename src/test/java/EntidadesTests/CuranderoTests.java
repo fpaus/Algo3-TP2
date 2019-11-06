@@ -163,10 +163,10 @@ public class CuranderoTests {
         curanderoCurador.colocarEnCasillero(casillero1);
 
         Casillero casillero2 = new Casillero(2, 2, jugador1);
-        Curandero curanderoCurado = new Curandero(bando1);
-        curanderoCurado.colocarEnCasillero(casillero2);
+        Curandero curanderoVidaCompleta = new Curandero(bando1);
+        curanderoVidaCompleta.colocarEnCasillero(casillero2);
         // Act Assert
-        curanderoCurador.curar(curanderoCurado);
+        curanderoCurador.curar(curanderoVidaCompleta);
     }
 
     @Test
@@ -183,9 +183,12 @@ public class CuranderoTests {
         Casillero casillero2 = new Casillero(2, 2, jugador1);
         Curandero curanderoCurado = new Curandero(bando1);
         curanderoCurado.colocarEnCasillero(casillero2);
-        // Act Assert
+
+        // Act
         curanderoCurado.generarDanio(5);
         curanderoCurador.curar(curanderoCurado);
+
+        // Assert
         assertEquals(75, curanderoCurado.getVida());
     }
 }

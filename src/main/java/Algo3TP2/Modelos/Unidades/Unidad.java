@@ -13,8 +13,6 @@ public abstract class Unidad {
 
     protected Salud vida;
 
-    protected int vidaMaxima;
-
     public void colocarEnCasillero(Casillero casillero) {
         this.casillero = casillero;
     }
@@ -43,4 +41,7 @@ public abstract class Unidad {
         return this.vida.getPuntosDeVida();
     }
 
+    public int getVidaMaxima(){
+        return this.vida.getPuntosVidaMaxima();
+    }
 }

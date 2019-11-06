@@ -46,7 +46,7 @@ public class Curandero extends UnidadMovible {
         if (!condicionDistancia) {
             throw new DistanciaParaCurarIncorrectaExcepcion();
         }
-        if(unidadAliada.vida.getPuntosDeVida() == unidadAliada.vida.getPuntosVidaMaxima()){
+        if(unidadAliada.getVida() == unidadAliada.getVidaMaxima()){
             throw new AliadoConSaludCompletaNoSePuedeCurarExcepcion();
         }
     }
@@ -55,11 +55,11 @@ public class Curandero extends UnidadMovible {
             throws CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
                 DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
         this.validarCuracion(unidadAliada);
-        if(unidadAliada.getVida() + Properties.curacionCurandero >= unidadAliada.vida.getPuntosVidaMaxima()){
+        if(unidadAliada.getVida() + Properties.curacionCurandero >= unidadAliada.getVidaMaxima()){
             unidadAliada.vida.curarVidaCompleta();
         }
         else{
-            unidadAliada.vida.curar(Properties.curacionCurandero);
+            unidadAliada.curar(Properties.curacionCurandero);
         }
     }
 
