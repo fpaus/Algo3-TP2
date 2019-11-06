@@ -4,6 +4,8 @@ public abstract class Unidad {
 
     private Casillero casillero;
     protected int costo;
+    protected Bando duenio;
+    protected EstrategiaDeAtaque estrategiaDeAtaque;
 
     protected Salud vida;
 
@@ -14,7 +16,25 @@ public abstract class Unidad {
     public Casillero getCasillero() {
         return casillero;
     }
-    public int getCosto(){
+
+    public int getCosto() {
         return costo;
-    };
+    }
+
+    public Bando getBando(){
+        return this.duenio;
+    }
+
+    public void generarDanio(int danio){
+        vida.generarDanio(danio);
+    }
+
+    public void curar(int vida){
+        this.vida.curar(vida);
+    }
+
+    public int getVida(){
+        return this.vida.getPuntosDeVida();
+    }
+
 }
