@@ -46,7 +46,7 @@ public class UnidadMovibleMovimientosTest {
         // Act Assert
         soldado.mover(casilleroNoContiguo);
     }
-/*
+/* fdg
     @Test
     public void UnidadMovilbleSePuedeMoverACasillaContigua() throws CasilleroOcupadoExcepcion, MovimientoInvalidoExcepcion {
         // Arrange
