@@ -11,7 +11,7 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
 
     @Override
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima) throws DistanciaDeAtaqueIncorrectaExcepcion {
-        // Falta trabajarlo este metodo tdd segunda entrega
+        this.validarAtaque(unidadAtacante, unidadVictima);
         unidadVictima.generarDanio(Properties.danioCatapultaDistancia);
     }
 }

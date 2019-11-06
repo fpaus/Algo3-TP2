@@ -3,6 +3,7 @@ package Algo3TP2.Modelos.Unidades;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoInvalidoExcepcion;
 
 public class Movimientos {
 
@@ -27,7 +28,7 @@ public class Movimientos {
         }
     }
 
-    public void mover(Unidad unidad, Casillero destino)
+    public void ejecutarMovimiento(Unidad unidad, Casillero destino)
             throws MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion {
         Casillero origen = unidad.getCasillero();
         validarMovimiento(origen, destino);
