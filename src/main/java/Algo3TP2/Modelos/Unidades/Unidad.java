@@ -41,4 +41,7 @@ public abstract class Unidad {
         return this.vida.getPuntosDeVida();
     }
 
+    public int getVidaMaxima(){
+        return this.vida.getPuntosVidaMaxima();
+    }
 }
