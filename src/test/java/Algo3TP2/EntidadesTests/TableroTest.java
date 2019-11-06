@@ -38,18 +38,14 @@ public class TableroTest {
         assertEquals(Casillero.class, casillero.getClass());
     }
 
-    @Test
-    public void tableroGetCasilleroEnPosicionFueraDeRangoLanzaUnaExcepcion() {
+    @Test(expected = CasilleroFueraDelLosLimitesDelTableroExcepcion.class)
+    public void tableroGetCasilleroEnPosicionFueraDeRangoLanzaUnaExcepcion()
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Tablero tablero = new Tablero(20, 20, new Jugador(), new Jugador());
 
         // Assert
-        try {
-            Casillero casillero = tablero.getCasilleroEnPosicion(50, 50);
-            assert (false);
-        } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
-            assert (true);
-        }
+        Casillero casillero = tablero.getCasilleroEnPosicion(50, 50);
     }
 
     @Test

@@ -24,7 +24,7 @@ public class CasilleroTest {
     }
 
     @Test
-    public void casilleroNuevoSeEncuentraVacioTest() {
+    public void casilleroNuevoSeEncuentraVacioTest() throws CasilleroOcupadoExcepcion {
         // Arrenge
         Casillero casillero = new Casillero(1, 1, new Jugador());
         Jugador jugador = new Jugador();
@@ -34,15 +34,10 @@ public class CasilleroTest {
         // act, assert
         // Intento setear una unidad en un casillero que deberia estar vacio
         // si se encuentra vacio no deberia lanzar excepcion
-        try {
-            casillero.setUnidad(unidadEnCasillero);
-            assert (true);
-        } catch (CasilleroOcupadoExcepcion ex) {
-            assert (false);
-        }
+        casillero.setUnidad(unidadEnCasillero);
     }
 
-    @Test
+    @Test(expected = CasilleroOcupadoExcepcion.class)
     public void casilleroNuevoSeLeSeteaUnidadAhoraSeEncuentraOcupadoTest() throws CasilleroOcupadoExcepcion {
         // Arrenge
         Casillero casillero = new Casillero(1, 1, new Jugador());
@@ -57,16 +52,11 @@ public class CasilleroTest {
         // Assert
         // Intento setear una unidad en un casillero que deberia estar ocupado
         // si se encuentra ocupado debe lanzar excepcion
-        try {
-            casillero.setUnidad(unidadNueva);
-            assert (false);
-        } catch (CasilleroOcupadoExcepcion ex) {
-            assert (true);
-        }
+        casillero.setUnidad(unidadNueva);
     }
 
-    @Test
-    public void casilleroVacioGetUnidadLanzaExcepcion() throws CasilleroOcupadoExcepcion {
+    @Test(expected = CasilleroVacioExcepcion.class)
+    public void casilleroVacioGetUnidadLanzaExcepcion() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
         Jugador jugador = new Jugador();
@@ -74,16 +64,12 @@ public class CasilleroTest {
         Unidad unidad = new Soldado(bando);
 
         // Assert
-        try {
-            Unidad unidadEnCasillero = casillero.getUnidad();
-            assert (false);
-        } catch (CasilleroVacioExcepcion ex) {
-            assert (true);
-        }
+        Unidad unidadEnCasillero = casillero.getUnidad();
     }
 
     @Test
-    public void casilleroSeLeSeteaUnidadGetUnidadRetornaUnidadEnCuestion() throws CasilleroOcupadoExcepcion {
+    public void casilleroSeLeSeteaUnidadGetUnidadRetornaUnidadEnCuestion()
+            throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
         Jugador jugador = new Jugador();
@@ -94,30 +80,22 @@ public class CasilleroTest {
         casillero.setUnidad(unidad);
 
         // Assert
-        try {
-            Unidad unidadEnCasillero = casillero.getUnidad();
-            assertEquals(unidad, unidadEnCasillero);
-        } catch (CasilleroVacioExcepcion ex) {
-            assert (false);
-        }
+        Unidad unidadEnCasillero = casillero.getUnidad();
+        assertEquals(unidad, unidadEnCasillero);
     }
 
-    @Test
-    public void casilleroVacioQuitarUnidadLanzaExcepcion() {
+    @Test(expected = CasilleroVacioExcepcion.class)
+    public void casilleroVacioQuitarUnidadLanzaExcepcion() throws CasilleroVacioExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
 
         // Assert
-        try {
-            casillero.quitarUnidad();
-            assert (false);
-        } catch (CasilleroVacioExcepcion ex) {
-            assert (true);
-        }
+        casillero.quitarUnidad();
     }
 
     @Test
-    public void casilleroOcupadoQuitarUnidadNoLanzaExcepcion() throws CasilleroOcupadoExcepcion {
+    public void casilleroOcupadoQuitarUnidadNoLanzaExcepcion()
+            throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
         Jugador jugador = new Jugador();
@@ -128,15 +106,10 @@ public class CasilleroTest {
         casillero.setUnidad(unidad);
 
         // Assert
-        try {
-            casillero.quitarUnidad();
-            assert (true);
-        } catch (CasilleroVacioExcepcion ex) {
-            assert (false);
-        }
+        casillero.quitarUnidad();
     }
 
-    @Test
+    @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroOcupadoQuitarUnidadCasilleroQuedaVacio() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Casillero casillero = new Casillero(1, 1, new Jugador());
@@ -150,12 +123,7 @@ public class CasilleroTest {
 
         // Assert
         // Tras quitar la unidad, get unidad debe lanzar CasilleroVacioExcepcion
-        try {
-            casillero.getUnidad();
-            assert (false);
-        } catch (CasilleroVacioExcepcion ex) {
-            assert (true);
-        }
+        casillero.getUnidad();
     }
 
     @Test
