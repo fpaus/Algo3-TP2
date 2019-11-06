@@ -10,7 +10,6 @@ public abstract class Unidad {
     private Casillero casillero;
     protected int costo;
     protected Bando duenio;
-    protected EstrategiaDeAtaque estrategiaDeAtaque;
 
     protected Salud vida;
     private boolean estaViva = true;
