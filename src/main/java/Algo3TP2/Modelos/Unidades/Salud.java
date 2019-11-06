@@ -4,8 +4,11 @@ public class Salud {
 
     private int vida;
 
+    private int vidaMaxima;
+
     public Salud(int vida) {
         this.vida = vida;
+        this.vidaMaxima = vida;
     }
 
     public void generarDanio(int danio) {
@@ -16,9 +19,11 @@ public class Salud {
         this.vida += vida;
     }
 
-    public void curarVidaCompleta(int vida) { this.vida = vida; }
+    public void curarVidaCompleta() { this.vida = vidaMaxima; }
 
     public int getPuntosDeVida() {
         return this.vida;
     }
+
+    public int getPuntosVidaMaxima() { return this.vidaMaxima; }
 }

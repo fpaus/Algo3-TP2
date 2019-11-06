@@ -136,7 +136,7 @@ public class CuranderoTests {
     @Test(expected = DistanciaParaCurarIncorrectaExcepcion.class)
     public void CuranderoCuraACuranderoAliadoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion()
             throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
-                CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion{
+                CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -149,5 +149,43 @@ public class CuranderoTests {
         curanderoCurado.colocarEnCasillero(casillero2);
         // Act Assert
         curanderoCurador.curar(curanderoCurado);
+    }
+
+    @Test(expected = AliadoConSaludCompletaNoSePuedeCurarExcepcion.class)
+    public void CuranderoNoPuedeCurarAUnidadAliadaQueTieneLaVidaMaxima()
+        throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
+            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
+        // Arrange
+        Jugador jugador1 = new Jugador();
+        Bando bando1 = new Bando(jugador1);
+        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Curandero curanderoCurador = new Curandero(bando1);
+        curanderoCurador.colocarEnCasillero(casillero1);
+
+        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Curandero curanderoCurado = new Curandero(bando1);
+        curanderoCurado.colocarEnCasillero(casillero2);
+        // Act Assert
+        curanderoCurador.curar(curanderoCurado);
+    }
+
+    @Test
+    public void CuranderoCuraAUnidadAliadaQueLeSacaron5PuntosYHaceQueSuVidaSeaMaxima()
+        throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
+            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
+        // Arrange
+        Jugador jugador1 = new Jugador();
+        Bando bando1 = new Bando(jugador1);
+        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Curandero curanderoCurador = new Curandero(bando1);
+        curanderoCurador.colocarEnCasillero(casillero1);
+
+        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Curandero curanderoCurado = new Curandero(bando1);
+        curanderoCurado.colocarEnCasillero(casillero2);
+        // Act Assert
+        curanderoCurado.generarDanio(5);
+        curanderoCurador.curar(curanderoCurado);
+        assertEquals(75, curanderoCurado.getVida());
     }
 }

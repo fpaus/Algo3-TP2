@@ -14,7 +14,6 @@ public class Curandero extends UnidadMovible {
         this.costo = Properties.costoCurandero;
         this.duenio = bando;
         this.vida = new Salud(Properties.vidaCurandero);
-        this.vidaMaxima = Properties.vidaCurandero;
     }
 
     @Override
@@ -47,16 +46,17 @@ public class Curandero extends UnidadMovible {
         if (!condicionDistancia) {
             throw new DistanciaParaCurarIncorrectaExcepcion();
         }
-        if(unidadAliada.vida.getPuntosDeVida() == unidadAliada.vidaMaxima){
+        if(unidadAliada.vida.getPuntosDeVida() == unidadAliada.vida.getPuntosVidaMaxima()){
             throw new AliadoConSaludCompletaNoSePuedeCurarExcepcion();
         }
     }
 
     public void curar(Unidad unidadAliada)
-            throws CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion, DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
+            throws CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
+                DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
         this.validarCuracion(unidadAliada);
-        if(unidadAliada.vida.getPuntosDeVida() + Properties.curacionCurandero >= unidadAliada.vidaMaxima){
-            unidadAliada.vida.curarVidaCompleta(this.vidaMaxima);
+        if(unidadAliada.getVida() + Properties.curacionCurandero >= unidadAliada.vida.getPuntosVidaMaxima()){
+            unidadAliada.vida.curarVidaCompleta();
         }
         else{
             unidadAliada.vida.curar(Properties.curacionCurandero);
