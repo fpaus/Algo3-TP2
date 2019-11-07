@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/fpaus/Algo3-TP2.svg?branch=master)](https://travis-ci.org/fpaus/Algo3-TP2)
 [![codecov](https://codecov.io/gh/fpaus/Algo3-TP2/branch/master/graph/badge.svg)](https://codecov.io/gh/fpaus/Algo3-TP2/)
 
+
 <div>
 
 <span class="c2"></span>
@@ -157,7 +158,7 @@
 
 <span class="c2"></span>
 
-*   <span class="c29">Algo3TP2.Modelos.Unidades :</span>
+*   <span class="c29">Unidades :</span>
 
 <span class="c2"></span>
 
