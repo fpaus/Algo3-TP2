@@ -51,7 +51,7 @@ public class Curandero extends UnidadMovible {
         }
     }
 
-    public void curar(Unidad unidadAliada)
+    public void curar(UnidadMovible unidadAliada)
             throws CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
             DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
         this.validarCuracion(unidadAliada);

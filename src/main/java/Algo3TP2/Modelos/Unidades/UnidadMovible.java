@@ -11,5 +11,8 @@ public abstract class UnidadMovible extends Unidad {
     public void mover(Casillero destino) throws MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimiento(this, destino);
     }
-
+    
+    public void curar(int vida) {
+        this.vida.curar(vida);
+    }
 }
