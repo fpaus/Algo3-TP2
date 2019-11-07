@@ -3,7 +3,6 @@ package Algo3TP2.Modelos.Unidades;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Casillero.Casillero;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 
 public abstract class Unidad {
 
@@ -35,10 +34,6 @@ public abstract class Unidad {
         if(vida.getPuntosDeVida() == 0){
             duenio.matarUnidad(this);
         }
-    }
-
-    public void curar(int vida) {
-        this.vida.curar(vida);
     }
 
     public int getVida() {
