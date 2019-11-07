@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/fpaus/Algo3-TP2.svg?branch=master)](https://travis-ci.org/fpaus/Algo3-TP2)
+[![codecov](https://codecov.io/gh/fpaus/Algo3-TP2/branch/master/graph/badge.svg)](https://codecov.io/gh/fpaus/Algo3-TP2/)
 
 <div>
 
