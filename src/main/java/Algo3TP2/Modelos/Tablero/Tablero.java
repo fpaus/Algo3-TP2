@@ -6,9 +6,14 @@ import Algo3TP2.Modelos.Casillero.Casillero;
 
 public class Tablero {
 
+    private static Tablero tablero;
+
     private Casillero[][] casilleros;
 
-    public Tablero(int x, int y, Jugador j1, Jugador j2) {
+    private Tablero() {
+    }
+
+    public void inicializarTablero(int x, int y, Jugador j1, Jugador j2){
         casilleros = new Casillero[x][y];
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
@@ -21,6 +26,13 @@ public class Tablero {
         }
     }
 
+    public static Tablero getTablero(){
+        if(tablero == null){
+            tablero = new Tablero();
+        }
+        return tablero;
+    }
+
     public Casillero getCasilleroEnPosicion(int x, int y) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         try {
             return casilleros[x][y];
@@ -28,4 +40,6 @@ public class Tablero {
             throw new CasilleroFueraDelLosLimitesDelTableroExcepcion();
         }
     }
+
+
 }

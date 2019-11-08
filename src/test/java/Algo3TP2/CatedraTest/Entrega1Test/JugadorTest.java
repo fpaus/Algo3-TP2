@@ -21,7 +21,8 @@ public class JugadorTest {
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, PuntosInsuficientesExcepcion {
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
-        Tablero tablero = new Tablero(20, 20, jugador, new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, jugador, new Jugador());
 
         jugador.colocarUnidadEnCasillero(new Catapulta(bando), tablero.getCasilleroEnPosicion(1, 2));
         jugador.colocarUnidadEnCasillero(new Catapulta(bando), tablero.getCasilleroEnPosicion(1, 3));
@@ -44,7 +45,8 @@ public class JugadorTest {
             CasilleroFueraDelLosLimitesDelTableroExcepcion, UnidadInvalidaException {
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
-        Tablero tablero = new Tablero(20, 20 , jugador, new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, jugador, new Jugador());
 
         Unidad unidad1 = new Catapulta(bando);
         Unidad unidad2 = new Catapulta(bando);

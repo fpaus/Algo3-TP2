@@ -26,35 +26,36 @@ public class UnidadTest {
     public void unidadMovibleSePuedeMoverEnTodasDireccionesTest()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion {
         Jugador j1 = new Jugador();
-        Tablero tablero = new Tablero(20,20, j1, new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, j1, new Jugador());
         UnidadMovible unidad = new Soldado(new Bando(j1));
 
         Casillero casillero = tablero.getCasilleroEnPosicion(2,2);
         unidad.colocarEnCasillero(casillero);
 
-        //me muevo hacia arriba
-        unidad.mover(tablero.getCasilleroEnPosicion(2,3));
+
+        unidad.moverHaciaArriba();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(2,3));
-        //me muevo hacia abajo
-        unidad.mover(tablero.getCasilleroEnPosicion(2,2));
+
+        unidad.moverHaciaAbajo();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(2,2));
-        //me muevo hacia la izquierda
-        unidad.mover(tablero.getCasilleroEnPosicion(1,2));
+
+        unidad.moverHaciaLaIzquierda();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(1,2));
-        //me muevo hacia la derecha
-        unidad.mover(tablero.getCasilleroEnPosicion(2,2));
+
+        unidad.moverHaciaLaDerecha();
         assertEquals(unidad.getCasillero(),tablero.getCasilleroEnPosicion(2,2));
-        //me muevo hacia arriba - izquierda
-        unidad.mover(tablero.getCasilleroEnPosicion(1,3));
+
+        unidad.moverHaciaLaIzquierdaArriba();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(1,3));
-        //me muevo hacia abajo, derecha
-        unidad.mover(tablero.getCasilleroEnPosicion(2,2));
+
+        unidad.moverHaciaLaDerechaAbajo();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(2,2));
-        ////me muevo hacia arriba - derecha
-        unidad.mover(tablero.getCasilleroEnPosicion(3,3));
+
+        unidad.moverHaciaLaDerechaArriba();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(3,3));
-        //me muevo hacia abajo - izquierda
-        unidad.mover(tablero.getCasilleroEnPosicion(2,2));
+
+        unidad.moverHaciaLaIzquierdaAbajo();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(2,2));
 
     }
