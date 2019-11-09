@@ -17,7 +17,7 @@ import org.junit.Test;
 public class JugadorTest {
 
     @Test(expected = PuntosInsuficientesExcepcion.class)
-    public void jugadorNoPuedeTomarMásEntidadesDeLoQueSusPuntosLePermitenTest()
+    public void jugadorNoPuedeTomarMasEntidadesDeLoQueSusPuntosLePermitenTest()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, PuntosInsuficientesExcepcion {
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
