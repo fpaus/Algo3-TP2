@@ -41,5 +41,17 @@ public class Tablero {
         }
     }
 
+    public int medirDistanciaEnXDeCasilleroACasillero(Casillero casilleroUno, Casillero casilleroDos) {
+        int casilleroUnoCoordenadaX = casilleroUno.getCoordenadaX();
+        int casilleroDosCoordenadaX = casilleroDos.getCoordenadaX();
+        return (Math.abs(casilleroUnoCoordenadaX - casilleroDosCoordenadaX));
+    }
+
+    public int medirDistanciaEnYDeCasilleroACasillero(Casillero casilleroUno, Casillero casilleroDos) {
+        int casilleroUnoCoordenadaY = casilleroUno.getCoordenadaY();
+        int casilleroDosCoordenadaY = casilleroDos.getCoordenadaY();
+        return (Math.abs(casilleroUnoCoordenadaY - casilleroDosCoordenadaY));
+    }
+
 
 }
