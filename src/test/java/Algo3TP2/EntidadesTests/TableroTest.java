@@ -19,7 +19,8 @@ public class TableroTest {
         Tablero tablero;
 
         // Act
-        tablero = new Tablero(20, 20, new Jugador(), new Jugador());
+        tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
 
         // Assert
         assertFalse(tablero == null);
@@ -28,7 +29,8 @@ public class TableroTest {
     @Test
     public void tableroGetCasilleroEnPosicionRetornaUnCasillero() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
-        Tablero tablero = new Tablero(20, 20, new Jugador(), new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
         Casillero casillero;
 
         // Act
@@ -42,7 +44,8 @@ public class TableroTest {
     public void tableroGetCasilleroEnPosicionFueraDeRangoLanzaUnaExcepcion()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
-        Tablero tablero = new Tablero(20, 20, new Jugador(), new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
 
         // Assert
         Casillero casillero = tablero.getCasilleroEnPosicion(50, 50);
@@ -52,7 +55,8 @@ public class TableroTest {
     public void tableroNuevoPoseeElTamanioCorrecto() {
         // Arrange
         int x = 20, y = 20;
-        Tablero tablero = new Tablero(x, y, new Jugador(), new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
 
         // Assert
         for (int i = 0; i < x; i++) {
@@ -71,7 +75,8 @@ public class TableroTest {
     public void tableroNuevoPoseeTodasLasCasillasVacias() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         int x = 20, y = 20;
-        Tablero tablero = new Tablero(x, y, new Jugador(), new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
 
         // Assert
         for (int i = 0; i < x; i++) {
@@ -93,7 +98,8 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Jugador jugador1 = new Jugador(), jugador2 = new Jugador();
-        Tablero tablero = new Tablero(x, y, jugador1, jugador2);
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(x, y, jugador1, jugador2);
 
         // Assert
         for (int i = 0; i < x; i++) {
