@@ -58,10 +58,10 @@ public class JugadorTest {
         jugador.colocarUnidadEnCasillero(unidad3, tablero.getCasilleroEnPosicion(1,4));
         jugador.colocarUnidadEnCasillero(unidad4, tablero.getCasilleroEnPosicion(1,5));
 
-        unidad1.generarDanio(Properties.vidaCatapulta);
-        unidad2.generarDanio(Properties.vidaCatapulta);
-        unidad3.generarDanio(Properties.vidaCatapulta);
-        unidad4.generarDanio(Properties.vidaCatapulta);
+        unidad1.recibirDanio(Properties.vidaCatapulta);
+        unidad2.recibirDanio(Properties.vidaCatapulta);
+        unidad3.recibirDanio(Properties.vidaCatapulta);
+        unidad4.recibirDanio(Properties.vidaCatapulta);
         assertEquals(jugador.sigueEnJuego(), false);
     }
 }

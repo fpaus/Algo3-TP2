@@ -29,8 +29,8 @@ public abstract class Unidad {
         return this.duenio;
     }
 
-    public void generarDanio(int danio) throws UnidadInvalidaException {
-        vida.generarDanio(danio);
+    public void recibirDanio(int danio) throws UnidadInvalidaException {
+        vida.recibirDanio(danio);
         if(vida.getPuntosDeVida() == 0){
             duenio.matarUnidad(this);
         }

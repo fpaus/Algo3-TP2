@@ -14,6 +14,6 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima)
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         this.validarAtaque(unidadAtacante, unidadVictima);
-        unidadVictima.generarDanio(Properties.danioCatapultaDistancia);
+        unidadVictima.recibirDanio(Properties.danioCatapultaDistancia);
     }
 }

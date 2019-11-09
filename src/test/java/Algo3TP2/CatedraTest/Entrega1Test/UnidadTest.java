@@ -150,7 +150,7 @@ public class UnidadTest {
         curanderoCurado.colocarEnCasillero(casillero2);
 
         // Act
-        curanderoCurado.generarDanio(30);
+        curanderoCurado.recibirDanio(30);
         curanderoCurador.curar(curanderoCurado);
 
         // Assert

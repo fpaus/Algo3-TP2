@@ -11,7 +11,7 @@ public class Salud {
         this.vidaMaxima = vida;
     }
 
-    public void generarDanio(int danio) {
+    public void recibirDanio(int danio) {
         if (this.vida > danio) {
             this.vida -= danio;
         } else {

@@ -50,7 +50,7 @@ public class JineteAtaqueTest {
         Unidad jinete = new Jinete(bando);
 
         // Act
-        jinete.generarDanio(10);
+        jinete.recibirDanio(10);
         int vidaJinete = jinete.getVida();
 
         // Assert
@@ -65,7 +65,7 @@ public class JineteAtaqueTest {
         Unidad jinete = new Jinete(bando);
 
         // Act
-        jinete.generarDanio(15);
+        jinete.recibirDanio(15);
 
         // Assert
         assertEquals(85, jinete.getVida());
