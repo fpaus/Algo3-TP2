@@ -54,6 +54,6 @@ public abstract class UnidadMovible extends Unidad {
     }
 
     public void recibirCuracion(int vida) {
-        this.vida.curar(vida);
+        this.vida.recibirCuracion(vida);
     }
 }

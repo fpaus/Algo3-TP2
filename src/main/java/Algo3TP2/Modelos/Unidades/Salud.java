@@ -19,7 +19,7 @@ public class Salud {
         }
     }
 
-    public void curar(int vida) {
+    public void recibirCuracion(int vida) {
         if (this.vidaMaxima - this.vida > vida) {
             this.vida += vida;
         } else {
