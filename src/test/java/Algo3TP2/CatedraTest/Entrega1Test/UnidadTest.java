@@ -17,14 +17,14 @@ import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePued
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.UnidadCuradaEsEnemigaExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoInvalidoExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
 import org.junit.Test;
 
 public class UnidadTest {
 
     @Test
     public void unidadMovibleSePuedeMoverEnTodasDireccionesTest()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
         Jugador j1 = new Jugador();
         Tablero tablero = Tablero.getTablero();
         tablero.inicializarTablero(20, 20, j1, new Jugador());
@@ -62,7 +62,7 @@ public class UnidadTest {
 
     @Test(expected = CasilleroOcupadoExcepcion.class)
     public void unidadMovibleNoPuedeMoverseAUnCasilleroOcupadoTest()
-            throws MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion {
+            throws MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);

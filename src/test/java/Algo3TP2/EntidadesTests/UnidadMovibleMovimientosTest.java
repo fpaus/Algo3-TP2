@@ -4,7 +4,7 @@ import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Jugador;
-import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoInvalidoExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class UnidadMovibleMovimientosTest {
 
     @Test
-    public void UnidadMovilbleSePuedeMoverACasillaContigua() throws CasilleroOcupadoExcepcion, MovimientoInvalidoExcepcion {
+    public void UnidadMovilbleSePuedeMoverACasillaContigua() throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -32,8 +32,8 @@ public class UnidadMovibleMovimientosTest {
         assertEquals(casilleroContiguo, soldado.getCasillero());
     }
 
-    @Test(expected = MovimientoInvalidoExcepcion.class)
-    public void UnidadMovilbleNoSePuedeMoverACasillaNoContigua() throws CasilleroOcupadoExcepcion, MovimientoInvalidoExcepcion {
+    @Test(expected = MovimientoNoContiguoExcepcion.class)
+    public void UnidadMovilbleNoSePuedeMoverACasillaNoContigua() throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -49,7 +49,7 @@ public class UnidadMovibleMovimientosTest {
 
     @Test(expected = CasilleroOcupadoExcepcion.class)
     public void UnidadMovilbleNoSePuedeMoverACasillaContiguaOcupada()
-            throws CasilleroOcupadoExcepcion, MovimientoInvalidoExcepcion {
+            throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
