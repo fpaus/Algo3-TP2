@@ -50,7 +50,7 @@ public class CuranderoTests {
         Unidad curandero = new Curandero(bando);
 
         // Act
-        curandero.generarDanio(10);
+        curandero.recibirDanio(10);
         int vidaCurandero = curandero.getVida();
 
         // Assert
@@ -65,7 +65,7 @@ public class CuranderoTests {
         Unidad curandero = new Curandero(bando);
 
         // Act
-        curandero.generarDanio(15);
+        curandero.recibirDanio(15);
 
         // Assert
         assertEquals(60, curandero.getVida());
@@ -84,7 +84,7 @@ public class CuranderoTests {
         curanderoCurado.colocarEnCasillero(casillero2);
 
         // Act
-        curanderoCurado.generarDanio(30);
+        curanderoCurado.recibirDanio(30);
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
@@ -104,7 +104,7 @@ public class CuranderoTests {
         curanderoCurado.colocarEnCasillero(casillero2);
 
         // Act
-        curanderoCurado.generarDanio(30);
+        curanderoCurado.recibirDanio(30);
         curanderoCurador.curar(curanderoCurado);
         curanderoCurador.curar(curanderoCurado);
 
@@ -185,7 +185,7 @@ public class CuranderoTests {
         curanderoCurado.colocarEnCasillero(casillero2);
 
         // Act
-        curanderoCurado.generarDanio(5);
+        curanderoCurado.recibirDanio(5);
         curanderoCurador.curar(curanderoCurado);
 
         // Assert

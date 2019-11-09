@@ -48,7 +48,7 @@ public class SoldadoAtaqueTest {
         Unidad soldado = new Soldado(bando);
 
         // Act
-        soldado.generarDanio(10);
+        soldado.recibirDanio(10);
         int vidaSoldado = soldado.getVida();
 
         // Assert
@@ -63,7 +63,7 @@ public class SoldadoAtaqueTest {
         Unidad soldado = new Soldado(bando);
 
         // Act
-        soldado.generarDanio(15);
+        soldado.recibirDanio(15);
 
         // Assert
         assertEquals(85, soldado.getVida());
