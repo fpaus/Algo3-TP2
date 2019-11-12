@@ -1,6 +1,7 @@
 package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Unidades.Catapulta;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
@@ -192,4 +193,22 @@ public class CuranderoTests {
         assertEquals(75, curanderoCurado.getVida());
     }
 
+    @Test(expected = CatapultaNoPuedeSerCuradaExcepcion.class)
+    public void CurarACatapultaLanzaExcepcion()
+            throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
+                CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
+        //Arrange
+        Jugador jugador1 = new Jugador();
+        Bando bando1 = new Bando(jugador1);
+        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Curandero curandero = new Curandero(bando1);
+        curandero.colocarEnCasillero(casillero1);
+
+        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Catapulta catapulta = new Catapulta(bando1);
+        catapulta.colocarEnCasillero(casillero2);
+
+        //Act Assert
+        curandero.curar(catapulta);
+    }
 }
