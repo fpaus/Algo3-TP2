@@ -2,7 +2,6 @@ package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Unidades.Catapulta;
 import Algo3TP2.Modelos.Unidades.Unidad;
@@ -114,9 +113,9 @@ public class CatapultaTest {
         assertEquals(10, catapultaAtacada.getVida());
     }
 
-    @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
-    public void CatapultaAtacaACatapultaAliadaLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
+    @Test
+    public void CatapultaAtacaACatapultaAliadaEsValido()
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -128,13 +127,16 @@ public class CatapultaTest {
         Catapulta catapultaAtacada = new Catapulta(bando1);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
-        // Act Assert
+        // Act
         catapultaAtacante.atacar(catapultaAtacada);
+
+        //Assert
+        assertEquals(30, catapultaAtacada.getVida());
     }
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistanciaMenorQueLaLargaLanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -154,7 +156,7 @@ public class CatapultaTest {
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class) //Caso Borde
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistancia5LanzaExcepcion()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -174,7 +176,7 @@ public class CatapultaTest {
 
     @Test //Caso Borde
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistancia7GeneraDanio()
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

@@ -3,16 +3,13 @@ package Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Properties;
 
 public abstract class DistanciaLarga extends EstrategiaDeAtaque {
 
     public void validarAtaque(Unidad unidadAtacante, Unidad unidadVictima)
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion {
-
-        this.unidadVictimaEsEnemigaDeUnidadAtacante(unidadAtacante, unidadVictima);
+            throws DistanciaDeAtaqueIncorrectaExcepcion {
 
         Casillero casilleroAtacante = unidadAtacante.getCasillero();
         Casillero casilleroVictima = unidadVictima.getCasillero();
@@ -24,6 +21,5 @@ public abstract class DistanciaLarga extends EstrategiaDeAtaque {
         if (!condicionDistancia) {
             throw new DistanciaDeAtaqueIncorrectaExcepcion();
         }
-
     }
 }
