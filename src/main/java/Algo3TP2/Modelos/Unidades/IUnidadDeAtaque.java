@@ -6,6 +6,7 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAta
 
 public interface IUnidadDeAtaque {
 
-    public abstract void atacar(Unidad unidadVictima) throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException;
+    void atacar(Unidad unidadVictima) throws UnidadAtacadaEsAliadaExcepcion,
+            DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException;
 
 }

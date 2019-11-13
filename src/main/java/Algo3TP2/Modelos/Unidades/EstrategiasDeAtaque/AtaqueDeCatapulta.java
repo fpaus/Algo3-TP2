@@ -13,8 +13,13 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
 
     @Override
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima)
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
-        this.validarAtaque(unidadAtacante, unidadVictima);
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
+        try{
+            this.validarAtaque(unidadAtacante, unidadVictima);
+        } catch (UnidadAtacadaEsAliadaExcepcion ex){
+            // Permito el ataque, ya que una catapulta puede atacar aliados
+        }
+
         unidadVictima.recibirDanio(Properties.danioCatapultaDistancia);
     }
 }

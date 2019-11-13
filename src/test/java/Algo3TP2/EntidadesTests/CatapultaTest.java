@@ -114,8 +114,8 @@ public class CatapultaTest {
         assertEquals(10, catapultaAtacada.getVida());
     }
 
-    @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
-    public void CatapultaAtacaACatapultaAliadaLanzaExcepcion()
+    @Test
+    public void CatapultaAtacaACatapultaAliadaYLeCausaDanio()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
         Jugador jugador1 = new Jugador();
@@ -128,8 +128,11 @@ public class CatapultaTest {
         Catapulta catapultaAtacada = new Catapulta(bando1);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
-        // Act Assert
+        // Act
         catapultaAtacante.atacar(catapultaAtacada);
+
+        // Assert
+        assertEquals(30, catapultaAtacada.getVida());
     }
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
