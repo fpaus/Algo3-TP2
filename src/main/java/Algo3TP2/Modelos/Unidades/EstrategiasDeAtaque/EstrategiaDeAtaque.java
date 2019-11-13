@@ -8,11 +8,15 @@ import Algo3TP2.Modelos.Unidades.Unidad;
 
 public abstract class EstrategiaDeAtaque {
 
-    public abstract void atacar(Unidad unidadAtacante, Unidad unidadVictima) throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException;
+    public abstract void atacar(Unidad unidadAtacante, Unidad unidadVictima)
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException;
 
-    public abstract void validarAtaque(Unidad unidadAtacante, Unidad unidadVictima) throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion;
+    public abstract void validarAtaque(Unidad unidadAtacante, Unidad unidadVictima)
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion;
 
-    protected void unidadVictimaEsEnemigaDeUnidadAtacante(Unidad unidadAtacante, Unidad unidadVictima) throws UnidadAtacadaEsAliadaExcepcion {
+    protected void unidadVictimaEsEnemigaDeUnidadAtacante(Unidad unidadAtacante, Unidad unidadVictima)
+            throws UnidadAtacadaEsAliadaExcepcion {
+
         Jugador jugadorAtacante = unidadAtacante.getBando().getDuenio();
         Jugador jugadorVictima = unidadVictima.getBando().getDuenio();
         if (jugadorAtacante == jugadorVictima) {
