@@ -81,13 +81,13 @@ public class CatapultaTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Catapulta catapultaAtacante = new Catapulta(bando1);
         catapultaAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(20, 20, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador2);
         Catapulta catapultaAtacada = new Catapulta(bando2);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
@@ -103,13 +103,13 @@ public class CatapultaTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Catapulta catapultaAtacante = new Catapulta(bando1);
         catapultaAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(20, 20, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador2);
         Catapulta catapultaAtacada = new Catapulta(bando2);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
@@ -127,11 +127,11 @@ public class CatapultaTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Catapulta catapultaAtacante = new Catapulta(bando1);
         catapultaAtacante.colocarEnCasillero(casillero1);
 
-        Casillero casillero2 = new Casillero(20, 20, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador1);
         Catapulta catapultaAtacada = new Catapulta(bando1);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
@@ -148,13 +148,13 @@ public class CatapultaTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Catapulta catapultaAtacante = new Catapulta(bando1);
         catapultaAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(2, 2, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador2);
         Catapulta catapultaAtacada = new Catapulta(bando2);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
@@ -168,13 +168,13 @@ public class CatapultaTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Catapulta catapultaAtacante = new Catapulta(bando1);
         catapultaAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(5, 5, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(5, 5), jugador2);
         Catapulta catapultaAtacada = new Catapulta(bando2);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
@@ -188,13 +188,13 @@ public class CatapultaTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Catapulta catapultaAtacante = new Catapulta(bando1);
         catapultaAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(7, 7, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(7, 7), jugador2);
         Catapulta catapultaAtacada = new Catapulta(bando2);
         catapultaAtacada.colocarEnCasillero(casillero2);
 
