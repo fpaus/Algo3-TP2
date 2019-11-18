@@ -15,17 +15,17 @@ public abstract class UnidadMovible extends Unidad {
 
     public void moverHaciaArriba()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaArriba(this);
+        movimientos.ejecutarMovimientoHaciaArriba(this, this.casillero);
     }
 
     public void moverHaciaAbajo()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaAbajo(this);
+        movimientos.ejecutarMovimientoHaciaAbajo(this, this.casillero);
     }
 
     public void moverHaciaLaDerecha()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaLaDerecha(this);
+        movimientos.ejecutarMovimientoHaciaLaDerecha(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierda()
@@ -35,22 +35,22 @@ public abstract class UnidadMovible extends Unidad {
 
     public void moverHaciaLaDerechaArriba()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaLaDerechaArriba(this);
+        movimientos.ejecutarMovimientoHaciaLaDerechaArriba(this, this.casillero);
     }
 
     public void moverHaciaLaDerechaAbajo()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaLaDerechaAbajo(this);
+        movimientos.ejecutarMovimientoHaciaLaDerechaAbajo(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierdaArriba()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaLaIzquierdaArriba(this);
+        movimientos.ejecutarMovimientoHaciaLaIzquierdaArriba(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierdaAbajo()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaLaIzquierdaAbajo(this);
+        movimientos.ejecutarMovimientoHaciaLaIzquierdaAbajo(this, this.casillero);
     }
 
     public void recibirCuracion(int vida) {
