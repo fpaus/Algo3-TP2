@@ -61,10 +61,6 @@ public class Casillero {
 
 	}
 
-	public Casillero casilleroALaIzquierda() {
-		return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.x - 1, this.y));
-	}
-
     public Casillero getCasilleroVecino(Direccion horizontal, Direccion vertical) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.coordenada, horizontal, vertical));
 
