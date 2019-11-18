@@ -76,14 +76,14 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(5, 5, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(5, 5), jugador2);
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -99,14 +99,14 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJineteConEspada());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(2, 2, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador2);
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -122,14 +122,14 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJineteConEspada());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(3, 3, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(3, 3), jugador2);
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -146,14 +146,14 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(6, 6, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(6, 6), jugador2);
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -171,12 +171,12 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJineteConEspada());
 
-        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
         Jinete jineteAtacado = new Jinete(bando1);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -190,12 +190,12 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
 
-        Casillero casillero2 = new Casillero(5, 5, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(5, 5), jugador1);
         Jinete jineteAtacado = new Jinete(bando1);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -210,14 +210,14 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJineteConEspada());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(20, 20, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador2);
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -231,14 +231,14 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(20, 20, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador2);
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casillero2);
 
@@ -252,14 +252,14 @@ public class JineteAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
         jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(3, 3, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(3, 3), jugador2);
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casillero2);
 

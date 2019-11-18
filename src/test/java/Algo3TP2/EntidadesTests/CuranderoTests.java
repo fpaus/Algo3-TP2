@@ -77,8 +77,8 @@ public class CuranderoTests {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
-        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
         Curandero curanderoCurador = new Curandero(bando1);
         Curandero curanderoCurado = new Curandero(bando1);
         curanderoCurador.colocarEnCasillero(casillero1);
@@ -97,8 +97,8 @@ public class CuranderoTests {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
-        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
         Curandero curanderoCurador = new Curandero(bando1);
         Curandero curanderoCurado = new Curandero(bando1);
         curanderoCurador.colocarEnCasillero(casillero1);
@@ -120,13 +120,13 @@ public class CuranderoTests {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Curandero curanderoCurador = new Curandero(bando1);
         curanderoCurador.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(2, 2, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador2);
         Curandero curanderoCurado = new Curandero(bando2);
         curanderoCurado.colocarEnCasillero(casillero2);
 
@@ -141,11 +141,11 @@ public class CuranderoTests {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Curandero curanderoCurador = new Curandero(bando1);
         curanderoCurador.colocarEnCasillero(casillero1);
 
-        Casillero casillero2 = new Casillero(20, 20, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador1);
         Curandero curanderoCurado = new Curandero(bando1);
         curanderoCurado.colocarEnCasillero(casillero2);
         // Act Assert
@@ -159,11 +159,11 @@ public class CuranderoTests {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Curandero curanderoCurador = new Curandero(bando1);
         curanderoCurador.colocarEnCasillero(casillero1);
 
-        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
         Curandero curanderoVidaCompleta = new Curandero(bando1);
         curanderoVidaCompleta.colocarEnCasillero(casillero2);
         // Act Assert
@@ -177,11 +177,11 @@ public class CuranderoTests {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Curandero curanderoCurador = new Curandero(bando1);
         curanderoCurador.colocarEnCasillero(casillero1);
 
-        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
         Curandero curanderoCurado = new Curandero(bando1);
         curanderoCurado.colocarEnCasillero(casillero2);
 
@@ -200,11 +200,11 @@ public class CuranderoTests {
         //Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Curandero curandero = new Curandero(bando1);
         curandero.colocarEnCasillero(casillero1);
 
-        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
         Catapulta catapulta = new Catapulta(bando1);
         catapulta.colocarEnCasillero(casillero2);
 

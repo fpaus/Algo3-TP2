@@ -74,13 +74,13 @@ public class SoldadoAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Soldado soldadoAtacante = new Soldado(bando1);
         soldadoAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(2, 2, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador2);
         Soldado soldadoAtacado = new Soldado(bando2);
         soldadoAtacado.colocarEnCasillero(casillero2);
 
@@ -96,13 +96,13 @@ public class SoldadoAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Soldado soldadoAtacante = new Soldado(bando1);
         soldadoAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(2, 2, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador2);
         Soldado soldadoAtacado = new Soldado(bando2);
         soldadoAtacado.colocarEnCasillero(casillero1);
 
@@ -120,11 +120,11 @@ public class SoldadoAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Soldado soldadoAtacante = new Soldado(bando1);
         soldadoAtacante.colocarEnCasillero(casillero1);
 
-        Casillero casillero2 = new Casillero(2, 2, jugador1);
+        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
         Soldado soldadoAtacado = new Soldado(bando1);
         soldadoAtacado.colocarEnCasillero(casillero2);
 
@@ -138,13 +138,13 @@ public class SoldadoAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Soldado soldadoAtacante = new Soldado(bando1);
         soldadoAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(20, 20, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador2);
         Soldado soldadoAtacado = new Soldado(bando2);
         soldadoAtacado.colocarEnCasillero(casillero2);
 
@@ -158,13 +158,13 @@ public class SoldadoAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Soldado soldadoAtacante = new Soldado(bando1);
         soldadoAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(4, 4, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(4, 4), jugador2);
         Soldado soldadoAtacado = new Soldado(bando2);
         soldadoAtacado.colocarEnCasillero(casillero2);
 
@@ -178,13 +178,13 @@ public class SoldadoAtaqueTest {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(1, 1, jugador1);
+        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Soldado soldadoAtacante = new Soldado(bando1);
         soldadoAtacante.colocarEnCasillero(casillero1);
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(3, 3, jugador2);
+        Casillero casillero2 = new Casillero(new Coordenada(3, 3), jugador2);
         Soldado soldadoAtacado = new Soldado(bando2);
         soldadoAtacado.colocarEnCasillero(casillero2);
 
