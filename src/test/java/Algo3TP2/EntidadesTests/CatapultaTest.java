@@ -3,6 +3,7 @@ package Algo3TP2.EntidadesTests;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
@@ -248,6 +249,6 @@ public class CatapultaTest {
         assertEquals(80, jineteAtacado3.getVida());
         assertEquals(100, jineteNoAtacado4.getVida());
     }
-    
+
  */
 }
