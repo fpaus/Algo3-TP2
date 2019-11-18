@@ -3,6 +3,7 @@ package Algo3TP2.Modelos.Unidades;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Tablero.Direccion.*;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
@@ -48,7 +49,10 @@ public class Movimientos {
 
     public void ejecutarMovimientoHaciaLaIzquierda(Unidad unidad, Casillero casilleroActual)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-                this.ejecutarMovimiento(unidad, casilleroActual.casilleroALaIzquierda());
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Fija(), new Izquierda()));
+
+
+        //this.ejecutarMovimiento(unidad, casilleroActual.casilleroALaIzquierda());
         
         
                 // int coordActualEnX = unidad.getCasillero().getCoordenadaX();
@@ -57,59 +61,38 @@ public class Movimientos {
         // this.ejecutarMovimiento(unidad, casilleroDestino);
     }
 
-    public void ejecutarMovimientoHaciaLaDerecha(Unidad unidad)
+    public void ejecutarMovimientoHaciaLaDerecha(Unidad unidad, Casillero casilleroActual)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-        int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-        Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX+1,coordActualEnY);
-        this.ejecutarMovimiento(unidad, casilleroDestino);
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Fija(), new Derecha()));
     }
 
-    public void ejecutarMovimientoHaciaArriba(Unidad unidad)
+    public void ejecutarMovimientoHaciaArriba(Unidad unidad, Casillero casilleroActual)
         throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-            int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-            int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-            Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX,coordActualEnY+1);
-            this.ejecutarMovimiento(unidad, casilleroDestino);
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Arriba(), new Fija()));
     }
 
-    public void ejecutarMovimientoHaciaAbajo(Unidad unidad)
+    public void ejecutarMovimientoHaciaAbajo(Unidad unidad, Casillero casilleroActual)
         throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-            int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-            int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-            Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX,coordActualEnY-1);
-            this.ejecutarMovimiento(unidad, casilleroDestino);
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Abajo(), new Fija()));
     }
 
-    public void ejecutarMovimientoHaciaLaIzquierdaAbajo(Unidad unidad)
+    public void ejecutarMovimientoHaciaLaIzquierdaAbajo(Unidad unidad, Casillero casilleroActual)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-        int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-        Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX-1,coordActualEnY-1);
-        this.ejecutarMovimiento(unidad, casilleroDestino);
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Abajo(), new Izquierda()));
     }
 
-    public void ejecutarMovimientoHaciaLaIzquierdaArriba(Unidad unidad)
+    public void ejecutarMovimientoHaciaLaIzquierdaArriba(Unidad unidad, Casillero casilleroActual)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-        int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-        Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX-1,coordActualEnY+1);
-        this.ejecutarMovimiento(unidad, casilleroDestino);
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Arriba(), new Izquierda()));
     }
 
-    public void ejecutarMovimientoHaciaLaDerechaAbajo(Unidad unidad)
+    public void ejecutarMovimientoHaciaLaDerechaAbajo(Unidad unidad, Casillero casilleroActual)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-        int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-        Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX+1,coordActualEnY-1);
-        this.ejecutarMovimiento(unidad, casilleroDestino);
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Abajo(), new Derecha()));
     }
 
-    public void ejecutarMovimientoHaciaLaDerechaArriba(Unidad unidad)
+    public void ejecutarMovimientoHaciaLaDerechaArriba(Unidad unidad, Casillero casilleroActual)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-        int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-        Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX+1,coordActualEnY+1);
-        this.ejecutarMovimiento(unidad, casilleroDestino);
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Arriba(), new Derecha()));
     }
 }

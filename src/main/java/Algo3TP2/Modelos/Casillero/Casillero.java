@@ -1,6 +1,9 @@
 package Algo3TP2.Modelos.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.Tablero.Coordenada;
+import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
+import Algo3TP2.Modelos.Tablero.Direccion.Fija;
+import Algo3TP2.Modelos.Tablero.Direccion.Izquierda;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Jugador;
@@ -60,4 +63,8 @@ public class Casillero {
 	public Casillero casilleroALaIzquierda() {
 		return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.x - 1, this.y));
 	}
+
+    public Casillero getCasilleroVecino(Direccion horizontal, Direccion vertical) {
+        return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.x + horizontal.getDireccion(), this.y + vertical.getDireccion()));
+    }
 }
