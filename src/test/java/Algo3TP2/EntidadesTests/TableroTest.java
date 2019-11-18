@@ -1,6 +1,7 @@
 package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.*;
+import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.*;
@@ -34,7 +35,7 @@ public class TableroTest {
         Casillero casillero;
 
         // Act
-        casillero = tablero.getCasilleroEnPosicion(5, 5);
+        casillero = tablero.getCasilleroEnPosicion(new Coordenada(5, 5));
 
         // Assert
         assertEquals(Casillero.class, casillero.getClass());
@@ -48,7 +49,7 @@ public class TableroTest {
         tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
 
         // Assert
-        Casillero casillero = tablero.getCasilleroEnPosicion(50, 50);
+        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(50, 50));
     }
 
     @Test
@@ -62,7 +63,7 @@ public class TableroTest {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 try {
-                    Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                    Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
                     assert (true);
                 } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
                     assert (false);
@@ -81,7 +82,7 @@ public class TableroTest {
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
                 try {
                     Unidad unidad = casillero.getUnidad();
                     assert (false);
@@ -104,7 +105,7 @@ public class TableroTest {
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
                 if (j < y / 2) {
                     assertEquals(jugador1, casillero.getBando().getDuenio());
                 } else {

@@ -24,13 +24,14 @@ public class Jugador {
         this.sigueEnJuego = true;
     }
 
-    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion {
+    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion, CasilleroOcupadoExcepcion {
         puntos.comprarUnidad(unidad).colocarEnCasillero(casillero);
         unidadesDeJugador.add(unidad);
     }
 
     public void moverUnidadACasillero(UnidadMovible unidad, Casillero casillero)
-            throws UnidadInvalidaException, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
+            throws UnidadInvalidaException, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion,
+            CasilleroVacioExcepcion {
         if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();
         }

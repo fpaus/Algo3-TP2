@@ -26,9 +26,9 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
 
         unidadVictima.recibirDanio(Properties.danioCatapultaDistancia);
 
-        atacarUnidadesContiguas(unidadVictima.getCasillero());
+        //atacarUnidadesContiguas(unidadVictima.getCasillero());
     }
-
+/*
     private void atacarUnidadesContiguas(Casillero casilleroActual) throws UnidadInvalidaException{
         try {
             Casillero casilleroContiguo = Tablero.getTablero().
@@ -41,4 +41,6 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
             // Freno la iteracion
         }
     }
+
+ */
 }
