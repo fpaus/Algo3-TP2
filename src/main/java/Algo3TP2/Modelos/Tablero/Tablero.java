@@ -41,6 +41,10 @@ public class Tablero {
         }
     }
 
+    public Casillero getCasilleroConCoordenada(Coordenada coordenada){
+        return casilleros[0][0];
+    }
+
     public int medirDistanciaEnXDeCasilleroACasillero(Casillero casilleroUno, Casillero casilleroDos) {
         int casilleroUnoCoordenadaX = casilleroUno.getCoordenadaX();
         int casilleroDosCoordenadaX = casilleroDos.getCoordenadaX();

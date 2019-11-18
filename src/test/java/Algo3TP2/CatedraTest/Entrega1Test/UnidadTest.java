@@ -7,6 +7,7 @@ import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.*;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeJIneteConArcoYFlecha;
@@ -41,7 +42,7 @@ public class UnidadTest {
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(2,2));
 
         unidad.moverHaciaLaIzquierda();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(1,2));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroConCoordenada(new Coordenada(1,2)));
 
         unidad.moverHaciaLaDerecha();
         assertEquals(unidad.getCasillero(),tablero.getCasilleroEnPosicion(2,2));
