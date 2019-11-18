@@ -32,23 +32,29 @@ public class Movimientos {
 
     public void ejecutarMovimiento(Unidad unidad, Casillero destino)
             throws MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        Casillero origen = unidad.getCasillero();
-        validarMovimiento(origen, destino);
-        destino.setUnidad(unidad);
-        try {
-            origen.quitarUnidad();
-        }catch (CasilleroVacioExcepcion ex){
-            // Nunca deberia de suceder, no me gusta la idea de que mover pueda retornar un Excepcion de este tipo
-        }
-        unidad.colocarEnCasillero(destino);
+        destino.aceptarUnidad(unidad);
+        
+        
+                // Casillero origen = unidad.getCasillero();
+        // validarMovimiento(origen, destino);
+        // destino.setUnidad(unidad);
+        // try {
+        //     origen.quitarUnidad();
+        // }catch (CasilleroVacioExcepcion ex){
+        //     // Nunca deberia de suceder, no me gusta la idea de que mover pueda retornar un Excepcion de este tipo
+        // }
+        // unidad.colocarEnCasillero(destino);
     }
 
-    public void ejecutarMovimientoHaciaLaIzquierda(Unidad unidad)
+    public void ejecutarMovimientoHaciaLaIzquierda(Unidad unidad, Casillero casilleroActual)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        int coordActualEnX = unidad.getCasillero().getCoordenadaX();
-        int coordActualEnY = unidad.getCasillero().getCoordenadaY();
-        Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX-1,coordActualEnY);
-        this.ejecutarMovimiento(unidad, casilleroDestino);
+                this.ejecutarMovimiento(unidad, casilleroActual.casilleroALaIzquierda());
+        
+        
+                // int coordActualEnX = unidad.getCasillero().getCoordenadaX();
+        // int coordActualEnY = unidad.getCasillero().getCoordenadaY();
+        // Casillero casilleroDestino = Tablero.getTablero().getCasilleroEnPosicion(coordActualEnX-1,coordActualEnY);
+        // this.ejecutarMovimiento(unidad, casilleroDestino);
     }
 
     public void ejecutarMovimientoHaciaLaDerecha(Unidad unidad)

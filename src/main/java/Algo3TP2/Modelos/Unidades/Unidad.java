@@ -6,7 +6,7 @@ import Algo3TP2.Modelos.Casillero.Casillero;
 
 public abstract class Unidad {
 
-    private Casillero casillero;
+    protected Casillero casillero;
     protected int costo;
     protected Bando duenio;
 
@@ -51,4 +51,5 @@ public abstract class Unidad {
     public boolean estaViva(){
         return this.estaViva;
     }
+
 }

@@ -32,7 +32,7 @@ public class UnidadMovibleMovimientosTest {
         // Assert
         assertEquals(casilleroContiguo, soldado.getCasillero());
     }
-
+///Verificar si sigue siendo necesario este test
     @Test(expected = MovimientoNoContiguoExcepcion.class)
     public void UnidadMovilbleNoSePuedeMoverACasillaNoContigua() throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion {
         // Arrange

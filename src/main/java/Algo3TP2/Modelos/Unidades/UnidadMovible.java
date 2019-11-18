@@ -30,7 +30,7 @@ public abstract class UnidadMovible extends Unidad {
 
     public void moverHaciaLaIzquierda()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
-        movimientos.ejecutarMovimientoHaciaLaIzquierda(this);
+        movimientos.ejecutarMovimientoHaciaLaIzquierda(this, this.casillero);
     }
 
     public void moverHaciaLaDerechaArriba()

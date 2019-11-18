@@ -1,5 +1,7 @@
 package Algo3TP2.Modelos.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
+import Algo3TP2.Modelos.Tablero.Coordenada;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Unidades.Unidad;
@@ -11,10 +13,12 @@ public class Casillero {
     private Unidad unidadEnCasillero;
     private Bando duenio;
     private CasilleroEstado estado; //Patron de diseño State
+    private Coordenada coordenada;
 
     public Casillero(int x, int y, Jugador jugador) {
         this.x = x;
         this.y = y;
+        this.coordenada = new Coordenada(x, y);
         this.duenio = new Bando(jugador);
         estado = new CasilleroVacio();
     }
@@ -53,4 +57,15 @@ public class Casillero {
     public int getCoordenadaY(){
         return this.y;
     }
+
+	public void aceptarUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
+
+        this.setUnidad(unidad);
+        unidad.colocarEnCasillero(this);
+
+	}
+
+	public Casillero casilleroALaIzquierda() {
+		return Tablero.getTablero().getCasilleroConCoordenada(new Coordenada(this.x - 1, this.y));
+	}
 }
