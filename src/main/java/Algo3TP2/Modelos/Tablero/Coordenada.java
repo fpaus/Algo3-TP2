@@ -1,5 +1,7 @@
 package Algo3TP2.Modelos.Tablero;
 
+import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
+
 public class Coordenada {
     private int posicionX;
     private int posicionY;
@@ -7,6 +9,11 @@ public class Coordenada {
     public Coordenada(int x, int y) {
         this.posicionX = x;
         this.posicionY = y;
+    }
+
+    public Coordenada(Coordenada coordenada, Direccion vertical, Direccion horizontal){
+        this.posicionX = coordenada.posicionX + horizontal.getDireccion();
+        this.posicionY = coordenada.posicionY + vertical.getDireccion();
     }
 
     public Distancia distanciaACoordenada(Coordenada otraCoordenada) {
