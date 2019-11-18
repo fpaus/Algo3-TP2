@@ -1,6 +1,7 @@
 package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Unidades.Catapulta;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
@@ -117,7 +118,7 @@ public class CuranderoTests {
     @Test(expected = UnidadCuradaEsEnemigaExcepcion.class)
     public void CuranderoCuraACuranderoEnemigoLanzaExcepcion()
             throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
-                CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion {
+            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion, CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -138,7 +139,8 @@ public class CuranderoTests {
     @Test(expected = DistanciaParaCurarIncorrectaExcepcion.class)
     public void CuranderoCuraACuranderoAliadoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion()
             throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
-                CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
+                CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -156,7 +158,8 @@ public class CuranderoTests {
     @Test(expected = AliadoConSaludCompletaNoSePuedeCurarExcepcion.class)
     public void CuranderoNoPuedeCurarAUnidadAliadaQueTieneLaVidaMaxima()
         throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
-            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
+            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -174,7 +177,8 @@ public class CuranderoTests {
     @Test
     public void CuranderoCuraAUnidadAliadaQueLeSacaron5PuntosYHaceQueSuVidaSeaMaxima()
         throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
-            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion, UnidadInvalidaException {
+            CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion, UnidadInvalidaException,
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -197,7 +201,8 @@ public class CuranderoTests {
     @Test(expected = CatapultaNoPuedeSerCuradaExcepcion.class)
     public void CurarACatapultaLanzaExcepcion()
             throws DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion,
-                CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion {
+                CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
+            CasilleroOcupadoExcepcion {
         //Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

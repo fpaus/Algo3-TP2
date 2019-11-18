@@ -3,6 +3,7 @@ package Algo3TP2.Modelos.Unidades;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 
 public abstract class Unidad {
 
@@ -13,8 +14,9 @@ public abstract class Unidad {
     protected Salud vida;
     private boolean estaViva = true;
 
-    public void colocarEnCasillero(Casillero casillero) {
+    public void colocarEnCasillero(Casillero casillero) throws CasilleroOcupadoExcepcion {
         this.casillero = casillero;
+        casillero.setUnidad(this);
     }
 
     public Casillero getCasillero() {

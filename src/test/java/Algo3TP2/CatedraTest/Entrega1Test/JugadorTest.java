@@ -10,6 +10,7 @@ import Algo3TP2.Modelos.Unidades.Catapulta;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.PuntosInsuficientesExcepcion;
 import Algo3TP2.Modelos.UnidadInvalidaException;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +20,8 @@ public class JugadorTest {
 
     @Test(expected = PuntosInsuficientesExcepcion.class)
     public void jugadorNoPuedeTomarMasEntidadesDeLoQueSusPuntosLePermitenTest()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, PuntosInsuficientesExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, PuntosInsuficientesExcepcion,
+            CasilleroOcupadoExcepcion {
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Tablero tablero = Tablero.getTablero();
@@ -43,7 +45,7 @@ public class JugadorTest {
      * assertEqual(juego.siguienteTurno());}
      */
     public void elJugadorQueSeQuedaSinEntidadesEsElPerdedorTest() throws PuntosInsuficientesExcepcion,
-            CasilleroFueraDelLosLimitesDelTableroExcepcion, UnidadInvalidaException {
+            CasilleroFueraDelLosLimitesDelTableroExcepcion, UnidadInvalidaException, CasilleroOcupadoExcepcion {
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Tablero tablero = Tablero.getTablero();

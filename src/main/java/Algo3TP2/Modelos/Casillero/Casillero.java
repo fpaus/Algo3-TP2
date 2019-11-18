@@ -9,6 +9,7 @@ import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Unidades.Unidad;
+import Algo3TP2.Modelos.Unidades.UnidadMovible;
 
 public class Casillero {
 
@@ -54,10 +55,10 @@ public class Casillero {
         return this.coordenada;
     }
 
-	public void aceptarUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
+	public void aceptarUnidad(UnidadMovible unidad) throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
 
         this.setUnidad(unidad);
-        unidad.colocarEnCasillero(this);
+        unidad.moverACasillero(this);
 
 	}
 

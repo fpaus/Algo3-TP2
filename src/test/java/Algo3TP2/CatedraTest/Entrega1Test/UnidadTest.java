@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
@@ -24,8 +25,8 @@ import org.junit.Test;
 public class UnidadTest {
 
     @Test
-    public void unidadMovibleSePuedeMoverEnTodasDireccionesTest()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
+    public void unidadMovibleSePuedeMoverEnTodasDireccionesTest() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
+            MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         Jugador j1 = new Jugador();
         Tablero tablero = Tablero.getTablero();
         tablero.inicializarTablero(20, 20, j1, new Jugador());
@@ -63,7 +64,7 @@ public class UnidadTest {
 
     @Test(expected = CasilleroOcupadoExcepcion.class)
     public void unidadMovibleNoPuedeMoverseAUnCasilleroOcupadoTest()
-            throws MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion {
+            throws MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
@@ -82,7 +83,8 @@ public class UnidadTest {
 
     @Test
     public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -105,7 +107,8 @@ public class UnidadTest {
 
     @Test
     public void jineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
+            CasilleroOcupadoExcepcion {
         // Arrange Ataque con espada a distancia corta
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -139,7 +142,8 @@ public class UnidadTest {
     @Test
     public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest()
             throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
-            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion, UnidadInvalidaException {
+            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion, UnidadInvalidaException,
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -160,7 +164,8 @@ public class UnidadTest {
 
     @Test
     public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

@@ -3,6 +3,7 @@ package Algo3TP2.EntidadesTests;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
@@ -15,42 +16,10 @@ import static org.junit.Assert.assertEquals;
 
 public class UnidadMovibleMovimientosTest {
 
-    @Test
-    public void UnidadMovilbleSePuedeMoverACasillaContigua() throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion {
-        // Arrange
-        Jugador jugador = new Jugador();
-        Bando bando = new Bando(jugador);
-        Casillero casillero = new Casillero(new Coordenada(1,1),jugador);
-        Casillero casilleroContiguo = new Casillero(new Coordenada(2,1),jugador);
-        UnidadMovible soldado = new Soldado(bando);
-        soldado.colocarEnCasillero(casillero);
-        casillero.setUnidad(soldado);
-
-        // Act
-        soldado.mover(casilleroContiguo);
-
-        // Assert
-        assertEquals(casilleroContiguo, soldado.getCasillero());
-    }
-///Verificar si sigue siendo necesario este test
-    @Test(expected = MovimientoNoContiguoExcepcion.class)
-    public void UnidadMovilbleNoSePuedeMoverACasillaNoContigua() throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion {
-        // Arrange
-        Jugador jugador = new Jugador();
-        Bando bando = new Bando(jugador);
-        Casillero casillero = new Casillero(new Coordenada(1,1),jugador);
-        Casillero casilleroNoContiguo = new Casillero(new Coordenada(3,1),jugador);
-        UnidadMovible soldado = new Soldado(bando);
-        soldado.colocarEnCasillero(casillero);
-        casillero.setUnidad(soldado);
-
-        // Act Assert
-        soldado.mover(casilleroNoContiguo);
-    }
 
     @Test(expected = CasilleroOcupadoExcepcion.class)
     public void UnidadMovilbleNoSePuedeMoverACasillaContiguaOcupada()
-            throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion {
+            throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
