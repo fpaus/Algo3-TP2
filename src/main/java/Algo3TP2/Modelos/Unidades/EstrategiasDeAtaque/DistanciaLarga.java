@@ -1,6 +1,7 @@
 package Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Tablero.Distancia;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
@@ -16,11 +17,9 @@ public abstract class DistanciaLarga extends EstrategiaDeAtaque {
 
         Casillero casilleroAtacante = unidadAtacante.getCasillero();
         Casillero casilleroVictima = unidadVictima.getCasillero();
-        int distanciaEnX = Tablero.getTablero().medirDistanciaEnXDeCasilleroACasillero(casilleroAtacante,casilleroVictima);
-        int distanciaEnY = Tablero.getTablero().medirDistanciaEnYDeCasilleroACasillero(casilleroAtacante,casilleroVictima);
+        Distancia distancia = casilleroAtacante.getCoordenada().distanciaACoordenada(casilleroVictima.getCoordenada());
 
-        boolean condicionDistancia = (distanciaEnX >= Properties.alcanceMinDistanciaLarga &&
-                distanciaEnY >= Properties.alcanceMinDistanciaLarga);
+        boolean condicionDistancia = (distancia.getValor() >= Properties.alcanceMinDistanciaLarga);
         if (!condicionDistancia) {
             throw new DistanciaDeAtaqueIncorrectaExcepcion();
         }

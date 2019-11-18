@@ -23,4 +23,7 @@ public class Distancia implements Comparable {
         return Math.abs(this.valor - other.valor);
     }
 
+    public int getValor(){
+	    return this.valor;
+    }
 }
