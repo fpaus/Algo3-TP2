@@ -8,17 +8,13 @@ import Algo3TP2.Modelos.Unidades.Unidad;
 
 public class Casillero {
 
-    private int x;
-    private int y;
+    private Coordenada coordenada;
     private Unidad unidadEnCasillero;
     private Bando duenio;
     private CasilleroEstado estado; //Patron de diseño State
-    private Coordenada coordenada;
 
-    public Casillero(int x, int y, Jugador jugador) {
-        this.x = x;
-        this.y = y;
-        this.coordenada = new Coordenada(x, y);
+    public Casillero(Coordenada coordenada, Jugador jugador) {
+        this.coordenada = coordenada;
         this.duenio = new Bando(jugador);
         estado = new CasilleroVacio();
     }
@@ -50,12 +46,8 @@ public class Casillero {
         return this.duenio;
     }
 
-    public int getCoordenadaX(){
-        return this.x;
-    }
-
-    public int getCoordenadaY(){
-        return this.y;
+    public Coordenada getCoordenada(){
+        return this.coordenada;
     }
 
 	public void aceptarUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
@@ -66,6 +58,6 @@ public class Casillero {
 	}
 
 	public Casillero casilleroALaIzquierda() {
-		return Tablero.getTablero().getCasilleroConCoordenada(new Coordenada(this.x - 1, this.y));
+		return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.x - 1, this.y));
 	}
 }
