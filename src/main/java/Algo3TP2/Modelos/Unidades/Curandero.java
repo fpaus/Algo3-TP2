@@ -2,6 +2,7 @@ package Algo3TP2.Modelos.Unidades;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Tablero.Distancia;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
@@ -26,10 +27,8 @@ public class Curandero extends UnidadMovible {
 
         Casillero casilleroCurandero = this.getCasillero();
         Casillero casilleroACurar = unidadACurar.getCasillero();
-        int distanciaEnX = Tablero.getTablero().medirDistanciaEnXDeCasilleroACasillero(casilleroCurandero,casilleroACurar);
-        int distanciaEnY = Tablero.getTablero().medirDistanciaEnYDeCasilleroACasillero(casilleroCurandero,casilleroACurar);
-        boolean condicionDistancia = (distanciaEnX <= Properties.alcanceMaxDistanciaCorta
-                && distanciaEnY <= Properties.alcanceMaxDistanciaCorta);
+        Distancia distancia = casilleroCurandero.getCoordenada().distanciaACoordenada(casilleroACurar.getCoordenada());
+        boolean condicionDistancia = (distancia.getValor() <= Properties.alcanceMaxDistanciaCorta);
         if (!condicionDistancia) {
             throw new DistanciaParaCurarIncorrectaExcepcion();
         }
