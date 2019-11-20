@@ -1,5 +1,5 @@
 package Algo3TP2;
-/*
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -13,6 +13,3 @@ public class javaFx extends Application {
         stage.show();
     }
 }
-
-
-*/
