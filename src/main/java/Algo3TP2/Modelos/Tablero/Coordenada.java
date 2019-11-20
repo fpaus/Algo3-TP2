@@ -2,6 +2,8 @@ package Algo3TP2.Modelos.Tablero;
 
 import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
 
+import java.util.ArrayList;
+
 public class Coordenada {
     private int posicionX;
     private int posicionY;
@@ -38,4 +40,13 @@ public class Coordenada {
         return this.posicionX + (tmp * tmp);
     }
 
+    public ArrayList<Coordenada> getTodasLasCoordenadasVecinas() {
+        ArrayList<Coordenada> coordenadas = new ArrayList<Coordenada>();
+        for(int i = this.posicionX - 1; i <= this.posicionX + 1; i++){
+            for(int j = this.posicionY - 1; i <= this.posicionY + 1; i++){
+                coordenadas.add(new Coordenada(i,j));
+            }
+        }
+        return coordenadas;
+    }
 }

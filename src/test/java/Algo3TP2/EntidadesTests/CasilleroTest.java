@@ -4,9 +4,14 @@ import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -155,5 +160,25 @@ public class CasilleroTest {
 
         // Act Assert
         casillero.setUnidadAlInicioDelJuego(unidad);
+    }
+
+    @Test
+    public void getTodasLosCasillerosVecinos() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        // Arrange
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20,20, new Jugador(), new Jugador());
+        int posicionX = 2, posicionY = 2;
+        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(posicionX, posicionY));
+
+        // Act
+        ArrayList<Casillero> casillerosVecinos = casillero.getTodosLosCasillerosVecinos();
+
+        // Assert
+        Iterator<Casillero> iter = casillerosVecinos.iterator();
+        for(int i = posicionX - 1; i <= posicionX + 1; i++) {
+            for (int j = posicionY - 1; i <= posicionY + 1; i++) {
+                assertEquals(tablero.getCasilleroEnPosicion(new Coordenada(i,j)), iter.next());
+            }
+        }
     }
 }
