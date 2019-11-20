@@ -38,7 +38,7 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
         this.estrategiaDeAtaque = estragia;
     }
 
-    public void definirEstragegiaDeAtaque() throws ArithmeticException{
+    public void definirEstragegiaDeAtaque(){
         ArrayList<Casillero> casilleros = this.casillero.getTodosLosCasillerosVecinos();
         for(Casillero casillero : casilleros){
             try{
