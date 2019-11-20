@@ -43,7 +43,7 @@ public class Coordenada {
     public ArrayList<Coordenada> getTodasLasCoordenadasVecinas() {
         ArrayList<Coordenada> coordenadas = new ArrayList<Coordenada>();
         for(int i = this.posicionX - 1; i <= this.posicionX + 1; i++){
-            for(int j = this.posicionY - 1; i <= this.posicionY + 1; i++){
+            for(int j = this.posicionY - 1; j <= this.posicionY + 1; j++){
                 coordenadas.add(new Coordenada(i,j));
             }
         }
