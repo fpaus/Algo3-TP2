@@ -5,8 +5,17 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAta
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Tablero.Direccion.Arriba;
+import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
+import Algo3TP2.Modelos.Tablero.Direccion.Fija;
+import Algo3TP2.Modelos.Tablero.Direccion.Horizontal;
+import Algo3TP2.Modelos.Tablero.Direccion.Vertical;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeSoldado;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
+
+import java.util.ArrayList;
+
 import Algo3TP2.Properties;
 
 public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
@@ -26,4 +35,27 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         estrategiaDeAtaque.atacar(this, unidadVictima);
     }
 
-}
+
+    public void moverComoBatallon(Direccion horizontal, Direccion vertical){
+        ArrayList<Casillero> casilleros = this.casillero.getTodosLosCasillerosVecinos();
+        casilleros.forEach((c) -> buscarOtrosSoldados(c));
+    }
+
+    public void moverComoBatallon(Horizontal horizontal){
+        moverComoBatallon(horizontal, new Fija());
+    }
+
+	public void moverComoBatallon(Vertical vertical) {
+        moverComoBatallon(new Fija(), vertical);
+	}
+
+    private void buscarOtrosSoldados(Casillero casillero){
+        try {
+            casillero.getUnidad();
+        } catch (CasilleroVacioExcepcion e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+}   

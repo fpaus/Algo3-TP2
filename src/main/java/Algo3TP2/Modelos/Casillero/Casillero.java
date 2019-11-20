@@ -6,6 +6,9 @@ import Algo3TP2.Modelos.Tablero.Direccion.Fija;
 import Algo3TP2.Modelos.Tablero.Direccion.Izquierda;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
+
+import java.util.ArrayList;
+
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Unidades.Unidad;
@@ -66,5 +69,10 @@ public class Casillero {
         return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.coordenada, horizontal, vertical));
 
     }
+
+	public ArrayList<Casillero> getTodosLosCasillerosVecinos() {
+        ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
+        return casilleros;
+	}
 
 }
