@@ -13,7 +13,7 @@ public class Coordenada {
         this.posicionY = y;
     }
 
-    public Coordenada(Coordenada coordenada, Direccion vertical, Direccion horizontal){
+    public Coordenada(Coordenada coordenada, Direccion horizontal, Direccion vertical){
         this.posicionX = coordenada.posicionX + horizontal.getDireccion();
         this.posicionY = coordenada.posicionY + vertical.getDireccion();
     }
