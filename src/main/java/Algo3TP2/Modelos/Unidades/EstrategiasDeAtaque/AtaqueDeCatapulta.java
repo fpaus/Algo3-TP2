@@ -2,8 +2,6 @@ package Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
@@ -27,8 +25,6 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
         } catch (UnidadAtacadaEsAliadaExcepcion ex){
             // Permito el ataque, ya que una catapulta puede atacar aliados
         }
-
-        //unidadVictima.recibirDanio(Properties.danioCatapultaDistancia);
 
         atacarUnidadesContiguas(unidadVictima);
     }

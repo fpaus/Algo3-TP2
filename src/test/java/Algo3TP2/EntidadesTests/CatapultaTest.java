@@ -226,22 +226,18 @@ public class CatapultaTest {
         Casillero casilleroAtacado1 = tablero.getCasilleroEnPosicion(new Coordenada(7,7));
         Soldado soldadoAtacado1 = new Soldado(bando1);
         soldadoAtacado1.colocarEnCasillero(casilleroAtacado1);
-        //casilleroAtacado1.setUnidad(soldadoAtacado1);
 
         Casillero casilleroAtacado2 = tablero.getCasilleroEnPosicion(new Coordenada(6,7));
         Soldado soldadoAtacado2 = new Soldado(bando2);
         soldadoAtacado2.colocarEnCasillero(casilleroAtacado2);
-        //casilleroAtacado2.setUnidad(soldadoAtacado2);
 
         Casillero casilleroAtacado3 = tablero.getCasilleroEnPosicion(new Coordenada(5,7));
         Jinete jineteAtacado3 = new Jinete(bando2);
         jineteAtacado3.colocarEnCasillero(casilleroAtacado3);
-        //casilleroAtacado3.setUnidad(jineteAtacado3);
 
         Casillero casilleroNoAtacado4 = tablero.getCasilleroEnPosicion(new Coordenada(3,7));
         Jinete jineteNoAtacado4 = new Jinete(bando1);
         jineteNoAtacado4.colocarEnCasillero(casilleroNoAtacado4);
-        //casilleroNoAtacado4.setUnidad(jineteNoAtacado4);
 
         // Act
         catapultaAtacante.atacar(soldadoAtacado1);
