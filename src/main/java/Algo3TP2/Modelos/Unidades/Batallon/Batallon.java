@@ -17,7 +17,7 @@ public class Batallon {
         batallonIntegrantes.add(soldado);
     }
 
-    public void anadirSoldadoABatallon(Soldado soldado) throws BatallonCompletoExcepcion {
+    public void anadirSoldadoABatallon(Soldado soldado) throws BatallonCompletoExcepcion, ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion {
         estado.anadirSoldadoABatallon(this, soldado);
     }
 

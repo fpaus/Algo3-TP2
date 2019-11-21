@@ -5,7 +5,7 @@ import Algo3TP2.Modelos.Unidades.Soldado;
 
 public interface BatallonEstado{
 
-    void anadirSoldadoABatallon(Batallon batallon, Soldado soldado) throws BatallonCompletoExcepcion;
+    void anadirSoldadoABatallon(Batallon batallon, Soldado soldado) throws BatallonCompletoExcepcion, ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion;
 
     void moverBatallon(Batallon batallon, Direccion vertical, Direccion horizontal) throws BatallonIncompletoExcepcion;
 

@@ -9,6 +9,7 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Unidades.Batallon.Batallon;
 import Algo3TP2.Modelos.Unidades.Batallon.BatallonCompletoExcepcion;
 import Algo3TP2.Modelos.Unidades.Batallon.BatallonIncompletoExcepcion;
+import Algo3TP2.Modelos.Unidades.Batallon.ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.*;
@@ -23,7 +24,8 @@ import static org.junit.Assert.assertTrue;
 public class BatallonTest {
     @Test
     public void tresSoldadosSePuedenMoverComoBatallonTest()
-            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, BatallonCompletoExcepcion, BatallonIncompletoExcepcion {
+            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, BatallonCompletoExcepcion,
+            BatallonIncompletoExcepcion, ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion {
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Soldado soldado1 = new Soldado(bando);
@@ -35,7 +37,8 @@ public class BatallonTest {
         soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
         soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
 
-        soldado1.conformarBatallonCon(soldado2, soldado3);
+        soldado1.conformarBatallonCon(soldado2);
+        soldado1.conformarBatallonCon(soldado3);
         soldado1.moverBatallonHaciaAbajo();
         
 

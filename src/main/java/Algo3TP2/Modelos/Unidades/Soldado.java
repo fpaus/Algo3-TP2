@@ -1,10 +1,7 @@
 package Algo3TP2.Modelos.Unidades;
 
 import Algo3TP2.Modelos.Tablero.Direccion.*;
-import Algo3TP2.Modelos.Unidades.Batallon.Batallon;
-import Algo3TP2.Modelos.Unidades.Batallon.BatallonCompletoExcepcion;
-import Algo3TP2.Modelos.Unidades.Batallon.BatallonInactivo;
-import Algo3TP2.Modelos.Unidades.Batallon.BatallonIncompletoExcepcion;
+import Algo3TP2.Modelos.Unidades.Batallon.*;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Bando;
@@ -41,9 +38,8 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         this.batallon = batallon;
     }
 
-    public void conformarBatallonCon(Soldado soldado1, Soldado soldado2) throws BatallonCompletoExcepcion {
+    public void conformarBatallonCon(Soldado soldado1) throws BatallonCompletoExcepcion, ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion {
         batallon.anadirSoldadoABatallon(soldado1);
-        batallon.anadirSoldadoABatallon(soldado2);
     }
 
     public void moverBatallon(Direccion vertical, Direccion horizontal) throws BatallonIncompletoExcepcion {
