@@ -58,21 +58,26 @@ public class Casillero {
         return this.coordenada;
     }
 
-	public void aceptarUnidad(UnidadMovible unidad) throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+    public void aceptarUnidad(UnidadMovible unidad) throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
 
         this.setUnidad(unidad);
         unidad.moverACasillero(this);
 
-	}
+    }
 
     public Casillero getCasilleroVecino(Direccion horizontal, Direccion vertical) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.coordenada, horizontal, vertical));
 
     }
 
-	public ArrayList<Casillero> getTodosLosCasillerosVecinos() {
+    public ArrayList<Casillero> getTodosLosCasillerosVecinos() {
         ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
+        for(Coordenada coordenada : this.coordenada.getTodasLasCoordenadasVecinas()){
+            try{
+                casilleros.add(Tablero.getTablero().getCasilleroEnPosicion(coordenada));
+            } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion e) {}
+        }
         return casilleros;
-	}
+    }
 
 }
