@@ -1,6 +1,5 @@
 package Algo3TP2.Modelos.Unidades;
 
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Bando;
@@ -23,7 +22,7 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
 
     @Override
     public void atacar(Unidad unidadVictima)
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException, CasilleroVacioExcepcion {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         estrategiaDeAtaque.atacar(this, unidadVictima);
     }
 

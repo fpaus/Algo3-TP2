@@ -21,7 +21,7 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
 
     @Override
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima)
-            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException, CasilleroVacioExcepcion {
+            throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
         try{
             this.validarAtaque(unidadAtacante, unidadVictima);
         } catch (UnidadAtacadaEsAliadaExcepcion ex){
@@ -33,7 +33,7 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
         atacarUnidadesContiguas(unidadVictima);
     }
 
-    private void atacarUnidadesContiguas(Unidad unidadInicial) throws UnidadInvalidaException, CasilleroVacioExcepcion {
+    private void atacarUnidadesContiguas(Unidad unidadInicial) throws UnidadInvalidaException {
         Queue<Unidad> q = new LinkedList<>();
         ArrayList<Unidad> unidades_visitadas = new ArrayList<>();
         q.add(unidadInicial);

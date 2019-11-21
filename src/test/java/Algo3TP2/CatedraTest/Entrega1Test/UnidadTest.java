@@ -84,7 +84,7 @@ public class UnidadTest {
     @Test
     public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest()
             throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -108,7 +108,7 @@ public class UnidadTest {
     @Test
     public void jineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
             throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange Ataque con espada a distancia corta
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -165,7 +165,7 @@ public class UnidadTest {
     @Test
     public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
             throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

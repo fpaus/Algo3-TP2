@@ -2,7 +2,6 @@ package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
@@ -119,7 +118,7 @@ public class SoldadoAtaqueTest {
 
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
     public void SoladoAtacaASoldadoAliadoLanzaExcepcion() throws DistanciaDeAtaqueIncorrectaExcepcion,
-            UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException, CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -138,7 +137,7 @@ public class SoldadoAtaqueTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void SoladoAtacaASoldadoEnemigoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -159,7 +158,7 @@ public class SoldadoAtaqueTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class) //Caso Borde
     public void SoladoAtacaASoldadoEnemigoUbicadoADistancia3LanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -180,7 +179,7 @@ public class SoldadoAtaqueTest {
     @Test //Caso Borde
     public void SoladoAtacaASoldadoEnemigoUbicadoADistancia2GeneraDanio()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

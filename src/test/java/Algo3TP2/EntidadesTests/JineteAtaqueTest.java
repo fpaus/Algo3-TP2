@@ -1,9 +1,7 @@
 package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
-import Algo3TP2.Modelos.Casillero.CasilleroVacio;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
@@ -171,7 +169,7 @@ public class JineteAtaqueTest {
 
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
     public void JineteAtacaConEstrategiaEspadaAJineteAliadoLanzaExcepcion() throws DistanciaDeAtaqueIncorrectaExcepcion,
-            UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException, CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -191,7 +189,7 @@ public class JineteAtaqueTest {
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteAliadoLanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -212,7 +210,7 @@ public class JineteAtaqueTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void JineteAtacaConEstrategiaEspadaAJineteEnemigoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -234,7 +232,7 @@ public class JineteAtaqueTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteEnemigoUbicadoADistanciaMayorQueLaMediaLanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -256,7 +254,7 @@ public class JineteAtaqueTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteEnemigoUbicadoADistanciaMenorQueLaMediaLanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);

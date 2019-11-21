@@ -2,7 +2,6 @@ package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
@@ -125,7 +124,7 @@ public class CatapultaTest {
     @Test
     public void CatapultaAtacaACatapultaAliadaYLeCausaDanio()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -147,7 +146,7 @@ public class CatapultaTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistanciaMenorQueLaLargaLanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -168,7 +167,7 @@ public class CatapultaTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class) //Caso Borde
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistancia5LanzaExcepcion()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -189,7 +188,7 @@ public class CatapultaTest {
     @Test //Caso Borde
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistancia7GeneraDanio()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
@@ -213,7 +212,7 @@ public class CatapultaTest {
     @Test
     public void CatapultaAtacaAUnidadGeneraDanioATodasLasUnidadesContiguas()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
-            CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
         // Arrange
         Jugador jugador1 = new Jugador(); Bando bando1 = new Bando(jugador1);
         Jugador jugador2 = new Jugador(); Bando bando2 = new Bando(jugador2);
