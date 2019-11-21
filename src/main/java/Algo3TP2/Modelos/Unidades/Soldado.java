@@ -1,5 +1,7 @@
 package Algo3TP2.Modelos.Unidades;
 
+import Algo3TP2.Modelos.Unidades.Batallon.Batallon;
+import Algo3TP2.Modelos.Unidades.Batallon.BatallonInactivo;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Bando;
@@ -21,6 +23,7 @@ import Algo3TP2.Properties;
 public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
+    private Batallon batallon;
 
     public Soldado(Bando bando) {
         this.costo = Properties.costoSoldado;
@@ -35,7 +38,14 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         estrategiaDeAtaque.atacar(this, unidadVictima);
     }
 
+    public void incorporarABatallon(Batallon batallon){
+        this.batallon = batallon;
+    }
 
+    public void quitarDeBatallon(){
+        this.batallon = new Batallon(this);
+    }
+    /*
     public void moverComoBatallon(Direccion horizontal, Direccion vertical){
         ArrayList<Casillero> casilleros = this.casillero.getTodosLosCasillerosVecinos();
         casilleros.forEach((c) -> buscarOtrosSoldados(c));
@@ -57,5 +67,7 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
             e.printStackTrace();
         }
     }
+
+     */
 
 }   
