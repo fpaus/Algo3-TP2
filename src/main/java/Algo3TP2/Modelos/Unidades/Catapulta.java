@@ -1,5 +1,6 @@
 package Algo3TP2.Modelos.Unidades;
 
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
@@ -21,7 +22,7 @@ public class Catapulta extends Unidad implements IUnidadDeAtaque {
 
     @Override
     public void atacar(Unidad unidadVictima)
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException, CasilleroVacioExcepcion {
         estrategiaDeAtaque.atacar(this, unidadVictima);
     }
 
