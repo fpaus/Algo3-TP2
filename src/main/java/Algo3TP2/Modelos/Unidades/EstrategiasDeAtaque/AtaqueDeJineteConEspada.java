@@ -15,6 +15,6 @@ public class AtaqueDeJineteConEspada extends DistaciaCorta {
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima)
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         this.validarAtaque(unidadAtacante, unidadVictima);
-        unidadVictima.generarDanio(Properties.danioJineteCaC);
+        unidadVictima.recibirDanio(Properties.danioJineteCaC);
     }
 }

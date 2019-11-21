@@ -2,6 +2,8 @@ package Algo3TP2.Modelos.Unidades;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Tablero.Distancia;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
@@ -16,46 +18,37 @@ public class Curandero extends UnidadMovible {
         this.vida = new Salud(Properties.vidaCurandero);
     }
 
-    @Override
-    public void mover(Casillero casillero) {
-
-    }
-
-    private int medirDistanciaEnX(Unidad unidadActual, Unidad unidadAliada) {
-        int unidadActualCoordenadaX = unidadActual.getCasillero().getCoordenadaX();
-        int unidadAliadaCoordenadaX = unidadAliada.getCasillero().getCoordenadaX();
-        return (Math.abs(unidadAliadaCoordenadaX - unidadActualCoordenadaX));
-    }
-
-    private int medirDistanciaEnY(Unidad unidadActual, Unidad unidadAliada) {
-        int unidadActualCoordenadaY = unidadActual.getCasillero().getCoordenadaY();
-        int unidadAliadaCoordenadaY = unidadAliada.getCasillero().getCoordenadaY();
-        return (Math.abs(unidadAliadaCoordenadaY - unidadActualCoordenadaY));
-    }
-
-    private void validarCuracion(Unidad unidadAliada)
+    private void validarCuracion(Unidad unidadACurar)
             throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
             CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion {
-        if (this.duenio.getDuenio() != unidadAliada.duenio.getDuenio()) {
+        if (this.duenio.getDuenio() != unidadACurar.duenio.getDuenio()) {
             throw new UnidadCuradaEsEnemigaExcepcion();
         }
-        int distanciaEnX = this.medirDistanciaEnX(this, unidadAliada);
-        int distanciaEnY = this.medirDistanciaEnY(this, unidadAliada);
-        boolean condicionDistancia = (distanciaEnX <= Properties.alcanceMaxDistanciaCorta
-                && distanciaEnY <= Properties.alcanceMaxDistanciaCorta);
+
+        Casillero casilleroCurandero = this.getCasillero();
+        Casillero casilleroACurar = unidadACurar.getCasillero();
+        Distancia distancia = casilleroCurandero.getCoordenada().distanciaACoordenada(casilleroACurar.getCoordenada());
+        boolean condicionDistancia = (distancia.getValor() <= Properties.alcanceMaxDistanciaCorta);
         if (!condicionDistancia) {
             throw new DistanciaParaCurarIncorrectaExcepcion();
         }
-        if (unidadAliada.getVida() == unidadAliada.getVidaMaxima()) {
+        if (unidadACurar.getVida() == unidadACurar.getVidaMaxima()) {
             throw new AliadoConSaludCompletaNoSePuedeCurarExcepcion();
         }
     }
 
-    public void curar(UnidadMovible unidadAliada)
+    public void curar(UnidadMovible unidadACurar)
             throws CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
             DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
-        this.validarCuracion(unidadAliada);
-        unidadAliada.curar(Properties.curacionCurandero);
+        this.validarCuracion(unidadACurar);
+        unidadACurar.recibirCuracion(Properties.curacionCurandero);
+
+    }
+
+    //Curar Solo para catapultas
+    public void curar(Unidad unidadACurar)
+            throws CatapultaNoPuedeSerCuradaExcepcion {
+        throw new CatapultaNoPuedeSerCuradaExcepcion();
 
     }
 

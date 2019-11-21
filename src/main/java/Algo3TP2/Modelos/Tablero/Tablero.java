@@ -4,28 +4,44 @@ import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
 
+import java.util.HashMap;
+
 public class Tablero {
 
-    private Casillero[][] casilleros;
+    private static Tablero tablero;
 
-    public Tablero(int x, int y, Jugador j1, Jugador j2) {
-        casilleros = new Casillero[x][y];
+    HashMap<Coordenada,Casillero> casilleros;
+
+    private Tablero() {
+    }
+
+    public void inicializarTablero(int x, int y, Jugador j1, Jugador j2){
+        casilleros = new HashMap<Coordenada,Casillero>();
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
+                Coordenada coordenada = new Coordenada(i, j);
                 if (j < y / 2) {
-                    casilleros[i][j] = new Casillero(i, j, j1);
+                    casilleros.put(coordenada, new Casillero(coordenada, j1));
                 } else {
-                    casilleros[i][j] = new Casillero(i, j, j2);
+                    casilleros.put(coordenada, new Casillero(coordenada, j2));
                 }
             }
         }
     }
 
-    public Casillero getCasilleroEnPosicion(int x, int y) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        try {
-            return casilleros[x][y];
-        } catch (ArrayIndexOutOfBoundsException ex) {
+    public static Tablero getTablero(){
+        if(tablero == null){
+            tablero = new Tablero();
+        }
+        return tablero;
+    }
+
+    public Casillero getCasilleroEnPosicion(Coordenada coordenada) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        Casillero casillero = casilleros.get(coordenada);
+        if(casillero == null){
             throw new CasilleroFueraDelLosLimitesDelTableroExcepcion();
         }
+        return casillero;
     }
+
 }

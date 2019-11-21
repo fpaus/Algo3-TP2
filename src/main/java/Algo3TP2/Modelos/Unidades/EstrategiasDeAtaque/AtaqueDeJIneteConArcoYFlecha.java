@@ -15,6 +15,6 @@ public class AtaqueDeJIneteConArcoYFlecha extends DistanciaMedia {
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima)
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         this.validarAtaque(unidadAtacante, unidadVictima);
-        unidadVictima.generarDanio(Properties.danioJineteDistancia);
+        unidadVictima.recibirDanio(Properties.danioJineteDistancia);
     }
 }

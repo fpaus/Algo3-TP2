@@ -15,6 +15,6 @@ public class AtaqueDeSoldado extends DistaciaCorta {
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima)
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         this.validarAtaque(unidadAtacante, unidadVictima);
-        unidadVictima.generarDanio(Properties.danioSoldadoCaC);
+        unidadVictima.recibirDanio(Properties.danioSoldadoCaC);
     }
 }

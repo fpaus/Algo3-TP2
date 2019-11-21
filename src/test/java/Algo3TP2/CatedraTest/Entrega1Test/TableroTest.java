@@ -5,6 +5,7 @@ import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Modelos.Unidades.Unidad;
@@ -19,13 +20,14 @@ public class TableroTest {
     public void tableroNuevoPoseeElTamanioCorrecto() {
         // Arrange
         int x = 20, y = 20;
-        Tablero tablero = new Tablero(x, y, new Jugador(), new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
 
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 try {
-                    Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                    Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
                     assert (true);
                 } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
                     assert (false);
@@ -38,12 +40,13 @@ public class TableroTest {
     public void tableroNuevoPoseeTodasLasCasillasVacias() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         int x = 20, y = 20;
-        Tablero tablero = new Tablero(x, y, new Jugador(), new Jugador());
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
 
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
                 try {
                     Unidad unidad = casillero.getUnidad();
                     assert (false);
@@ -60,12 +63,13 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Jugador jugador1 = new Jugador(), jugador2 = new Jugador();
-        Tablero tablero = new Tablero(x, y, jugador1, jugador2);
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, jugador1, jugador2);
 
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(i, j);
+                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
                 if (j < y / 2) {
                     assertEquals(jugador1, casillero.getBando().getDuenio());
                 } else {
@@ -88,14 +92,15 @@ public class TableroTest {
         // Arrange
         Jugador jugadorAliado = new Jugador();
         Jugador jugadorEnemigo = new Jugador();
-        Tablero tablero = new Tablero(20,20, jugadorAliado, jugadorEnemigo);
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
         Unidad unidadAliadaOcupante = new Soldado(new Bando(jugadorAliado));
-        tablero.getCasilleroEnPosicion(5,5).setUnidadAlInicioDelJuego(unidadAliadaOcupante);
+        tablero.getCasilleroEnPosicion(new Coordenada(5,5)).setUnidadAlInicioDelJuego(unidadAliadaOcupante);
         Unidad unidadAliada = new Soldado(new Bando(jugadorAliado));
 
 
         // Act Assert
-        Casillero casilleroOcupadoPorUnidadAliada = tablero.getCasilleroEnPosicion(5,5);
+        Casillero casilleroOcupadoPorUnidadAliada = tablero.getCasilleroEnPosicion(new Coordenada(5,5));
         casilleroOcupadoPorUnidadAliada.setUnidadAlInicioDelJuego(unidadAliada);
     }
 
@@ -105,12 +110,13 @@ public class TableroTest {
         // Arrange
         Jugador jugadorAliado = new Jugador();
         Jugador jugadorEnemigo = new Jugador();
-        Tablero tablero = new Tablero(20,20, jugadorAliado, jugadorEnemigo);
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
         Unidad unidadAliada = new Soldado(new Bando(jugadorAliado));
 
 
         // Act Assert
-        Casillero casilleroEnemigo = tablero.getCasilleroEnPosicion(19,19);
+        Casillero casilleroEnemigo = tablero.getCasilleroEnPosicion(new Coordenada(19,19));
         casilleroEnemigo.setUnidadAlInicioDelJuego(unidadAliada);
     }
 
@@ -121,13 +127,14 @@ public class TableroTest {
         // Arrange
         Jugador jugadorAliado = new Jugador();
         Jugador jugadorEnemigo = new Jugador();
-        Tablero tablero = new Tablero(20,20, jugadorAliado, jugadorEnemigo);
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
         Unidad unidadAliada = new Soldado(new Bando(jugadorAliado));
 
         // Act
-        tablero.getCasilleroEnPosicion(5,5).setUnidadAlInicioDelJuego(unidadAliada);
+        tablero.getCasilleroEnPosicion(new Coordenada(5,5)).setUnidadAlInicioDelJuego(unidadAliada);
 
         // Assert
-        assertEquals(unidadAliada, tablero.getCasilleroEnPosicion(5,5).getUnidad());
+        assertEquals(unidadAliada, tablero.getCasilleroEnPosicion(new Coordenada(5,5)).getUnidad());
     }
 }

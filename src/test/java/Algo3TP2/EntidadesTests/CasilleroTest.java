@@ -1,11 +1,17 @@
 package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
+import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -17,7 +23,7 @@ public class CasilleroTest {
         Casillero casillero;
 
         // Act
-        casillero = new Casillero(1, 1, new Jugador());
+        casillero = new Casillero(new Coordenada(1, 1), new Jugador());
 
         // Assert
         assertFalse(casillero == null);
@@ -26,7 +32,7 @@ public class CasilleroTest {
     @Test
     public void casilleroNuevoSeEncuentraVacioTest() throws CasilleroOcupadoExcepcion {
         // Arrenge
-        Casillero casillero = new Casillero(1, 1, new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Unidad unidadEnCasillero = new Soldado(bando);
@@ -40,7 +46,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroOcupadoExcepcion.class)
     public void casilleroNuevoSeLeSeteaUnidadAhoraSeEncuentraOcupadoTest() throws CasilleroOcupadoExcepcion {
         // Arrenge
-        Casillero casillero = new Casillero(1, 1, new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Unidad unidadEnCasillero = new Soldado(bando);
@@ -58,7 +64,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroVacioGetUnidadLanzaExcepcion() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Casillero casillero = new Casillero(1, 1, new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Unidad unidad = new Soldado(bando);
@@ -71,7 +77,7 @@ public class CasilleroTest {
     public void casilleroSeLeSeteaUnidadGetUnidadRetornaUnidadEnCuestion()
             throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Casillero casillero = new Casillero(1, 1, new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Unidad unidad = new Soldado(bando);
@@ -87,7 +93,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroVacioQuitarUnidadLanzaExcepcion() throws CasilleroVacioExcepcion {
         // Arrange
-        Casillero casillero = new Casillero(1, 1, new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
 
         // Assert
         casillero.quitarUnidad();
@@ -97,7 +103,7 @@ public class CasilleroTest {
     public void casilleroOcupadoQuitarUnidadNoLanzaExcepcion()
             throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Casillero casillero = new Casillero(1, 1, new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Unidad unidad = new Soldado(bando);
@@ -112,7 +118,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroOcupadoQuitarUnidadCasilleroQuedaVacio() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Casillero casillero = new Casillero(1, 1, new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
         Jugador jugador = new Jugador();
         Bando bando = new Bando(jugador);
         Unidad unidad = new Soldado(bando);
@@ -131,7 +137,7 @@ public class CasilleroTest {
             throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion, CasilleroEnemigoExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
-        Casillero casillero = new Casillero(1, 1, jugador);
+        Casillero casillero = new Casillero(new Coordenada(1, 1), jugador);
         Bando bando = new Bando(jugador);
         Unidad unidad = new Soldado(bando);
 
@@ -150,9 +156,29 @@ public class CasilleroTest {
         Bando bando = new Bando(jugador);
         Unidad unidad = new Soldado(bando);
         Jugador jugadorEnemigo = new Jugador();
-        Casillero casillero = new Casillero(1, 1, jugadorEnemigo);
+        Casillero casillero = new Casillero(new Coordenada(1, 1), jugadorEnemigo);
 
         // Act Assert
         casillero.setUnidadAlInicioDelJuego(unidad);
+    }
+
+    @Test
+    public void getTodasLosCasillerosVecinos() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        // Arrange
+        Tablero tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20,20, new Jugador(), new Jugador());
+        int posicionX = 2, posicionY = 2;
+        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(posicionX, posicionY));
+
+        // Act
+        ArrayList<Casillero> casillerosVecinos = casillero.getTodosLosCasillerosVecinos();
+
+        // Assert
+        Iterator<Casillero> iter = casillerosVecinos.iterator();
+        for(int i = posicionX - 1; i <= posicionX + 1; i++) {
+            for (int j = posicionY - 1; j <= posicionY + 1; j++) {
+                assertEquals(tablero.getCasilleroEnPosicion(new Coordenada(i,j)), iter.next());
+            }
+        }
     }
 }

@@ -10,7 +10,7 @@ import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoInvalidoExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
 
 public class Jugador {
 
@@ -24,13 +24,14 @@ public class Jugador {
         this.sigueEnJuego = true;
     }
 
-    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion {
+    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion, CasilleroOcupadoExcepcion {
         puntos.comprarUnidad(unidad).colocarEnCasillero(casillero);
         unidadesDeJugador.add(unidad);
     }
 
     public void moverUnidadACasillero(UnidadMovible unidad, Casillero casillero)
-            throws UnidadInvalidaException, MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion {
+            throws UnidadInvalidaException, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion,
+            CasilleroVacioExcepcion {
         if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();
         }
