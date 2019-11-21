@@ -2,7 +2,6 @@ package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
@@ -209,7 +208,7 @@ public class CatapultaTest {
         // Assert
         assertEquals(30, catapultaAtacada.getVida());
     }
-/*
+
     @Test
     public void CatapultaAtacaAUnidadGeneraDanioATodasLasUnidadesContiguas()
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException,
@@ -220,29 +219,25 @@ public class CatapultaTest {
         Tablero tablero = Tablero.getTablero();
         tablero.inicializarTablero(20,20, jugador1, jugador2);
 
-        Casillero casilleroAtacante = tablero.getCasilleroEnPosicion(1,1);
+        Casillero casilleroAtacante = tablero.getCasilleroEnPosicion(new Coordenada(1,1));
         Catapulta catapultaAtacante = new Catapulta(bando1);
         catapultaAtacante.colocarEnCasillero(casilleroAtacante);
 
-        Casillero casilleroAtacado1 = tablero.getCasilleroEnPosicion(7,7);
+        Casillero casilleroAtacado1 = tablero.getCasilleroEnPosicion(new Coordenada(7,7));
         Soldado soldadoAtacado1 = new Soldado(bando1);
         soldadoAtacado1.colocarEnCasillero(casilleroAtacado1);
-        casilleroAtacado1.setUnidad(soldadoAtacado1);
 
-        Casillero casilleroAtacado2 = tablero.getCasilleroEnPosicion(6,7);
+        Casillero casilleroAtacado2 = tablero.getCasilleroEnPosicion(new Coordenada(6,7));
         Soldado soldadoAtacado2 = new Soldado(bando2);
         soldadoAtacado2.colocarEnCasillero(casilleroAtacado2);
-        casilleroAtacado2.setUnidad(soldadoAtacado2);
 
-        Casillero casilleroAtacado3 = tablero.getCasilleroEnPosicion(5,7);
+        Casillero casilleroAtacado3 = tablero.getCasilleroEnPosicion(new Coordenada(5,7));
         Jinete jineteAtacado3 = new Jinete(bando2);
         jineteAtacado3.colocarEnCasillero(casilleroAtacado3);
-        casilleroAtacado3.setUnidad(jineteAtacado3);
 
-        Casillero casilleroNoAtacado4 = tablero.getCasilleroEnPosicion(3,7);
+        Casillero casilleroNoAtacado4 = tablero.getCasilleroEnPosicion(new Coordenada(3,7));
         Jinete jineteNoAtacado4 = new Jinete(bando1);
         jineteNoAtacado4.colocarEnCasillero(casilleroNoAtacado4);
-        casilleroNoAtacado4.setUnidad(jineteNoAtacado4);
 
         // Act
         catapultaAtacante.atacar(soldadoAtacado1);
@@ -254,5 +249,4 @@ public class CatapultaTest {
         assertEquals(100, jineteNoAtacado4.getVida());
     }
 
- */
 }
