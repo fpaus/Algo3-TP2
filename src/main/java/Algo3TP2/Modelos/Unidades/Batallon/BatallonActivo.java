@@ -16,14 +16,6 @@ public class BatallonActivo implements BatallonEstado {
     }
 
     @Override
-    public void quitarSoldadoDelBatallon(Batallon batallon, Soldado soldado) {
-        // Try?
-        batallon.batallonIntegrantes.remove(soldado);
-        batallon.estado = new BatallonInactivo();
-        soldado.quitarDeBatallon();
-    }
-
-    @Override
     public void moverBatallon(Batallon batallon, Direccion vertical, Direccion horizontal) {
         batallon.batallonIntegrantes.forEach(soldado -> {
             try {
@@ -33,5 +25,10 @@ public class BatallonActivo implements BatallonEstado {
                 } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion | MovimientoNoContiguoExcepcion ex) {}
             } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {}
         });
+    }
+
+    @Override
+    public void desintegrar(Batallon batallon) {
+        batallon.batallonIntegrantes.forEach(integrante -> integrante.setBatallon(new Batallon(integrante)));
     }
 }

@@ -35,11 +35,8 @@ public class BatallonTest {
         soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
         soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
 
-        Batallon batallon = new Batallon();
-        batallon.anadirSoldadoABatallon(soldado2);
-        batallon.anadirSoldadoABatallon(soldado1);
-        batallon.anadirSoldadoABatallon(soldado3);
-        batallon.moverBatallon(new Abajo(), new Fija());
+        soldado1.conformarBatallonCon(soldado2, soldado3);
+        soldado1.moverBatallonHaciaAbajo();
         
 
         assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,0)));

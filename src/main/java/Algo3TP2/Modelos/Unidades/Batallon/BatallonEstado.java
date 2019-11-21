@@ -7,8 +7,7 @@ public interface BatallonEstado{
 
     void anadirSoldadoABatallon(Batallon batallon, Soldado soldado) throws BatallonCompletoExcepcion;
 
-    void quitarSoldadoDelBatallon(Batallon batallon, Soldado soldado);
-
     void moverBatallon(Batallon batallon, Direccion vertical, Direccion horizontal) throws BatallonIncompletoExcepcion;
 
+    void desintegrar(Batallon batallon) throws BatallonIncompletoExcepcion;
 }

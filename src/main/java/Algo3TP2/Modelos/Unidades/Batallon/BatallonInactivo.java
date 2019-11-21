@@ -15,14 +15,11 @@ public class BatallonInactivo implements BatallonEstado {
     }
 
     @Override
-    public void quitarSoldadoDelBatallon(Batallon batallon, Soldado soldado) {
-        // Try?
-        batallon.batallonIntegrantes.remove(soldado);
-        soldado.quitarDeBatallon();
-    }
-
-    @Override
     public void moverBatallon(Batallon batallon, Direccion horizontal, Direccion vertical) throws BatallonIncompletoExcepcion {
+        throw new BatallonIncompletoExcepcion();
+    }
+    @Override
+    public void desintegrar(Batallon batallon) throws BatallonIncompletoExcepcion {
         throw new BatallonIncompletoExcepcion();
     }
 }
