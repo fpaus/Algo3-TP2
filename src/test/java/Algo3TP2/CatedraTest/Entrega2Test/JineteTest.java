@@ -39,16 +39,11 @@ public class JineteTest {
     public void jineteSinAliadosADistanciaCortaAtacaConEspada() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
             CasilleroOcupadoExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
-
         Jinete jinete = new Jinete(bandoAliado);
-
-        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(5,5));
-        jinete.colocarEnCasillero(casillero);
+        tablero.posicionarUnidad(jinete, new Coordenada(5,5));
 
         Soldado soladoEnemigo = new Soldado(bandoEnemigo);
-
-        Casillero casilleroContiguo = tablero.getCasilleroEnPosicion(new Coordenada(5,6));
-        soladoEnemigo.colocarEnCasillero(casilleroContiguo);
+        tablero.posicionarUnidad(soladoEnemigo, new Coordenada(5,6));
 
         // Act
         jinete.atacar(soladoEnemigo);
@@ -65,22 +60,14 @@ public class JineteTest {
     public void jineteSinAliadosADistanciaMediaNoPuedeAtacar() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
             CasilleroOcupadoExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException, DistanciaDeAtaqueIncorrectaExcepcion {
         // Arrange
-        Tablero tablero = Tablero.getTablero();
-        Jugador jugadorAliado = new Jugador();
-        Bando bandoAliado = new Bando(jugadorAliado);
-        Jugador jugadorEnemigo = new Jugador();
-        Bando bandoEnemigo = new Bando(jugadorEnemigo);
-        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
-
         Jinete jinete = new Jinete(bandoAliado);
-        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(5,5));
-        jinete.colocarEnCasillero(casillero);
+        tablero.posicionarUnidad(jinete, new Coordenada(5,5));
+
         Soldado soladoEnemigoCercano = new Soldado(bandoEnemigo);
-        Casillero casilleroContiguo = tablero.getCasilleroEnPosicion(new Coordenada(5,6));
-        soladoEnemigoCercano.colocarEnCasillero(casilleroContiguo);
+        tablero.posicionarUnidad(soladoEnemigoCercano, new Coordenada(5,6));
+
         Soldado soladoEnemigoLejano = new Soldado(bandoEnemigo);
-        Casillero casilleroLejano = tablero.getCasilleroEnPosicion(new Coordenada(9,9));
-        soladoEnemigoLejano.colocarEnCasillero(casilleroLejano);
+        tablero.posicionarUnidad(soladoEnemigoLejano, new Coordenada(9,9));
 
         // Act Assert
         jinete.atacar(soladoEnemigoLejano);
