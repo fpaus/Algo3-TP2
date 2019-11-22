@@ -48,7 +48,7 @@ public class Tablero {
 
     public void posicionarUnidad(UnidadMovible unidad, Coordenada coordenada)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
-        Casillero destino = getCasilleroEnPosicion(coordenada);
+        Casillero destino = this.getCasilleroEnPosicion(coordenada);
         unidad.colocarEnCasillero(destino);
     }
 }
