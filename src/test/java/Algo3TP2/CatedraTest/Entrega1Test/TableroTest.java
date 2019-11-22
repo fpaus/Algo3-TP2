@@ -9,12 +9,68 @@ import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Modelos.Unidades.Unidad;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 
 public class TableroTest {
+
+    Tablero tablero;
+    Bando bandoAliado, bandoEnemigo;
+
+    @Before // Inicializo el tablero y los bandos Aliados/Enemigos
+    public void before(){
+        Jugador jugadorAliado = new Jugador();
+        bandoAliado = new Bando(jugadorAliado);
+        Jugador jugadorEnemigo = new Jugador();
+        bandoEnemigo = new Bando(jugadorEnemigo);
+        tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+    }
+
+    @Test
+    public void correctaInicializacionDelTablero() throws Exception {
+        tableroNuevoPoseeElTamanioCorrecto();
+        tableroNuevoPoseeTodasLasCasillasVacias();
+        tableroNuevoPoseeLaMitadDeLasCasillasCorrespondientesAUnBandoDistintoAlDeLaOtraMitad();
+    }
+
+
+
+    @Test(expected = CasilleroOcupadoExcepcion.class)
+    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest() throws Exception {
+        // Arrange
+        Unidad unidadAliadaOcupante = new Soldado(bandoAliado);
+        tablero.posicionarUnidadAlInicioDelJuego(unidadAliadaOcupante, new Coordenada(5,5));
+        Unidad unidadAliada = new Soldado(bandoEnemigo);
+
+
+        // Act Assert
+        tablero.posicionarUnidadAlInicioDelJuego(unidadAliada, new Coordenada(5,5));
+    }
+
+    @Test(expected = CasilleroEnemigoExcepcion.class)
+    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorEnemigoTest() throws Exception {
+        // Arrange
+        Unidad unidadAliada = new Soldado(bandoAliado);
+
+        // Act Assert
+        tablero.posicionarUnidadAlInicioDelJuego(unidadAliada, new Coordenada(19,19));
+    }
+
+    @Test
+    public void seColocaUnaPiezaAliadaEnUnCasilleroDelSectorAliadoVacioConExitoTest() throws Exception {
+        // Arrange
+        Unidad unidadAliada = new Soldado(bandoAliado);
+
+        // Act
+        tablero.posicionarUnidadAlInicioDelJuego(unidadAliada, new Coordenada(5,5));
+
+        // Assert
+        assertEquals(unidadAliada, tablero.getCasilleroEnPosicion(new Coordenada(5,5)).getUnidad());
+    }
 
     @Test
     public void tableroNuevoPoseeElTamanioCorrecto() {
@@ -37,7 +93,7 @@ public class TableroTest {
     }
 
     @Test
-    public void tableroNuevoPoseeTodasLasCasillasVacias() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    public void tableroNuevoPoseeTodasLasCasillasVacias() throws Exception {
         // Arrange
         int x = 20, y = 20;
         Tablero tablero = Tablero.getTablero();
@@ -77,64 +133,5 @@ public class TableroTest {
                 }
             }
         }
-    }
-
-    @Test
-    public void correctaInicializacionDelTablero() throws Exception {
-        tableroNuevoPoseeElTamanioCorrecto();
-        tableroNuevoPoseeTodasLasCasillasVacias();
-        tableroNuevoPoseeLaMitadDeLasCasillasCorrespondientesAUnBandoDistintoAlDeLaOtraMitad();
-    }
-
-    @Test(expected = CasilleroOcupadoExcepcion.class)
-    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, CasilleroEnemigoExcepcion {
-        // Arrange
-        Jugador jugadorAliado = new Jugador();
-        Jugador jugadorEnemigo = new Jugador();
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
-        Unidad unidadAliadaOcupante = new Soldado(new Bando(jugadorAliado));
-        tablero.getCasilleroEnPosicion(new Coordenada(5,5)).setUnidadAlInicioDelJuego(unidadAliadaOcupante);
-        Unidad unidadAliada = new Soldado(new Bando(jugadorAliado));
-
-
-        // Act Assert
-        Casillero casilleroOcupadoPorUnidadAliada = tablero.getCasilleroEnPosicion(new Coordenada(5,5));
-        casilleroOcupadoPorUnidadAliada.setUnidadAlInicioDelJuego(unidadAliada);
-    }
-
-    @Test(expected = CasilleroEnemigoExcepcion.class)
-    public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorEnemigoTest()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, CasilleroEnemigoExcepcion {
-        // Arrange
-        Jugador jugadorAliado = new Jugador();
-        Jugador jugadorEnemigo = new Jugador();
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
-        Unidad unidadAliada = new Soldado(new Bando(jugadorAliado));
-
-
-        // Act Assert
-        Casillero casilleroEnemigo = tablero.getCasilleroEnPosicion(new Coordenada(19,19));
-        casilleroEnemigo.setUnidadAlInicioDelJuego(unidadAliada);
-    }
-
-    @Test
-    public void seColocaUnaPiezaAliadaEnUnCasilleroDelSectorAliadoVacioConExitoTest()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion,
-            CasilleroEnemigoExcepcion, CasilleroVacioExcepcion {
-        // Arrange
-        Jugador jugadorAliado = new Jugador();
-        Jugador jugadorEnemigo = new Jugador();
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
-        Unidad unidadAliada = new Soldado(new Bando(jugadorAliado));
-
-        // Act
-        tablero.getCasilleroEnPosicion(new Coordenada(5,5)).setUnidadAlInicioDelJuego(unidadAliada);
-
-        // Assert
-        assertEquals(unidadAliada, tablero.getCasilleroEnPosicion(new Coordenada(5,5)).getUnidad());
     }
 }
