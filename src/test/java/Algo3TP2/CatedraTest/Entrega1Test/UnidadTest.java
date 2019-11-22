@@ -1,40 +1,35 @@
 package Algo3TP2.CatedraTest.Entrega1Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import Algo3TP2.Modelos.*;
-import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.*;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeJIneteConArcoYFlecha;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeJineteConEspada;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.UnidadCuradaEsEnemigaExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
+import org.junit.Before;
 import org.junit.Test;
 
 public class UnidadTest {
 
+    Tablero tablero;
+    Bando bandoAliado, bandoEnemigo;
+
+    @Before
+    public void before(){
+        Jugador jugadorAliado = new Jugador();
+        bandoAliado = new Bando(jugadorAliado);
+        Jugador jugadorEnemigo = new Jugador();
+        bandoEnemigo = new Bando(jugadorEnemigo);
+        tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+    }
+    
     @Test
-    public void unidadMovibleSePuedeMoverEnTodasDireccionesTest() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
-            MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
-        Jugador j1 = new Jugador();
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, j1, new Jugador());
-        UnidadMovible unidad = new Soldado(new Bando(j1));
+    public void unidadMovibleSePuedeMoverEnTodasDireccionesTest() throws Exception {
 
-        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(2,2));
-        unidad.colocarEnCasillero(casillero);
-
+        UnidadMovible unidad = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(unidad, new Coordenada(2,2));
 
         unidad.moverHaciaArriba();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
@@ -63,40 +58,26 @@ public class UnidadTest {
     }
 
     @Test(expected = CasilleroOcupadoExcepcion.class)
-    public void unidadMovibleNoPuedeMoverseAUnCasilleroOcupadoTest()
-            throws MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+    public void unidadMovibleNoPuedeMoverseAUnCasilleroOcupadoTest() throws Exception {
         // Arrange
-        Jugador jugador = new Jugador();
-        Bando bando = new Bando(jugador);
-        Casillero casillero = new Casillero(new Coordenada(1,1),jugador);
-        Casillero casilleroContiguoOcupado = new Casillero(new Coordenada(2,1),jugador);
-        Unidad unidadOcupante = new Soldado(bando);
-        casilleroContiguoOcupado.setUnidad(unidadOcupante);
+        Unidad unidadOcupante = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(unidadOcupante, new Coordenada(1,2));
 
-        UnidadMovible soldado = new Soldado(bando);
-        soldado.colocarEnCasillero(casillero);
-        casillero.setUnidad(soldado);
+        UnidadMovible soldado = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado, new Coordenada(1,1));
 
         // Act
-        soldado.mover(casilleroContiguoOcupado);
+        soldado.moverHaciaArriba();
     }
 
     @Test
-    public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion {
+    public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest() throws Exception {
         // Arrange
-        Jugador jugador1 = new Jugador();
-        Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
-        Soldado soldadoAtacante = new Soldado(bando1);
-        soldadoAtacante.colocarEnCasillero(casillero1);
+        Soldado soldadoAtacante = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1,1));
 
-        Jugador jugador2 = new Jugador();
-        Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador2);
-        Soldado soldadoAtacado = new Soldado(bando2);
-        soldadoAtacado.colocarEnCasillero(casillero2);
+        Soldado soldadoAtacado = new Soldado(bandoEnemigo);
+        tablero.posicionarUnidad(soldadoAtacado,new Coordenada(2, 2));
 
         // Act
         soldadoAtacante.atacar(soldadoAtacado);
@@ -106,79 +87,48 @@ public class UnidadTest {
     }
 
     @Test
-    public void jineteAliadoAtacaPiezaEnemigaDistanciaCortaSeVerificaQueSeRestaVidaCorrespondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    public void jineteAliadoAtacaPiezaEnemigaDistanciaCortaSeVerificaQueSeRestaVidaCorrespondienteTest() throws Exception {
         // Arrange Ataque con espada a distancia corta
-        Tablero tablero = Tablero.getTablero();
-        Jugador jugador1 = new Jugador();
-        Bando bando1 = new Bando(jugador1);
-        Jugador jugador2 = new Jugador();
-        Bando bando2 = new Bando(jugador2);
+        Jinete jineteAtacante = new Jinete(bandoAliado);
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
 
-        tablero.inicializarTablero(20,20, jugador1, jugador2);
-        Casillero casillero1 = tablero.getCasilleroEnPosicion(new Coordenada(1, 1));
-        Jinete jineteAtacante = new Jinete(bando1);
-        jineteAtacante.colocarEnCasillero(casillero1);
-
-
-        Casillero casilleroDistanciaCorta =tablero.getCasilleroEnPosicion(new Coordenada(2, 2));
-        Jinete jineteAtacado = new Jinete(bando2);
-        jineteAtacado.colocarEnCasillero(casilleroDistanciaCorta);
+        Jinete jineteAtacado = new Jinete(bandoEnemigo);
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(2,2));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
+
         // Assert
         assertEquals(95, jineteAtacado.getVida());
-
-
     }
+
     @Test
-    public void jineteAliadoAtacaPiezaEnemigaDistanciaMediaSeVerificaQueSeRestaVidaCorrespondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    public void jineteAliadoAtacaPiezaEnemigaDistanciaMediaSeVerificaQueSeRestaVidaCorrespondienteTest() throws Exception {
         // Arrange Ataque con espada a distancia corta
-        Tablero tablero = Tablero.getTablero();
-        Jugador jugador1 = new Jugador();
-        Bando bando1 = new Bando(jugador1);
-        Jugador jugador2 = new Jugador();
-        Bando bando2 = new Bando(jugador2);
+        Jinete jineteAtacante = new Jinete(bandoAliado);
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
 
-        tablero.inicializarTablero(20, 20, jugador1, jugador2);
-        Casillero casillero1 = tablero.getCasilleroEnPosicion(new Coordenada(1, 1));
-        Jinete jineteAtacante = new Jinete(bando1);
-        jineteAtacante.colocarEnCasillero(casillero1);
-
-
-        Jinete jineteAtacado = new Jinete(bando2);
-
-        // Arrange  Ataque con arco y flecha a distancia media
-        Casillero casilleroDistanciaMedia = new Casillero(new Coordenada(5, 5), jugador2);
-        jineteAtacado.colocarEnCasillero(casilleroDistanciaMedia);
+        Jinete jineteAtacado = new Jinete(bandoEnemigo);
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5,5));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
+
         // Assert
         assertEquals(85, jineteAtacado.getVida());
-
     }
-    @Test
-    public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest()
-            throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
-            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion {
-        // Arrange
-        Jugador jugador1 = new Jugador();
-        Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
-        Casillero casillero2 = new Casillero(new Coordenada(2, 2), jugador1);
-        Curandero curanderoCurador = new Curandero(bando1);
-        Curandero curanderoCurado = new Curandero(bando1);
-        curanderoCurador.colocarEnCasillero(casillero1);
-        curanderoCurado.colocarEnCasillero(casillero2);
 
-        // Act
+    @Test
+    public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest() throws Exception {
+        // Arrange
+        Curandero curanderoCurador = new Curandero(bandoAliado);
+        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1,1));
+
+        Curandero curanderoCurado = new Curandero(bandoAliado);
+        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2,2));
+
         curanderoCurado.recibirDanio(30);
+        // Act
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
@@ -186,21 +136,13 @@ public class UnidadTest {
     }
 
     @Test
-    public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
-            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion {
+    public void catapultaAliadaAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest() throws Exception{
         // Arrange
-        Jugador jugador1 = new Jugador();
-        Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
-        Catapulta catapulta = new Catapulta(bando1);
-        catapulta.colocarEnCasillero(casillero1);
+        Catapulta catapulta = new Catapulta(bandoAliado);
+        tablero.posicionarUnidad(catapulta, new Coordenada(1,1));
 
-        Jugador jugador2 = new Jugador();
-        Bando bando2 = new Bando(jugador2);
-        Casillero casillero2 = new Casillero(new Coordenada(20, 20), jugador2);
-        Soldado soldadoAtacado = new Soldado(bando2);
-        soldadoAtacado.colocarEnCasillero(casillero2);
+        Soldado soldadoAtacado = new Soldado(bandoEnemigo);
+        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(19,19));
 
         // Act
         catapulta.atacar(soldadoAtacado);
@@ -208,6 +150,5 @@ public class UnidadTest {
         // Assert
         assertEquals(80, soldadoAtacado.getVida());
     }
-
 
 }
