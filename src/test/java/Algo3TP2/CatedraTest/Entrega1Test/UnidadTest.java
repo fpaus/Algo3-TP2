@@ -106,19 +106,23 @@ public class UnidadTest {
     }
 
     @Test
-    public void jineteAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrespondienteTest()
+    public void jineteAliadoAtacaPiezaEnemigaDistanciaCortaSeVerificaQueSeRestaVidaCorrespondienteTest()
             throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
-            CasilleroOcupadoExcepcion {
+            CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange Ataque con espada a distancia corta
+        Tablero tablero = Tablero.getTablero();
         Jugador jugador1 = new Jugador();
         Bando bando1 = new Bando(jugador1);
-        Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
+        Jugador jugador2 = new Jugador();
+        Bando bando2 = new Bando(jugador2);
+
+        tablero.inicializarTablero(20,20, jugador1, jugador2);
+        Casillero casillero1 = tablero.getCasilleroEnPosicion(new Coordenada(1, 1));
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
 
-        Jugador jugador2 = new Jugador();
-        Bando bando2 = new Bando(jugador2);
-        Casillero casilleroDistanciaCorta = new Casillero(new Coordenada(2, 2), jugador2);
+
+        Casillero casilleroDistanciaCorta =tablero.getCasilleroEnPosicion(new Coordenada(2, 2));
         Jinete jineteAtacado = new Jinete(bando2);
         jineteAtacado.colocarEnCasillero(casilleroDistanciaCorta);
 
@@ -127,6 +131,27 @@ public class UnidadTest {
         // Assert
         assertEquals(95, jineteAtacado.getVida());
 
+
+    }
+    @Test
+    public void jineteAliadoAtacaPiezaEnemigaDistanciaMediaSeVerificaQueSeRestaVidaCorrespondienteTest()
+            throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException,
+            CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        // Arrange Ataque con espada a distancia corta
+        Tablero tablero = Tablero.getTablero();
+        Jugador jugador1 = new Jugador();
+        Bando bando1 = new Bando(jugador1);
+        Jugador jugador2 = new Jugador();
+        Bando bando2 = new Bando(jugador2);
+
+        tablero.inicializarTablero(20, 20, jugador1, jugador2);
+        Casillero casillero1 = tablero.getCasilleroEnPosicion(new Coordenada(1, 1));
+        Jinete jineteAtacante = new Jinete(bando1);
+        jineteAtacante.colocarEnCasillero(casillero1);
+
+
+        Jinete jineteAtacado = new Jinete(bando2);
+
         // Arrange  Ataque con arco y flecha a distancia media
         Casillero casilleroDistanciaMedia = new Casillero(new Coordenada(5, 5), jugador2);
         jineteAtacado.colocarEnCasillero(casilleroDistanciaMedia);
@@ -134,9 +159,9 @@ public class UnidadTest {
         // Act
         jineteAtacante.atacar(jineteAtacado);
         // Assert
-        assertEquals(80, jineteAtacado.getVida());
-    }
+        assertEquals(85, jineteAtacado.getVida());
 
+    }
     @Test
     public void curanderoAliadoCuraPiezaAliadaSeVerificaQueSeSumaVidaCorrespondienteTest()
             throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
