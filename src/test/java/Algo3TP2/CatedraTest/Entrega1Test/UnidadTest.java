@@ -15,7 +15,7 @@ public class UnidadTest {
     Tablero tablero;
     Bando bandoAliado, bandoEnemigo;
 
-    @Before
+    @Before // Inicializo el tablero y los bandos Aliados/Enemigos
     public void before(){
         Jugador jugadorAliado = new Jugador();
         bandoAliado = new Bando(jugadorAliado);
@@ -24,7 +24,7 @@ public class UnidadTest {
         tablero = Tablero.getTablero();
         tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
     }
-    
+
     @Test
     public void unidadMovibleSePuedeMoverEnTodasDireccionesTest() throws Exception {
 

@@ -22,7 +22,7 @@ public class JineteTest {
     Tablero tablero;
     Bando bandoAliado, bandoEnemigo;
 
-    @Before
+    @Before // Inicializo el tablero y los bandos Aliados/Enemigos
     public void before(){
         Jugador jugadorAliado = new Jugador();
         bandoAliado = new Bando(jugadorAliado);
