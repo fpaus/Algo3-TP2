@@ -57,7 +57,9 @@ public class Tablero {
     public void posicionarUnidadAlInicioDelJuego(Unidad unidad, Coordenada coordenada)
             throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
         Casillero destino = this.getCasilleroEnPosicion(coordenada);
-        destino.setUnidadAlInicioDelJuego(unidad);
+        if(unidad.getBando().getDuenio() != destino.getBando().getDuenio()){
+            throw new CasilleroEnemigoExcepcion();
+        }
         unidad.colocarEnCasillero(destino);
     }
 }

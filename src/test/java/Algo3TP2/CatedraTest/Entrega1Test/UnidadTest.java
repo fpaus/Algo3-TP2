@@ -12,8 +12,8 @@ import org.junit.Test;
 
 public class UnidadTest {
 
-    Tablero tablero;
-    Bando bandoAliado, bandoEnemigo;
+    private Tablero tablero;
+    private Bando bandoAliado, bandoEnemigo;
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
     public void before(){

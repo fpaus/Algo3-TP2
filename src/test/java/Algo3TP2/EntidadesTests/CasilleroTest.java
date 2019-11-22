@@ -131,7 +131,7 @@ public class CasilleroTest {
         // Tras quitar la unidad, get unidad debe lanzar CasilleroVacioExcepcion
         casillero.getUnidad();
     }
-
+/*
     @Test
     public void casilleroSetUnidadAlInicioDelJuegoGetUnidadRetornaUnidadEnCuestion()
             throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion, CasilleroEnemigoExcepcion {
@@ -161,7 +161,7 @@ public class CasilleroTest {
         // Act Assert
         casillero.setUnidadAlInicioDelJuego(unidad);
     }
-
+*/
     @Test
     public void getTodasLosCasillerosVecinos() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange

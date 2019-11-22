@@ -17,8 +17,8 @@ import static org.junit.Assert.assertEquals;
 
 public class TableroTest {
 
-    Tablero tablero;
-    Bando bandoAliado, bandoEnemigo;
+    private Tablero tablero;
+    private Bando bandoAliado, bandoEnemigo;
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
     public void before(){
@@ -39,7 +39,7 @@ public class TableroTest {
 
 
 
-    @Test(expected = CasilleroOcupadoExcepcion.class)
+    @Test(expected = CasilleroEnemigoExcepcion.class)
     public void noSePuedeColocarUnaPiezaAliadaEnUnCasilleroDelSectorAliadoOcupadoTest() throws Exception {
         // Arrange
         Unidad unidadAliadaOcupante = new Soldado(bandoAliado);

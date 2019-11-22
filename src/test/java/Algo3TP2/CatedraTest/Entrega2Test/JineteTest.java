@@ -19,8 +19,8 @@ import static org.junit.Assert.assertEquals;
 
 public class JineteTest {
 
-    Tablero tablero;
-    Bando bandoAliado, bandoEnemigo;
+    private Tablero tablero;
+    private Bando bandoAliado, bandoEnemigo;
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
     public void before(){

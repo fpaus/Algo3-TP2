@@ -35,7 +35,7 @@ public class Casillero {
         estado.setUnidad(this, unidad);
     }
 
-    public void setUnidadAlInicioDelJuego(Unidad unidad) throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion {
+    private void setUnidadAlInicioDelJuego(Unidad unidad) throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion {
         if(unidad.getBando().getDuenio() != this.duenio.getDuenio()){
             throw new CasilleroEnemigoExcepcion();
         }
