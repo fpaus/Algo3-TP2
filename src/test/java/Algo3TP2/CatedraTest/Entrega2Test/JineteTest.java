@@ -12,11 +12,25 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.Distancia
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.Jinete;
 import Algo3TP2.Modelos.Unidades.Soldado;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class JineteTest {
+
+    Tablero tablero;
+    Bando bandoAliado, bandoEnemigo;
+
+    @Before
+    public void before(){
+        Jugador jugadorAliado = new Jugador();
+        bandoAliado = new Bando(jugadorAliado);
+        Jugador jugadorEnemigo = new Jugador();
+        bandoEnemigo = new Bando(jugadorEnemigo);
+        tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+    }
 
     @Test
     /*Un jinete sin aliados en distancia corta y un enemigo
@@ -25,21 +39,17 @@ public class JineteTest {
     public void jineteSinAliadosADistanciaCortaAtacaConEspada() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
             CasilleroOcupadoExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
         // Arrange
-        Tablero tablero = Tablero.getTablero();
-        Jugador jugadorAliado = new Jugador();
-        Bando bandoAliado = new Bando(jugadorAliado);
-        Jugador jugadorEnemigo = new Jugador();
-        Bando bandoEnemigo = new Bando(jugadorEnemigo);
-        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
 
         Jinete jinete = new Jinete(bandoAliado);
+
         Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(5,5));
         jinete.colocarEnCasillero(casillero);
+
         Soldado soladoEnemigo = new Soldado(bandoEnemigo);
+
         Casillero casilleroContiguo = tablero.getCasilleroEnPosicion(new Coordenada(5,6));
         soladoEnemigo.colocarEnCasillero(casilleroContiguo);
 
-        jinete.definirEstragegiaDeAtaque();
         // Act
         jinete.atacar(soladoEnemigo);
 
@@ -72,7 +82,6 @@ public class JineteTest {
         Casillero casilleroLejano = tablero.getCasilleroEnPosicion(new Coordenada(9,9));
         soladoEnemigoLejano.colocarEnCasillero(casilleroLejano);
 
-        jinete.definirEstragegiaDeAtaque();
         // Act Assert
         jinete.atacar(soladoEnemigoLejano);
     }

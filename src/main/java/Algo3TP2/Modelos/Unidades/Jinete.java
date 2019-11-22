@@ -26,19 +26,15 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
     @Override
     public void atacar(Unidad unidadVictima)
             throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
+        this.definirEstragegiaDeAtaque();
         estrategiaDeAtaque.atacar(this, unidadVictima);
     }
 
-    @Override
-    public void mover(Casillero casillero) {
-
-    }
-
-    public void setEstrategiaDeAtaque(EstrategiaDeAtaque estragia) {
+    private void setEstrategiaDeAtaque(EstrategiaDeAtaque estragia) {
         this.estrategiaDeAtaque = estragia;
     }
 
-    public void definirEstragegiaDeAtaque(){
+    private void definirEstragegiaDeAtaque(){
         ArrayList<Casillero> casilleros = this.casillero.getTodosLosCasillerosVecinos();
         for(Casillero casillero : casilleros){
             try{

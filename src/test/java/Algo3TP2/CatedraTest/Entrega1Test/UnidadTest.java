@@ -115,7 +115,6 @@ public class UnidadTest {
         Casillero casillero1 = new Casillero(new Coordenada(1, 1), jugador1);
         Jinete jineteAtacante = new Jinete(bando1);
         jineteAtacante.colocarEnCasillero(casillero1);
-        jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJineteConEspada());
 
         Jugador jugador2 = new Jugador();
         Bando bando2 = new Bando(jugador2);
@@ -131,7 +130,6 @@ public class UnidadTest {
         // Arrange  Ataque con arco y flecha a distancia media
         Casillero casilleroDistanciaMedia = new Casillero(new Coordenada(5, 5), jugador2);
         jineteAtacado.colocarEnCasillero(casilleroDistanciaMedia);
-        jineteAtacante.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
