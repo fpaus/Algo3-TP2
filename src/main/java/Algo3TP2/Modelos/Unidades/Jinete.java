@@ -26,21 +26,24 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
     @Override
     public void atacar(Unidad unidadVictima)
             throws UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
+        this.definirEstragegiaDeAtaque();
         estrategiaDeAtaque.atacar(this, unidadVictima);
     }
 
-    @Override
-    public void mover(Casillero casillero) {
-
-    }
-
-    public void setEstrategiaDeAtaque(EstrategiaDeAtaque estragia) {
+    private void setEstrategiaDeAtaque(EstrategiaDeAtaque estragia) {
         this.estrategiaDeAtaque = estragia;
     }
 
-    public void definirEstragegiaDeAtaque(){
+    private void definirEstragegiaDeAtaque(){
         ArrayList<Casillero> casilleros = this.casillero.getTodosLosCasillerosVecinos();
-        for(Casillero casillero : casilleros){
+        ArrayList<Casillero> casillerosDistanciaCercana = new ArrayList<Casillero>();
+        // Me hago con todos los casilleros a distancia cercana 2
+        for(Casillero casillero: casilleros){
+            casillerosDistanciaCercana.addAll(casillero.getTodosLosCasillerosVecinos());
+        }
+        // Busco si en los casilleros que se encuentran a distancia 2 hay alguna unidad enemiga,
+        // de ser asi seteo la estrategia de ataque en AtaqueDeJineteConEspada
+        for(Casillero casillero : casillerosDistanciaCercana){
             try{
                 Unidad unidadCercana = casillero.getUnidad();
                 if(this.duenio != unidadCercana.duenio){
@@ -51,4 +54,5 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
         }
         this.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
     }
+
 }
