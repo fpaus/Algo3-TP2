@@ -1,8 +1,10 @@
 package Algo3TP2.Modelos.Tablero;
 
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Unidades.UnidadMovible;
 
 import java.util.HashMap;
 
@@ -44,4 +46,9 @@ public class Tablero {
         return casillero;
     }
 
+    public void posicionarUnidad(UnidadMovible unidad, Coordenada coordenada)
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+        Casillero destino = getCasilleroEnPosicion(coordenada);
+        unidad.colocarEnCasillero(destino);
+    }
 }
