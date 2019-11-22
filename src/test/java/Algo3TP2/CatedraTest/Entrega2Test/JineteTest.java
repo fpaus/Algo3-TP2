@@ -36,8 +36,7 @@ public class JineteTest {
     /*Un jinete sin aliados en distancia corta y un enemigo
     en distancia corta, ataca con su espada al enemigo y se
     verifica que se realiza correctamente el ataque.*/
-    public void jineteSinAliadosADistanciaCortaAtacaConEspada() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
-            CasilleroOcupadoExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException {
+    public void jineteSinAliadosADistanciaCortaAtacaConEspada() throws Exception {
         // Arrange
         Jinete jinete = new Jinete(bandoAliado);
         tablero.posicionarUnidad(jinete, new Coordenada(5,5));
@@ -57,8 +56,7 @@ public class JineteTest {
     en distancia corta y otro enemigo en distancia media,
     trata de atacar al enemigo en distancia media y se
     verifica que no se puede realizar el ataque.*/
-    public void jineteSinAliadosADistanciaMediaNoPuedeAtacar() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
-            CasilleroOcupadoExcepcion, UnidadAtacadaEsAliadaExcepcion, UnidadInvalidaException, DistanciaDeAtaqueIncorrectaExcepcion {
+    public void jineteSinAliadosADistanciaMediaNoPuedeAtacar() throws Exception {
         // Arrange
         Jinete jinete = new Jinete(bandoAliado);
         tablero.posicionarUnidad(jinete, new Coordenada(5,5));
