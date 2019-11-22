@@ -36,14 +36,6 @@ public class JugadorTest {
 
     }
 
-    /*
-     * @Test//(expected = JugadorSinUnidadesException.class) public void
-     * elJugadorQueSeQuedaSinEntidadesEsElPerdedorTest(){ Tablero tablero = new
-     * Tablero(); // jugador se crea con 20 puntos Jugador jugador = new Jugador();
-     * Unidad unidad = new Catapulta(); jugador.colocarUnidadEnCasillero(unidad,
-     * tablero.getCasilleroEnPosicion(1,2)); unidad.morir();
-     * assertEqual(juego.siguienteTurno());}
-     */
     public void elJugadorQueSeQuedaSinEntidadesEsElPerdedorTest() throws PuntosInsuficientesExcepcion,
             CasilleroFueraDelLosLimitesDelTableroExcepcion, UnidadInvalidaException, CasilleroOcupadoExcepcion {
         Jugador jugador = new Jugador();
