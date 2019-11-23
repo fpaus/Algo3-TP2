@@ -17,13 +17,13 @@ public class SoldadoTest {
     private Bando bandoAliado, bandoEnemigo;
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
-    public void before(){
+    public void before() {
         Jugador jugadorAliado = new Jugador();
         bandoAliado = new Bando(jugadorAliado);
         Jugador jugadorEnemigo = new Jugador();
         bandoEnemigo = new Bando(jugadorEnemigo);
         tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
     }
 
     @Test
@@ -35,17 +35,17 @@ public class SoldadoTest {
         Soldado soldado1 = new Soldado(bandoAliado);
         Soldado soldado2 = new Soldado(bandoAliado);
         Soldado soldado3 = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
-        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
-        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
+        tablero.posicionarUnidad(soldado1, new Coordenada(2, 1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2, 3));
 
         // Act
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
     }
 
     @Test
@@ -58,34 +58,34 @@ public class SoldadoTest {
         Soldado soldado2 = new Soldado(bandoAliado);
         Soldado soldado3 = new Soldado(bandoAliado);
         Soldado soldadoObstaculo = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
-        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
-        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
-        tablero.posicionarUnidad(soldadoObstaculo, new Coordenada(3,3));
+        tablero.posicionarUnidad(soldado1, new Coordenada(2, 1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2, 3));
+        tablero.posicionarUnidad(soldadoObstaculo, new Coordenada(3, 3));
 
         // Act
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 3)));
     }
 
     @Test(expected = BatallonIncompletoExcepcion.class)
     /*(En la situación anterior) Se verifica que
     el Batallón se disuelve, al quedar separados
     los 3 soldados.*/
-    public void batallonObstaculizadoSeDisuelve() throws Exception{
+    public void batallonObstaculizadoSeDisuelve() throws Exception {
         // Arrange
         Soldado soldado1 = new Soldado(bandoAliado);
         Soldado soldado2 = new Soldado(bandoAliado);
         Soldado soldado3 = new Soldado(bandoAliado);
         Soldado soldadoObstaculo = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
-        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
-        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
-        tablero.posicionarUnidad(soldadoObstaculo, new Coordenada(3,3));
+        tablero.posicionarUnidad(soldado1, new Coordenada(2, 1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2, 3));
+        tablero.posicionarUnidad(soldadoObstaculo, new Coordenada(3, 3));
 
         // Act
         soldado1.moverComoBatallonHaciaLaDerecha();
@@ -105,19 +105,19 @@ public class SoldadoTest {
         Soldado soldado2 = new Soldado(bandoAliado);
         Soldado soldado3 = new Soldado(bandoAliado);
         Soldado soldado4 = new Soldado(bandoAliado);
-        soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,1)));
-        soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
-        soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
-        soldado4.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,4)));
+        soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 1)));
+        soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 2)));
+        soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 3)));
+        soldado4.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 4)));
 
         // Act
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,3)));
-        assertEquals(soldado4.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,4)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
+        assertEquals(soldado4.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 4)));
     }
 
     @Test
@@ -129,16 +129,16 @@ public class SoldadoTest {
         Soldado soldado1 = new Soldado(bandoAliado);
         Soldado soldado2 = new Soldado(bandoAliado);
         Soldado soldado3 = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
-        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
-        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
+        tablero.posicionarUnidad(soldado1, new Coordenada(2, 1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2, 3));
 
         // Act
         soldado1.moverComoBatallonHaciaAbajo();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
     }
 }

@@ -1,10 +1,12 @@
 package Algo3TP2.EntidadesTests;
 
+import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
+import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
-import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Unidades.Jinete;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Before;
@@ -19,13 +21,13 @@ public class JineteAtaqueTest {
     private Bando bandoAliado, bandoEnemigo;
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
-    public void before(){
+    public void before() {
         Jugador jugadorAliado = new Jugador();
         bandoAliado = new Bando(jugadorAliado);
         Jugador jugadorEnemigo = new Jugador();
         bandoEnemigo = new Bando(jugadorEnemigo);
         tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
     }
 
     @Test
@@ -77,10 +79,10 @@ public class JineteAtaqueTest {
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteEnemigoCausa15PuntosDeDanio() throws Exception {
         // Arrange
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5,5));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5, 5));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
@@ -93,10 +95,10 @@ public class JineteAtaqueTest {
     public void JineteAtacaConEstrategiaEspadaAJineteEnemigoCausa5PuntosDeDanio() throws Exception {
         // Arrange
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(2,2));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(2, 2));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
@@ -109,10 +111,10 @@ public class JineteAtaqueTest {
     public void JineteAtaca2VecesConEstrategiaEspadaAJineteEnemigoCausa10PuntosDeDanio() throws Exception {
         // Arrange
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(3,3));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(3, 3));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
@@ -126,10 +128,10 @@ public class JineteAtaqueTest {
     public void JineteAtaca2VecesConEstrategiaArcoYFlechaAJineteEnemigoCausa30PuntosDeDanio() throws Exception {
         // Arrange
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5,5));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5, 5));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
@@ -143,10 +145,10 @@ public class JineteAtaqueTest {
     public void JineteAtacaConEstrategiaEspadaAJineteAliadoLanzaExcepcion() throws Exception {
         // Arrange
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
 
         Jinete jineteAtacado = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(2,2));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(2, 2));
 
         // Act Assert
         jineteAtacante.atacar(jineteAtacado);
@@ -156,10 +158,10 @@ public class JineteAtaqueTest {
     public void JineteAtacaConEstrategiaArcoYFlechaAJineteAliadoLanzaExcepcion() throws Exception {
         // Arrange
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
 
         Jinete jineteAtacado = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5,5));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5, 5));
 
         // Act Assert
         jineteAtacante.atacar(jineteAtacado);
@@ -170,10 +172,10 @@ public class JineteAtaqueTest {
     public void JineteAtacaEnemigoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion() throws Exception {
         // Arrange
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(19,19));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(19, 19));
 
         // Act Assert
         jineteAtacante.atacar(jineteAtacado);

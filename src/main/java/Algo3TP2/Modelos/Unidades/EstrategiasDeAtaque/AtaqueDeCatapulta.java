@@ -2,8 +2,8 @@ package Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.UnidadInvalidaException;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Properties;
@@ -20,9 +20,9 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
     @Override
     public void atacar(Unidad unidadAtacante, Unidad unidadVictima)
             throws DistanciaDeAtaqueIncorrectaExcepcion, UnidadInvalidaException {
-        try{
+        try {
             this.validarAtaque(unidadAtacante, unidadVictima);
-        } catch (UnidadAtacadaEsAliadaExcepcion ex){
+        } catch (UnidadAtacadaEsAliadaExcepcion ex) {
             // Permito el ataque, ya que una catapulta puede atacar aliados
         }
 
@@ -42,14 +42,14 @@ public class AtaqueDeCatapulta extends DistanciaLarga {
                 unidades_visitadas.add(unidad);
                 ArrayList<Casillero> casillerosVecinos = unidad.getCasillero().getTodosLosCasillerosVecinos();
                 for (Casillero casillero : casillerosVecinos) {
-                    try{
+                    try {
                         q.add(casillero.getUnidad());
+                    } catch (CasilleroVacioExcepcion e) {
                     }
-                    catch (CasilleroVacioExcepcion e) {}
                 }
             }
         }
-        for(Unidad unidad : unidades_visitadas) {
+        for (Unidad unidad : unidades_visitadas) {
             unidad.recibirDanio(Properties.danioCatapultaDistancia);
         }
     }

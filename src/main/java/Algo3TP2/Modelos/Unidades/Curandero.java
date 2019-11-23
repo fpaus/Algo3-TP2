@@ -37,7 +37,7 @@ public class Curandero extends UnidadMovible {
     }
 
     public void curar(UnidadMovible unidadACurar)
-            throws  AliadoConSaludCompletaNoSePuedeCurarExcepcion,
+            throws AliadoConSaludCompletaNoSePuedeCurarExcepcion,
             DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
         this.validarCuracion(unidadACurar);
         unidadACurar.recibirCuracion(Properties.curacionCurandero);

@@ -1,9 +1,9 @@
 package Algo3TP2.Modelos.Unidades;
 
 import Algo3TP2.Modelos.Bando;
-import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.UnidadInvalidaException;
 
 public abstract class Unidad {
 
@@ -33,7 +33,7 @@ public abstract class Unidad {
 
     public void recibirDanio(int danio) throws UnidadInvalidaException {
         vida.recibirDanio(danio);
-        if(vida.getPuntosDeVida() == 0){
+        if (vida.getPuntosDeVida() == 0) {
             bando.matarUnidad(this);
         }
     }
@@ -42,15 +42,15 @@ public abstract class Unidad {
         return this.vida.getPuntosDeVida();
     }
 
-    public int getVidaMaxima(){
+    public int getVidaMaxima() {
         return this.vida.getPuntosVidaMaxima();
     }
 
-	public void morir() {
+    public void morir() {
         this.estaViva = false;
     }
-    
-    public boolean estaViva(){
+
+    public boolean estaViva() {
         return this.estaViva;
     }
 

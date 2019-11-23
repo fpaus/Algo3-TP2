@@ -1,16 +1,17 @@
 package Algo3TP2.Modelos.Casillero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
+
+import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
-
-import java.util.ArrayList;
-
-import Algo3TP2.Modelos.Bando;
-import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
+
+import java.util.ArrayList;
 
 public class Casillero {
 
@@ -40,11 +41,11 @@ public class Casillero {
         estado.quitarUnidad(this);
     }
 
-    public Bando getBando(){
+    public Bando getBando() {
         return this.bando;
     }
 
-    public Coordenada getCoordenada(){
+    public Coordenada getCoordenada() {
         return this.coordenada;
     }
 
@@ -62,10 +63,11 @@ public class Casillero {
 
     public ArrayList<Casillero> getTodosLosCasillerosVecinos() {
         ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
-        for(Coordenada coordenada : this.coordenada.getTodasLasCoordenadasVecinas()){
-            try{
+        for (Coordenada coordenada : this.coordenada.getTodasLasCoordenadasVecinas()) {
+            try {
                 casilleros.add(Tablero.getTablero().getCasilleroEnPosicion(coordenada));
-            } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion e) {}
+            } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion e) {
+            }
         }
         return casilleros;
     }

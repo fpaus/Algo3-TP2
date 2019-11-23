@@ -4,12 +4,12 @@ public class Distancia implements Comparable {
 
     private int valor;
 
-	public Distancia(int distancia) {
+    public Distancia(int distancia) {
         this.valor = distancia;
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         Distancia other = (Distancia) o;
 
         return this.valor == other.valor;
@@ -23,7 +23,7 @@ public class Distancia implements Comparable {
         return Math.abs(this.valor - other.valor);
     }
 
-    public int getValor(){
-	    return this.valor;
+    public int getValor() {
+        return this.valor;
     }
 }

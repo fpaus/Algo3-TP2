@@ -11,7 +11,8 @@ public class Puntos {
         }
         return unidad;
     }
-    public boolean quedanPuntos(){
+
+    public boolean quedanPuntos() {
         return puntosDisponibles != 0;
     }
 }
