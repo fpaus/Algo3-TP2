@@ -128,7 +128,7 @@ public class CasilleroTest {
         Tablero tablero = Tablero.getTablero();
         tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
         int posicionX = 2, posicionY = 2;
-        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(posicionX, posicionY));
+        Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(posicionX, posicionY));
 
         // Act
         ArrayList<Casillero> casillerosVecinos = casillero.getTodosLosCasillerosVecinos();
@@ -138,7 +138,7 @@ public class CasilleroTest {
         for (int i = posicionX - 1; i <= posicionX + 1; i++) {
             for (int j = posicionY - 1; j <= posicionY + 1; j++) {
                 if (!(posicionX == i && posicionY == j)) {
-                    assertEquals(tablero.getCasilleroEnPosicion(new Coordenada(i, j)), iter.next());
+                    assertEquals(tablero.getCasilleroEnCoordenada(new Coordenada(i, j)), iter.next());
                 }
             }
         }

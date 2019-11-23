@@ -39,7 +39,7 @@ public class Tablero {
         return tablero;
     }
 
-    public Casillero getCasilleroEnPosicion(Coordenada coordenada) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    public Casillero getCasilleroEnCoordenada(Coordenada coordenada) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         Casillero casillero = casilleros.get(coordenada);
         if (casillero == null) {
             throw new CasilleroFueraDelLosLimitesDelTableroExcepcion();
@@ -49,14 +49,14 @@ public class Tablero {
 
     public void posicionarUnidad(Unidad unidad, Coordenada coordenada)
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
-        Casillero destino = this.getCasilleroEnPosicion(coordenada);
+        Casillero destino = this.getCasilleroEnCoordenada(coordenada);
         unidad.colocarEnCasillero(destino);
     }
 
 
     public void posicionarUnidadAlInicioDelJuego(Unidad unidad, Coordenada coordenada)
             throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        Casillero destino = this.getCasilleroEnPosicion(coordenada);
+        Casillero destino = this.getCasilleroEnCoordenada(coordenada);
         if (!destino.getBando().equals(unidad.getBando())) {
             throw new CasilleroEnemigoExcepcion();
         }

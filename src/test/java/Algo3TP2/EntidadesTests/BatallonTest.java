@@ -40,9 +40,9 @@ public class BatallonTest {
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 3)));
     }
 
     @Test(expected = BatallonIncompletoExcepcion.class)

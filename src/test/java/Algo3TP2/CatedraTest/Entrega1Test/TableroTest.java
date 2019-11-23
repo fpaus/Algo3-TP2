@@ -69,7 +69,7 @@ public class TableroTest {
         tablero.posicionarUnidadAlInicioDelJuego(unidadAliada, new Coordenada(5, 5));
 
         // Assert
-        assertEquals(unidadAliada, tablero.getCasilleroEnPosicion(new Coordenada(5, 5)).getUnidad());
+        assertEquals(unidadAliada, tablero.getCasilleroEnCoordenada(new Coordenada(5, 5)).getUnidad());
     }
 
     @Test
@@ -83,7 +83,7 @@ public class TableroTest {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 try {
-                    Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
+                    Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(i, j));
                     assert (true);
                 } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
                     assert (false);
@@ -102,7 +102,7 @@ public class TableroTest {
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
+                Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(i, j));
                 try {
                     Unidad unidad = casillero.getUnidad();
                     assert (false);
@@ -125,7 +125,7 @@ public class TableroTest {
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
+                Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(i, j));
                 if (j < y / 2) {
                     assertEquals(jugador1, casillero.getBando().getDuenio());
                 } else {

@@ -43,9 +43,9 @@ public class SoldadoTest {
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 3)));
     }
 
     @Test
@@ -67,9 +67,9 @@ public class SoldadoTest {
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 3)));
     }
 
     @Test(expected = BatallonIncompletoExcepcion.class)
@@ -105,19 +105,19 @@ public class SoldadoTest {
         Soldado soldado2 = new Soldado(bandoAliado);
         Soldado soldado3 = new Soldado(bandoAliado);
         Soldado soldado4 = new Soldado(bandoAliado);
-        soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 1)));
-        soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 2)));
-        soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 3)));
-        soldado4.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2, 4)));
+        soldado1.colocarEnCasillero(tablero.getCasilleroEnCoordenada(new Coordenada(2, 1)));
+        soldado2.colocarEnCasillero(tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
+        soldado3.colocarEnCasillero(tablero.getCasilleroEnCoordenada(new Coordenada(2, 3)));
+        soldado4.colocarEnCasillero(tablero.getCasilleroEnCoordenada(new Coordenada(2, 4)));
 
         // Act
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
-        assertEquals(soldado4.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 4)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 3)));
+        assertEquals(soldado4.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 4)));
     }
 
     @Test
@@ -137,8 +137,8 @@ public class SoldadoTest {
         soldado1.moverComoBatallonHaciaAbajo();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 3)));
     }
 }
