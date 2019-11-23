@@ -42,7 +42,9 @@ public class CoordenadaTest {
         Iterator<Coordenada> iter = coordenadasVecinas.iterator();
         for(int i = posicionX - 1; i <= posicionX + 1; i++) {
             for (int j = posicionY - 1; j <= posicionY + 1; j++) {
-                assertEquals(new Coordenada(i,j), iter.next());
+                if(!(posicionX == i && posicionY == j)) {
+                    assertEquals(new Coordenada(i, j), iter.next());
+                }
             }
         }
     }
