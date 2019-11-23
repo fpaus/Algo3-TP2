@@ -22,15 +22,14 @@ public class UnidadMovibleMovimientosTest {
             throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
-        Bando bando = new Bando(jugador);
         Casillero casillero = new Casillero(new Coordenada(1,1),jugador);
         Casillero casilleroContiguoOcupado = new Casillero(new Coordenada(2,1),jugador);
-        Unidad unidadOcupante = new Soldado(bando);
-        casilleroContiguoOcupado.setUnidad(unidadOcupante);
 
-        UnidadMovible soldado = new Soldado(bando);
+        Unidad unidadOcupante = new Soldado(new Bando(jugador));
+        unidadOcupante.colocarEnCasillero(casilleroContiguoOcupado);
+
+        UnidadMovible soldado = new Soldado(new Bando(jugador));
         soldado.colocarEnCasillero(casillero);
-        casillero.setUnidad(soldado);
 
         // Act
         soldado.mover(casilleroContiguoOcupado);
