@@ -2,8 +2,6 @@ package Algo3TP2.Modelos.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
-import Algo3TP2.Modelos.Tablero.Direccion.Fija;
-import Algo3TP2.Modelos.Tablero.Direccion.Izquierda;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 
@@ -17,13 +15,12 @@ import Algo3TP2.Modelos.Unidades.UnidadMovible;
 public class Casillero {
 
     private Coordenada coordenada;
-    private Unidad unidadEnCasillero;
-    private Bando duenio;
+    private Bando bando;
     private CasilleroEstado estado; //Patron de diseño State
 
     public Casillero(Coordenada coordenada, Jugador jugador) {
         this.coordenada = coordenada;
-        this.duenio = new Bando(jugador);
+        this.bando = new Bando(jugador);
         estado = new CasilleroVacio();
     }
 
@@ -32,13 +29,6 @@ public class Casillero {
     }
 
     public void setUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
-        estado.setUnidad(this, unidad);
-    }
-
-    private void setUnidadAlInicioDelJuego(Unidad unidad) throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion {
-        if(unidad.getBando().getDuenio() != this.duenio.getDuenio()){
-            throw new CasilleroEnemigoExcepcion();
-        }
         estado.setUnidad(this, unidad);
     }
 
@@ -51,7 +41,7 @@ public class Casillero {
     }
 
     public Bando getBando(){
-        return this.duenio;
+        return this.bando;
     }
 
     public Coordenada getCoordenada(){

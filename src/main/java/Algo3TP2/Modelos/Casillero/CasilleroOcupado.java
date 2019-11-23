@@ -16,7 +16,7 @@ public class CasilleroOcupado implements CasilleroEstado {
     }
 
     @Override
-    public Unidad getUnidad() throws CasilleroVacioExcepcion {
+    public Unidad getUnidad() {
         return this.unidadEnCasillero;
     }
 

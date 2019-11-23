@@ -14,7 +14,13 @@ public class Bando {
         return duenio;
     }
 
-	public void matarUnidad(Unidad unidad) throws UnidadInvalidaException {
+    public void matarUnidad(Unidad unidad) throws UnidadInvalidaException {
         this.duenio.matarUnidad(unidad);
-	}
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Bando other = (Bando) obj;
+        return (this.duenio == other.duenio);
+    }
 }
