@@ -1,118 +1,144 @@
 package Algo3TP2.CatedraTest.Entrega2Test;
 
 import Algo3TP2.Modelos.Bando;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Modelos.Unidades.Batallon.BatallonCompletoExcepcion;
-import Algo3TP2.Modelos.Unidades.Batallon.BatallonIncompletoExcepcion;
-import Algo3TP2.Modelos.Unidades.Batallon.ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
 import Algo3TP2.Modelos.Unidades.Soldado;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class SoldadoTest {
 
+    private Tablero tablero;
+    private Bando bandoAliado, bandoEnemigo;
+
+    @Before // Inicializo el tablero y los bandos Aliados/Enemigos
+    public void before(){
+        Jugador jugadorAliado = new Jugador();
+        bandoAliado = new Bando(jugadorAliado);
+        Jugador jugadorEnemigo = new Jugador();
+        bandoEnemigo = new Bando(jugadorEnemigo);
+        tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+    }
+
     @Test
     /*se verifica que 3 soldados contiguos pueden moverse al mismo
     tiempo en la misma dirección con una sola acción.
     */
-    public void tresSoldadosContiguosPuedenMoverseEnUnaSolaAccion()
-            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, BatallonCompletoExcepcion,
-            ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion, MovimientoNoContiguoExcepcion, CasilleroVacioExcepcion {
+    public void tresSoldadosContiguosPuedenMoverseEnUnaSolaAccion() throws Exception {
         // Arrange
-        Jugador jugador = new Jugador();
-        Bando bando = new Bando(jugador);
-        Soldado soldado1 = new Soldado(bando);
-        Soldado soldado2 = new Soldado(bando);
-        Soldado soldado3 = new Soldado(bando);
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugador, new Jugador());
-        soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,1)));
-        soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
-        soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
+        Soldado soldado1 = new Soldado(bandoAliado);
+        Soldado soldado2 = new Soldado(bandoAliado);
+        Soldado soldado3 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
 
         // Act
-        soldado1.conformarBatallonCon(soldado2);
-        soldado1.conformarBatallonCon(soldado3);
-        soldado1.moverHaciaAbajo();
+        soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,0)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,3)));
     }
+
     @Test
     /*Teniendo 3 soldados contiguos, y un obstáculo (una entidad distinta
     a los otros dos soldados) obstruyendo a uno de los 3, se verifica que
     al mover el Batallón, se mueven 2 soldados y uno se queda quieto.*/
-    public void tresSoldadosContiguosSeMuevenPeroUnoQuedaObstaculizado()
-            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, BatallonCompletoExcepcion,
-            BatallonIncompletoExcepcion, ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion {
+    public void tresSoldadosContiguosSeMuevenPeroUnoQuedaObstaculizado() throws Exception {
         // Arrange
-        Jugador jugador = new Jugador();
-        Bando bando = new Bando(jugador);
-        Soldado soldado1 = new Soldado(bando);
-        Soldado soldado2 = new Soldado(bando);
-        Soldado soldado3 = new Soldado(bando);
-        Soldado soldadoObstaculo = new Soldado(bando);
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugador, new Jugador());
-        soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(1,1)));
-        soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(1,2)));
-        soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(1,3)));
-        soldadoObstaculo.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,1)));
+        Soldado soldado1 = new Soldado(bandoAliado);
+        Soldado soldado2 = new Soldado(bandoAliado);
+        Soldado soldado3 = new Soldado(bandoAliado);
+        Soldado soldadoObstaculo = new Soldado(bandoEnemigo);
+        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
+        tablero.posicionarUnidad(soldadoObstaculo, new Coordenada(3,3));
 
         // Act
-        soldado1.conformarBatallonCon(soldado2);
-        soldado1.conformarBatallonCon(soldado3);
-        soldado1.moverBatallonHaciaLaDerecha();
+        soldado1.moverComoBatallonHaciaLaDerecha();
 
-        // Arrange
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(1,1)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
+        // Assert
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
         assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
     }
 
-    @Test
+    @Test(expected = BatallonIncompletoExcepcion.class)
     /*(En la situación anterior) Se verifica que
     el Batallón se disuelve, al quedar separados
     los 3 soldados.*/
-    public void batallonObstaculizadoSeDisuelve(){
+    public void batallonObstaculizadoSeDisuelve() throws Exception{
+        // Arrange
+        Soldado soldado1 = new Soldado(bandoAliado);
+        Soldado soldado2 = new Soldado(bandoAliado);
+        Soldado soldado3 = new Soldado(bandoAliado);
+        Soldado soldadoObstaculo = new Soldado(bandoEnemigo);
+        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
+        tablero.posicionarUnidad(soldadoObstaculo, new Coordenada(3,3));
 
+        // Act
+        soldado1.moverComoBatallonHaciaLaDerecha();
+        // Aun se encuentra a distancia 1 como para continuar siendo parte del batallon
+        soldado1.moverComoBatallonHaciaLaDerecha();
+
+        // Assert
+        soldado1.moverComoBatallonHaciaLaDerecha();
     }
 
-    @Test(expected = BatallonCompletoExcepcion.class)
+    @Test
     /*habiendo 4 soldados contiguos, se verifica que al
     mover un Batallón se mueven únicamente 3.*/
-    public void batallonMueveSoloTresSoldadosYNoCuatro()
-            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, BatallonCompletoExcepcion,
-                 ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion {
-            // Arrange
-            Jugador jugador = new Jugador();
-            Bando bando = new Bando(jugador);
-            Soldado soldado1 = new Soldado(bando);
-            Soldado soldado2 = new Soldado(bando);
-            Soldado soldado3 = new Soldado(bando);
-            Soldado soldado4 = new Soldado(bando);
-            Tablero tablero = Tablero.getTablero();
-            tablero.inicializarTablero(20, 20, jugador, new Jugador());
-            soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,1)));
-            soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
-            soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
-            soldado4.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,4)));
+    public void batallonMueveSoloTresSoldadosYNoCuatro() throws Exception {
+        // Arrange
+        Soldado soldado1 = new Soldado(bandoAliado);
+        Soldado soldado2 = new Soldado(bandoAliado);
+        Soldado soldado3 = new Soldado(bandoAliado);
+        Soldado soldado4 = new Soldado(bandoAliado);
+        soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,1)));
+        soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
+        soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
+        soldado4.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,4)));
 
-            // Act
-            soldado1.conformarBatallonCon(soldado2);
-            soldado1.conformarBatallonCon(soldado3);
+        // Act
+        soldado1.moverComoBatallonHaciaLaDerecha();
 
-            // Assert
-            soldado1.conformarBatallonCon(soldado4);
+        // Assert
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,3)));
+        assertEquals(soldado4.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,4)));
     }
 
+    @Test
+    /*se verifica que 3 soldados contiguos pueden moverse al mismo
+    tiempo en la misma dirección con una sola acción.
+    */
+    public void tresSoldadosContiguosNoSeObtaculizanEntreEllos() throws Exception {
+        // Arrange
+        Soldado soldado1 = new Soldado(bandoAliado);
+        Soldado soldado2 = new Soldado(bandoAliado);
+        Soldado soldado3 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
+        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
+        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
+
+        // Act
+        soldado1.moverComoBatallonHaciaAbajo();
+
+        // Assert
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,3)));
+    }
 }

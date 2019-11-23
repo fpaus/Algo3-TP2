@@ -1,20 +1,11 @@
 package Algo3TP2.EntidadesTests;
 
-import Algo3TP2.Modelos.Casillero.Casillero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Modelos.Tablero.Direccion.*;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Modelos.Unidades.Batallon.Batallon;
-import Algo3TP2.Modelos.Unidades.Batallon.BatallonCompletoExcepcion;
-import Algo3TP2.Modelos.Unidades.Batallon.BatallonIncompletoExcepcion;
-import Algo3TP2.Modelos.Unidades.Batallon.ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.*;
+import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
 import Algo3TP2.Modelos.Unidades.Soldado;
-import Algo3TP2.Modelos.Unidades.Unidad;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -22,28 +13,56 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class BatallonTest {
+
+    private Tablero tablero;
+    private Bando bandoAliado, bandoEnemigo;
+
+    @Before // Inicializo el tablero y los bandos Aliados/Enemigos
+    public void before(){
+        Jugador jugadorAliado = new Jugador();
+        bandoAliado = new Bando(jugadorAliado);
+        Jugador jugadorEnemigo = new Jugador();
+        bandoEnemigo = new Bando(jugadorEnemigo);
+        tablero = Tablero.getTablero();
+        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+    }
+
     @Test
-    public void tresSoldadosSePuedenMoverComoBatallonTest()
-            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, BatallonCompletoExcepcion,
-            BatallonIncompletoExcepcion, ElSoldadoNoSeEncuentraContiguoAlBatallonExcepcion {
-        Jugador jugador = new Jugador();
-        Bando bando = new Bando(jugador);
-        Soldado soldado1 = new Soldado(bando);
-        Soldado soldado2 = new Soldado(bando);
-        Soldado soldado3 = new Soldado(bando);
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugador, new Jugador());
-        soldado1.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,1)));
-        soldado2.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
-        soldado3.colocarEnCasillero(tablero.getCasilleroEnPosicion(new Coordenada(2,3)));
+    public void tresSoldadosSePuedenMoverComoBatallonTest() throws Exception{
+        // Arrange
+        Soldado soldado1 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
+        Soldado soldado2 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
+        Soldado soldado3 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado3, new Coordenada(2,3));
 
-        soldado1.conformarBatallonCon(soldado2);
-        soldado1.conformarBatallonCon(soldado3);
-        soldado1.moverBatallonHaciaAbajo();
-        
+        // Act
+        soldado1.moverComoBatallonHaciaLaDerecha();
 
-        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,0)));
-        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,1)));
-        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2,2)));
+        // Assert
+        assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,1)));
+        assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,2)));
+        assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3,3)));
+    }
+
+    @Test(expected = BatallonIncompletoExcepcion.class)
+    public void dosSoldadosSePuedenMoverComoBatallonTest() throws Exception{
+        Soldado soldado1 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
+        Soldado soldado2 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado2, new Coordenada(2,2));
+
+        // Assert
+        soldado1.moverComoBatallonHaciaLaDerecha();
+    }
+
+    @Test(expected = BatallonIncompletoExcepcion.class)
+    public void unSoldadosSePuedenMoverComoBatallonTest() throws Exception{
+        Soldado soldado1 = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado1, new Coordenada(2,1));
+
+        // Assert
+        soldado1.moverComoBatallonHaciaLaDerecha();
     }
 }
