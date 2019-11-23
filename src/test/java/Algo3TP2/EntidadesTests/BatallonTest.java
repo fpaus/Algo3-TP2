@@ -65,28 +65,4 @@ public class BatallonTest {
         // Assert
         soldado1.moverComoBatallonHaciaLaDerecha();
     }
-
-/*
-    @Test
-    public void reunirBatallonMetodoTest() throws Exception{
-        Soldado soldado = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldado, new Coordenada(5,5));
-
-        Soldado soldado1 = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldado1, new Coordenada(5,6));
-
-        Soldado soldado2 = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldado2, new Coordenada(5,7));
-
-        ArrayList<Soldado> soldadoDelBatallon = soldado.reunirBatallon();
-        Iterator<Soldado> iter = soldadoDelBatallon.iterator();
-        Soldado integrante1 = iter.next();
-        Soldado integrante2 = iter.next();
-        Soldado integrante3 = iter.next();
-        assertTrue((soldado1 == integrante1) || ( soldado1 == integrante2) || (soldado1 == integrante3));
-        assertTrue((soldado2 == integrante1) || ( soldado2 == integrante2) || (soldado2 == integrante3));
-        assertTrue((soldado == integrante1) || ( soldado == integrante2) || (soldado == integrante3));
-    }
-
- */
 }
