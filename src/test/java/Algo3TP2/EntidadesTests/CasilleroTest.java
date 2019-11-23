@@ -134,7 +134,9 @@ public class CasilleroTest {
         Iterator<Casillero> iter = casillerosVecinos.iterator();
         for(int i = posicionX - 1; i <= posicionX + 1; i++) {
             for (int j = posicionY - 1; j <= posicionY + 1; j++) {
-                assertEquals(tablero.getCasilleroEnPosicion(new Coordenada(i,j)), iter.next());
+                if(!(posicionX == i && posicionY == j)) {
+                    assertEquals(tablero.getCasilleroEnPosicion(new Coordenada(i, j)), iter.next());
+                }
             }
         }
     }
