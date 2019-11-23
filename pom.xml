@@ -28,7 +28,7 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>13</version>
+      <version>11</version>
     </dependency>
   </dependencies>
   <build>
@@ -86,13 +86,13 @@
           </configuration>
         </plugin>
         <plugin>
-              <groupId>org.openjfx</groupId>
-              <artifactId>javafx-maven-plugin</artifactId>
-              <version>0.0.3</version>
-              <configuration>
-                  <mainClass>main.java.com.fiuba.algo3.vista.Main </mainClass>
-              </configuration>
-          </plugin>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-maven-plugin</artifactId>
+          <version>0.0.3</version>
+          <configuration>
+            <mainClass>main.java.com.Algo3TP2.main </mainClass>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
