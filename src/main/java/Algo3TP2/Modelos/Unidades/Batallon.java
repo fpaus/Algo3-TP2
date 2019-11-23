@@ -15,14 +15,16 @@ public class Batallon {
 
     protected void moverComoBatallon(Soldado soldado, Direccion vertical, Direccion horizontal) throws BatallonIncompletoExcepcion {
         ArrayList<Soldado> soldadosParaBatallon = reunirBatallon(soldado);
-        soldadosParaBatallon.forEach(soldadoParaBatallon -> {
+        Iterator<Soldado> soldadosIter = soldadosParaBatallon.iterator();
+        for (int i=0; i<3; i++) {
+            Soldado soldadoIterActual = soldadosIter.next();
             try {
-                Casillero casilleroDestino = soldadoParaBatallon.getCasillero().getCasilleroVecino(vertical, horizontal);
+                Casillero casilleroDestino = soldadoIterActual.getCasillero().getCasilleroVecino(vertical, horizontal);
                 try {
-                    soldadoParaBatallon.mover(casilleroDestino);
+                    soldadoIterActual.mover(casilleroDestino);
                 } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion | MovimientoNoContiguoExcepcion ex) {}
             } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {}
-        });
+        }
     }
 
     protected ArrayList<Soldado> reunirBatallon(Soldado soldado) throws BatallonIncompletoExcepcion {
@@ -37,12 +39,12 @@ public class Batallon {
             // Busco Soldados Aliados vecinos al soldado vecino ya agregado.
             Iterator<Soldado> soldadosParaBatallonIter = soldadosParaBatallon.iterator();
             ArrayList<Soldado> soldados = soldadosParaBatallonIter.next().reunirBatallonConVecino();
-            soldados.forEach(soldadoCandidato -> {
+            for (Soldado soldadoCandidato : soldados) {
                 // Si el soldado vecino no se encuentra ya en el batallon, lo añado
-                if(!soldadosParaBatallon.contains(soldadoCandidato)){
+                if (!soldadosParaBatallon.contains(soldadoCandidato)) {
                     soldadosParaBatallon.add(soldadoCandidato);
                 }
-            });
+            }
         }
 
         if(soldadosParaBatallon.size() < 3){

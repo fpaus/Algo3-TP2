@@ -10,6 +10,7 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 
 import java.util.ArrayList;
 
+import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
 import Algo3TP2.Properties;
 
 public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
