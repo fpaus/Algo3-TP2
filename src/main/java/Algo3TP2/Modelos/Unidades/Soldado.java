@@ -12,6 +12,7 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeSoldado;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import Algo3TP2.Properties;
 
@@ -42,10 +43,6 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         batallon.anadirSoldadoABatallon(soldado1);
     }
 
-    public void moverBatallon(Direccion vertical, Direccion horizontal) throws BatallonIncompletoExcepcion {
-        batallon.moverBatallon(vertical, horizontal);
-    }
-
     public void desintegrarBatallon() throws BatallonIncompletoExcepcion {
         batallon.desintegrar();
     }
@@ -54,35 +51,75 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         this.batallon = batallon;
     }
 
-    public void moverBatallonHaciaArriba() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Fija(), new Arriba());
+    private void moverComoBatallon(Direccion vertical, Direccion horizontal) throws BatallonIncompletoExcepcion {
+        batallon.moverBatallon(vertical, horizontal);
     }
 
-    public void moverBatallonHaciaAbajo() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Fija(), new Abajo());
+    public ArrayList<Soldado> reunirBatallon(){
+        ArrayList<Soldado> soldadosParaBatallon = this.reunirBatallonConVecino();
+        soldadosParaBatallon.add(this);
+        if(soldadosParaBatallon.size() == 3){
+            return soldadosParaBatallon;
+        }
+        if(soldadosParaBatallon.size() > 1 && soldadosParaBatallon.size() < 3){
+            Iterator<Soldado> soldados = soldadosParaBatallon.iterator();
+            ArrayList<Soldado> soldados1 = soldados.next().reunirBatallonConVecino();
+            soldados1.forEach(soldado -> {
+                if(!soldadosParaBatallon.contains(soldado)){
+                    soldadosParaBatallon.add(soldado);
+                }
+            });
+        }
+        return soldadosParaBatallon;
     }
 
-    public void moverBatallonHaciaLaDerecha() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Derecha(), new Fija());
+    protected ArrayList<Soldado> reunirBatallonConVecino(){
+        ArrayList<Soldado> soldadosParaBatallon = new ArrayList<Soldado>();
+        ArrayList<Casillero> casillerosVecinos = this.casillero.getTodosLosCasillerosVecinos();
+        casillerosVecinos.forEach(casillero -> {
+            try {
+                Unidad unidad = casillero.getUnidad();
+                if (unidad.getBando().getDuenio() == this.duenio.getDuenio()){
+                    if(unidad.getClass() == Soldado.class){
+                        if(!soldadosParaBatallon.contains((Soldado) unidad)){
+                            soldadosParaBatallon.add((Soldado) unidad);
+                        }
+                    }
+                }
+            }catch (CasilleroVacioExcepcion ex) {}
+        });
+        return soldadosParaBatallon;
     }
 
-    public void moverBatallonHaciaLaIzquierda() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Izquierda(), new Fija());
+    public void moverComomBatallonHaciaArriba() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Fija(), new Arriba());
     }
 
-    public void moverBatallonHaciaLaIzquierdaAbajo() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Izquierda(), new Abajo());
+    public void moverComoBatallonHaciaAbajo() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Fija(), new Abajo());
     }
 
-    public void moverBatallonHaciaLaIzquierdaArriba() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Izquierda(), new Arriba());
+    public void moverComoBatallonHaciaLaDerecha() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Derecha(), new Fija());
     }
 
-    public void moverBatallonHaciaLaDerechaAbajo() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Derecha(), new Abajo());
+    public void moverComoBatallonHaciaLaIzquierda() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Izquierda(), new Fija());
     }
 
-    public void moverBatallonHaciaLaDerechaArriba() throws BatallonIncompletoExcepcion {
-        this.batallon.moverBatallon(new Derecha(), new Arriba());
+    public void moverComoBatallonHaciaLaIzquierdaAbajo() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Izquierda(), new Abajo());
+    }
+
+    public void moverComoBatallonHaciaLaIzquierdaArriba() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Izquierda(), new Arriba());
+    }
+
+    public void moverComoBatallonHaciaLaDerechaAbajo() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Derecha(), new Abajo());
+    }
+
+    public void moverComoBatallonHaciaLaDerechaArriba() throws BatallonIncompletoExcepcion {
+        this.moverComoBatallon(new Derecha(), new Arriba());
     }
 }

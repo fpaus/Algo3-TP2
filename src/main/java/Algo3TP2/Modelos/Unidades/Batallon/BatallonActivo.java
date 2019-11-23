@@ -31,4 +31,5 @@ public class BatallonActivo implements BatallonEstado {
     public void desintegrar(Batallon batallon) {
         batallon.batallonIntegrantes.forEach(integrante -> integrante.setBatallon(new Batallon(integrante)));
     }
+
 }

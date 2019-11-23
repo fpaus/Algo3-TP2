@@ -2,6 +2,6 @@ package Algo3TP2.Modelos.Unidades.Batallon;
 
 public class BatallonIncompletoExcepcion extends Exception {
     public BatallonIncompletoExcepcion(){
-        super("El Batallon se encuentra incompleto");
+        super("No hay suficientes soldados aliado para conformar un batallon");
     }
 }
