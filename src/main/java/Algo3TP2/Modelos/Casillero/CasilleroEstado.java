@@ -1,5 +1,7 @@
 package Algo3TP2.Modelos.Casillero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
+
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 
 public interface CasilleroEstado {

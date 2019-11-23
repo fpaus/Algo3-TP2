@@ -1,9 +1,11 @@
 package Algo3TP2.EntidadesTests;
 
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
-import Algo3TP2.Modelos.Tablero.Coordenada;
-import Algo3TP2.Modelos.*;
+import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Jugador;
+import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
@@ -13,7 +15,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CasilleroTest {
 
@@ -123,7 +126,7 @@ public class CasilleroTest {
     public void getTodasLosCasillerosVecinos() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20,20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
         int posicionX = 2, posicionY = 2;
         Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(posicionX, posicionY));
 
@@ -132,9 +135,9 @@ public class CasilleroTest {
 
         // Assert
         Iterator<Casillero> iter = casillerosVecinos.iterator();
-        for(int i = posicionX - 1; i <= posicionX + 1; i++) {
+        for (int i = posicionX - 1; i <= posicionX + 1; i++) {
             for (int j = posicionY - 1; j <= posicionY + 1; j++) {
-                if(!(posicionX == i && posicionY == j)) {
+                if (!(posicionX == i && posicionY == j)) {
                     assertEquals(tablero.getCasilleroEnPosicion(new Coordenada(i, j)), iter.next());
                 }
             }

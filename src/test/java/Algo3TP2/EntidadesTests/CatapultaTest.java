@@ -21,13 +21,13 @@ public class CatapultaTest {
     private Bando bandoAliado, bandoEnemigo;
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
-    public void before(){
+    public void before() {
         Jugador jugadorAliado = new Jugador();
         bandoAliado = new Bando(jugadorAliado);
         Jugador jugadorEnemigo = new Jugador();
         bandoEnemigo = new Bando(jugadorEnemigo);
         tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
     }
 
     @Test
@@ -76,10 +76,10 @@ public class CatapultaTest {
     public void CatapultaAtacaACatapultaEnemigaQueEstaSolaCausa20PuntosDeDanio() throws Exception {
         // Arrange
         Catapulta catapultaAtacante = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1, 1));
 
         Catapulta catapultaAtacada = new Catapulta(bandoEnemigo);
-        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(19,19));
+        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(19, 19));
 
         // Act
         catapultaAtacante.atacar(catapultaAtacada);
@@ -92,10 +92,10 @@ public class CatapultaTest {
     public void CatapultaAtaca2VecesACatapultaEnemigaQueEstaSolaCausa40PuntosDeDanio() throws Exception {
         // Arrange
         Catapulta catapultaAtacante = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1, 1));
 
         Catapulta catapultaAtacada = new Catapulta(bandoEnemigo);
-        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(19,19));
+        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(19, 19));
 
         // Act
         catapultaAtacante.atacar(catapultaAtacada);
@@ -109,10 +109,10 @@ public class CatapultaTest {
     public void CatapultaAtacaACatapultaAliadaYLeCausaDanio() throws Exception {
         // Arrange
         Catapulta catapultaAtacante = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1, 1));
 
         Catapulta catapultaAtacada = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(19,19));
+        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(19, 19));
 
         // Act
         catapultaAtacante.atacar(catapultaAtacada);
@@ -125,10 +125,10 @@ public class CatapultaTest {
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistanciaMenorQueLaLargaLanzaExcepcion() throws Exception {
         // Arrange
         Catapulta catapultaAtacante = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1, 1));
 
         Catapulta catapultaAtacada = new Catapulta(bandoEnemigo);
-        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(2,2));
+        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(2, 2));
 
         // Act Assert
         catapultaAtacante.atacar(catapultaAtacada);
@@ -137,10 +137,10 @@ public class CatapultaTest {
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class) //Caso Borde
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistancia5LanzaExcepcion() throws Exception {
         Catapulta catapultaAtacante = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(5,5));
+        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(5, 5));
 
         Catapulta catapultaAtacada = new Catapulta(bandoEnemigo);
-        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(10,10));
+        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(10, 10));
 
         // Act Assert
         catapultaAtacante.atacar(catapultaAtacada);
@@ -150,10 +150,10 @@ public class CatapultaTest {
     public void CatapultaAtacaACatapultaEnemigaUbicadaADistancia7GeneraDanio() throws Exception {
         // Arrange
         Catapulta catapultaAtacante = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1, 1));
 
         Catapulta catapultaAtacada = new Catapulta(bandoEnemigo);
-        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(7,7));
+        tablero.posicionarUnidad(catapultaAtacada, new Coordenada(7, 7));
 
         // Act
         catapultaAtacante.atacar(catapultaAtacada);
@@ -166,16 +166,16 @@ public class CatapultaTest {
     public void CatapultaAtacaAUnidadGeneraDanioATodasLasUnidadesContiguas() throws Exception {
         // Arrange
         Catapulta catapultaAtacante = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1,1));
+        tablero.posicionarUnidad(catapultaAtacante, new Coordenada(1, 1));
 
         Unidad soldadoAtacado1 = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado1, new Coordenada(7,7));
+        tablero.posicionarUnidad(soldadoAtacado1, new Coordenada(7, 7));
         Unidad soldadoAtacado2 = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado2, new Coordenada(6,7));
+        tablero.posicionarUnidad(soldadoAtacado2, new Coordenada(6, 7));
         Unidad soldadoAtacado3 = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado3, new Coordenada(6,6));
+        tablero.posicionarUnidad(soldadoAtacado3, new Coordenada(6, 6));
         Unidad soldadoNoAtacado = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoNoAtacado, new Coordenada(3,7));
+        tablero.posicionarUnidad(soldadoNoAtacado, new Coordenada(3, 7));
 
         // Act
         catapultaAtacante.atacar(soldadoAtacado1);

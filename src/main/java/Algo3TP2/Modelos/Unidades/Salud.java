@@ -12,7 +12,6 @@ public class Salud {
     }
 
 
-
     public void recibirDanio(int danio) {
         if (this.vida > danio) {
             this.vida -= danio;

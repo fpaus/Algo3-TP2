@@ -1,16 +1,16 @@
 package Algo3TP2.Modelos;
 
-import java.util.List;
-import java.util.ArrayList;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
+import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
-import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
-import Algo3TP2.Modelos.Unidades.ExcepcionesMovimientos.MovimientoNoContiguoExcepcion;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Jugador {
 
@@ -40,22 +40,23 @@ public class Jugador {
 
     public void atacarConUnidadCasillero(IUnidadDeAtaque unidad, Casillero casillero) throws UnidadInvalidaException,
             UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, CasilleroVacioExcepcion {
-        if(!unidadesDeJugador.contains(unidad)){
+        if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();
         }
-        unidad.atacar(casillero.getUnidad());;
+        unidad.atacar(casillero.getUnidad());
+        ;
     }
 
-	public void matarUnidad(Unidad unidad) throws UnidadInvalidaException {
-        if(!unidadesDeJugador.contains(unidad)){
+    public void matarUnidad(Unidad unidad) throws UnidadInvalidaException {
+        if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();
         }
         unidadesDeJugador.remove(unidad);
         this.controlarCondicionDePerdida();
-	}
+    }
 
     private void controlarCondicionDePerdida() {
-        if(!puntos.quedanPuntos() && this.unidadesDeJugador.isEmpty()){
+        if (!puntos.quedanPuntos() && this.unidadesDeJugador.isEmpty()) {
             this.perder();
         }
     }

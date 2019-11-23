@@ -1,15 +1,15 @@
 package Algo3TP2.EntidadesTests;
 
-import Algo3TP2.Modelos.Casillero.Casillero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
+import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.Catapulta;
+import Algo3TP2.Modelos.Unidades.Curandero;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
-import Algo3TP2.Modelos.*;
-import Algo3TP2.Modelos.Unidades.Curandero;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.UnidadCuradaEsEnemigaExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Before;
@@ -24,13 +24,13 @@ public class CuranderoTests {
     private Bando bandoAliado, bandoEnemigo;
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
-    public void before(){
+    public void before() {
         Jugador jugadorAliado = new Jugador();
         bandoAliado = new Bando(jugadorAliado);
         Jugador jugadorEnemigo = new Jugador();
         bandoEnemigo = new Bando(jugadorEnemigo);
         tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20,20, jugadorAliado, jugadorEnemigo);
+        tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
     }
 
     @Test
@@ -79,10 +79,10 @@ public class CuranderoTests {
     public void CuranderoCuraACuranderoAliadoCura15PuntosDeVida() throws Exception {
         // Arrange
         Curandero curanderoCurador = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1,1));
+        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1, 1));
 
         Curandero curanderoCurado = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2,2));
+        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2, 2));
 
         // Act
         curanderoCurado.recibirDanio(30);
@@ -96,10 +96,10 @@ public class CuranderoTests {
     public void CuranderoCura2VecesACuranderoAliadoCurando30PuntosDeVida() throws Exception {
         // Arrange
         Curandero curanderoCurador = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1,1));
+        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1, 1));
 
         Curandero curanderoCurado = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2,2));
+        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2, 2));
 
         // Act
         curanderoCurado.recibirDanio(30);
@@ -115,10 +115,10 @@ public class CuranderoTests {
             throws Exception {
         // Arrange
         Curandero curanderoCurador = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1,1));
+        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1, 1));
 
         Curandero curanderoCurado = new Curandero(bandoEnemigo);
-        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2,2));
+        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2, 2));
 
         // Act Assert
         curanderoCurador.curar(curanderoCurado);
@@ -128,10 +128,10 @@ public class CuranderoTests {
     public void CuranderoCuraACuranderoAliadoUbicadoADistanciaMayorQueLaCortaLanzaExcepcion() throws Exception {
         // Arrange
         Curandero curanderoCurador = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1,1));
+        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1, 1));
 
         Curandero curanderoCurado = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurado, new Coordenada(19,19));
+        tablero.posicionarUnidad(curanderoCurado, new Coordenada(19, 19));
 
         // Act Assert
         curanderoCurador.curar(curanderoCurado);
@@ -141,10 +141,10 @@ public class CuranderoTests {
     public void CuranderoNoPuedeCurarAUnidadAliadaQueTieneLaVidaMaxima() throws Exception {
         // Arrange
         Curandero curanderoCurador = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1,1));
+        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1, 1));
 
         Curandero curanderoVidaCompleta = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoVidaCompleta, new Coordenada(2,2));
+        tablero.posicionarUnidad(curanderoVidaCompleta, new Coordenada(2, 2));
 
         // Act Assert
         curanderoCurador.curar(curanderoVidaCompleta);
@@ -154,10 +154,10 @@ public class CuranderoTests {
     public void CuranderoCuraAUnidadAliadaQueLeSacaron5PuntosYHaceQueSuVidaSeaMaxima() throws Exception {
         // Arrange
         Curandero curanderoCurador = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1,1));
+        tablero.posicionarUnidad(curanderoCurador, new Coordenada(1, 1));
 
         Curandero curanderoCurado = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2,2));
+        tablero.posicionarUnidad(curanderoCurado, new Coordenada(2, 2));
 
         // Act
         curanderoCurado.recibirDanio(5);
@@ -172,10 +172,10 @@ public class CuranderoTests {
             throws Exception {
         //Arrange
         Curandero curandero = new Curandero(bandoAliado);
-        tablero.posicionarUnidad(curandero, new Coordenada(1,1));
+        tablero.posicionarUnidad(curandero, new Coordenada(1, 1));
 
         Catapulta catapulta = new Catapulta(bandoAliado);
-        tablero.posicionarUnidad(catapulta, new Coordenada(2,2));
+        tablero.posicionarUnidad(catapulta, new Coordenada(2, 2));
 
         //Act Assert
         curandero.curar(catapulta);

@@ -12,8 +12,6 @@ import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 public class UnidadMovibleMovimientosTest {
 
 
@@ -22,8 +20,8 @@ public class UnidadMovibleMovimientosTest {
             throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion, CasilleroVacioExcepcion {
         // Arrange
         Jugador jugador = new Jugador();
-        Casillero casillero = new Casillero(new Coordenada(1,1),jugador);
-        Casillero casilleroContiguoOcupado = new Casillero(new Coordenada(2,1),jugador);
+        Casillero casillero = new Casillero(new Coordenada(1, 1), jugador);
+        Casillero casilleroContiguoOcupado = new Casillero(new Coordenada(2, 1), jugador);
 
         Unidad unidadOcupante = new Soldado(new Bando(jugador));
         unidadOcupante.colocarEnCasillero(casilleroContiguoOcupado);
