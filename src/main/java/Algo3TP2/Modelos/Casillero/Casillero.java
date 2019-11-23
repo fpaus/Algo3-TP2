@@ -57,7 +57,7 @@ public class Casillero {
     }
 
     public Casillero getCasilleroVecino(Direccion horizontal, Direccion vertical) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.coordenada, horizontal, vertical));
+        return Tablero.getTablero().getCasilleroEnCoordenada(new Coordenada(this.coordenada, horizontal, vertical));
 
     }
 
@@ -65,7 +65,7 @@ public class Casillero {
         ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
         for (Coordenada coordenada : this.coordenada.getTodasLasCoordenadasVecinas()) {
             try {
-                casilleros.add(Tablero.getTablero().getCasilleroEnPosicion(coordenada));
+                casilleros.add(Tablero.getTablero().getCasilleroEnCoordenada(coordenada));
             } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion e) {
             }
         }

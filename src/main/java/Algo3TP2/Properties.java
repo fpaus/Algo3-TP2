@@ -23,4 +23,6 @@ public class Properties {
     public static int alcanceMaxDistanciaMedia = 5;
     public static int alcanceMinDistanciaMedia = 3;
     public static int alcanceMinDistanciaLarga = 6;
+
+
 }

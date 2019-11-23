@@ -33,28 +33,28 @@ public class UnidadTest {
         tablero.posicionarUnidad(unidad, new Coordenada(2, 2));
 
         unidad.moverHaciaArriba();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 3)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 3)));
 
         unidad.moverHaciaAbajo();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 2)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
         unidad.moverHaciaLaIzquierda();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(1, 2)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(1, 2)));
 
         unidad.moverHaciaLaDerecha();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 2)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
         unidad.moverHaciaLaIzquierdaArriba();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(1, 3)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(1, 3)));
 
         unidad.moverHaciaLaDerechaAbajo();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 2)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
         unidad.moverHaciaLaDerechaArriba();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(3, 3)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 3)));
 
         unidad.moverHaciaLaIzquierdaAbajo();
-        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnPosicion(new Coordenada(2, 2)));
+        assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
     }
 
