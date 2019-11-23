@@ -1,4 +1,4 @@
-package Algo3TP2.Modelos.Unidades.Batallon;
+package Algo3TP2.Modelos.Unidades.ExcepcionesBatallon;
 
 public class BatallonCompletoExcepcion extends Exception {
     public BatallonCompletoExcepcion(){
