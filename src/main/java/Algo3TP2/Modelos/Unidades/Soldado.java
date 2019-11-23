@@ -22,7 +22,7 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         this.costo = Properties.costoSoldado;
         this.vida = new Salud(Properties.vidaSoldado);
         this.estrategiaDeAtaque = new AtaqueDeSoldado();
-        this.duenio = bando;
+        this.bando = bando;
         this.batallonMovimiento = new Batallon();
     }
 

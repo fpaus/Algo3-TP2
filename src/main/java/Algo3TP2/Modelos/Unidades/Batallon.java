@@ -22,7 +22,7 @@ public class Batallon {
                 Casillero casilleroDestino = soldadoIterActual.getCasillero().getCasilleroVecino(vertical, horizontal);
                 try {
                     soldadoIterActual.mover(casilleroDestino);
-                } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion | MovimientoNoContiguoExcepcion ex) {}
+                } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion ex) {}
             } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {}
         }
     }
@@ -60,7 +60,7 @@ public class Batallon {
         casillerosVecinos.forEach(casillero -> {
             try {
                 Unidad unidad = casillero.getUnidad();
-                if (unidad.getBando().getDuenio() == soldado.getBando().getDuenio()){
+                if (unidad.getBando().equals(soldado.getBando())){
                     if(unidad.getClass() == Soldado.class){
                         if(!soldadosParaBatallon.contains((Soldado) unidad)){
                             soldadosParaBatallon.add((Soldado) unidad);

@@ -30,7 +30,7 @@ public class Jugador {
     }
 
     public void moverUnidadACasillero(UnidadMovible unidad, Casillero casillero)
-            throws UnidadInvalidaException, MovimientoNoContiguoExcepcion, CasilleroOcupadoExcepcion,
+            throws UnidadInvalidaException, CasilleroOcupadoExcepcion,
             CasilleroVacioExcepcion {
         if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();

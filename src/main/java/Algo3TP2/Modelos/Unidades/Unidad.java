@@ -9,7 +9,7 @@ public abstract class Unidad {
 
     protected Casillero casillero;
     protected int costo;
-    protected Bando duenio;
+    protected Bando bando;
 
     protected Salud vida;
     private boolean estaViva = true;
@@ -28,13 +28,13 @@ public abstract class Unidad {
     }
 
     public Bando getBando() {
-        return this.duenio;
+        return this.bando;
     }
 
     public void recibirDanio(int danio) throws UnidadInvalidaException {
         vida.recibirDanio(danio);
         if(vida.getPuntosDeVida() == 0){
-            duenio.matarUnidad(this);
+            bando.matarUnidad(this);
         }
     }
 

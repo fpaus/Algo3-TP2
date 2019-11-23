@@ -17,9 +17,7 @@ public abstract class EstrategiaDeAtaque {
     protected void unidadVictimaEsEnemigaDeUnidadAtacante(Unidad unidadAtacante, Unidad unidadVictima)
             throws UnidadAtacadaEsAliadaExcepcion {
 
-        Jugador jugadorAtacante = unidadAtacante.getBando().getDuenio();
-        Jugador jugadorVictima = unidadVictima.getBando().getDuenio();
-        if (jugadorAtacante == jugadorVictima) {
+        if (unidadAtacante.getBando().equals(unidadVictima.getBando())) {
             throw new UnidadAtacadaEsAliadaExcepcion();
         }
     }

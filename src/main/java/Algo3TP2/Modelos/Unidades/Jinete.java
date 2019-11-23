@@ -20,7 +20,7 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
     public Jinete(Bando bando) {
         this.costo = Properties.costoJinete;
         this.vida = new Salud(Properties.vidaJinete);
-        this.duenio = bando;
+        this.bando = bando;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
         for(Casillero casillero : casillerosDistanciaCercana){
             try{
                 Unidad unidadCercana = casillero.getUnidad();
-                if(this.duenio != unidadCercana.duenio){
+                if(this.bando != unidadCercana.bando){
                     this.setEstrategiaDeAtaque(new AtaqueDeJineteConEspada());
                     return;
                 }
