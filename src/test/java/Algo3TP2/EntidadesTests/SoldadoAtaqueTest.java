@@ -44,7 +44,7 @@ public class SoldadoAtaqueTest {
         Unidad soldado = new Soldado(bandoAliado);
 
         // Assert
-        assertEquals(100, soldado.getVida());
+        assertEquals(100, soldado.getVida(), 0);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class SoldadoAtaqueTest {
         soldado.recibirDanio(15);
 
         // Assert
-        assertEquals(85, soldado.getVida());
+        assertEquals(85, soldado.getVida(), 0);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class SoldadoAtaqueTest {
         soldadoAtacante.atacar(soldadoAtacado);
 
         // Assert
-        assertEquals(90, soldadoAtacado.getVida());
+        assertEquals(90, soldadoAtacado.getVida(), 0);
     }
 
     @Test
@@ -101,7 +101,7 @@ public class SoldadoAtaqueTest {
         soldadoAtacante.atacar(soldadoAtacado);
 
         // Assert
-        assertEquals(80, soldadoAtacado.getVida());
+        assertEquals(80, soldadoAtacado.getVida(), 0);
     }
 
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)
@@ -156,7 +156,7 @@ public class SoldadoAtaqueTest {
         soldadoAtacante.atacar(soldadoAtacado);
 
         // Assert
-        assertEquals(90, soldadoAtacado.getVida());
+        assertEquals(90, soldadoAtacado.getVida(), 0);
     }
 
 }

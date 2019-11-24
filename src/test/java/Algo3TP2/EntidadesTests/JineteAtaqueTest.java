@@ -45,10 +45,10 @@ public class JineteAtaqueTest {
         Unidad jinete = new Jinete(bandoAliado);
 
         // Act
-        int vidaJinete = jinete.getVida();
+        float vidaJinete = jinete.getVida();
 
         // Assert
-        assertEquals(100, vidaJinete);
+        assertEquals(100, vidaJinete, 0);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class JineteAtaqueTest {
         jinete.recibirDanio(15);
 
         // Assert
-        assertEquals(85, jinete.getVida());
+        assertEquals(85, jinete.getVida(), 0);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class JineteAtaqueTest {
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(85, jineteAtacado.getVida());
+        assertEquals(85, jineteAtacado.getVida(), 0);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class JineteAtaqueTest {
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(95, jineteAtacado.getVida());
+        assertEquals(95, jineteAtacado.getVida(), 0);
     }
 
     @Test
@@ -121,7 +121,7 @@ public class JineteAtaqueTest {
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(90, jineteAtacado.getVida());
+        assertEquals(90, jineteAtacado.getVida(), 0);
     }
 
     @Test
@@ -138,7 +138,7 @@ public class JineteAtaqueTest {
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(70, jineteAtacado.getVida());
+        assertEquals(70, jineteAtacado.getVida(), 0);
     }
 
     @Test(expected = UnidadAtacadaEsAliadaExcepcion.class)

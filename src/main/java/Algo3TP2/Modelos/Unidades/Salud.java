@@ -2,11 +2,11 @@ package Algo3TP2.Modelos.Unidades;
 
 public class Salud {
 
-    private int vida;
+    private float vida;
 
-    private int vidaMaxima;
+    private float vidaMaxima;
 
-    public Salud(int vida) {
+    public Salud(float vida) {
         this.vida = vida;
         this.vidaMaxima = vida;
     }
@@ -29,11 +29,11 @@ public class Salud {
 
     }
 
-    public int getPuntosDeVida() {
+    public float getPuntosDeVida() {
         return this.vida;
     }
 
-    public int getPuntosVidaMaxima() {
+    public float getPuntosVidaMaxima() {
         return this.vidaMaxima;
     }
 }

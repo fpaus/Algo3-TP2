@@ -10,7 +10,7 @@ import Algo3TP2.Modelos.Unidades.Soldado;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class JineteTest {
 
@@ -43,7 +43,7 @@ public class JineteTest {
         jinete.atacar(soladoEnemigo);
 
         // Assert
-        assertEquals(95, soladoEnemigo.getVida());
+        assertEquals(95, soladoEnemigo.getVida(), 0);
     }
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)

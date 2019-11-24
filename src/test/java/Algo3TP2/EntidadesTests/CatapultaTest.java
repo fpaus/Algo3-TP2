@@ -45,7 +45,7 @@ public class CatapultaTest {
         Unidad catapulta = new Catapulta(bandoAliado);
 
         // Assert
-        assertEquals(50, catapulta.getVida());
+        assertEquals(50, catapulta.getVida(), 0);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class CatapultaTest {
         catapulta.recibirDanio(15);
 
         // Assert
-        assertEquals(35, catapulta.getVida());
+        assertEquals(35, catapulta.getVida(), 0);
     }
 
     @Test
@@ -85,7 +85,7 @@ public class CatapultaTest {
         catapultaAtacante.atacar(catapultaAtacada);
 
         // Assert
-        assertEquals(30, catapultaAtacada.getVida());
+        assertEquals(30, catapultaAtacada.getVida(), 0);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class CatapultaTest {
         catapultaAtacante.atacar(catapultaAtacada);
 
         // Assert
-        assertEquals(10, catapultaAtacada.getVida());
+        assertEquals(10, catapultaAtacada.getVida(), 0);
     }
 
     @Test
@@ -118,7 +118,7 @@ public class CatapultaTest {
         catapultaAtacante.atacar(catapultaAtacada);
 
         // Assert
-        assertEquals(30, catapultaAtacada.getVida());
+        assertEquals(30, catapultaAtacada.getVida(), 0);
     }
 
     @Test(expected = DistanciaDeAtaqueIncorrectaExcepcion.class)
@@ -159,7 +159,7 @@ public class CatapultaTest {
         catapultaAtacante.atacar(catapultaAtacada);
 
         // Assert
-        assertEquals(30, catapultaAtacada.getVida());
+        assertEquals(30, catapultaAtacada.getVida(), 0);
     }
 
     @Test
@@ -181,10 +181,10 @@ public class CatapultaTest {
         catapultaAtacante.atacar(soldadoAtacado1);
 
         // Assert
-        assertEquals(80, soldadoAtacado1.getVida());
-        assertEquals(80, soldadoAtacado2.getVida());
-        assertEquals(80, soldadoAtacado3.getVida());
-        assertEquals(100, soldadoNoAtacado.getVida());
+        assertEquals(80, soldadoAtacado1.getVida(), 0);
+        assertEquals(80, soldadoAtacado2.getVida(), 0);
+        assertEquals(80, soldadoAtacado3.getVida(), 0);
+        assertEquals(100, soldadoNoAtacado.getVida(), 0);
     }
 
 }

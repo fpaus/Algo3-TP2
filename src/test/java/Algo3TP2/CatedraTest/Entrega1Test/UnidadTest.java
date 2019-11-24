@@ -84,7 +84,7 @@ public class UnidadTest {
         soldadoAtacante.atacar(soldadoAtacado);
 
         // Assert
-        assertEquals(90, soldadoAtacado.getVida());
+        assertEquals(90, soldadoAtacado.getVida(),0);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class UnidadTest {
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(95, jineteAtacado.getVida());
+        assertEquals(95, jineteAtacado.getVida(), 0);
     }
 
     @Test
@@ -116,7 +116,7 @@ public class UnidadTest {
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(85, jineteAtacado.getVida());
+        assertEquals(85, jineteAtacado.getVida(), 0);
     }
 
     @Test
@@ -133,7 +133,7 @@ public class UnidadTest {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(60, curanderoCurado.getVida());
+        assertEquals(60, curanderoCurado.getVida(), 0);
     }
 
     @Test
@@ -149,7 +149,7 @@ public class UnidadTest {
         catapulta.atacar(soldadoAtacado);
 
         // Assert
-        assertEquals(80, soldadoAtacado.getVida());
+        assertEquals(80, soldadoAtacado.getVida(), 0);
     }
 
 }

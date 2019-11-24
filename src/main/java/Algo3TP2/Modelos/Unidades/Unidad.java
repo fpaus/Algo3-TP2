@@ -38,11 +38,11 @@ public abstract class Unidad {
         }
     }
 
-    public int getVida() {
+    public float getVida() {
         return this.vida.getPuntosDeVida();
     }
 
-    public int getVidaMaxima() {
+    public float getVidaMaxima() {
         return this.vida.getPuntosVidaMaxima();
     }
 

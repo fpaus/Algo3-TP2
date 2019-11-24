@@ -48,7 +48,7 @@ public class CuranderoTests {
         Unidad curandero = new Curandero(bandoAliado);
 
         // Assert
-        assertEquals(75, curandero.getVida());
+        assertEquals(75, curandero.getVida(), 0);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class CuranderoTests {
         curandero.recibirDanio(15);
 
         // Assert
-        assertEquals(60, curandero.getVida());
+        assertEquals(60, curandero.getVida(), 0);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class CuranderoTests {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(60, curanderoCurado.getVida());
+        assertEquals(60, curanderoCurado.getVida(), 0);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class CuranderoTests {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(75, curanderoCurado.getVida());
+        assertEquals(75, curanderoCurado.getVida(), 0);
     }
 
     @Test(expected = UnidadCuradaEsEnemigaExcepcion.class)
@@ -164,7 +164,7 @@ public class CuranderoTests {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(75, curanderoCurado.getVida());
+        assertEquals(75, curanderoCurado.getVida(), 0);
     }
 
     @Test(expected = CatapultaNoPuedeSerCuradaExcepcion.class)
