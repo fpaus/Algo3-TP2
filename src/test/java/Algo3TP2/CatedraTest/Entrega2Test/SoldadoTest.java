@@ -120,25 +120,25 @@ public class SoldadoTest {
         assertEquals(soldado4.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 4)));
     }
 
-    // @Test
-    // /*se verifica que 3 soldados contiguos pueden moverse al mismo
-    // tiempo en la misma dirección con una sola acción.
-    // */
-    // public void tresSoldadosContiguosNoSeObtaculizanEntreEllos() throws Exception {
-    //     // Arrange
-    //     Soldado soldado1 = new Soldado(bandoAliado);
-    //     Soldado soldado2 = new Soldado(bandoAliado);
-    //     Soldado soldado3 = new Soldado(bandoAliado);
-    //     tablero.posicionarUnidad(soldado1, new Coordenada(2, 1));
-    //     tablero.posicionarUnidad(soldado2, new Coordenada(2, 2));
-    //     tablero.posicionarUnidad(soldado3, new Coordenada(2, 3));
+     @Test
+     /*se verifica que 3 soldados contiguos pueden moverse al mismo
+     tiempo en la misma dirección con una sola acción.
+     */
+     public void tresSoldadosContiguosNoSeObtaculizanEntreEllos() throws Exception {
+         // Arrange
+         Soldado soldado1 = new Soldado(bandoAliado);
+         Soldado soldado2 = new Soldado(bandoAliado);
+         Soldado soldado3 = new Soldado(bandoAliado);
+         tablero.posicionarUnidad(soldado1, new Coordenada(2, 1));
+         tablero.posicionarUnidad(soldado2, new Coordenada(2, 2));
+         tablero.posicionarUnidad(soldado3, new Coordenada(2, 3));
 
-    //     // Act
-    //     soldado1.moverComoBatallonHaciaAbajo();
+         // Act
+         soldado1.moverComoBatallonHaciaAbajo();
 
-    //     // Assert
-    //     assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 1)));
-    //     assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 2)));
-    //     assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 3)));
-    // }
+         // Assert
+         assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 0)));
+         assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 1)));
+         assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
+     }
 }
