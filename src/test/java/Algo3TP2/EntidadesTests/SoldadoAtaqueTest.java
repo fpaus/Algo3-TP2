@@ -162,7 +162,7 @@ public class SoldadoAtaqueTest {
     }
 
     @Test
-    public void SoladoAtacaAAoldadoEnemigoQueEstaEnCasilleroContrarioYLeHaceMasDanio() throws Exception {
+    public void SoladoAtacaASoldadoEnemigoQueEstaEnCasilleroContrarioYLeHaceMasDanio() throws Exception {
         // Arrange
         Soldado soldadoAtacante = new Soldado(bandoAliado);
         tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1, 1));
