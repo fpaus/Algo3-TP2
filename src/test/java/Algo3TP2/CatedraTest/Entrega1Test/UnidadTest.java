@@ -75,48 +75,48 @@ public class UnidadTest {
     public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest() throws Exception {
         // Arrange
         Soldado soldadoAtacante = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(15, 15));
 
         Soldado soldadoAtacado = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(16, 16));
 
         // Act
         soldadoAtacante.atacar(soldadoAtacado);
 
         // Assert
-        assertEquals(90, soldadoAtacado.getVida());
+        assertEquals(90, soldadoAtacado.getVida(),0);
     }
 
     @Test
     public void jineteAliadoAtacaPiezaEnemigaDistanciaCortaSeVerificaQueSeRestaVidaCorrespondienteTest() throws Exception {
         // Arrange Ataque con espada a distancia corta
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(15, 15));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(2, 2));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(16, 16));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(95, jineteAtacado.getVida());
+        assertEquals(95, jineteAtacado.getVida(), 0);
     }
 
     @Test
     public void jineteAliadoAtacaPiezaEnemigaDistanciaMediaSeVerificaQueSeRestaVidaCorrespondienteTest() throws Exception {
         // Arrange Ataque con espada a distancia corta
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(15, 15));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5, 5));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(19, 19));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
 
         // Assert
-        assertEquals(85, jineteAtacado.getVida());
+        assertEquals(85, jineteAtacado.getVida(), 0);
     }
 
     @Test
@@ -133,7 +133,7 @@ public class UnidadTest {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(60, curanderoCurado.getVida());
+        assertEquals(60, curanderoCurado.getVida(), 0);
     }
 
     @Test
@@ -149,7 +149,7 @@ public class UnidadTest {
         catapulta.atacar(soldadoAtacado);
 
         // Assert
-        assertEquals(80, soldadoAtacado.getVida());
+        assertEquals(80, soldadoAtacado.getVida(), 0);
     }
 
 }

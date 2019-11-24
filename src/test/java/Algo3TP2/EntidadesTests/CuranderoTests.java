@@ -1,8 +1,10 @@
 package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.Catapulta;
@@ -48,13 +50,14 @@ public class CuranderoTests {
         Unidad curandero = new Curandero(bandoAliado);
 
         // Assert
-        assertEquals(75, curandero.getVida());
+        assertEquals(75, curandero.getVida(), 0);
     }
 
     @Test
-    public void CuranderoNuevoTrasGenerarDanioNoTiene75DeVida() throws UnidadInvalidaException {
+    public void CuranderoNuevoTrasGenerarDanioNoTiene75DeVida() throws UnidadInvalidaException, CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Unidad curandero = new Curandero(bandoAliado);
+        tablero.posicionarUnidad(curandero, new Coordenada(1, 1));
 
         // Act
         curandero.recibirDanio(10);
@@ -64,15 +67,16 @@ public class CuranderoTests {
     }
 
     @Test
-    public void CuranderoNuevoTrasGenerarDanioPor15PuntosAhoraTiene60DeVida() throws UnidadInvalidaException {
+    public void CuranderoNuevoTrasGenerarDanioPor15PuntosAhoraTiene60DeVida() throws UnidadInvalidaException, CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Unidad curandero = new Curandero(bandoAliado);
+        tablero.posicionarUnidad(curandero, new Coordenada(1, 1));
 
         // Act
         curandero.recibirDanio(15);
 
         // Assert
-        assertEquals(60, curandero.getVida());
+        assertEquals(60, curandero.getVida(), 0);
     }
 
     @Test
@@ -89,7 +93,7 @@ public class CuranderoTests {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(60, curanderoCurado.getVida());
+        assertEquals(60, curanderoCurado.getVida(), 0);
     }
 
     @Test
@@ -107,7 +111,7 @@ public class CuranderoTests {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(75, curanderoCurado.getVida());
+        assertEquals(75, curanderoCurado.getVida(), 0);
     }
 
     @Test(expected = UnidadCuradaEsEnemigaExcepcion.class)
@@ -164,7 +168,7 @@ public class CuranderoTests {
         curanderoCurador.curar(curanderoCurado);
 
         // Assert
-        assertEquals(75, curanderoCurado.getVida());
+        assertEquals(75, curanderoCurado.getVida(), 0);
     }
 
     @Test(expected = CatapultaNoPuedeSerCuradaExcepcion.class)

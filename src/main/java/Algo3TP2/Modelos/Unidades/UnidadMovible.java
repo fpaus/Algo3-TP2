@@ -53,7 +53,7 @@ public abstract class UnidadMovible extends Unidad {
         movimientos.ejecutarMovimientoHaciaLaIzquierdaAbajo(this, this.casillero);
     }
 
-    public void recibirCuracion(int vida) {
+    public void recibirCuracion(float vida) {
         this.vida.recibirCuracion(vida);
     }
 

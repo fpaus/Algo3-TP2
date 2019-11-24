@@ -2,17 +2,17 @@ package Algo3TP2.Modelos.Unidades;
 
 public class Salud {
 
-    private int vida;
+    private float vida;
 
-    private int vidaMaxima;
+    private float vidaMaxima;
 
-    public Salud(int vida) {
+    public Salud(float vida) {
         this.vida = vida;
         this.vidaMaxima = vida;
     }
 
 
-    public void recibirDanio(int danio) {
+    public void recibirDanio(float danio) {
         if (this.vida > danio) {
             this.vida -= danio;
         } else {
@@ -20,7 +20,7 @@ public class Salud {
         }
     }
 
-    public void recibirCuracion(int vida) {
+    public void recibirCuracion(float vida) {
         if (this.vidaMaxima - this.vida > vida) {
             this.vida += vida;
         } else {
@@ -29,11 +29,11 @@ public class Salud {
 
     }
 
-    public int getPuntosDeVida() {
+    public float getPuntosDeVida() {
         return this.vida;
     }
 
-    public int getPuntosVidaMaxima() {
+    public float getPuntosVidaMaxima() {
         return this.vidaMaxima;
     }
 }

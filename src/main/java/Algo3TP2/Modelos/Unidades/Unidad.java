@@ -31,18 +31,21 @@ public abstract class Unidad {
         return this.bando;
     }
 
-    public void recibirDanio(int danio) throws UnidadInvalidaException {
+    public void recibirDanio(float danio) throws UnidadInvalidaException {
+        if(!this.bando.equals( this.casillero.getBando()) ) {
+            danio += (danio*5)/100;
+        }
         vida.recibirDanio(danio);
         if (vida.getPuntosDeVida() == 0) {
             bando.matarUnidad(this);
         }
     }
 
-    public int getVida() {
+    public float getVida() {
         return this.vida.getPuntosDeVida();
     }
 
-    public int getVidaMaxima() {
+    public float getVidaMaxima() {
         return this.vida.getPuntosVidaMaxima();
     }
 
