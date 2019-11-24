@@ -51,6 +51,7 @@ public class SoldadoAtaqueTest {
     public void SoladoNuevoTrasGenerarDanioNoTiene100DeVida() throws Exception {
         // Arrange
         Unidad soldado = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado, new Coordenada(1, 1));
 
         // Act
         soldado.recibirDanio(10);
@@ -63,6 +64,7 @@ public class SoldadoAtaqueTest {
     public void SoladoNuevoTrasGenerarDanioPor15PuntosAhoraTiene85DeVida() throws Exception {
         // Arrange
         Unidad soldado = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldado, new Coordenada(1, 1));
 
         // Act
         soldado.recibirDanio(15);
@@ -75,10 +77,10 @@ public class SoldadoAtaqueTest {
     public void SoladoAtacaASoldadoEnemigoCausa10PuntosDeDanio() throws Exception {
         // Arrange
         Soldado soldadoAtacante = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(15, 15));
 
         Soldado soldadoAtacado = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(16, 16));
 
         // Act
         soldadoAtacante.atacar(soldadoAtacado);
@@ -91,10 +93,10 @@ public class SoldadoAtaqueTest {
     public void SoladoAtaca2VecesASoldadoEnemigoCausa20PuntosDeDanio() throws Exception {
         // Arrange
         Soldado soldadoAtacante = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(15, 15));
 
         Soldado soldadoAtacado = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(16, 16));
 
         // Act
         soldadoAtacante.atacar(soldadoAtacado);
@@ -147,10 +149,10 @@ public class SoldadoAtaqueTest {
     public void SoladoAtacaASoldadoEnemigoUbicadoADistancia2GeneraDanio() throws Exception {
         // Arrange
         Soldado soldadoAtacante = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(15, 15));
 
         Soldado soldadoAtacado = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(3, 3));
+        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(17, 17));
 
         // Act
         soldadoAtacante.atacar(soldadoAtacado);
@@ -159,4 +161,19 @@ public class SoldadoAtaqueTest {
         assertEquals(90, soldadoAtacado.getVida(), 0);
     }
 
+    @Test
+    public void SoladoAtacaAAoldadoEnemigoQueEstaEnCasilleroContrarioYLeHaceMasDanio() throws Exception {
+        // Arrange
+        Soldado soldadoAtacante = new Soldado(bandoAliado);
+        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1, 1));
+
+        Soldado soldadoAtacado = new Soldado(bandoEnemigo);
+        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(2, 2));
+
+        // Act
+        soldadoAtacante.atacar(soldadoAtacado);
+
+        // Assert
+        assertEquals(89.5, soldadoAtacado.getVida(), 0);
+    }
 }

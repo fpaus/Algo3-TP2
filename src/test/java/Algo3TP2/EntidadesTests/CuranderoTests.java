@@ -1,8 +1,10 @@
 package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.Catapulta;
@@ -52,9 +54,10 @@ public class CuranderoTests {
     }
 
     @Test
-    public void CuranderoNuevoTrasGenerarDanioNoTiene75DeVida() throws UnidadInvalidaException {
+    public void CuranderoNuevoTrasGenerarDanioNoTiene75DeVida() throws UnidadInvalidaException, CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Unidad curandero = new Curandero(bandoAliado);
+        tablero.posicionarUnidad(curandero, new Coordenada(1, 1));
 
         // Act
         curandero.recibirDanio(10);
@@ -64,9 +67,10 @@ public class CuranderoTests {
     }
 
     @Test
-    public void CuranderoNuevoTrasGenerarDanioPor15PuntosAhoraTiene60DeVida() throws UnidadInvalidaException {
+    public void CuranderoNuevoTrasGenerarDanioPor15PuntosAhoraTiene60DeVida() throws UnidadInvalidaException, CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Unidad curandero = new Curandero(bandoAliado);
+        tablero.posicionarUnidad(curandero, new Coordenada(1, 1));
 
         // Act
         curandero.recibirDanio(15);

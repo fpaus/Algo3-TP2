@@ -75,10 +75,10 @@ public class UnidadTest {
     public void soldadoDeInfanteriaAliadoAtacaPiezaEnemigaSeVerificaQueSeRestaVidaCorrecpondienteTest() throws Exception {
         // Arrange
         Soldado soldadoAtacante = new Soldado(bandoAliado);
-        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(soldadoAtacante, new Coordenada(15, 15));
 
         Soldado soldadoAtacado = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(2, 2));
+        tablero.posicionarUnidad(soldadoAtacado, new Coordenada(16, 16));
 
         // Act
         soldadoAtacante.atacar(soldadoAtacado);
@@ -91,10 +91,10 @@ public class UnidadTest {
     public void jineteAliadoAtacaPiezaEnemigaDistanciaCortaSeVerificaQueSeRestaVidaCorrespondienteTest() throws Exception {
         // Arrange Ataque con espada a distancia corta
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(15, 15));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(2, 2));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(16, 16));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);
@@ -107,10 +107,10 @@ public class UnidadTest {
     public void jineteAliadoAtacaPiezaEnemigaDistanciaMediaSeVerificaQueSeRestaVidaCorrespondienteTest() throws Exception {
         // Arrange Ataque con espada a distancia corta
         Jinete jineteAtacante = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jineteAtacante, new Coordenada(1, 1));
+        tablero.posicionarUnidad(jineteAtacante, new Coordenada(15, 15));
 
         Jinete jineteAtacado = new Jinete(bandoEnemigo);
-        tablero.posicionarUnidad(jineteAtacado, new Coordenada(5, 5));
+        tablero.posicionarUnidad(jineteAtacado, new Coordenada(19, 19));
 
         // Act
         jineteAtacante.atacar(jineteAtacado);

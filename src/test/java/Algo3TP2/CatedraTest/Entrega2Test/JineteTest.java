@@ -34,10 +34,10 @@ public class JineteTest {
     public void jineteSinAliadosADistanciaCortaAtacaConEspada() throws Exception {
         // Arrange
         Jinete jinete = new Jinete(bandoAliado);
-        tablero.posicionarUnidad(jinete, new Coordenada(5, 5));
+        tablero.posicionarUnidad(jinete, new Coordenada(15, 15));
 
         Soldado soladoEnemigo = new Soldado(bandoEnemigo);
-        tablero.posicionarUnidad(soladoEnemigo, new Coordenada(5, 6));
+        tablero.posicionarUnidad(soladoEnemigo, new Coordenada(15, 16));
 
         // Act
         jinete.atacar(soladoEnemigo);
