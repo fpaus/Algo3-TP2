@@ -1,23 +1,28 @@
 package Algo3TP2.Vistas;
 
+import Algo3TP2.Controladores.BotonJugarHandler;
 import Algo3TP2.Modelos.Jugador;
-import javafx.geometry.Insets;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Tablero;
+import Algo3TP2.ViewProperties;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
-
 public class InitializerView extends VBox {
 
-    Stage stage;
+    public Stage stage;
+    private TableroView tableroView;
+
+    public TextField jugadorUnoNombreInput;
+    public TextField jugadorDosNombreInput;
+
 
     public InitializerView(Stage stage){
 
@@ -35,24 +40,21 @@ public class InitializerView extends VBox {
         Label jugadorUnoNombreLabel = new Label("Nombre jugador 1:");
         jugadorUnoNombreLabel.setFont(Font.font("Arial", 20));
         //Jugador uno Name input
-        TextField jugadorUnoNombreInput = new TextField("Jugador1");// Default text
+        this.jugadorUnoNombreInput = new TextField("Jugador1");// Default text
 
         //Jugador uno Nombre label
         Label jugadorDosNombreLabel = new Label("Nombre jugador 2:");
         jugadorDosNombreLabel.setFont(Font.font("Arial", 20));
         //Jugador uno Nombre input
-        TextField jugadorDosNombreInput = new TextField("Jugador2");// Default text
+        this.jugadorDosNombreInput = new TextField("Jugador2");// Default text
 
+        Button botonJugar = new Button("Jugar");
+        botonJugar.setMaxSize(200, 400);
 
-        Button botonPlay = new Button("Play");
-        botonPlay.setMaxSize(200, 400);
-        botonPlay.setOnAction(e -> jugar(jugadorUnoNombreInput.getText(), jugadorDosNombreInput.getText()));
+        BotonJugarHandler botonJugarHandler = new BotonJugarHandler(this);
+        botonJugar.setOnAction(botonJugarHandler);
 
-        this.getChildren().addAll(jugadorUnoNombreLabel, jugadorUnoNombreInput, jugadorDosNombreLabel, jugadorDosNombreInput, botonPlay);
+        this.getChildren().addAll(jugadorUnoNombreLabel, jugadorUnoNombreInput, jugadorDosNombreLabel, jugadorDosNombreInput, botonJugar);
     }
 
-    private void jugar(String jugadorUnoNombre, String jugadorDosNombre){
-        Jugador jugadorUno = new Jugador();
-        Jugador jugadorDos = new Jugador();
-    }
 }
