@@ -21,10 +21,10 @@ public class JugadorTest {
     public void jugadorNoPuedeTomarMasEntidadesDeLoQueSusPuntosLePermitenTest()
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, PuntosInsuficientesExcepcion,
             CasilleroOcupadoExcepcion {
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("JugadorDePrueba");
         Bando bando = new Bando(jugador);
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugador, new Jugador());
+        tablero.inicializarTablero(20, 20, jugador, new Jugador("JugadorDePrueba2"));
 
         jugador.colocarUnidadEnCasillero(new Catapulta(bando), tablero.getCasilleroEnCoordenada(new Coordenada(1, 2)));
         jugador.colocarUnidadEnCasillero(new Catapulta(bando), tablero.getCasilleroEnCoordenada(new Coordenada(1, 3)));
@@ -37,10 +37,10 @@ public class JugadorTest {
 
     public void elJugadorQueSeQuedaSinEntidadesEsElPerdedorTest() throws PuntosInsuficientesExcepcion,
             CasilleroFueraDelLosLimitesDelTableroExcepcion, UnidadInvalidaException, CasilleroOcupadoExcepcion {
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("JugadorDePrueba");
         Bando bando = new Bando(jugador);
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, jugador, new Jugador());
+        tablero.inicializarTablero(20, 20, jugador, new Jugador("JugadorDePrueba2"));
 
         Unidad unidad1 = new Catapulta(bando);
         Unidad unidad2 = new Catapulta(bando);

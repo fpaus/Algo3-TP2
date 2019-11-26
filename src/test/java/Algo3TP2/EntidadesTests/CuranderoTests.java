@@ -27,9 +27,9 @@ public class CuranderoTests {
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
     public void before() {
-        Jugador jugadorAliado = new Jugador();
+        Jugador jugadorAliado = new Jugador("JugadorAliado");
         bandoAliado = new Bando(jugadorAliado);
-        Jugador jugadorEnemigo = new Jugador();
+        Jugador jugadorEnemigo = new Jugador("JugadorEnemigo");
         bandoEnemigo = new Bando(jugadorEnemigo);
         tablero = Tablero.getTablero();
         tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
