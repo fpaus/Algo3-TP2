@@ -26,7 +26,7 @@ public class CasilleroTest {
         Casillero casillero;
 
         // Act
-        casillero = new Casillero(new Coordenada(1, 1), new Jugador());
+        casillero = new Casillero(new Coordenada(1, 1), new Jugador("JugadorDePrueba"));
 
         // Assert
         assertNotNull(casillero);
@@ -35,7 +35,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroNuevoSeEncuentraVacioTest() throws CasilleroVacioExcepcion {
         // Arrenge
-        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador("JugadorDePrueba"));
 
         // act, assert
         casillero.getUnidad();
@@ -44,7 +44,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroOcupadoExcepcion.class)
     public void casilleroNuevoSeLeSeteaUnidadAhoraSeEncuentraOcupadoTest() throws CasilleroOcupadoExcepcion {
         // Arrenge
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("JugadorDePrueba");
         Casillero casillero = new Casillero(new Coordenada(1, 1), jugador);
         Unidad unidadEnCasillero = new Soldado(new Bando(jugador));
         Unidad unidadNueva = new Soldado(new Bando(jugador));
@@ -61,7 +61,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroVacioGetUnidadLanzaExcepcion() throws CasilleroVacioExcepcion {
         // Arrange
-        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador("JugadorDePrueba"));
 
         // Assert
         casillero.getUnidad();
@@ -71,7 +71,7 @@ public class CasilleroTest {
     public void casilleroSeLeSeteaUnidadGetUnidadRetornaUnidadEnCuestion()
             throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("JugadorDePrueba");
         Casillero casillero = new Casillero(new Coordenada(1, 1), jugador);
         Unidad unidad = new Soldado(new Bando(jugador));
 
@@ -85,7 +85,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroVacioQuitarUnidadLanzaExcepcion() throws CasilleroVacioExcepcion {
         // Arrange
-        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador());
+        Casillero casillero = new Casillero(new Coordenada(1, 1), new Jugador("JugadorDePrueba"));
 
         // Assert
         casillero.quitarUnidad();
@@ -95,7 +95,7 @@ public class CasilleroTest {
     public void casilleroOcupadoQuitarUnidadNoLanzaExcepcion()
             throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("JugadorDePrueba");
         Casillero casillero = new Casillero(new Coordenada(1, 1), jugador);
         Unidad unidad = new Soldado(new Bando(jugador));
 
@@ -109,7 +109,7 @@ public class CasilleroTest {
     @Test(expected = CasilleroVacioExcepcion.class)
     public void casilleroOcupadoQuitarUnidadCasilleroQuedaVacio() throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("JugadorDePrueba");
         Casillero casillero = new Casillero(new Coordenada(1, 1), jugador);
         Unidad unidad = new Soldado(new Bando(jugador));
 
@@ -126,7 +126,7 @@ public class CasilleroTest {
     public void getTodasLosCasillerosVecinos() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
         int posicionX = 2, posicionY = 2;
         Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(posicionX, posicionY));
 

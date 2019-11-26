@@ -21,7 +21,7 @@ public class TableroTest {
 
         // Act
         tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         assertFalse(tablero == null);
@@ -31,7 +31,7 @@ public class TableroTest {
     public void tableroGetCasilleroEnPosicionRetornaUnCasillero() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
         Casillero casillero;
 
         // Act
@@ -46,7 +46,7 @@ public class TableroTest {
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(50, 50));
@@ -57,7 +57,7 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
+        tablero.inicializarTablero(x, y, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         for (int i = 0; i < x; i++) {
@@ -77,7 +77,7 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
+        tablero.inicializarTablero(x, y, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         for (int i = 0; i < x; i++) {
@@ -98,7 +98,7 @@ public class TableroTest {
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         int x = 20, y = 20;
-        Jugador jugador1 = new Jugador(), jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("JugadorDePrueba"), jugador2 = new Jugador("JugadorDePrueba2");
         Tablero tablero = Tablero.getTablero();
         tablero.inicializarTablero(x, y, jugador1, jugador2);
 

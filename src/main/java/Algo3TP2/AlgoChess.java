@@ -14,7 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
+/*
 public class AlgoChess extends Application {
     private TableroView tableroView;
     
@@ -41,3 +41,5 @@ public class AlgoChess extends Application {
 
 
 }
+
+ */

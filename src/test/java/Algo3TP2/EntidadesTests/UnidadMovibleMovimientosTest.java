@@ -19,7 +19,7 @@ public class UnidadMovibleMovimientosTest {
     public void UnidadMovilbleNoSePuedeMoverACasillaContiguaOcupada()
             throws CasilleroOcupadoExcepcion, MovimientoNoContiguoExcepcion, CasilleroVacioExcepcion {
         // Arrange
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("JugadorDePrueba");
         Casillero casillero = new Casillero(new Coordenada(1, 1), jugador);
         Casillero casilleroContiguoOcupado = new Casillero(new Coordenada(2, 1), jugador);
 
