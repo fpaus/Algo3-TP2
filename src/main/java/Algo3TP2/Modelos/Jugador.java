@@ -14,11 +14,13 @@ import java.util.List;
 
 public class Jugador {
 
+    private String nombre;
     private Puntos puntos;
     private boolean sigueEnJuego;
     private List<Unidad> unidadesDeJugador;
 
-    public Jugador() {
+    public Jugador(String nombre) {
+        this.nombre = nombre;
         this.puntos = new Puntos();
         this.unidadesDeJugador = new ArrayList<Unidad>();
         this.sigueEnJuego = true;

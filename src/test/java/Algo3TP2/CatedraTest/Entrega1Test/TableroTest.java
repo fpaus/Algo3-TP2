@@ -23,9 +23,9 @@ public class TableroTest {
 
     @Before // Inicializo el tablero y los bandos Aliados/Enemigos
     public void before() {
-        Jugador jugadorAliado = new Jugador();
+        Jugador jugadorAliado = new Jugador("JugadorAliado");
         bandoAliado = new Bando(jugadorAliado);
-        Jugador jugadorEnemigo = new Jugador();
+        Jugador jugadorEnemigo = new Jugador("JugadorEnemigo");
         bandoEnemigo = new Bando(jugadorEnemigo);
         tablero = Tablero.getTablero();
         tablero.inicializarTablero(20, 20, jugadorAliado, jugadorEnemigo);
@@ -77,7 +77,7 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
+        tablero.inicializarTablero(x, y, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         for (int i = 0; i < x; i++) {
@@ -97,7 +97,7 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
+        tablero.inicializarTablero(x, y, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         for (int i = 0; i < x; i++) {
@@ -118,7 +118,7 @@ public class TableroTest {
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         int x = 20, y = 20;
-        Jugador jugador1 = new Jugador(), jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("JugadorDePrueba"), jugador2 = new Jugador("JugadorDePrueba2");
         Tablero tablero = Tablero.getTablero();
         tablero.inicializarTablero(20, 20, jugador1, jugador2);
 
