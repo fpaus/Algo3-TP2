@@ -4,7 +4,7 @@ import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroEnemigoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
-import Algo3TP2.Modelos.Jugador;
+import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;

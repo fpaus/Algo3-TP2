@@ -2,11 +2,11 @@ package Algo3TP2.EntidadesTests;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Jugador;
+import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Modelos.UnidadInvalidaException;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.Catapulta;
 import Algo3TP2.Modelos.Unidades.Curandero;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
