@@ -1,5 +1,6 @@
-package Algo3TP2.Modelos;
+package Algo3TP2.Modelos.Jugador;
 
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.PuntosInsuficientesExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Properties;
 

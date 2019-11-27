@@ -1,6 +1,6 @@
 package Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque;
 
-import Algo3TP2.Modelos.UnidadInvalidaException;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;

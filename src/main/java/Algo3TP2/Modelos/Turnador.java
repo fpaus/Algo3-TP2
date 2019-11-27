@@ -1,7 +1,7 @@
 package Algo3TP2.Modelos;
 
-import Algo3TP2.Modelos.Jugador;
-import Algo3TP2.Modelos.JugadorSinUnidadesExcepcion;
+import Algo3TP2.Modelos.Jugador.Jugador;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.JugadorSinUnidadesExcepcion;
 
 public class Turnador {
 
