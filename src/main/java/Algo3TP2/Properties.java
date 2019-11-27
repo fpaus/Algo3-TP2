@@ -25,4 +25,6 @@ public class Properties {
     public static int alcanceMinDistanciaLarga = 6;
 
     public static int tamanioDeBatallon = 3;
+
+    public static int puntosInicialesDisponibles = 25;
 }
