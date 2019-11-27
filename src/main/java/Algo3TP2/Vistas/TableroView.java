@@ -17,9 +17,9 @@ public class TableroView extends Group {
 
     public TableroView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         table = new GridPane();
-        casilleros = new CasilleroView[ViewProperties.cantidadDeCasilleros][ViewProperties.cantidadDeCasilleros];
-        for (int x = 0; x < ViewProperties.cantidadDeCasilleros; x++) {
-            for (int y = 0; y < ViewProperties.cantidadDeCasilleros; y++) {
+        casilleros = new CasilleroView[ViewProperties.tamanioTablero][ViewProperties.tamanioTablero];
+        for (int x = 0; x < ViewProperties.tamanioTablero; x++) {
+            for (int y = 0; y < ViewProperties.tamanioTablero; y++) {
                 CasilleroView casillero = new CasilleroView(tablero, new Coordenada(x, y));
                 casilleros[x][y] = casillero;
                 table.add(casillero, x, y);
