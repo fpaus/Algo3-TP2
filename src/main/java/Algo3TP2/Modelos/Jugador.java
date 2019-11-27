@@ -16,14 +16,12 @@ public class Jugador {
 
     private String nombre;
     private Puntos puntos;
-    private boolean sigueEnJuego;
     private List<Unidad> unidadesDeJugador;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.puntos = new Puntos();
         this.unidadesDeJugador = new ArrayList<Unidad>();
-        this.sigueEnJuego = true;
     }
 
     public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion, CasilleroOcupadoExcepcion {
@@ -40,13 +38,12 @@ public class Jugador {
         unidad.mover(casillero);
     }
 
-    public void atacarConUnidadCasillero(IUnidadDeAtaque unidad, Casillero casillero) throws UnidadInvalidaException,
+    public void atacarConUnidadACasillero(IUnidadDeAtaque unidad, Casillero casillero) throws UnidadInvalidaException,
             UnidadAtacadaEsAliadaExcepcion, DistanciaDeAtaqueIncorrectaExcepcion, CasilleroVacioExcepcion {
         if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();
         }
         unidad.atacar(casillero.getUnidad());
-        ;
     }
 
     public void matarUnidad(Unidad unidad) throws UnidadInvalidaException {
@@ -54,21 +51,12 @@ public class Jugador {
             throw new UnidadInvalidaException();
         }
         unidadesDeJugador.remove(unidad);
-        this.controlarCondicionDePerdida();
     }
 
-    private void controlarCondicionDePerdida() {
-        if (!puntos.quedanPuntos() && this.unidadesDeJugador.isEmpty()) {
-            this.perder();
+    public void controlarCondicionDePerdida() throws JugadorSinUnidadesExcepcion {
+        if (this.unidadesDeJugador.isEmpty()) {
+            throw new JugadorSinUnidadesExcepcion(this.nombre);
         }
-    }
-
-    private void perder() {
-        this.sigueEnJuego = false;
-    }
-
-    public boolean sigueEnJuego() {
-        return this.sigueEnJuego;
     }
 
 }
