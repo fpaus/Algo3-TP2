@@ -1,5 +1,7 @@
 package Algo3TP2.Modelos;
 
+import Algo3TP2.Modelos.Jugador.Jugador;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.Unidad;
 
 public class Bando {

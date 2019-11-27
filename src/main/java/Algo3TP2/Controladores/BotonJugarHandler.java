@@ -1,7 +1,6 @@
 package Algo3TP2.Controladores;
 
-import Algo3TP2.Modelos.Jugador;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Vistas.InitializerView;

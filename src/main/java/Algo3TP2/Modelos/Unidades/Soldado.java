@@ -2,7 +2,7 @@ package Algo3TP2.Modelos.Unidades;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Tablero.Direccion.*;
-import Algo3TP2.Modelos.UnidadInvalidaException;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeSoldado;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;

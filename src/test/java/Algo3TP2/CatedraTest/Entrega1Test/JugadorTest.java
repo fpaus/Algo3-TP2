@@ -1,6 +1,9 @@
 package Algo3TP2.CatedraTest.Entrega1Test;
 
 import Algo3TP2.Modelos.*;
+import Algo3TP2.Modelos.Jugador.Jugador;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.JugadorSinUnidadesExcepcion;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.PuntosInsuficientesExcepcion;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Catapulta;

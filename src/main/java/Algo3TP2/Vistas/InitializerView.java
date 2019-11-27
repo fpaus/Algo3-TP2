@@ -1,12 +1,7 @@
 package Algo3TP2.Vistas;
 
 import Algo3TP2.Controladores.BotonJugarHandler;
-import Algo3TP2.Modelos.Jugador;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.ViewProperties;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
