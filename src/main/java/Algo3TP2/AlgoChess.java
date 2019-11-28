@@ -1,5 +1,6 @@
 package Algo3TP2;
 
+import Algo3TP2.Controladores.SalirConfirmBox;
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Vistas.*;
 
@@ -9,8 +10,8 @@ import javafx.stage.Stage;
 
 
 public class AlgoChess extends Application {
-    private TableroView tableroView;
-    
+
+    private Stage stage;
     
     public static void main(String[] args) {
         launch(args);
@@ -18,7 +19,13 @@ public class AlgoChess extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("Trabajo Practico 2");
+        this.stage = stage;
+
+        this.stage.setTitle("Trabajo Practico 2");
+        this.stage.setOnCloseRequest(e ->{
+            e.consume();
+            closeProgram();
+        });
 
         Juego juego = new Juego();
 
@@ -40,6 +47,10 @@ public class AlgoChess extends Application {
         stage.show();
     }
 
-
+    private void closeProgram(){
+        Boolean answer = SalirConfirmBox.display("Cerrar juego alert","¿Esta seguro que desea salir del juego?");
+        if(answer)
+            this.stage.close();
+    }
 
 }
