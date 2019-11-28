@@ -25,7 +25,7 @@ public class InitializerView extends VBox {
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
-        Image imagen = new Image("file:src/main/java/Algo3TP2/Recursos/The300.jpg");
+        Image imagen = new Image("file:src/resources/Fondos/The300.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
@@ -34,6 +34,7 @@ public class InitializerView extends VBox {
         jugadorUnoNombreLabel.setFont(Font.font("Arial", 20));
         //Jugador uno Name input
         TextField jugadorUnoNombreInput = new TextField("Jugador1");// Default text
+        //jugadorUnoNombreInput.setPromptText("Nombre del jugador 1");
 
         //Jugador uno Nombre label
         Label jugadorDosNombreLabel = new Label("Nombre jugador 2:");
