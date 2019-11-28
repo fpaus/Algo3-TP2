@@ -41,7 +41,6 @@ public class TableroView extends Group {
                 table.add(casillero, x, y);
             }
         }
-
         this.addView(table);
 
     }
