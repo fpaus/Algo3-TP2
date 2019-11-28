@@ -6,6 +6,7 @@ import Algo3TP2.ViewProperties;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -24,6 +25,7 @@ public class TableroView extends GridPane {
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
                 new BackgroundSize(1000,1000, false, false, false, false));
         this.setBackground(new Background(imagenDeFondo));
+        this.setPadding(new Insets(20, 20, 20, 20));
 
         for (int i=0; i<ViewProperties.tamanioTablero; i++){
             for (int j=0; j<ViewProperties.tamanioTablero; j++){
