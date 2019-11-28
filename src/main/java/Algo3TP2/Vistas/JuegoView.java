@@ -18,12 +18,12 @@ public class JuegoView extends BorderPane {
      */
     public JuegoView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         TableroView tableroView = new TableroView(tablero);
-        MercadoDeUnidadesView mercadoDeUnidadesView = new MercadoDeUnidadesView();
-        MercadoDeUnidadesView mercadoDeUnidadesView2 = new MercadoDeUnidadesView();
+        MercadoDeUnidadesView mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView();
+        MercadoDeUnidadesView mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView();
 
 
         this.setCenter(tableroView);
-        this.setRight(mercadoDeUnidadesView);
-        this.setLeft(mercadoDeUnidadesView2);
+        this.setRight(mercadoDeUnidadesViewDerecha);
+        this.setLeft(mercadoDeUnidadesViewIzquierda);
     }
 }
