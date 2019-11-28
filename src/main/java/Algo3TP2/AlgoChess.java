@@ -31,18 +31,7 @@ public class AlgoChess extends Application {
 
         InitializerView initializerView = new InitializerView(stage, juego);
         Scene escenaBienvenidos = new Scene(initializerView, 800,600);
-        /*
-        Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(ViewProperties.largoDelCasillero, ViewProperties.largoDelCasillero, new Jugador(), new Jugador());
-        this.tableroView = new TableroView(tablero);
 
-
-        VBox vbox = new VBox();
-        vbox.getChildren().add(tableroView);
-        Scene scene = new Scene(vbox);
-        stage.setScene(scene);
-        stage.show();
-         */
         stage.setScene(escenaBienvenidos);
         stage.show();
     }

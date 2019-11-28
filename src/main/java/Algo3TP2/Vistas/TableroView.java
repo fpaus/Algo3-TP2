@@ -14,53 +14,28 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.Node;
 
-public class TableroView extends Group {
+public class TableroView extends GridPane {
 
     public TableroView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        GridPane gridPane = new GridPane();
-        Pane[][] panes = new Pane[ViewProperties.tamanioTablero][ViewProperties.tamanioTablero];
+        //GridPane gridPane = new GridPane();
 
-        gridPane.gridLinesVisibleProperty().set(true); // Para que se vean los bordes de las celdas. Quitar luego.
-        gridPane.setHgap(ViewProperties.tamanioTablero/11); // El número 11 es porque las celdas en el .png tienen 11 píxeles de tamanio.
-        gridPane.setHgap(ViewProperties.tamanioTablero/11);
-        gridPane.setAlignment(Pos.CENTER);
+        this.setAlignment(Pos.CENTER);
+        Image imagen = new Image("file:src/resources/Fondos/Mapa_1.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
+                new BackgroundSize(1000,1000, false, false, false, false));
+        this.setBackground(new Background(imagenDeFondo));
 
-        int num = 1; // Para enumerar las celdas. Quitar luego.
         for (int i=0; i<ViewProperties.tamanioTablero; i++){
             for (int j=0; j<ViewProperties.tamanioTablero; j++){
-                String string = Integer.toString(num); // Para enumerar las celdas. Quitar luego.
-
-                Pane pane = new Pane();
-                pane.setMinSize(ViewProperties.anchoDelCasillero, ViewProperties.largoDelCasillero);
-                panes[j][i] = pane;
-
-                Label label = new Label(string);
-                pane.getChildren().add(label);
-
-                GridPane.setConstraints(panes[j][i], j, i);
-                gridPane.getChildren().add(panes[j][i]);
-                num++;
+                CasilleroView casillero;
+                if (j < ViewProperties.tamanioTablero / 2) {
+                    casillero = new casilleroViewRojo(tablero, new Coordenada(i, j));
+                }else {
+                    casillero = new casilleroViewAzul(tablero, new Coordenada(i, j));
+                }
+                this.add(casillero, i, j);
             }
         }
-
-        this.addView(gridPane);
-
-
-        // Código viejo de Fabri:
-/*        table = new GridPane();
-        casilleros = new CasilleroView[ViewProperties.tamanioTablero][ViewProperties.tamanioTablero];
-        for (int x = 0; x < ViewProperties.tamanioTablero; x++) {
-            for (int y = 0; y < ViewProperties.tamanioTablero; y++) {
-                CasilleroView casillero = new CasilleroView(tablero, new Coordenada(x, y));
-                casilleros[x][y] = casillero;
-                table.add(casillero, x, y);
-            }
-        }
-        this.addView(table);
-*/
     }
 
-    public void addView(Node view) {
-        this.getChildren().add(view);
-    }
 }

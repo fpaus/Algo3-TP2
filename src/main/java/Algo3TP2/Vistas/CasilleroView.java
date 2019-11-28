@@ -21,6 +21,8 @@ public class CasilleroView extends Pane {
         this.casillero = tablero.getCasilleroEnCoordenada(coordenada);
         this.setMinWidth(this.anchoDelCasillero);
         this.setMinHeight(this.largoDelCasillero);
+
+        this.setStyle("-fx-border-width: 5; -fx-border-width: 1; -fx-border-color: black;");
     }  
 
 }

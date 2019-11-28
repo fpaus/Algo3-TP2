@@ -6,6 +6,7 @@ import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Vistas.InitializerView;
+import Algo3TP2.Vistas.JuegoView;
 import Algo3TP2.Vistas.TableroView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -33,8 +34,9 @@ public class BotonJugarHandler implements EventHandler<ActionEvent> {
         this.juego.inicializarJuego(jugadorUnoNombreInput.getText(), jugadorDosNombreInput.getText(), ViewProperties.tamanioTablero);
 
         try {
-            TableroView tableroView = new TableroView(juego.getTablero());
-            Scene siguienteEscena = new Scene(tableroView);
+            //TableroView tableroView = new TableroView(juego.getTablero());
+            JuegoView juegoView = new JuegoView(juego.getTablero());
+            Scene siguienteEscena = new Scene(juegoView);
             this.stage.setScene(siguienteEscena);
         } catch (Exception e) {
             e.printStackTrace();
