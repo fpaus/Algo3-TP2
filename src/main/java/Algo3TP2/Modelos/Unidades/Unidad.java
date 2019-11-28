@@ -12,7 +12,6 @@ public abstract class Unidad {
     protected Bando bando;
 
     protected Salud vida;
-    private boolean estaViva = true;
 
     public void colocarEnCasillero(Casillero casillero) throws CasilleroOcupadoExcepcion {
         this.casillero = casillero;
@@ -47,14 +46,6 @@ public abstract class Unidad {
 
     public float getVidaMaxima() {
         return this.vida.getPuntosVidaMaxima();
-    }
-
-    public void morir() {
-        this.estaViva = false;
-    }
-
-    public boolean estaViva() {
-        return this.estaViva;
     }
 
 }
