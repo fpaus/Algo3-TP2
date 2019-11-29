@@ -30,6 +30,7 @@ public class CasilleroView extends Pane {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 System.out.println("Casillero clickeado " + (Integer.toString(num[0])) + " veces...");
+                System.out.println("Casillero clickeado " + casillero.toString() + " veces...");
                 num[0]++;
             }
         });
