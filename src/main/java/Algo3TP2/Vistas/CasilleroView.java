@@ -29,8 +29,8 @@ public class CasilleroView extends Pane {
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                System.out.println("Casillero clickeado " + (Integer.toString(num[0])) + " veces...");
-                System.out.println("Casillero clickeado " + casillero.toString() + " veces...");
+                //System.out.println("Casillero clickeado " + (Integer.toString(num[0])) + " veces...");
+                System.out.println(casillero.toString());
                 num[0]++;
             }
         });
