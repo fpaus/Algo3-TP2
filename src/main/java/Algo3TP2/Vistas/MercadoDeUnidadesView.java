@@ -36,10 +36,10 @@ public class MercadoDeUnidadesView extends GridPane {
         this.add(unidadesLabel, 1, 2);
 
         // Solo a modo de relleno
-        for (int i = 3; i< ViewProperties.tamanioTablero; i++){
+        /*for (int i = 3; i< ViewProperties.tamanioTablero; i++){
             CasilleroView casillero = new CasilleroView(Tablero.getTablero(), new Coordenada(1, i));
             this.add(casillero, 1, i);
-        }
+        }*/
     }
 
 }

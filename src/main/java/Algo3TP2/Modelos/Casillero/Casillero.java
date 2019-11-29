@@ -72,4 +72,8 @@ public class Casillero {
         return casilleros;
     }
 
+    @Override
+    public String toString() {
+        return coordenada.toString();
+    }
 }
