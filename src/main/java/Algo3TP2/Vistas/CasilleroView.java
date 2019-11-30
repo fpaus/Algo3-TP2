@@ -6,6 +6,7 @@ import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -16,6 +17,7 @@ public class CasilleroView extends Pane {
     private int largoDelCasillero;
     private int anchoDelCasillero;
     private Casillero casillero;
+    private UnidadView unidadViewEnCasillero;
 
     public CasilleroView(Tablero tablero, Coordenada coordenada) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
@@ -35,7 +37,10 @@ public class CasilleroView extends Pane {
             }
         });
 
-        //this.setStyle("-fx-border-width: 5; -fx-border-width: 1; -fx-border-color: black;"); // Esta línea no sirve ya que Azul y Rojo setean los styles.
     }
 
+    public void setUnidadView(UnidadView unidadView){
+        this.unidadViewEnCasillero = unidadView;
+        this.getChildren().add(unidadView);
+    }
 }
