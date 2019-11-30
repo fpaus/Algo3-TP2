@@ -1,5 +1,6 @@
 package Algo3TP2.Modelos.Casillero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
+
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 
 public class CasilleroOcupado implements CasilleroEstado {
@@ -16,7 +17,7 @@ public class CasilleroOcupado implements CasilleroEstado {
     }
 
     @Override
-    public Unidad getUnidad() throws CasilleroVacioExcepcion {
+    public Unidad getUnidad() {
         return this.unidadEnCasillero;
     }
 

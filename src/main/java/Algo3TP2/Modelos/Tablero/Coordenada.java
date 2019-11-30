@@ -13,7 +13,7 @@ public class Coordenada {
         this.posicionY = y;
     }
 
-    public Coordenada(Coordenada coordenada, Direccion horizontal, Direccion vertical){
+    public Coordenada(Coordenada coordenada, Direccion horizontal, Direccion vertical) {
         this.posicionX = coordenada.posicionX + horizontal.getDireccion();
         this.posicionY = coordenada.posicionY + vertical.getDireccion();
     }
@@ -42,11 +42,18 @@ public class Coordenada {
 
     public ArrayList<Coordenada> getTodasLasCoordenadasVecinas() {
         ArrayList<Coordenada> coordenadas = new ArrayList<Coordenada>();
-        for(int i = this.posicionX - 1; i <= this.posicionX + 1; i++){
-            for(int j = this.posicionY - 1; j <= this.posicionY + 1; j++){
-                coordenadas.add(new Coordenada(i,j));
+        for (int i = this.posicionX - 1; i <= this.posicionX + 1; i++) {
+            for (int j = this.posicionY - 1; j <= this.posicionY + 1; j++) {
+                if (!(this.posicionX == i && this.posicionY == j)) {
+                    coordenadas.add(new Coordenada(i, j));
+                }
             }
         }
         return coordenadas;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + posicionX + "," + posicionY + ")";
     }
 }

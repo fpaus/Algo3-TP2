@@ -3,7 +3,6 @@ package Algo3TP2.Modelos.Unidades;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Distancia;
-import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
@@ -14,14 +13,14 @@ public class Curandero extends UnidadMovible {
 
     public Curandero(Bando bando) {
         this.costo = Properties.costoCurandero;
-        this.duenio = bando;
+        this.bando = bando;
         this.vida = new Salud(Properties.vidaCurandero);
     }
 
     private void validarCuracion(Unidad unidadACurar)
-            throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
-            CatapultaNoPuedeSerCuradaExcepcion, UnidadCuradaEsEnemigaExcepcion {
-        if (this.duenio.getDuenio() != unidadACurar.duenio.getDuenio()) {
+            throws DistanciaParaCurarIncorrectaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion
+            , UnidadCuradaEsEnemigaExcepcion {
+        if (!this.bando.equals(unidadACurar.bando)) {
             throw new UnidadCuradaEsEnemigaExcepcion();
         }
 
@@ -38,7 +37,7 @@ public class Curandero extends UnidadMovible {
     }
 
     public void curar(UnidadMovible unidadACurar)
-            throws CatapultaNoPuedeSerCuradaExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion,
+            throws AliadoConSaludCompletaNoSePuedeCurarExcepcion,
             DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion {
         this.validarCuracion(unidadACurar);
         unidadACurar.recibirCuracion(Properties.curacionCurandero);
@@ -49,7 +48,6 @@ public class Curandero extends UnidadMovible {
     public void curar(Unidad unidadACurar)
             throws CatapultaNoPuedeSerCuradaExcepcion {
         throw new CatapultaNoPuedeSerCuradaExcepcion();
-
     }
 
 }

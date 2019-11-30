@@ -1,11 +1,11 @@
 package Algo3TP2.EntidadesTests;
 
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.*;
-import Algo3TP2.Modelos.Tablero.Coordenada;
-import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
-import Algo3TP2.Modelos.*;
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Jugador.Jugador;
+import Algo3TP2.Modelos.Tablero.Coordenada;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class TableroTest {
 
         // Act
         tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         assertFalse(tablero == null);
@@ -31,11 +31,11 @@ public class TableroTest {
     public void tableroGetCasilleroEnPosicionRetornaUnCasillero() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
         Casillero casillero;
 
         // Act
-        casillero = tablero.getCasilleroEnPosicion(new Coordenada(5, 5));
+        casillero = tablero.getCasilleroEnCoordenada(new Coordenada(5, 5));
 
         // Assert
         assertEquals(Casillero.class, casillero.getClass());
@@ -46,10 +46,10 @@ public class TableroTest {
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(20, 20, new Jugador(), new Jugador());
+        tablero.inicializarTablero(20, 20, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
-        Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(50, 50));
+        Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(50, 50));
     }
 
     @Test
@@ -57,13 +57,13 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
+        tablero.inicializarTablero(x, y, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 try {
-                    Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
+                    Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(i, j));
                     assert (true);
                 } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
                     assert (false);
@@ -77,12 +77,12 @@ public class TableroTest {
         // Arrange
         int x = 20, y = 20;
         Tablero tablero = Tablero.getTablero();
-        tablero.inicializarTablero(x, y, new Jugador(), new Jugador());
+        tablero.inicializarTablero(x, y, new Jugador("JugadorDePrueba"), new Jugador("JugadorDePrueba2"));
 
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
+                Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(i, j));
                 try {
                     Unidad unidad = casillero.getUnidad();
                     assert (false);
@@ -98,14 +98,14 @@ public class TableroTest {
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         // Arrange
         int x = 20, y = 20;
-        Jugador jugador1 = new Jugador(), jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("JugadorDePrueba"), jugador2 = new Jugador("JugadorDePrueba2");
         Tablero tablero = Tablero.getTablero();
         tablero.inicializarTablero(x, y, jugador1, jugador2);
 
         // Assert
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Casillero casillero = tablero.getCasilleroEnPosicion(new Coordenada(i, j));
+                Casillero casillero = tablero.getCasilleroEnCoordenada(new Coordenada(i, j));
                 if (j < y / 2) {
                     assertEquals(jugador1, casillero.getBando().getDuenio());
                 } else {

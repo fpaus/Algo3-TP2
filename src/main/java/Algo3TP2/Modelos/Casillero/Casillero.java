@@ -1,29 +1,27 @@
 package Algo3TP2.Modelos.Casillero;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.*;
-import Algo3TP2.Modelos.Tablero.Coordenada;
-import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
-import Algo3TP2.Modelos.Tablero.Direccion.Fija;
-import Algo3TP2.Modelos.Tablero.Direccion.Izquierda;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Modelos.Tablero.Tablero;
-
-import java.util.ArrayList;
 
 import Algo3TP2.Modelos.Bando;
-import Algo3TP2.Modelos.Jugador;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Jugador.Jugador;
+import Algo3TP2.Modelos.Tablero.Coordenada;
+import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
+
+import java.util.ArrayList;
 
 public class Casillero {
 
     private Coordenada coordenada;
-    private Unidad unidadEnCasillero;
-    private Bando duenio;
+    private Bando bando;
     private CasilleroEstado estado; //Patron de diseño State
 
     public Casillero(Coordenada coordenada, Jugador jugador) {
         this.coordenada = coordenada;
-        this.duenio = new Bando(jugador);
+        this.bando = new Bando(jugador);
         estado = new CasilleroVacio();
     }
 
@@ -35,13 +33,6 @@ public class Casillero {
         estado.setUnidad(this, unidad);
     }
 
-    public void setUnidadAlInicioDelJuego(Unidad unidad) throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion {
-        if(unidad.getBando().getDuenio() != this.duenio.getDuenio()){
-            throw new CasilleroEnemigoExcepcion();
-        }
-        estado.setUnidad(this, unidad);
-    }
-
     public Unidad getUnidad() throws CasilleroVacioExcepcion {
         return estado.getUnidad();
     }
@@ -50,11 +41,11 @@ public class Casillero {
         estado.quitarUnidad(this);
     }
 
-    public Bando getBando(){
-        return this.duenio;
+    public Bando getBando() {
+        return this.bando;
     }
 
-    public Coordenada getCoordenada(){
+    public Coordenada getCoordenada() {
         return this.coordenada;
     }
 
@@ -66,18 +57,23 @@ public class Casillero {
     }
 
     public Casillero getCasilleroVecino(Direccion horizontal, Direccion vertical) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        return Tablero.getTablero().getCasilleroEnPosicion(new Coordenada(this.coordenada, horizontal, vertical));
+        return Tablero.getTablero().getCasilleroEnCoordenada(new Coordenada(this.coordenada, horizontal, vertical));
 
     }
 
     public ArrayList<Casillero> getTodosLosCasillerosVecinos() {
         ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
-        for(Coordenada coordenada : this.coordenada.getTodasLasCoordenadasVecinas()){
-            try{
-                casilleros.add(Tablero.getTablero().getCasilleroEnPosicion(coordenada));
-            } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion e) {}
+        for (Coordenada coordenada : this.coordenada.getTodasLasCoordenadasVecinas()) {
+            try {
+                casilleros.add(Tablero.getTablero().getCasilleroEnCoordenada(coordenada));
+            } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion e) {
+            }
         }
         return casilleros;
     }
 
+    @Override
+    public String toString() {
+        return coordenada.toString();
+    }
 }
