@@ -3,6 +3,7 @@ package Algo3TP2.Modelos.Unidades;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 
 public abstract class UnidadMovible extends Unidad {
@@ -11,6 +12,10 @@ public abstract class UnidadMovible extends Unidad {
 
     public void mover(Casillero destino) throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         movimientos.ejecutarMovimiento(this, destino);
+    }
+
+    public void moverEnDireccion(Direccion horizontal, Direccion vertical) throws CasilleroFueraDelLosLimitesDelTableroExcepcion{
+        movimientos.ejecutarMovimientoEnDireccion(this, this.casillero, horizontal, vertical);
     }
 
     public void moverHaciaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,

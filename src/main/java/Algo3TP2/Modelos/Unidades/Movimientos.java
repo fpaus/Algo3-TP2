@@ -52,4 +52,9 @@ public class Movimientos {
             throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
         this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(new Derecha(), new Arriba()));
     }
+
+    public void ejecutarMovimientoEnDireccion(UnidadMovible unidad, Casillero casilleroActual ,Direccion horizontal, Direccion vertical)
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+        this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(horizontal, vertical));
+    }
 }
