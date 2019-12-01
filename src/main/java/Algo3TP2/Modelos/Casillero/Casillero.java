@@ -10,16 +10,20 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
+import Algo3TP2.Observable;
+import Algo3TP2.Observador;
 
 import java.util.ArrayList;
 
-public class Casillero {
+public class Casillero implements Observable {
 
     private Coordenada coordenada;
     private Bando bando;
     private CasilleroEstado estado; //Patron de diseño State
+    private ArrayList<Observador> observadores;
 
     public Casillero(Coordenada coordenada, Jugador jugador) {
+        this.observadores = new ArrayList<Observador>();
         this.coordenada = coordenada;
         this.bando = new Bando(jugador);
         estado = new CasilleroVacio();
@@ -27,6 +31,7 @@ public class Casillero {
 
     protected void setEstado(CasilleroEstado estado) {
         this.estado = estado;
+        this.notificarObservadores();
     }
 
     public void setUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
@@ -75,5 +80,14 @@ public class Casillero {
     @Override
     public String toString() {
         return coordenada.toString();
+    }
+
+    public void enlazarObservador(Observador observador){
+        this.observadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservadores() {
+        this.estado.notificarObservadores(this.observadores);
     }
 }

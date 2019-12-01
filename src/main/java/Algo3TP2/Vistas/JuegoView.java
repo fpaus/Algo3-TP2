@@ -1,7 +1,15 @@
 package Algo3TP2.Vistas;
+import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
+import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
+import Algo3TP2.Modelos.Unidades.Soldado;
+import Algo3TP2.Properties;
+import Algo3TP2.Vistas.CasilleroView.CasilleroView;
 import Algo3TP2.Vistas.UnidadesView.CatapultaView.CatapultaAzulView;
 import Algo3TP2.Vistas.UnidadesView.CatapultaView.CatapultaRojaView;
 import Algo3TP2.Vistas.UnidadesView.CuranderoView.CuranderoAzulView;
@@ -27,9 +35,45 @@ public class JuegoView extends BorderPane {
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
 
+        UnidadesViewEnJuego unidadesViewEnJuego = UnidadesViewEnJuego.getUnidadesViewEnJuego();
+        Soldado soldado = new Soldado(new Bando(new Jugador("Nazareno")));
+        SoldadoAzulView soldadoAzulView = new SoldadoAzulView();
+        unidadesViewEnJuego.setUnidadView(soldado, soldadoAzulView);
+        try {
+            tablero.posicionarUnidad(soldado, new Coordenada(0, 0));
+        } catch (CasilleroOcupadoExcepcion ex){
+            // LALA
+        }
+
+        // JUJUJU
+        try{
+            soldado.moverHaciaLaDerecha();
+        } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion ex){
+            // Lala
+        }
+
+        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
+        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
+/*
+        Soldado soldado = new Soldado(new Bando(new Jugador("Jugador2")));
+        try{
+            tablero.posicionarUnidad(soldado, new Coordenada(0,0));
+        } catch (CasilleroOcupadoExcepcion ex ){
+            System.out.println("Todo mal amigo");
+        }
+
         SoldadoAzulView soldadoAzulView = new SoldadoAzulView();
         CasilleroView casilleroView = tableroView.getCasilleroView(new Coordenada(0,0));
         casilleroView.setUnidadView(soldadoAzulView);
+
+        try{
+            soldado.recibirDanio(Properties.vidaSoldado);
+        } catch (UnidadInvalidaException ex){
+            System.out.println("Todo re mal amigo");
+        }
+
+
+
 
         SoldadoRojoView soldadoRojoView = new SoldadoRojoView();
         CasilleroView casilleroView2 = tableroView.getCasilleroView(new Coordenada(1,0));
@@ -58,6 +102,7 @@ public class JuegoView extends BorderPane {
         CuranderoRojoView curanderoRojoView = new CuranderoRojoView();
         CasilleroView casilleroView8 =  tableroView.getCasilleroView(new Coordenada(7,0));
         casilleroView8.setUnidadView(curanderoRojoView);
+*/
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
