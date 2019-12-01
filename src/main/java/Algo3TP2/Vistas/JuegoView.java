@@ -1,7 +1,6 @@
 package Algo3TP2.Vistas;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
@@ -9,16 +8,8 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Properties;
-import Algo3TP2.Vistas.CasilleroView.CasilleroView;
-import Algo3TP2.Vistas.UnidadesView.CatapultaView.CatapultaAzulView;
-import Algo3TP2.Vistas.UnidadesView.CatapultaView.CatapultaRojaView;
-import Algo3TP2.Vistas.UnidadesView.CuranderoView.CuranderoAzulView;
-import Algo3TP2.Vistas.UnidadesView.CuranderoView.CuranderoRojoView;
-import Algo3TP2.Vistas.UnidadesView.JineteView.JineteAzulView;
-import Algo3TP2.Vistas.UnidadesView.JineteView.JineteRojoView;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoAzulView;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoRojoView;
-import javafx.scene.PointLight;
 import javafx.scene.layout.BorderPane;
 
 public class JuegoView extends BorderPane {
@@ -32,6 +23,7 @@ public class JuegoView extends BorderPane {
         TableroView tableroView = new TableroView(tablero);
         MercadoDeUnidadesView mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView();
         MercadoDeUnidadesView mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView();
+        PanelDeControlView panelDeControlView = new PanelDeControlView();
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
@@ -133,5 +125,6 @@ public class JuegoView extends BorderPane {
         this.setCenter(tableroView);
         this.setRight(mercadoDeUnidadesViewDerecha);
         this.setLeft(mercadoDeUnidadesViewIzquierda);
+        this.setBottom(panelDeControlView);
     }
 }
