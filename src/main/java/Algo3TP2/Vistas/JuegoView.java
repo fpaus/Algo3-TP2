@@ -45,15 +45,20 @@ public class JuegoView extends BorderPane {
             // LALA
         }
 
+        Soldado soldado2 = new Soldado(new Bando(new Jugador("Nazareno")));
+        SoldadoRojoView soldadoRojoView = new SoldadoRojoView();
+        unidadesViewEnJuego.setUnidadView(soldado2, soldadoRojoView);
+
+        try {
+            tablero.posicionarUnidad(soldado2, new Coordenada(0, 1));
+        } catch (CasilleroOcupadoExcepcion ex){
+            // LALA
+        }
+
         // JUJUJU
         try{
-            soldado.moverHaciaLaDerecha();
-        } catch (CasilleroOcupadoExcepcion ex){
-            // Lala
-        }
-        try{
             soldado.moverHaciaAbajo();
-        } catch (CasilleroOcupadoExcepcion  ex){
+        } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion ex){
             // Lala
         }
 
