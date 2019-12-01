@@ -1,4 +1,4 @@
-package Algo3TP2.Vistas;
+package Algo3TP2.Vistas.CasilleroView;
 
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;

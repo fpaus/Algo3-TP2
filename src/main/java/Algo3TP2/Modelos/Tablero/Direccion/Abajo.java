@@ -4,6 +4,6 @@ public class Abajo extends Vertical {
 
     @Override
     public int getDireccion() {
-        return -1;
+        return 1;
     }
 }
