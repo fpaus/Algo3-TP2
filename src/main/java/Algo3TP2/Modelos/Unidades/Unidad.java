@@ -37,7 +37,7 @@ public abstract class Unidad {
         }
         vida.recibirDanio(danio);
         if (vida.getPuntosDeVida() == 0) {
-            //bando.matarUnidad(this);
+            bando.matarUnidad(this);
             try{
                 this.casillero.quitarUnidad();
             } catch (CasilleroVacioExcepcion ex){
