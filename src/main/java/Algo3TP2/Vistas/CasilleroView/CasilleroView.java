@@ -3,7 +3,6 @@ package Algo3TP2.Vistas.CasilleroView;
 
 import Algo3TP2.Controladores.ClickAtaqueCasilleroHandler;
 import Algo3TP2.Controladores.ClickCasilleroHandler;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.ObservadorCasillero;
@@ -12,13 +11,8 @@ import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Vistas.JuegoView;
-import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlUnidadMovibleView;
-import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlView;
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 
