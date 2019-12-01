@@ -10,12 +10,12 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
-import Algo3TP2.ObservableCasillero;
+import Algo3TP2.Observable;
 import Algo3TP2.ObservadorCasillero;
 
 import java.util.ArrayList;
 
-public class Casillero implements ObservableCasillero {
+public class Casillero implements Observable {
 
     private Coordenada coordenada;
     private Bando bando;

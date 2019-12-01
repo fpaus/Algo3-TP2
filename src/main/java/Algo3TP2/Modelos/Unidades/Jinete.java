@@ -9,6 +9,8 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeJineteConEspada;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
+import Algo3TP2.Observable;
+import Algo3TP2.ObservadorEstrategiaDeAtaqueDeJinete;
 import Algo3TP2.Properties;
 
 import java.util.ArrayList;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
 public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
+    private ArrayList<ObservadorEstrategiaDeAtaqueDeJinete> observadores;
+
 
     public Jinete(Bando bando) {
         this.costo = Properties.costoJinete;
