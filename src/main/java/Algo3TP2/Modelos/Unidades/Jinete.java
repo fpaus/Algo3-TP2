@@ -15,7 +15,7 @@ import Algo3TP2.Properties;
 
 import java.util.ArrayList;
 
-public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
+public class Jinete extends UnidadMovible implements IUnidadDeAtaque, Observable {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
     private ArrayList<ObservadorEstrategiaDeAtaqueDeJinete> observadores;
@@ -60,4 +60,12 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
         this.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
     }
 
+    public void enlazarObservador(ObservadorEstrategiaDeAtaqueDeJinete observador){
+        this.observadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservadores() {
+        this.observadores.forEach(observador -> observador.actualizar());
+    }
 }
