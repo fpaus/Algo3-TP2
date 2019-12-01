@@ -8,17 +8,20 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class BotonMoverHaciaDerecha extends Button {
+public class BotonMoverHaciaDerecha extends BotonMoverGenerico {
 
-    public BotonMoverHaciaDerecha(Unidad unidad){
-        MoverUnidadHandler moverUnidadHandlerHaciaDerecha = new MoverUnidadHandler(unidad, new Derecha(), new Fija());
-        this.setOnAction(moverUnidadHandlerHaciaDerecha);
-        //this.setOnAction(e -> System.out.println("Oooo  i love it when u touch me there....."));
+    public BotonMoverHaciaDerecha(Unidad unidad) {
+        super(unidad);
+    }
 
-        this.setPrefSize(25,25);
-        ImageView flecha_imageView = new ImageView(new Image("file:src/resources/PanelDeControl/FlechasDirecciones/Flecha_derecha.png"));
-        flecha_imageView.setFitHeight(25);
-        flecha_imageView.setFitWidth(25);
-        this.setGraphic(flecha_imageView);
+    @Override
+    public MoverUnidadHandler moverUnidadHandler() {
+
+        return new MoverUnidadHandler(unidad, new Derecha(), new Fija());
+    }
+
+    @Override
+    public Image imagePath() {
+        return new Image("file:src/resources/PanelDeControl/FlechasDirecciones/Flecha_derecha.png");
     }
 }

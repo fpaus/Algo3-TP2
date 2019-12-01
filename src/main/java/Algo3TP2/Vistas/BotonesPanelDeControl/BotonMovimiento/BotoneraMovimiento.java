@@ -7,15 +7,17 @@ import javafx.scene.layout.GridPane;
 
 public class BotoneraMovimiento extends GridPane {
 
+
+
     public BotoneraMovimiento(Unidad unidad){
-        Button botonMoverHaciaDerecha = new BotonMoverHaciaDerecha(unidad);
-        Button botonMoverHaciaIzquierda = new BotonMoverHaciaIzquierda(unidad);
-        Button botonMoverHaciaArriba = new BotonMoverHaciaArriba(unidad);
-        Button botonMoverHaciaAbajo = new BotonMoverHaciaAbajo(unidad);
-        Button botonMoverHaciaArribaIzquierda = new ButonMoverHaciaArribaIzquierda(unidad);
-        Button botonMoverHaciaArribaDerecha = new BotonMoverHaciaArribaDerecha(unidad);
-        Button botonMoverHaciaAbajoIzquierda = new BotonMoverHaciaAbajoIzquierda(unidad);
-        Button botonMoverHaciaAbajoDerecha = new BotonMoverHaciaAbajoDerecha(unidad);
+        Button botonMoverHaciaDerecha = new BotonDireccion(new BotonMoverHaciaDerecha(unidad));
+        Button botonMoverHaciaIzquierda = new BotonDireccion(new BotonMoverHaciaIzquierda(unidad));
+        Button botonMoverHaciaArriba = new BotonDireccion(new BotonMoverHaciaArriba(unidad));
+        Button botonMoverHaciaAbajo = new BotonDireccion(new BotonMoverHaciaAbajo(unidad));
+        Button botonMoverHaciaArribaIzquierda = new BotonDireccion(new BotonMoverHaciaArribaIzquierda(unidad));
+        Button botonMoverHaciaArribaDerecha = new BotonDireccion(new BotonMoverHaciaArribaDerecha(unidad));
+        Button botonMoverHaciaAbajoIzquierda = new BotonDireccion(new BotonMoverHaciaAbajoIzquierda(unidad));
+        Button botonMoverHaciaAbajoDerecha = new BotonDireccion(new BotonMoverHaciaAbajoDerecha(unidad));
 
         this.add(botonMoverHaciaArribaIzquierda,0,0);
         this.add(botonMoverHaciaArriba, 1,0);
