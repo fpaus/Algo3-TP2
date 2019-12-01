@@ -18,6 +18,7 @@ import Algo3TP2.Vistas.UnidadesView.JineteView.JineteAzulView;
 import Algo3TP2.Vistas.UnidadesView.JineteView.JineteRojoView;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoAzulView;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoRojoView;
+import javafx.scene.PointLight;
 import javafx.scene.layout.BorderPane;
 
 public class JuegoView extends BorderPane {
@@ -60,6 +61,18 @@ public class JuegoView extends BorderPane {
             soldado.moverHaciaAbajo();
         } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion ex){
             // Lala
+        }
+
+        try{
+            soldado.moverHaciaLaDerecha();
+        } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion ex){
+            // Lala
+        }
+
+        try{
+            soldado2.recibirDanio(Properties.vidaSoldado);
+        } catch (UnidadInvalidaException ex){
+            
         }
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado

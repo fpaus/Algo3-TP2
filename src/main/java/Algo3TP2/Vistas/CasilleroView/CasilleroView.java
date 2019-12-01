@@ -2,7 +2,7 @@
 package Algo3TP2.Vistas.CasilleroView;
 
 import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.Observador;
+import Algo3TP2.ObservadorCasillero;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Coordenada;
@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 
-public class CasilleroView extends Pane implements Observador {
+public class CasilleroView extends Pane implements ObservadorCasillero {
 
     private int largoDelCasillero;
     private int anchoDelCasillero;

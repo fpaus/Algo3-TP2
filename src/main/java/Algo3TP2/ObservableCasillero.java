@@ -1,6 +1,6 @@
 package Algo3TP2;
 
-public interface Observable {
+public interface ObservableCasillero {
 
     public void notificarObservadores();
 }

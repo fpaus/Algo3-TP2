@@ -2,7 +2,7 @@ package Algo3TP2.Modelos.Casillero;
 
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.Observador;
+import Algo3TP2.ObservadorCasillero;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class CasilleroOcupado implements CasilleroEstado {
     }
 
     @Override
-    public void notificarObservadores(ArrayList<Observador> observadores) {
+    public void notificarObservadores(ArrayList<ObservadorCasillero> observadores) {
         observadores.forEach(observador -> observador.actualizar(this.unidadEnCasillero));
     }
 }

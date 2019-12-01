@@ -3,7 +3,7 @@ package Algo3TP2.Modelos.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.Observador;
+import Algo3TP2.ObservadorCasillero;
 
 import java.util.ArrayList;
 
@@ -14,6 +14,6 @@ public interface CasilleroEstado {
 
     public void quitarUnidad(Casillero casillero) throws CasilleroVacioExcepcion;
 
-    void notificarObservadores(ArrayList<Observador> observadores);
+    void notificarObservadores(ArrayList<ObservadorCasillero> observadores);
 }
 
