@@ -1,4 +1,16 @@
 package Algo3TP2.Vistas.PanelDeControlUnidadView;
 
-public class PanelDeControlCatapultaView {
+import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
+import Algo3TP2.Modelos.Unidades.Unidad;
+import Algo3TP2.Vistas.BotonesPanelDeControl.BotonDeAtaque;
+import Algo3TP2.Vistas.PanelDeControlView;
+import javafx.scene.image.Image;
+
+public class PanelDeControlCatapultaView extends PanelDeControlView {
+
+    public PanelDeControlCatapultaView(Unidad unidad){
+        Image armaImage = new Image("file: url de la sprite de la roca");
+        BotonDeAtaque botonDeAtaque = new BotonDeAtaque((IUnidadDeAtaque) unidad, armaImage);
+        this.add(botonDeAtaque, 5,0);
+    }
 }
