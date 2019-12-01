@@ -1,11 +1,13 @@
 
 package Algo3TP2.Vistas;
 
-import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Vistas.CasilleroView.CasilleroView;
+import Algo3TP2.Vistas.CasilleroView.CasilleroViewAzul;
+import Algo3TP2.Vistas.CasilleroView.CasilleroViewRojo;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;

@@ -32,10 +32,10 @@ public class UnidadTest {
         UnidadMovible unidad = new Soldado(bandoAliado);
         tablero.posicionarUnidad(unidad, new Coordenada(2, 2));
 
-        unidad.moverHaciaArriba();
+        unidad.moverHaciaAbajo();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 3)));
 
-        unidad.moverHaciaAbajo();
+        unidad.moverHaciaArriba();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
         unidad.moverHaciaLaIzquierda();
@@ -44,16 +44,16 @@ public class UnidadTest {
         unidad.moverHaciaLaDerecha();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
-        unidad.moverHaciaLaIzquierdaArriba();
+        unidad.moverHaciaLaIzquierdaAbajo();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(1, 3)));
 
-        unidad.moverHaciaLaDerechaAbajo();
+        unidad.moverHaciaLaDerechaArriba();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
-        unidad.moverHaciaLaDerechaArriba();
+        unidad.moverHaciaLaDerechaAbajo();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(3, 3)));
 
-        unidad.moverHaciaLaIzquierdaAbajo();
+        unidad.moverHaciaLaIzquierdaArriba();
         assertEquals(unidad.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
 
     }
@@ -68,7 +68,7 @@ public class UnidadTest {
         tablero.posicionarUnidad(soldado, new Coordenada(1, 1));
 
         // Act
-        soldado.moverHaciaArriba();
+        soldado.moverHaciaAbajo();
     }
 
     @Test

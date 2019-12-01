@@ -2,6 +2,9 @@ package Algo3TP2.Modelos.Casillero;
 
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
+import Algo3TP2.ObservadorCasillero;
+
+import java.util.ArrayList;
 
 public class CasilleroVacio implements CasilleroEstado {
 
@@ -22,5 +25,10 @@ public class CasilleroVacio implements CasilleroEstado {
     @Override
     public void quitarUnidad(Casillero casillero) throws CasilleroVacioExcepcion {
         throw new CasilleroVacioExcepcion();
+    }
+
+    @Override
+    public void notificarObservadores(ArrayList<ObservadorCasillero> observadores) {
+        observadores.forEach(observador -> observador.actualizar(null));
     }
 }

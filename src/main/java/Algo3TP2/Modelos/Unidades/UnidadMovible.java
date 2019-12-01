@@ -10,7 +10,7 @@ public abstract class UnidadMovible extends Unidad {
 
     Movimientos movimientos = new Movimientos();
 
-    public void mover(Casillero destino) throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+    public void mover(Casillero destino) throws CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimiento(this, destino);
     }
 
@@ -19,42 +19,42 @@ public abstract class UnidadMovible extends Unidad {
     }
 
     public void moverHaciaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaArriba(this, this.casillero);
     }
 
     public void moverHaciaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
-            CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaAbajo(this, this.casillero);
     }
 
     public void moverHaciaLaDerecha() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            , CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaDerecha(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierda() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            , CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaIzquierda(this, this.casillero);
     }
 
     public void moverHaciaLaDerechaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            , CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaDerechaArriba(this, this.casillero);
     }
 
     public void moverHaciaLaDerechaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            , CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaDerechaAbajo(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierdaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            , CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaIzquierdaArriba(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierdaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            , CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaIzquierdaAbajo(this, this.casillero);
     }
 
@@ -62,9 +62,13 @@ public abstract class UnidadMovible extends Unidad {
         this.vida.recibirCuracion(vida);
     }
 
-    public void moverACasillero(Casillero casillero) throws CasilleroVacioExcepcion {
+    public void moverACasillero(Casillero casillero) {
 
-        this.casillero.quitarUnidad();
+        try {
+            this.casillero.quitarUnidad();
+        } catch (CasilleroVacioExcepcion ex){
+            // Nunca estara Vacio
+        }
         this.casillero = casillero;
 
     }

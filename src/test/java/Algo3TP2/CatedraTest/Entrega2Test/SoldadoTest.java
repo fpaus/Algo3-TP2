@@ -137,8 +137,8 @@ public class SoldadoTest {
          soldado1.moverComoBatallonHaciaAbajo();
 
          // Assert
-         assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 0)));
-         assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 1)));
-         assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
+         assertEquals(soldado1.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 2)));
+         assertEquals(soldado2.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 3)));
+         assertEquals(soldado3.getCasillero(), tablero.getCasilleroEnCoordenada(new Coordenada(2, 4)));
      }
 }
