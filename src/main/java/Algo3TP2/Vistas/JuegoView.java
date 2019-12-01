@@ -1,20 +1,16 @@
 package Algo3TP2.Vistas;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
-import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
-import Algo3TP2.Properties;
 import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlSoldadoView;
-import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlView;
 import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlViewCasilleroVacio;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoAzulView;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoRojoView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 
 public class JuegoView extends BorderPane {
     /* Dentro de esta view entran todas las otras views que vamos a tener

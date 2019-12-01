@@ -4,7 +4,9 @@ import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Vistas.BotonesPanelDeControl.BotonDeAtaque;
 import Algo3TP2.Vistas.BotonesPanelDeControl.BotonMovimiento.BotoneraMovimiento;
+import Algo3TP2.Vistas.PanelDeControlView;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 
 public class PanelDeControlUnidadMovibleView extends PanelDeControlView {
 
@@ -14,10 +16,11 @@ public class PanelDeControlUnidadMovibleView extends PanelDeControlView {
         this.setGridLinesVisible(true);
 
         BotoneraMovimiento botoneraMovimiento = new BotoneraMovimiento(unidad);
-        this.add(botoneraMovimiento,1,1);
+        botoneraMovimiento.setAlignment(Pos.CENTER);
+        this.add(botoneraMovimiento,1,0);
 
         BotonDeAtaque botonDeAtaque = new BotonDeAtaque((IUnidadDeAtaque) unidad);
-        this.add(botonDeAtaque, 5,1);
+        this.add(botonDeAtaque, 5,0);
 
     }
 }

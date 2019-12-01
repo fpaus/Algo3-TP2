@@ -1,45 +1,43 @@
 package Algo3TP2.Vistas;
 
-import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.ViewProperties;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 
-public class MercadoDeUnidadesView extends GridPane {
+public class MercadoDeUnidadesView extends VBox {
 
     public MercadoDeUnidadesView() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
-        this.setAlignment(Pos.CENTER);
-        Image imagen = new Image("file:src/resources/Fondos/Mercado_fondo.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
-                new BackgroundSize(1000,1000, false, false, false, false));
+        this.setAlignment(Pos.TOP_CENTER);
+        this.setSpacing(30);
+        Image imagen = new Image("file:src/resources/Mercado/Mercado_fondo_madera.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(500,500, false, false, false, false));
         this.setBackground(new Background(imagenDeFondo));
-        this.setPadding(new Insets(40, 40, 40, 40));
+        this.setPadding(new Insets(20, 5, 0, 5));
 
-        Label mercadoLabel = new Label("Mercado");
-        mercadoLabel.setStyle("-fx-font-size: 25px; -fx-font-family: 'Arial Black'; -fx-font-weight: 900; -fx-text-fill: black");
-        this.add(mercadoLabel, 1, 0);
+        ImageView imageViewMercadoTitulo = new ImageView(new Image("file:src/resources/Mercado/titulo_mercado.png"));
 
-        Label deLabel = new Label("     de");
-        deLabel.setStyle("-fx-font-size: 25px; -fx-font-family: 'Arial Black'; -fx-font-weight: 900; -fx-text-fill: black");
-        this.add(deLabel, 1, 1);
+        // Botones placeholders
+        Button botonUnidad1 = new Button();
+        botonUnidad1.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
+        Button botonUnidad2 = new Button();
+        botonUnidad2.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
+        Button botonUnidad3 = new Button();
+        botonUnidad3.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
+        Button botonUnidad4 = new Button();
+        botonUnidad4.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
 
-        Label unidadesLabel = new Label("unidades");
-        unidadesLabel.setStyle("-fx-font-size: 25px; -fx-font-family: 'Arial Black'; -fx-font-weight: 900; -fx-text-fill: black");
-        this.add(unidadesLabel, 1, 2);
 
-        // Solo a modo de relleno
-        /*for (int i = 3; i< ViewProperties.tamanioTablero; i++){
-            CasilleroView casillero = new CasilleroView(Tablero.getTablero(), new Coordenada(1, i));
-            this.add(casillero, 1, i);
-        }*/
+
+        this.getChildren().addAll(imageViewMercadoTitulo, botonUnidad1, botonUnidad2, botonUnidad3, botonUnidad4);
     }
 
 }

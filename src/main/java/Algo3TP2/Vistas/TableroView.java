@@ -27,7 +27,7 @@ public class TableroView extends GridPane {
         this.setAlignment(Pos.CENTER);
         Image imagen = new Image("file:src/resources/Fondos/Mapa_1.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
-                new BackgroundSize(1000,1000, false, false, false, false));
+                new BackgroundSize(650,650, false, false, false, false));
         this.setBackground(new Background(imagenDeFondo));
         this.setPadding(new Insets(20, 20, 20, 20));
 
