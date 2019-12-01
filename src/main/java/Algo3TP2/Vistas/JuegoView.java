@@ -51,6 +51,11 @@ public class JuegoView extends BorderPane {
         } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion ex){
             // Lala
         }
+        try{
+            soldado.moverHaciaAbajo();
+        } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion ex){
+            // Lala
+        }
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
