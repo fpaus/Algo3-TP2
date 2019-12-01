@@ -1,6 +1,7 @@
-package Algo3TP2.Vistas.BotonesPanelDeControl.BotonesDirecciones;
+package Algo3TP2.Vistas.BotonesPanelDeControl.BotonMovimiento;
 
 import Algo3TP2.Modelos.Unidades.Unidad;
+import Algo3TP2.Vistas.BotonesPanelDeControl.BotonMovimiento.BotonesDirecciones.*;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 

@@ -1,18 +1,17 @@
-package Algo3TP2.Vistas.BotonesPanelDeControl.BotonesDirecciones;
+package Algo3TP2.Vistas.BotonesPanelDeControl.BotonMovimiento.BotonesDirecciones;
 
 import Algo3TP2.Controladores.MoverUnidadHandler;
-import Algo3TP2.Modelos.Tablero.Direccion.Abajo;
 import Algo3TP2.Modelos.Tablero.Direccion.Arriba;
-import Algo3TP2.Modelos.Tablero.Direccion.Derecha;
+import Algo3TP2.Modelos.Tablero.Direccion.Izquierda;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class BotonMoverHaciaAbajoDerecha extends Button {
+public class ButonMoverHaciaArribaIzquierda extends Button {
 
-    public BotonMoverHaciaAbajoDerecha(Unidad unidad){
-        MoverUnidadHandler moverUnidadHandlerHaciaDerecha = new MoverUnidadHandler(unidad, new Derecha(), new Abajo());
+    public ButonMoverHaciaArribaIzquierda(Unidad unidad){
+        MoverUnidadHandler moverUnidadHandlerHaciaDerecha = new MoverUnidadHandler(unidad, new Izquierda(), new Arriba());
         this.setOnAction(moverUnidadHandlerHaciaDerecha);
         //this.setOnAction(e -> System.out.println("Oooo  i love it when u touch me there....."));
 

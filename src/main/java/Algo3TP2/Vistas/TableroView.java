@@ -1,6 +1,7 @@
 
 package Algo3TP2.Vistas;
 
+import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
@@ -50,4 +51,11 @@ public class TableroView extends GridPane {
         return casilleroView;
     }
 
+    public void cambiarSetOnMouseClickedAModoAtaque(IUnidadDeAtaque unidadDeAtaque) {
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoAtaque(unidadDeAtaque));
+    }
+
+    public void cambiarSetOnMouseClickedAModoSeleccionDeUnidad(){
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad());
+    }
 }
