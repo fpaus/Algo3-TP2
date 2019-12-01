@@ -32,7 +32,7 @@ public class ClickAtaqueCasilleroHandler implements EventHandler<MouseEvent> {
             AlertBox.display("Alert",e.getMessage());
         } finally {
             TableroView tableroView = JuegoView.getJuegoView().getTableroView();
-            tableroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad();
+            tableroView.cambiarAModoSeleccionDeUnidad();
         }
     }
 }
