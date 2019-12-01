@@ -8,9 +8,13 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Properties;
+import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlSoldadoView;
+import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlView;
+import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlViewCasilleroVacio;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoAzulView;
 import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoRojoView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 
 public class JuegoView extends BorderPane {
     /* Dentro de esta view entran todas las otras views que vamos a tener
@@ -19,11 +23,26 @@ public class JuegoView extends BorderPane {
      TableroView debería ser parte de JuegoView.
 
      */
-    public JuegoView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        TableroView tableroView = new TableroView(tablero);
-        MercadoDeUnidadesView mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView();
-        MercadoDeUnidadesView mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView();
-        PanelDeControlView panelDeControlView = new PanelDeControlView();
+    private static JuegoView juegoView;
+    private TableroView tableroView;
+    private MercadoDeUnidadesView mercadoDeUnidadesViewDerecha;
+    private MercadoDeUnidadesView mercadoDeUnidadesViewIzquierda;
+    private PanelDeControlView panelDeControlView;
+
+
+    public static JuegoView getJuegoView() {
+        return juegoView;
+    }
+
+    public static void inicializarJuegoView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        juegoView = new JuegoView(tablero);
+    }
+
+    protected JuegoView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        this.tableroView = new TableroView(tablero);
+        this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView();
+        this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView();
+        this.panelDeControlView = new PanelDeControlViewCasilleroVacio();
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
@@ -32,6 +51,9 @@ public class JuegoView extends BorderPane {
         Soldado soldado = new Soldado(new Bando(new Jugador("Nazareno")));
         SoldadoAzulView soldadoAzulView = new SoldadoAzulView();
         unidadesViewEnJuego.setUnidadView(soldado, soldadoAzulView);
+        PanelDeControlView panelDeControlView = new PanelDeControlSoldadoView(soldado);
+        unidadesViewEnJuego.setUnidadPanelDeControlView(soldado, panelDeControlView);
+
         try {
             tablero.posicionarUnidad(soldado, new Coordenada(0, 0));
         } catch (CasilleroOcupadoExcepcion ex){
@@ -41,6 +63,8 @@ public class JuegoView extends BorderPane {
         Soldado soldado2 = new Soldado(new Bando(new Jugador("Nazareno")));
         SoldadoRojoView soldadoRojoView = new SoldadoRojoView();
         unidadesViewEnJuego.setUnidadView(soldado2, soldadoRojoView);
+        PanelDeControlView panelDeControlView2 = new PanelDeControlSoldadoView(soldado2);
+        unidadesViewEnJuego.setUnidadPanelDeControlView(soldado2, panelDeControlView2);
 
         try {
             tablero.posicionarUnidad(soldado2, new Coordenada(0, 1));
@@ -67,57 +91,6 @@ public class JuegoView extends BorderPane {
             System.out.println(ex.getMessage());
         }
 
-        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
-        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
-/*
-        Soldado soldado = new Soldado(new Bando(new Jugador("Jugador2")));
-        try{
-            tablero.posicionarUnidad(soldado, new Coordenada(0,0));
-        } catch (CasilleroOcupadoExcepcion ex ){
-            System.out.println("Todo mal amigo");
-        }
-
-        SoldadoAzulView soldadoAzulView = new SoldadoAzulView();
-        CasilleroView casilleroView = tableroView.getCasilleroView(new Coordenada(0,0));
-        casilleroView.setUnidadView(soldadoAzulView);
-
-        try{
-            soldado.recibirDanio(Properties.vidaSoldado);
-        } catch (UnidadInvalidaException ex){
-            System.out.println("Todo re mal amigo");
-        }
-
-
-
-
-        SoldadoRojoView soldadoRojoView = new SoldadoRojoView();
-        CasilleroView casilleroView2 = tableroView.getCasilleroView(new Coordenada(1,0));
-        casilleroView2.setUnidadView(soldadoRojoView);
-
-        JineteAzulView jineteAzulView = new JineteAzulView();
-        CasilleroView casilleroView3 = tableroView.getCasilleroView(new Coordenada(2,0));
-        casilleroView3.setUnidadView(jineteAzulView);
-
-        JineteRojoView jineteRojoView= new JineteRojoView();
-        CasilleroView casilleroView4 = tableroView.getCasilleroView(new Coordenada(3,0));
-        casilleroView4.setUnidadView(jineteRojoView);
-
-        CatapultaAzulView catapultaAzulView = new CatapultaAzulView();
-        CasilleroView casilleroView5 = tableroView.getCasilleroView(new Coordenada(4,0));
-        casilleroView5.setUnidadView(catapultaAzulView);
-
-        CatapultaRojaView catapultaRojaView = new CatapultaRojaView();
-        CasilleroView casilleroView6 =  tableroView.getCasilleroView(new Coordenada(5,0));
-        casilleroView6.setUnidadView(catapultaRojaView);
-
-        CuranderoAzulView curanderoAzulView = new CuranderoAzulView();
-        CasilleroView casilleroView7 =  tableroView.getCasilleroView(new Coordenada(6,0));
-        casilleroView7.setUnidadView(curanderoAzulView);
-
-        CuranderoRojoView curanderoRojoView = new CuranderoRojoView();
-        CasilleroView casilleroView8 =  tableroView.getCasilleroView(new Coordenada(7,0));
-        casilleroView8.setUnidadView(curanderoRojoView);
-*/
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
@@ -125,6 +98,11 @@ public class JuegoView extends BorderPane {
         this.setCenter(tableroView);
         this.setRight(mercadoDeUnidadesViewDerecha);
         this.setLeft(mercadoDeUnidadesViewIzquierda);
-        this.setBottom(panelDeControlView);
+        this.setBottom(this.panelDeControlView);
+    }
+
+    public void setPanelDeControlView(PanelDeControlView panelDeControlSoldadoView) {
+        this.panelDeControlView = panelDeControlSoldadoView;
+        this.setBottom(panelDeControlSoldadoView);
     }
 }

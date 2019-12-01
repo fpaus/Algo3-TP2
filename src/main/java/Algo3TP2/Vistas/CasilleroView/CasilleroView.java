@@ -1,6 +1,8 @@
 
 package Algo3TP2.Vistas.CasilleroView;
 
+import Algo3TP2.Controladores.ClickCasilleroHandler;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.ObservadorCasillero;
 import Algo3TP2.ViewProperties;
@@ -8,6 +10,9 @@ import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Vistas.JuegoView;
+import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlUnidadMovibleView;
+import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlView;
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
 import javafx.event.EventHandler;
@@ -32,16 +37,7 @@ public class CasilleroView extends Pane implements ObservadorCasillero {
         this.setMinWidth(this.anchoDelCasillero);
         this.setMinHeight(this.largoDelCasillero);
 
-        final int[] num = {1}; // Para contar los clicks dentro de cada Pane.
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                //System.out.println("Casillero clickeado " + (Integer.toString(num[0])) + " veces...");
-                System.out.println(casillero.toString());
-                num[0]++;
-            }
-        });
-
+        this.setOnMouseClicked(new ClickCasilleroHandler(this.casillero));
     }
 
     protected void setEstado(CasilleroViewEstado estado){

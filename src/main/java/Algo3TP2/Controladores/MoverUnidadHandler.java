@@ -3,18 +3,19 @@ package Algo3TP2.Controladores;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonMoverUnidadHandler implements EventHandler<ActionEvent> {
+public class MoverUnidadHandler implements EventHandler<ActionEvent> {
 
     private UnidadMovible unidadMovible;
     private Direccion horizontal;
     private Direccion vertical;
 
-    public BotonMoverUnidadHandler(UnidadMovible unidadMovible, Direccion horizontal, Direccion vertical) {
-        this.unidadMovible = unidadMovible;
+    public MoverUnidadHandler(Unidad unidad, Direccion horizontal, Direccion vertical) {
+        this.unidadMovible = (UnidadMovible) unidad;
         this.horizontal = horizontal;
         this.vertical = vertical;
     }
