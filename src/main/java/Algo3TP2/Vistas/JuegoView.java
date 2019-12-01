@@ -48,12 +48,12 @@ public class JuegoView extends BorderPane {
         // JUJUJU
         try{
             soldado.moverHaciaLaDerecha();
-        } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion ex){
+        } catch (CasilleroOcupadoExcepcion ex){
             // Lala
         }
         try{
             soldado.moverHaciaAbajo();
-        } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion ex){
+        } catch (CasilleroOcupadoExcepcion  ex){
             // Lala
         }
 

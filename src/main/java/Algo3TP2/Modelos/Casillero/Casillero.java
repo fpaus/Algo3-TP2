@@ -54,7 +54,7 @@ public class Casillero implements Observable {
         return this.coordenada;
     }
 
-    public void aceptarUnidad(UnidadMovible unidad) throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+    public void aceptarUnidad(UnidadMovible unidad) throws CasilleroOcupadoExcepcion {
 
         this.setUnidad(unidad);
         unidad.moverACasillero(this);

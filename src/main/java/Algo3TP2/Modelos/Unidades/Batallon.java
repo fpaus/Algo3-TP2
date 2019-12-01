@@ -33,7 +33,7 @@ public class Batallon {
                         try {
                             soldadoIterActual.mover(casilleroDestino);
                             soldadosParaBatallon.remove(soldadoIterActual);
-                        } catch (CasilleroOcupadoExcepcion | CasilleroVacioExcepcion ex) {
+                        } catch (CasilleroOcupadoExcepcion ex) {
                         }
                     } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex) {
                     }
