@@ -72,7 +72,7 @@ public class JuegoView extends BorderPane {
         try{
             soldado2.recibirDanio(Properties.vidaSoldado);
         } catch (UnidadInvalidaException ex){
-
+            System.out.println(ex.getMessage());
         }
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado

@@ -14,7 +14,8 @@ public abstract class UnidadMovible extends Unidad {
         movimientos.ejecutarMovimiento(this, destino);
     }
 
-    public void moverEnDireccion(Direccion horizontal, Direccion vertical) throws CasilleroFueraDelLosLimitesDelTableroExcepcion{
+    public void moverEnDireccion(Direccion horizontal, Direccion vertical)
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
         movimientos.ejecutarMovimientoEnDireccion(this, this.casillero, horizontal, vertical);
     }
 

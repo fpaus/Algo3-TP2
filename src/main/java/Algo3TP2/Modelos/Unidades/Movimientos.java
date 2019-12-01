@@ -54,7 +54,7 @@ public class Movimientos {
     }
 
     public void ejecutarMovimientoEnDireccion(UnidadMovible unidad, Casillero casilleroActual ,Direccion horizontal, Direccion vertical)
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
         this.ejecutarMovimiento(unidad, casilleroActual.getCasilleroVecino(horizontal, vertical));
     }
 }

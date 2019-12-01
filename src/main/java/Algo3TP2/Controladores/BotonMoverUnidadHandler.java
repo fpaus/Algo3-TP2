@@ -1,5 +1,6 @@
 package Algo3TP2.Controladores;
 
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
@@ -26,9 +27,8 @@ public class BotonMoverUnidadHandler implements EventHandler<ActionEvent> {
     public void mover() {
         try {
             this.unidadMovible.moverEnDireccion(this.horizontal, this.vertical);
-        } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion ex){
-            // como la tratamos;
+        } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion | CasilleroOcupadoExcepcion ex){
+            AlertBox.display("Alert", ex.getMessage());
         }
-
     }
 }
