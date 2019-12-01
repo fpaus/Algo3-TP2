@@ -11,6 +11,8 @@ import Algo3TP2.Vistas.CasilleroView.CasilleroViewAzul;
 import Algo3TP2.Vistas.CasilleroView.CasilleroViewRojo;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
@@ -44,6 +46,9 @@ public class TableroView extends GridPane {
                 this.casillerosView.put(coordenada, casillero);
             }
         }
+//
+//        Image image = new Image("file:src/resources/PanelDeControl/Armas/Espada.png");
+//        this.setCursor(new ImageCursor(image));
     }
 
     public CasilleroView getCasilleroView(Coordenada coordenada){
@@ -57,5 +62,15 @@ public class TableroView extends GridPane {
 
     public void cambiarSetOnMouseClickedAModoSeleccionDeUnidad(){
         casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad());
+    }
+
+    public void cambiarAModoSeleccionDeUnidad(){
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad());
+        this.setCursor(Cursor.DEFAULT);
+    }
+
+    public void cambiarAModoRealizarAtaque(IUnidadDeAtaque unidadDeAtaque, Image armaImageCursor) {
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoAtaque(unidadDeAtaque));
+        this.setCursor(new ImageCursor(armaImageCursor));
     }
 }

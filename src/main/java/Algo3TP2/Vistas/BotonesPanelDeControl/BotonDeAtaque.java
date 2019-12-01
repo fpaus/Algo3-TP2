@@ -9,11 +9,12 @@ import javafx.scene.image.ImageView;
 public class BotonDeAtaque extends Button {
 
     public BotonDeAtaque(IUnidadDeAtaque unidad){
-        this.setOnAction(new AtaqueDeUnidadHandler(unidad));
         this.setPrefSize(90,90);
-        ImageView espada_imageView = new ImageView(new Image("file:src/resources/PanelDeControl/Armas/Espada.png"));
+        Image armaImage = new Image("file:src/resources/PanelDeControl/Armas/Espada.png");
+        ImageView espada_imageView = new ImageView(armaImage);
         espada_imageView.setFitHeight(80);
         espada_imageView.setFitWidth(80);
         this.setGraphic(espada_imageView);
+        this.setOnAction(new AtaqueDeUnidadHandler(unidad, armaImage));
     }
 }
