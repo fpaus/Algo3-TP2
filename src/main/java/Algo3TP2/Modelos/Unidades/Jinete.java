@@ -36,6 +36,7 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque, Observable
 
     private void setEstrategiaDeAtaque(EstrategiaDeAtaque estragia) {
         this.estrategiaDeAtaque = estragia;
+        this.notificarObservadores();
     }
 
     private void definirEstragegiaDeAtaque() {
@@ -66,6 +67,6 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque, Observable
 
     @Override
     public void notificarObservadores() {
-        this.observadores.forEach(observador -> observador.actualizar());
+        this.observadores.forEach(observador -> observador.actualizar(this.estrategiaDeAtaque));
     }
 }
