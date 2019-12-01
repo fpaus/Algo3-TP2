@@ -85,11 +85,6 @@ public class JuegoView extends BorderPane {
             // Lala
         }
 
-        try{
-            soldado2.recibirDanio(Properties.vidaSoldado);
-        } catch (UnidadInvalidaException ex){
-            System.out.println(ex.getMessage());
-        }
 
 
         // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
@@ -104,5 +99,9 @@ public class JuegoView extends BorderPane {
     public void setPanelDeControlView(PanelDeControlView panelDeControlSoldadoView) {
         this.panelDeControlView = panelDeControlSoldadoView;
         this.setBottom(panelDeControlSoldadoView);
+    }
+
+    public TableroView getTableroView() {
+        return this.tableroView;
     }
 }

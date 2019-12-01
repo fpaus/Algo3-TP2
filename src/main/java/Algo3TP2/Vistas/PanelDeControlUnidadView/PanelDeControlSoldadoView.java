@@ -7,4 +7,5 @@ public class PanelDeControlSoldadoView extends PanelDeControlUnidadMovibleView{
     public PanelDeControlSoldadoView(Unidad unidad) {
         super(unidad);
     }
+
 }

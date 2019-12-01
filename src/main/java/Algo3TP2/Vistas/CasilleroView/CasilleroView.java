@@ -1,8 +1,10 @@
 
 package Algo3TP2.Vistas.CasilleroView;
 
+import Algo3TP2.Controladores.ClickAtaqueCasilleroHandler;
 import Algo3TP2.Controladores.ClickCasilleroHandler;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
+import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.ObservadorCasillero;
 import Algo3TP2.ViewProperties;
@@ -49,5 +51,13 @@ public class CasilleroView extends Pane implements ObservadorCasillero {
         UnidadesViewEnJuego unidadesViewEnJuego = UnidadesViewEnJuego.getUnidadesViewEnJuego();
         UnidadView unidadView = unidadesViewEnJuego.getUnidadView(unidad);
         this.estado.actualizar(unidadView);
+    }
+
+    public void cambiarSetOnMouseClickedAModoAtaque(IUnidadDeAtaque unidadAtacante){
+        this.setOnMouseClicked(new ClickAtaqueCasilleroHandler(unidadAtacante, this.casillero));
+    }
+
+    public void cambiarSetOnMouseClickedAModoSeleccionDeUnidad(){
+        this.setOnMouseClicked(new ClickCasilleroHandler(this.casillero));
     }
 }
