@@ -2,6 +2,8 @@
 package Algo3TP2.Vistas;
 
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
+import Algo3TP2.Modelos.Unidades.Soldado;
+import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.Tablero;
@@ -72,5 +74,10 @@ public class TableroView extends GridPane {
     public void cambiarAModoRealizarAtaque(IUnidadDeAtaque unidadDeAtaque, Image armaImageCursor) {
         casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoAtaque(unidadDeAtaque));
         this.setCursor(new ImageCursor(armaImageCursor));
+    }
+
+    public void cambiarAModoSetearUnidad(Unidad unidad) {
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarAModoSetearUnidad(unidad));
+        //this.setCursor(new ImageCursor(armaImageCursor));
     }
 }

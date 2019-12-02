@@ -1,5 +1,6 @@
 package Algo3TP2.Vistas;
 
+import Algo3TP2.Controladores.ComprarUnidadHandler;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -28,6 +29,8 @@ public class MercadoDeUnidadesView extends VBox {
         // Botones placeholders
         Button botonUnidad1 = new Button();
         botonUnidad1.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
+        botonUnidad1.setOnAction(new ComprarUnidadHandler());
+
         Button botonUnidad2 = new Button();
         botonUnidad2.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
         Button botonUnidad3 = new Button();
