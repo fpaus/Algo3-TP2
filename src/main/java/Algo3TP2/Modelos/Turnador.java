@@ -23,6 +23,7 @@ public class Turnador {
         } else {
             this.jugadorActual = this.jugador1;
         }
+        this.jugadorActual.controlarCondicionDePerdida();
         return this.jugadorActual;
     }
 }
