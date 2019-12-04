@@ -14,8 +14,6 @@ public class PanelDeControlUnidadMovibleView extends PanelDEControlUnidadView {
     public PanelDeControlUnidadMovibleView(Unidad unidad, Juego juego) {
         super(unidad);
 
-        this.setPadding(new Insets(40, 40, 40, 40));
-
         BotoneraMovimiento botoneraMovimiento = new BotoneraMovimiento(unidad, juego);
         botoneraMovimiento.setAlignment(Pos.CENTER);
         this.add(botoneraMovimiento,2,0);

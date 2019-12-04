@@ -11,20 +11,18 @@ import javafx.scene.layout.*;
 public class PanelDEControlUnidadView extends PanelDeControlView {
 
     public PanelDEControlUnidadView(Unidad unidad){
-        Image imagen = new Image("file:src/resources/PanelDeControl/fondo_piedra_con_banner.png");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
-                BackgroundRepeat.ROUND,
-                BackgroundRepeat.ROUND,
-                BackgroundPosition.CENTER,
-                new BackgroundSize(1006,200, false, false, false, false));
-        this.setBackground(new Background(imagenDeFondo));
 
-        UnidadView unidadImage = UnidadesViewEnJuego.getUnidadView().getUnidadView(unidad);
+        StackPane stackPaneUnidadActual = new StackPane(); // StackPane para el marco y la unidad que se ve dentro
 
-        ImageView imagenUnidadSeleccionada = new ImageView(unidadImage.getImage());
-        imagenUnidadSeleccionada.setFitWidth(100);
-        imagenUnidadSeleccionada.setFitHeight(100);
+        UnidadView imagenUnidad = UnidadesViewEnJuego.getUnidadView().getUnidadView(unidad);
+        ImageView imagenUnidadSeleccioanda = new ImageView(imagenUnidad.getImage());
+        imagenUnidadSeleccioanda.setFitWidth(100);
+        imagenUnidadSeleccioanda.setFitHeight(100);
 
-        this.getChildren().add(imagenUnidadSeleccionada);
+        ImageView marcoUnidadSeleccionada = new ImageView (new Image("file:src/resources/PanelDeControl/marco_unidad.png"));
+
+        stackPaneUnidadActual.getChildren().addAll(marcoUnidadSeleccionada, imagenUnidadSeleccioanda);
+
+        this.getChildren().add(stackPaneUnidadActual);
     }
 }
