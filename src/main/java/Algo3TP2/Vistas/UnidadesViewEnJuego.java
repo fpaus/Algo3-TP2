@@ -16,7 +16,7 @@ public class UnidadesViewEnJuego {
         this.unidadPanelDeControlView = new HashMap<Unidad, PanelDeControlView>();
     }
 
-    public static UnidadesViewEnJuego getUnidadesViewEnJuego(){
+    public static UnidadesViewEnJuego getUnidadView(){
         if (unidadesViewsEnJuego == null){
             unidadesViewsEnJuego = new UnidadesViewEnJuego();
         }

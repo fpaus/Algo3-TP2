@@ -24,7 +24,7 @@ public class ClickCasilleroHandler implements EventHandler<MouseEvent> {
         try{
             Unidad unidad = casillero.getUnidad();
             PanelDeControlView panelDeControlView =
-                    UnidadesViewEnJuego.getUnidadesViewEnJuego().getUnidadPanelDeControlView(unidad);
+                    UnidadesViewEnJuego.getUnidadView().getUnidadPanelDeControlView(unidad);
             juegoView.setPanelDeControlView(panelDeControlView);
 
         } catch (CasilleroVacioExcepcion casilleroVacioExcepcion) {

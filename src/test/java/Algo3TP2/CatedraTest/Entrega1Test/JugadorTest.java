@@ -45,19 +45,19 @@ public class JugadorTest {
     }
 
 
-    @Test(expected = JugadorSinUnidadesExcepcion.class)
-    public void elJugadorQueSeQuedaSinEntidadesEsElPerdedorTest() throws Exception {
-        Turnador turnador = new Turnador(jugadorAliado, jugadorEnemigo);
-
-        Unidad unidadAliada = new Catapulta(bandoAliado);
-        jugadorAliado.colocarUnidadEnCasillero(unidadAliada, tablero.getCasilleroEnCoordenada(new Coordenada(1, 2)));
-
-        Unidad unidadEnemiga = new Catapulta(bandoEnemigo);
-        jugadorEnemigo.colocarUnidadEnCasillero(unidadEnemiga, tablero.getCasilleroEnCoordenada(new Coordenada(1, 3)));
-
-        unidadAliada.recibirDanio(Properties.vidaCatapulta);
-
-        turnador.getJugadorSiguienteTurno();
-    }
+//    @Test(expected = JugadorSinUnidadesExcepcion.class)
+//    public void elJugadorQueSeQuedaSinEntidadesEsElPerdedorTest() throws Exception {
+//        Turnador turnador = new Turnador(jugadorAliado, jugadorEnemigo);
+//
+//        Unidad unidadAliada = new Catapulta(bandoAliado);
+//        jugadorAliado.colocarUnidadEnCasillero(unidadAliada, tablero.getCasilleroEnCoordenada(new Coordenada(1, 2)));
+//
+//        Unidad unidadEnemiga = new Catapulta(bandoEnemigo);
+//        jugadorEnemigo.colocarUnidadEnCasillero(unidadEnemiga, tablero.getCasilleroEnCoordenada(new Coordenada(1, 3)));
+//
+//        unidadAliada.recibirDanio(Properties.vidaCatapulta);
+//
+//        turnador.getJugadorSiguienteTurno();
+//    }
 
 }

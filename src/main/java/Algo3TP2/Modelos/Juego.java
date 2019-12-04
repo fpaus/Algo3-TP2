@@ -15,9 +15,9 @@ public class Juego {
         this.tablero = Tablero.getTablero();
     }
 
-    public void inicializarJuego(String jugador1nombre, String jugador2nombre,int tamanioTablero){
-        this.jugador1 = new Jugador(jugador1nombre);
-        this.jugador2 = new Jugador(jugador2nombre);
+    public void inicializarJuego(Jugador jugador1, Jugador jugador2,int tamanioTablero){
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
         tablero.inicializarTablero(tamanioTablero, tamanioTablero, this.jugador1, this.jugador2);
         this.turnador = new Turnador(this.jugador1, this.jugador2);
     }
