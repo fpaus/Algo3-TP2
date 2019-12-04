@@ -1,6 +1,7 @@
 package Algo3TP2.Vistas.BotonesPanelDeControl.BotonMovimiento.BotonesDirecciones;
 
 import Algo3TP2.Controladores.MoverUnidadHandler;
+import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.Direccion.Arriba;
 import Algo3TP2.Modelos.Tablero.Direccion.Derecha;
 import Algo3TP2.Modelos.Tablero.Direccion.Fija;
@@ -11,13 +12,13 @@ import javafx.scene.image.ImageView;
 
 public class BotonMoverHaciaArribaDerecha extends BotonMoverGenerico {
 
-    public BotonMoverHaciaArribaDerecha(Unidad unidad) {
-        super(unidad);
+    public BotonMoverHaciaArribaDerecha(Unidad unidad, Juego juego) {
+        super(unidad, juego);
     }
 
     @Override
     public MoverUnidadHandler moverUnidadHandler() {
-        return new MoverUnidadHandler(unidad, new Derecha(), new Arriba());
+        return new MoverUnidadHandler(unidad, new Derecha(), new Arriba(), this.juego);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package Algo3TP2.Controladores;
 
 import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.UnidadAbstractFactory.UnidadFactory;
@@ -16,11 +17,13 @@ public class ComprarUnidadHandler implements EventHandler<ActionEvent> {
     UnidadFactory unidadFactory;
     String tipoDeUnidad;
     Bando bando;
+    Juego juego;
 
-    public ComprarUnidadHandler(String colorEquipo, String tipoDeUnidad, Bando bando){
+    public ComprarUnidadHandler(String colorEquipo, String tipoDeUnidad, Bando bando, Juego juego){
         this.unidadFactory = UnidadesAbstractFactory.getFactory(colorEquipo);
         this.tipoDeUnidad = tipoDeUnidad;
         this.bando = bando;
+        this.juego = juego;
     }
 
     @Override
@@ -29,7 +32,7 @@ public class ComprarUnidadHandler implements EventHandler<ActionEvent> {
         UnidadesViewEnJuego unidadesViewEnJuego = UnidadesViewEnJuego.getUnidadView();
 
         try {
-            Unidad unidad = unidadFactory.getUnidad(this.tipoDeUnidad, this.bando);
+            Unidad unidad = unidadFactory.getUnidad(this.tipoDeUnidad, this.bando, juego);
             tableroView.cambiarAModoSetearUnidad(unidad, unidadesViewEnJuego.getUnidadView(unidad));
         } catch (UnidadInvalidaException e) {
             e.printStackTrace();

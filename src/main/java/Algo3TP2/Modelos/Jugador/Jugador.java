@@ -6,6 +6,8 @@ import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.JugadorSinUnidadesExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.PuntosInsuficientesExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
+import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
@@ -32,13 +34,12 @@ public class Jugador {
         unidadesDeJugador.add(unidad);
     }
 
-    public void moverUnidadACasillero(UnidadMovible unidad, Casillero casillero)
-            throws UnidadInvalidaException, CasilleroOcupadoExcepcion,
-            CasilleroVacioExcepcion {
+    public void moverUnidadACasillero(UnidadMovible unidad, Direccion horizontal, Direccion vertical)
+            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, UnidadInvalidaException {
         if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();
         }
-        unidad.mover(casillero);
+        unidad.moverEnDireccion(horizontal, vertical);
     }
 
     public void atacarConUnidadACasillero(IUnidadDeAtaque unidad, Casillero casillero) throws UnidadInvalidaException,
@@ -62,4 +63,20 @@ public class Jugador {
         }
     }
 
+    public void anadirUnidad(Unidad unidad) {
+        this.unidadesDeJugador.add(unidad);
+    }
+
+    public Unidad getUnidadEnCasillero(Casillero casillero) throws CasilleroVacioExcepcion, UnidadInvalidaException {
+        Unidad unidad = casillero.getUnidad();
+        if (!unidadesDeJugador.contains(unidad)) {
+            throw new UnidadInvalidaException();
+        }
+        return unidad;
+    }
+
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
 }

@@ -1,6 +1,7 @@
 package Algo3TP2.Vistas;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
@@ -20,6 +21,7 @@ public class JuegoView extends BorderPane {
 
      */
     private static JuegoView juegoView;
+    private Juego juego;
     private TableroView tableroView;
     private MercadoDeUnidadesView mercadoDeUnidadesViewDerecha;
     private MercadoDeUnidadesView mercadoDeUnidadesViewIzquierda;
@@ -30,14 +32,14 @@ public class JuegoView extends BorderPane {
         return juegoView;
     }
 
-    public static void inicializarJuegoView(Tablero tablero, Jugador jugador1, Jugador jugador2) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        juegoView = new JuegoView(tablero, jugador1, jugador2);
+    public static void inicializarJuegoView(Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        juegoView = new JuegoView(juego);
     }
 
-    protected JuegoView(Tablero tablero, Jugador jugador1, Jugador jugador2) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        this.tableroView = new TableroView(tablero);
-        this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView("EquipoRojo", new Bando(jugador1));
-        this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView("EquipoAzul",new Bando(jugador2));
+    protected JuegoView(Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        this.tableroView = new TableroView(juego);
+        this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView("EquipoRojo", new Bando(juego.getJugador1()), juego);
+        this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView("EquipoAzul",new Bando(juego.getJugador2()), juego);
         this.panelDeControlView = new PanelDeControlViewCasilleroVacio();
 
         this.setCenter(tableroView);

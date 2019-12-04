@@ -1,5 +1,6 @@
 package Algo3TP2.Vistas.BotonesPanelDeControl.BotonMovimiento;
 
+import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Vistas.BotonesPanelDeControl.BotonMovimiento.BotonesDirecciones.*;
 import javafx.scene.control.Button;
@@ -9,15 +10,15 @@ public class BotoneraMovimiento extends GridPane {
 
 
 
-    public BotoneraMovimiento(Unidad unidad){
-        Button botonMoverHaciaDerecha = new BotonDireccion(new BotonMoverHaciaDerecha(unidad));
-        Button botonMoverHaciaIzquierda = new BotonDireccion(new BotonMoverHaciaIzquierda(unidad));
-        Button botonMoverHaciaArriba = new BotonDireccion(new BotonMoverHaciaArriba(unidad));
-        Button botonMoverHaciaAbajo = new BotonDireccion(new BotonMoverHaciaAbajo(unidad));
-        Button botonMoverHaciaArribaIzquierda = new BotonDireccion(new BotonMoverHaciaArribaIzquierda(unidad));
-        Button botonMoverHaciaArribaDerecha = new BotonDireccion(new BotonMoverHaciaArribaDerecha(unidad));
-        Button botonMoverHaciaAbajoIzquierda = new BotonDireccion(new BotonMoverHaciaAbajoIzquierda(unidad));
-        Button botonMoverHaciaAbajoDerecha = new BotonDireccion(new BotonMoverHaciaAbajoDerecha(unidad));
+    public BotoneraMovimiento(Unidad unidad,  Juego juego){
+        Button botonMoverHaciaDerecha = new BotonDireccion(new BotonMoverHaciaDerecha(unidad, juego));
+        Button botonMoverHaciaIzquierda = new BotonDireccion(new BotonMoverHaciaIzquierda(unidad, juego));
+        Button botonMoverHaciaArriba = new BotonDireccion(new BotonMoverHaciaArriba(unidad, juego));
+        Button botonMoverHaciaAbajo = new BotonDireccion(new BotonMoverHaciaAbajo(unidad, juego));
+        Button botonMoverHaciaArribaIzquierda = new BotonDireccion(new BotonMoverHaciaArribaIzquierda(unidad, juego));
+        Button botonMoverHaciaArribaDerecha = new BotonDireccion(new BotonMoverHaciaArribaDerecha(unidad, juego));
+        Button botonMoverHaciaAbajoIzquierda = new BotonDireccion(new BotonMoverHaciaAbajoIzquierda(unidad, juego));
+        Button botonMoverHaciaAbajoDerecha = new BotonDireccion(new BotonMoverHaciaAbajoDerecha(unidad, juego));
 
         this.add(botonMoverHaciaArribaIzquierda,0,0);
         this.add(botonMoverHaciaArriba, 1,0);

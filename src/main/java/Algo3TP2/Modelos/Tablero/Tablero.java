@@ -61,5 +61,6 @@ public class Tablero {
             throw new CasilleroEnemigoExcepcion();
         }
         unidad.colocarEnCasillero(destino);
+        unidad.getBando().aniadirUnidad(unidad);
     }
 }
