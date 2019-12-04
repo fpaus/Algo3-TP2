@@ -1,6 +1,7 @@
 package Algo3TP2.Modelos.Jugador;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroEnemigoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.JugadorSinUnidadesExcepcion;
@@ -29,8 +30,9 @@ public class Jugador {
         this.unidadesDeJugador = new ArrayList<Unidad>();
     }
 
-    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion, CasilleroOcupadoExcepcion {
-        puntos.comprarUnidad(unidad).colocarEnCasillero(casillero);
+    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion, CasilleroOcupadoExcepcion, CasilleroEnemigoExcepcion {
+        puntos.comprarUnidad(unidad);
+        casillero.setUnidadAlInicioDelJuego(unidad);
         unidadesDeJugador.add(unidad);
     }
 
