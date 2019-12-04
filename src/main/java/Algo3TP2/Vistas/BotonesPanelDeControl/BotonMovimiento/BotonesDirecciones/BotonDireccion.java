@@ -20,8 +20,8 @@ public class BotonDireccion extends Button {
         this.setGraphic(flecha_imageView);
         this.setStyle("-fx-background-color:transparent ; " +
                 "-fx-background-radius:0; " +
-                "-fx-border-color:transparent; " +
-                "-fx-border-width: 0 3 3 0;");
+                "-fx-border-color:white; " +
+                "-fx-border-width: 0 0 0 0;");
     }
 }
 

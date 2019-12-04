@@ -10,9 +10,11 @@ public class PanelDeControlView extends GridPane {
 
     public PanelDeControlView() {
 
+        //this.setGridLinesVisible(true);
+
         this.setAlignment(Pos.CENTER);
         this.setPrefHeight(200);
-        this.setHgap(30);
+        this.setHgap(10);
         this.setPadding(new Insets(0, 0, 0, 0));
 
         Image imagen = new Image("file:src/resources/PanelDeControl/fondo_piedra_con_banner.png");

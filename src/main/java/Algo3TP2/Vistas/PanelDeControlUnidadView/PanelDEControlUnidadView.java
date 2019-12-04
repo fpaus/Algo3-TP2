@@ -16,13 +16,13 @@ public class PanelDEControlUnidadView extends PanelDeControlView {
 
         UnidadView imagenUnidad = UnidadesViewEnJuego.getUnidadView().getUnidadView(unidad);
         ImageView imagenUnidadSeleccioanda = new ImageView(imagenUnidad.getImage());
-        imagenUnidadSeleccioanda.setFitWidth(100);
-        imagenUnidadSeleccioanda.setFitHeight(100);
+        imagenUnidadSeleccioanda.setScaleX(1.8);
+        imagenUnidadSeleccioanda.setScaleY(1.8);
 
         ImageView marcoUnidadSeleccionada = new ImageView (new Image("file:src/resources/PanelDeControl/marco_unidad.png"));
 
         stackPaneUnidadActual.getChildren().addAll(marcoUnidadSeleccionada, imagenUnidadSeleccioanda);
 
-        this.getChildren().add(stackPaneUnidadActual);
+        this.add(stackPaneUnidadActual, 0 ,0);
     }
 }

@@ -12,6 +12,6 @@ public class PanelDeControlJineteView extends PanelDeControlUnidadMovibleView {
         super(unidad, juego);
         Image armaImage = new Image("file:src/resources/PanelDeControl/BotonesAcciones/ataque_jinete_media.png");
         BotonDeAtaque botonDeAtaque = new BotonDeAtaque((IUnidadDeAtaque) unidad, armaImage);
-        this.add(botonDeAtaque, 5,0);
+        this.add(botonDeAtaque, 2,0);
     }
 }
