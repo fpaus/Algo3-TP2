@@ -8,6 +8,7 @@ import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Vistas.JuegoView;
+import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlViewCasilleroVacio;
 import Algo3TP2.Vistas.PanelDeControlView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
 import javafx.event.EventHandler;
@@ -36,7 +37,7 @@ public class ClickCasilleroSeleccionarHandler implements EventHandler<MouseEvent
 
         } catch (CasilleroVacioExcepcion casilleroVacioExcepcion) {
             System.out.println(casilleroVacioExcepcion.getMessage());
-            PanelDeControlView panelDeControlView = new PanelDeControlView();
+            PanelDeControlView panelDeControlView = new PanelDeControlViewCasilleroVacio();
             juegoView.setPanelDeControlView(panelDeControlView);
         } catch (UnidadInvalidaException e) {
             AlertBox.display("Alert",e.getMessage());
