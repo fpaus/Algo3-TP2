@@ -9,7 +9,7 @@ public class PanelDeControlSoldadoView extends PanelDeControlUnidadMovibleView{
 
     public PanelDeControlSoldadoView(Unidad unidad) {
         super(unidad);
-        Image armaImage = new Image("file:src/resources/PanelDeControl/Armas/Espada.png");
+        Image armaImage = new Image("file:src/resources/Punteros/cursor_ataque.png");
         BotonDeAtaque botonDeAtaque = new BotonDeAtaque((IUnidadDeAtaque) unidad, armaImage);
         this.add(botonDeAtaque, 5,0);
     }
