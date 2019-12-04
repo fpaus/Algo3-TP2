@@ -5,9 +5,9 @@ import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.JugadorSinUnidadesExcepcion;
 
 public class Turnador {
 
-    Jugador jugador1, jugador2;
-    Jugador jugadorActual;
-    int turno;
+    private Jugador jugador1, jugador2;
+    private Jugador jugadorActual;
+    private int turno;
 
     public Turnador(Jugador jugador1, Jugador jugador2) {
         this.jugador1 = jugador1;
@@ -16,7 +16,7 @@ public class Turnador {
         this.turno = 0;
     }
 
-    public Jugador getJugadorSiguienteTurno() throws JugadorSinUnidadesExcepcion {
+    public void avanzarTurno() throws JugadorSinUnidadesExcepcion {
         turno++;
         if (this.jugadorActual == this.jugador1) {
             this.jugadorActual = this.jugador2;
@@ -24,6 +24,11 @@ public class Turnador {
             this.jugadorActual = this.jugador1;
         }
         this.jugadorActual.controlarCondicionDePerdida();
+        System.out.println("Turno avanzado");
+    }
+
+    public Jugador getJugadorTurnoActual() {
+        System.out.println("Turno actual " + this.jugadorActual.toString());
         return this.jugadorActual;
     }
 }

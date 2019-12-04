@@ -25,4 +25,8 @@ public class Bando {
         Bando other = (Bando) obj;
         return (this.duenio == other.duenio);
     }
+
+    public void aniadirUnidad(Unidad unidad) {
+        this.duenio.anadirUnidad(unidad);
+    }
 }

@@ -3,6 +3,7 @@ package Algo3TP2.Controladores;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroEnemigoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
+import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
@@ -25,7 +26,6 @@ public class ClickColocarUnidadEnCasilleroHandler implements EventHandler<MouseE
     public void handle(MouseEvent mouseEvent) {
         try {
             Tablero.getTablero().posicionarUnidadAlInicioDelJuego(this.unidadASetearEnCasillero, this.casillero.getCoordenada());
-            //Tablero.getTablero().posicionarUnidad(this.unidadASetearEnCasillero, this.casillero.getCoordenada());
         } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion | CasilleroEnemigoExcepcion e) {
             AlertBox.display("Alert", e.getMessage());
         } finally {

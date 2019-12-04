@@ -1,6 +1,7 @@
 
 package Algo3TP2.Vistas;
 
+import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
@@ -22,8 +23,11 @@ import java.util.HashMap;
 public class TableroView extends GridPane {
 
     HashMap<Coordenada, CasilleroView> casillerosView;
+    private Juego juego;
 
-    public TableroView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    public TableroView(Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+
+        this.juego = juego;
 
         this.setAlignment(Pos.CENTER);
         Image imagen = new Image("file:src/resources/Fondos/mapa_tablero.png");
@@ -32,6 +36,7 @@ public class TableroView extends GridPane {
         this.setBackground(new Background(imagenDeFondo));
         this.setPadding(new Insets(20, 20, 20, 20));
 
+        Tablero tablero = juego.getTablero();
         this.casillerosView = new HashMap<Coordenada, CasilleroView>();
 
         for (int i=0; i<ViewProperties.tamanioTablero; i++){
@@ -47,15 +52,16 @@ public class TableroView extends GridPane {
                 this.casillerosView.put(coordenada, casillero);
             }
         }
+        this.cambiarAModoSeleccionDeUnidad();
     }
 
     public void cambiarAModoSeleccionDeUnidad(){
-        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad());
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad(this.juego));
         this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor.png")));
     }
 
     public void cambiarAModoRealizarAtaque(IUnidadDeAtaque unidadDeAtaque, Image armaImageCursor) {
-        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoAtaque(unidadDeAtaque));
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoAtaque(unidadDeAtaque, this.juego));
         this.setCursor(new ImageCursor(armaImageCursor));
     }
 

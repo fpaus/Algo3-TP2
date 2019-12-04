@@ -2,8 +2,10 @@
 package Algo3TP2.Vistas.CasilleroView;
 
 import Algo3TP2.Controladores.ClickAtaqueCasilleroHandler;
-import Algo3TP2.Controladores.ClickCasilleroHandler;
+import Algo3TP2.Controladores.ClickCasilleroSeleccionarHandler;
 import Algo3TP2.Controladores.ClickColocarUnidadEnCasilleroHandler;
+import Algo3TP2.Modelos.Juego;
+import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.ObservadorCasillero;
@@ -33,8 +35,6 @@ public class CasilleroView extends Pane implements ObservadorCasillero {
         this.casillero.enlazarObservador(this);
         this.setMinWidth(this.anchoDelCasillero);
         this.setMinHeight(this.largoDelCasillero);
-
-        this.setOnMouseClicked(new ClickCasilleroHandler(this.casillero));
     }
 
     protected void setEstado(CasilleroViewEstado estado){
@@ -48,12 +48,12 @@ public class CasilleroView extends Pane implements ObservadorCasillero {
         this.estado.actualizar(unidadView);
     }
 
-    public void cambiarSetOnMouseClickedAModoAtaque(IUnidadDeAtaque unidadAtacante){
-        this.setOnMouseClicked(new ClickAtaqueCasilleroHandler(unidadAtacante, this.casillero));
+    public void cambiarSetOnMouseClickedAModoAtaque(IUnidadDeAtaque unidadAtacante, Juego juego){
+        this.setOnMouseClicked(new ClickAtaqueCasilleroHandler(unidadAtacante, this.casillero, juego));
     }
 
-    public void cambiarSetOnMouseClickedAModoSeleccionDeUnidad(){
-        this.setOnMouseClicked(new ClickCasilleroHandler(this.casillero));
+    public void cambiarSetOnMouseClickedAModoSeleccionDeUnidad(Juego juego){
+        this.setOnMouseClicked(new ClickCasilleroSeleccionarHandler(this.casillero, juego));
     }
 
     public void cambiarAModoSetearUnidad(Unidad unidad) {

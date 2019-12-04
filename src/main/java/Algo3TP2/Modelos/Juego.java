@@ -15,9 +15,9 @@ public class Juego {
         this.tablero = Tablero.getTablero();
     }
 
-    public void inicializarJuego(Jugador jugador1, Jugador jugador2,int tamanioTablero){
-        this.jugador1 = jugador1;
-        this.jugador2 = jugador2;
+    public void inicializarJuego(String jugador1, String jugador2,int tamanioTablero){
+        this.jugador1 = new Jugador(jugador1);
+        this.jugador2 = new Jugador(jugador2);
         tablero.inicializarTablero(tamanioTablero, tamanioTablero, this.jugador1, this.jugador2);
         this.turnador = new Turnador(this.jugador1, this.jugador2);
     }
@@ -26,7 +26,19 @@ public class Juego {
         return this.tablero;
     }
 
-    public Jugador getJugadorSiguienteTurno() throws JugadorSinUnidadesExcepcion {
-        return this.turnador.getJugadorSiguienteTurno();
+    public void avanzarTurno() throws JugadorSinUnidadesExcepcion {
+        this.turnador.avanzarTurno();
+    }
+
+    public Jugador getJugadorTurnoActual(){
+        return this.turnador.getJugadorTurnoActual();
+    }
+
+    public Jugador getJugador1() {
+        return jugador1;
+    }
+
+    public Jugador getJugador2() {
+        return jugador2;
     }
 }

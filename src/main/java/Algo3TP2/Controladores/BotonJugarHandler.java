@@ -28,12 +28,10 @@ public class BotonJugarHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        Jugador jugador1 = new Jugador(jugadorUnoNombreInput.getText());
-        Jugador jugador2 = new Jugador(jugadorDosNombreInput.getText());
-        this.juego.inicializarJuego(jugador1, jugador2, ViewProperties.tamanioTablero);
+        this.juego.inicializarJuego(jugadorUnoNombreInput.getText(), jugadorDosNombreInput.getText(), ViewProperties.tamanioTablero);
 
         try {
-            JuegoView.inicializarJuegoView(juego.getTablero(), jugador1, jugador2);
+            JuegoView.inicializarJuegoView(this.juego);
             JuegoView juegoView = JuegoView.getJuegoView();
             Scene siguienteEscena = new Scene(juegoView);
             this.stage.setScene(siguienteEscena);
