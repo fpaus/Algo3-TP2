@@ -9,15 +9,15 @@ import Algo3TP2.Vistas.PanelDeControlView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
-public class PanelDeControlUnidadMovibleView extends PanelDeControlView {
+public class PanelDeControlUnidadMovibleView extends PanelDEControlUnidadView {
 
     public PanelDeControlUnidadMovibleView(Unidad unidad, Juego juego) {
+        super(unidad);
 
         this.setPadding(new Insets(40, 40, 40, 40));
-        this.setGridLinesVisible(true);
 
         BotoneraMovimiento botoneraMovimiento = new BotoneraMovimiento(unidad, juego);
         botoneraMovimiento.setAlignment(Pos.CENTER);
-        this.add(botoneraMovimiento,1,0);
+        this.add(botoneraMovimiento,2,0);
     }
 }
