@@ -11,6 +11,7 @@ public class BotoneraMovimiento extends GridPane {
 
 
     public BotoneraMovimiento(Unidad unidad,  Juego juego){
+        //this.setGridLinesVisible(true);
         Button botonMoverHaciaDerecha = new BotonDireccion(new BotonMoverHaciaDerecha(unidad, juego));
         Button botonMoverHaciaIzquierda = new BotonDireccion(new BotonMoverHaciaIzquierda(unidad, juego));
         Button botonMoverHaciaArriba = new BotonDireccion(new BotonMoverHaciaArriba(unidad, juego));

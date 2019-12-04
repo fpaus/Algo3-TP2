@@ -12,7 +12,9 @@ public class PanelDeControlSoldadoView extends PanelDeControlUnidadMovibleView{
         super(unidad, juego);
         Image armaImage = new Image("file:src/resources/PanelDeControl/BotonesAcciones/ataque_soldado.png");
         BotonDeAtaque botonDeAtaque = new BotonDeAtaque((IUnidadDeAtaque) unidad, armaImage);
-        this.add(botonDeAtaque, 5,0);
+        /*BotonFormarBatallon botonFormarBatallon = new BotonFormarBatallon(); */ // Falta implementar.
+        this.add(botonDeAtaque, 2,0);
+        // this.add(botonFormarBatallon, 2,1);
     }
 
 }

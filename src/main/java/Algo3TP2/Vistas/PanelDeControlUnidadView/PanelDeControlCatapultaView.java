@@ -12,6 +12,6 @@ public class PanelDeControlCatapultaView extends PanelDEControlUnidadView {
         super(unidad);
         Image armaImage = new Image("file:src/resources/PanelDeControl/BotonesAcciones/ataque_catapulta.png");
         BotonDeAtaque botonDeAtaque = new BotonDeAtaque((IUnidadDeAtaque) unidad, armaImage);
-        this.add(botonDeAtaque, 5,0);
+        this.add(botonDeAtaque, 2,0);
     }
 }

@@ -15,7 +15,6 @@ public class BotonMoverHaciaDerecha extends BotonMoverGenerico {
 
     @Override
     public MoverUnidadHandler moverUnidadHandler() {
-
         return new MoverUnidadHandler(unidad, new Derecha(), new Fija(), this.juego);
     }
 

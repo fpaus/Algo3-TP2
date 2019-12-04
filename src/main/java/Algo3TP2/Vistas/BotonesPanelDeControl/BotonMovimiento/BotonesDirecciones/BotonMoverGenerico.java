@@ -10,6 +10,7 @@ public abstract class BotonMoverGenerico {
     protected Unidad unidad;
     protected String imagePath = ViewProperties.imagePath;
     protected Juego juego;
+
     public BotonMoverGenerico(Unidad unidad, Juego juego){
         this.unidad = unidad;
         this.juego = juego;
