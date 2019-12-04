@@ -1,16 +1,11 @@
 package Algo3TP2.Vistas;
+
 import Algo3TP2.Modelos.Bando;
-import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Juego;
-import Algo3TP2.Modelos.Jugador.Jugador;
-import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Modelos.Unidades.Soldado;
-import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlSoldadoView;
 import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlViewCasilleroVacio;
-import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoAzulView;
-import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoRojoView;
+import javafx.scene.ImageCursor;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
 public class JuegoView extends BorderPane {
@@ -46,6 +41,8 @@ public class JuegoView extends BorderPane {
         this.setRight(mercadoDeUnidadesViewDerecha);
         this.setLeft(mercadoDeUnidadesViewIzquierda);
         this.setBottom(this.panelDeControlView);
+
+        this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor.png")));
     }
 
     public void setPanelDeControlView(PanelDeControlView panelDeControlSoldadoView) {

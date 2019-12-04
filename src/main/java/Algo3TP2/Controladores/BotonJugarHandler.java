@@ -3,11 +3,8 @@ package Algo3TP2.Controladores;
 
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Jugador.Jugador;
-import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.ViewProperties;
-import Algo3TP2.Vistas.InitializerView;
 import Algo3TP2.Vistas.JuegoView;
-import Algo3TP2.Vistas.TableroView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -38,6 +35,7 @@ public class BotonJugarHandler implements EventHandler<ActionEvent> {
             JuegoView juegoView = JuegoView.getJuegoView();
             Scene siguienteEscena = new Scene(juegoView);
             this.stage.setScene(siguienteEscena);
+            this.stage.centerOnScreen();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -8,6 +8,6 @@ public class PanelDeControlCuranderoView extends PanelDeControlUnidadMovibleView
 
     public PanelDeControlCuranderoView(Unidad unidad, Juego juego) {
         super(unidad, juego);
-        Image armaImage = new Image("file: oraculo/baston");
+        Image armaImage = new Image("file:src/resources/Punteros/cursor_curar.png");
     }
 }

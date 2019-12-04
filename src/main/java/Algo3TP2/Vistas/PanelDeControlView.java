@@ -15,13 +15,16 @@ public class PanelDeControlView extends GridPane {
         this.setHgap(30);
         this.setPadding(new Insets(0, 0, 0, 0));
 
-        Image imagen = new Image("file:src/resources/PanelDeControl/fondo_comandos.jpg");
+        Image imagen = new Image("file:src/resources/PanelDeControl/fondo_piedra.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
                 BackgroundRepeat.REPEAT,
                 BackgroundRepeat.REPEAT,
                 BackgroundPosition.CENTER,
-                new BackgroundSize(250,250, false, false, false, false));
+                new BackgroundSize(1006,200, false, false, false, false));
         this.setBackground(new Background(imagenDeFondo));
+
+        StackPane stackPaneUnidadSeleccionada = new StackPane();
+
 
         ImageView imagenUnidadSeleccionada = new ImageView(new Image("file:src/resources/Mercado/d.jpg"));
         imagenUnidadSeleccionada.setFitWidth(100);
