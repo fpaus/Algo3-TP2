@@ -9,7 +9,7 @@ public class PanelDeControlJineteView extends PanelDeControlUnidadMovibleView {
 
     public PanelDeControlJineteView(Unidad unidad) {
         super(unidad);
-        Image armaImage = new Image("file: aca tendremos que saber de que arma tiene como estrategia el Jinete");
+        Image armaImage = new Image("file:src/resources/Punteros/cursor_ataque.png");
         BotonDeAtaque botonDeAtaque = new BotonDeAtaque((IUnidadDeAtaque) unidad, armaImage);
         this.add(botonDeAtaque, 5,0);
     }

@@ -1,20 +1,18 @@
 
 package Algo3TP2.Vistas;
 
+import Algo3TP2.Modelos.Tablero.Coordenada;
+import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
-import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.ViewProperties;
-import Algo3TP2.Modelos.Tablero.Coordenada;
-import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Vistas.CasilleroView.CasilleroView;
 import Algo3TP2.Vistas.CasilleroView.CasilleroViewAzul;
 import Algo3TP2.Vistas.CasilleroView.CasilleroViewRojo;
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -28,7 +26,7 @@ public class TableroView extends GridPane {
     public TableroView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
         this.setAlignment(Pos.CENTER);
-        Image imagen = new Image("file:src/resources/Fondos/Mapa_1.png");
+        Image imagen = new Image("file:src/resources/Fondos/mapa_tablero.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
                 new BackgroundSize(650,650, false, false, false, false));
         this.setBackground(new Background(imagenDeFondo));
@@ -53,7 +51,7 @@ public class TableroView extends GridPane {
 
     public void cambiarAModoSeleccionDeUnidad(){
         casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad());
-        this.setCursor(Cursor.DEFAULT);
+        this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor.png")));
     }
 
     public void cambiarAModoRealizarAtaque(IUnidadDeAtaque unidadDeAtaque, Image armaImageCursor) {

@@ -10,6 +10,6 @@ public class ViewProperties {
     public static int largoUnidadView = (int) (largoDelCasillero * 0.9);
     public static int anchoUnidadView = (int) (anchoDelCasillero * 0.9);
 
-    public static String imagePath = "file:src/resources/PanelDeControl/FlechasDirecciones/";
+    public static String imagePath = "file:src/resources/PanelDeControl/BotonesDirecciones/";
 
 }
