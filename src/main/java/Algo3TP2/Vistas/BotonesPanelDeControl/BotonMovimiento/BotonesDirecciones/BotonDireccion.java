@@ -18,6 +18,10 @@ public class BotonDireccion extends Button {
         /*flecha_imageView.setFitHeight(25);
         flecha_imageView.setFitWidth(25);*/ //Por ahora no hace falta cambiar el tamaño, lo dejamos así.
         this.setGraphic(flecha_imageView);
+        this.setStyle("-fx-background-color:transparent ; " +
+                "-fx-background-radius:0; " +
+                "-fx-border-color:transparent; " +
+                "-fx-border-width: 0 3 3 0;");
     }
 }
 
