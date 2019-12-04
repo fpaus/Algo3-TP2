@@ -3,6 +3,9 @@ package Algo3TP2.Vistas;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesAzulesView;
+import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesRojasView;
+import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesView;
 import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlViewCasilleroVacio;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
@@ -33,8 +36,8 @@ public class JuegoView extends BorderPane {
 
     protected JuegoView(Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         this.tableroView = new TableroView(juego);
-        this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView("EquipoRojo", new Bando(juego.getJugador1()), juego);
-        this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView("EquipoAzul",new Bando(juego.getJugador2()), juego);
+        this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesRojasView(new Bando(juego.getJugador1()), juego);
+        this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesAzulesView(new Bando(juego.getJugador2()), juego);
         this.panelDeControlView = new PanelDeControlViewCasilleroVacio();
 
         this.setCenter(tableroView);

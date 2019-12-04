@@ -1,4 +1,4 @@
-package Algo3TP2.Vistas;
+package Algo3TP2.Vistas.MercadoDeUnidadesView;
 
 import Algo3TP2.Controladores.ComprarUnidadHandler;
 import Algo3TP2.Modelos.Bando;
@@ -14,7 +14,7 @@ import javafx.scene.layout.*;
 
 public class MercadoDeUnidadesView extends VBox {
 
-    public MercadoDeUnidadesView(String colorEquipo, Bando bando, Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    public MercadoDeUnidadesView(Bando bando, Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
         this.setAlignment(Pos.TOP_CENTER);
         this.setSpacing(5);
@@ -38,24 +38,7 @@ public class MercadoDeUnidadesView extends VBox {
         stackPaneBilletera.getChildren().add(new ImageView(new Image("file:src/resources/Mercado/marco_billetera.png")));
         stackPaneBilletera.getChildren().add(labelOroRestante);
 
-        // Botones placeholders
-        Button botonUnidad1 = new Button();
-        botonUnidad1.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_comprar_soldado_1.png")));
-        botonUnidad1.setOnAction(new ComprarUnidadHandler(colorEquipo, "Soldado", bando, juego));
-
-        Button botonUnidad2 = new Button();
-        botonUnidad2.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_comprar_jinete_1.png")));
-        botonUnidad2.setOnAction(new ComprarUnidadHandler(colorEquipo, "Jinete", bando, juego));
-
-        Button botonUnidad3 = new Button();
-        botonUnidad3.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_comprar_curandero_1.png")));
-        botonUnidad3.setOnAction(new ComprarUnidadHandler(colorEquipo, "Curandero", bando, juego));
-
-        Button botonUnidad4 = new Button();
-        botonUnidad4.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_comprar_catapulta_1.png")));
-        botonUnidad4.setOnAction(new ComprarUnidadHandler(colorEquipo, "Catapulta", bando, juego));
-
-        this.getChildren().addAll(imageViewMercadoTitulo, stackPaneBilletera, botonUnidad1, botonUnidad2, botonUnidad3, botonUnidad4);
+        this.getChildren().addAll(imageViewMercadoTitulo, stackPaneBilletera);
     }
 }
 
