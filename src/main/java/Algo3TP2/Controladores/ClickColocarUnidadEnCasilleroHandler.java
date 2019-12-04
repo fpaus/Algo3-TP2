@@ -24,11 +24,10 @@ public class ClickColocarUnidadEnCasilleroHandler implements EventHandler<MouseE
     @Override
     public void handle(MouseEvent mouseEvent) {
         try {
-            //Tablero.getTablero().posicionarUnidadAlInicioDelJuego(this.unidadASetearEnCasillero, this.casillero.getCoordenada());
-            // Hardcode
-            Tablero.getTablero().posicionarUnidad(this.unidadASetearEnCasillero, this.casillero.getCoordenada());
-        } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion e) {
-            System.out.println(e.getMessage());
+            Tablero.getTablero().posicionarUnidadAlInicioDelJuego(this.unidadASetearEnCasillero, this.casillero.getCoordenada());
+            //Tablero.getTablero().posicionarUnidad(this.unidadASetearEnCasillero, this.casillero.getCoordenada());
+        } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion | CasilleroEnemigoExcepcion e) {
+            AlertBox.display("Alert", e.getMessage());
         } finally {
             TableroView tableroView = JuegoView.getJuegoView().getTableroView();
             tableroView.cambiarAModoSeleccionDeUnidad();

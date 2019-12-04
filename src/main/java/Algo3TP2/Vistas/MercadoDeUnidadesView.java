@@ -1,6 +1,7 @@
 package Algo3TP2.Vistas;
 
 import Algo3TP2.Controladores.ComprarUnidadHandler;
+import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,7 +12,7 @@ import javafx.scene.layout.*;
 
 public class MercadoDeUnidadesView extends VBox {
 
-    public MercadoDeUnidadesView() throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    public MercadoDeUnidadesView(String colorEquipo, Bando bando) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
         this.setAlignment(Pos.TOP_CENTER);
         this.setSpacing(30);
@@ -29,14 +30,19 @@ public class MercadoDeUnidadesView extends VBox {
         // Botones placeholders
         Button botonUnidad1 = new Button();
         botonUnidad1.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
-        botonUnidad1.setOnAction(new ComprarUnidadHandler());
+        botonUnidad1.setOnAction(new ComprarUnidadHandler(colorEquipo, "Soldado", bando));
 
         Button botonUnidad2 = new Button();
         botonUnidad2.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
+        botonUnidad2.setOnAction(new ComprarUnidadHandler(colorEquipo, "Jinete", bando));
+
         Button botonUnidad3 = new Button();
         botonUnidad3.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
+        botonUnidad3.setOnAction(new ComprarUnidadHandler(colorEquipo, "Curandero", bando));
+
         Button botonUnidad4 = new Button();
         botonUnidad4.setGraphic(new ImageView(new Image("file:src/resources/Mercado/boton_mercado_unidad_placeholder.jpg")));
+        botonUnidad4.setOnAction(new ComprarUnidadHandler(colorEquipo, "Catapulta", bando));
 
 
 

@@ -1,33 +1,38 @@
 package Algo3TP2.Controladores;
 
 import Algo3TP2.Modelos.Bando;
-import Algo3TP2.Modelos.Jugador.Jugador;
-import Algo3TP2.Modelos.Unidades.Soldado;
+import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
+import Algo3TP2.Modelos.Unidades.Unidad;
+import Algo3TP2.UnidadAbstractFactory.UnidadFactory;
+import Algo3TP2.UnidadAbstractFactory.UnidadesAbstractFactory;
 import Algo3TP2.Vistas.JuegoView;
-import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlSoldadoView;
-import Algo3TP2.Vistas.PanelDeControlView;
 import Algo3TP2.Vistas.TableroView;
-import Algo3TP2.Vistas.UnidadesView.SoldadoView.SoldadoAzulView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class ComprarUnidadHandler implements EventHandler<ActionEvent> {
 
-    public ComprarUnidadHandler(){
-        // Super hardcodeada solo compra un soldado de mierda azul y ni siquiera se lo asigna a un jugador
+    UnidadFactory unidadFactory;
+    String tipoDeUnidad;
+    Bando bando;
+
+    public ComprarUnidadHandler(String colorEquipo, String tipoDeUnidad, Bando bando){
+        this.unidadFactory = UnidadesAbstractFactory.getFactory(colorEquipo);
+        this.tipoDeUnidad = tipoDeUnidad;
+        this.bando = bando;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        UnidadesViewEnJuego unidadesViewEnJuego = UnidadesViewEnJuego.getUnidadesViewEnJuego();
-        Soldado soldado = new Soldado(new Bando(new Jugador("Nazareno")));
-        SoldadoAzulView soldadoAzulView = new SoldadoAzulView();
-        unidadesViewEnJuego.setUnidadView(soldado, soldadoAzulView);
-        PanelDeControlView panelDeControlView = new PanelDeControlSoldadoView(soldado);
-        unidadesViewEnJuego.setUnidadPanelDeControlView(soldado, panelDeControlView);
-
         TableroView tableroView = JuegoView.getJuegoView().getTableroView();
-        tableroView.cambiarAModoSetearUnidad(soldado);
+        UnidadesViewEnJuego unidadesViewEnJuego = UnidadesViewEnJuego.getUnidadView();
+
+        try {
+            Unidad unidad = unidadFactory.getUnidad(this.tipoDeUnidad, this.bando);
+            tableroView.cambiarAModoSetearUnidad(unidad, unidadesViewEnJuego.getUnidadView(unidad));
+        } catch (UnidadInvalidaException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -30,61 +30,15 @@ public class JuegoView extends BorderPane {
         return juegoView;
     }
 
-    public static void inicializarJuegoView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        juegoView = new JuegoView(tablero);
+    public static void inicializarJuegoView(Tablero tablero, Jugador jugador1, Jugador jugador2) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        juegoView = new JuegoView(tablero, jugador1, jugador2);
     }
 
-    protected JuegoView(Tablero tablero) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    protected JuegoView(Tablero tablero, Jugador jugador1, Jugador jugador2) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         this.tableroView = new TableroView(tablero);
-        this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView();
-        this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView();
+        this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesView("EquipoRojo", new Bando(jugador1));
+        this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesView("EquipoAzul",new Bando(jugador2));
         this.panelDeControlView = new PanelDeControlViewCasilleroVacio();
-
-        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
-        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
-
-        UnidadesViewEnJuego unidadesViewEnJuego = UnidadesViewEnJuego.getUnidadesViewEnJuego();
-        Soldado soldado = new Soldado(new Bando(new Jugador("Nazareno")));
-        SoldadoAzulView soldadoAzulView = new SoldadoAzulView();
-        unidadesViewEnJuego.setUnidadView(soldado, soldadoAzulView);
-        PanelDeControlView panelDeControlView = new PanelDeControlSoldadoView(soldado);
-        unidadesViewEnJuego.setUnidadPanelDeControlView(soldado, panelDeControlView);
-
-        try {
-            tablero.posicionarUnidad(soldado, new Coordenada(0, 0));
-        } catch (CasilleroOcupadoExcepcion ex){
-            // LALA
-        }
-
-        Soldado soldado2 = new Soldado(new Bando(new Jugador("Nazareno")));
-        SoldadoRojoView soldadoRojoView = new SoldadoRojoView();
-        unidadesViewEnJuego.setUnidadView(soldado2, soldadoRojoView);
-        PanelDeControlView panelDeControlView2 = new PanelDeControlSoldadoView(soldado2);
-        unidadesViewEnJuego.setUnidadPanelDeControlView(soldado2, panelDeControlView2);
-
-        try {
-            tablero.posicionarUnidad(soldado2, new Coordenada(0, 1));
-        } catch (CasilleroOcupadoExcepcion ex){
-            // LALA
-        }
-
-        // JUJUJU
-        try{
-            soldado.moverHaciaAbajo();
-        } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion ex){
-            // Lala
-        }
-
-        try{
-            soldado.moverHaciaLaDerecha();
-        } catch (CasilleroOcupadoExcepcion | CasilleroFueraDelLosLimitesDelTableroExcepcion ex){
-            // Lala
-        }
-
-
-
-        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
-        // Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado Hardcodeado
 
         this.setCenter(tableroView);
         this.setRight(mercadoDeUnidadesViewDerecha);
