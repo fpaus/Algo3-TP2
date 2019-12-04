@@ -11,16 +11,14 @@ import javafx.scene.image.Image;
 public class AtaqueDeUnidadHandler implements EventHandler<ActionEvent> {
 
     IUnidadDeAtaque unidadAtacante;
-    Image armaImage;
 
-    public AtaqueDeUnidadHandler(IUnidadDeAtaque unidad, Image armaImage){
+    public AtaqueDeUnidadHandler(IUnidadDeAtaque unidad){
         this.unidadAtacante = unidad;
-        this.armaImage = armaImage;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
         TableroView tableroView = JuegoView.getJuegoView().getTableroView();
-        tableroView.cambiarAModoRealizarAtaque(this.unidadAtacante, this.armaImage);
+        tableroView.cambiarAModoRealizarAtaque(this.unidadAtacante);
     }
 }

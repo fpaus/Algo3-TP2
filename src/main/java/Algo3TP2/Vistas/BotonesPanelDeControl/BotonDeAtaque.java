@@ -14,7 +14,7 @@ public class BotonDeAtaque extends Button {
         espada_imageView.setFitHeight(80);
         espada_imageView.setFitWidth(140);
         this.setGraphic(espada_imageView);
-        this.setOnAction(new AtaqueDeUnidadHandler(unidad, armaDeAtaqueImage));
+        this.setOnAction(new AtaqueDeUnidadHandler(unidad));
         this.setStyle("-fx-background-color:transparent ; " +
                 "-fx-background-radius:0; " +
                 "-fx-border-color:transparent; " +

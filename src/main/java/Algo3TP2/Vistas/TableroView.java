@@ -60,9 +60,9 @@ public class TableroView extends GridPane {
         this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor.png")));
     }
 
-    public void cambiarAModoRealizarAtaque(IUnidadDeAtaque unidadDeAtaque, Image armaImageCursor) {
+    public void cambiarAModoRealizarAtaque(IUnidadDeAtaque unidadDeAtaque) {
         casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoAtaque(unidadDeAtaque, this.juego));
-        this.setCursor(new ImageCursor(armaImageCursor));
+        this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor_ataque.png")));
     }
 
     public void cambiarAModoSetearUnidad(Unidad unidad, UnidadView unidadImage) {
