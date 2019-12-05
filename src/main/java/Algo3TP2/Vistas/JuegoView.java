@@ -11,6 +11,7 @@ import Algo3TP2.Vistas.VisualizadorTurnosView.VisualizadorTurnoView;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class JuegoView extends BorderPane {
     /* Dentro de esta view entran todas las otras views que vamos a tener
@@ -29,17 +30,19 @@ public class JuegoView extends BorderPane {
     private PanelDeControlView panelDeControlView;
     private boolean equipoAzulEnBatalla = false;
     private boolean equipoRojoEnBatalla = false;
+    private Stage stagePrincipal;
 
 
     public static JuegoView getJuegoView() {
         return juegoView;
     }
 
-    public static void inicializarJuegoView(Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-        juegoView = new JuegoView(juego);
+    public static void inicializarJuegoView(Juego juego, Stage stagePrincipal) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        juegoView = new JuegoView(juego, stagePrincipal);
     }
 
-    protected JuegoView(Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+    protected JuegoView(Juego juego, Stage stagePrincipal) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
+        this.stagePrincipal = stagePrincipal;
         this.tableroView = new TableroView(juego);
         this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesRojasView(new Bando(juego.getJugador1()), juego);
         this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesAzulesView(new Bando(juego.getJugador2()), juego);
@@ -80,5 +83,9 @@ public class JuegoView extends BorderPane {
 
     public TableroView getTableroView() {
         return this.tableroView;
+    }
+
+    public void close(){
+        this.stagePrincipal.close();
     }
 }
