@@ -7,6 +7,7 @@ import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesAzulesView;
 import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesRojasView;
 import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesView;
 import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlViewCasilleroVacio;
+import Algo3TP2.Vistas.VisualizadorTurnosView.VisualizadorTurnoView;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +24,8 @@ public class JuegoView extends BorderPane {
     private TableroView tableroView;
     private MercadoDeUnidadesView mercadoDeUnidadesViewDerecha;
     private MercadoDeUnidadesView mercadoDeUnidadesViewIzquierda;
+    private VisualizadorTurnoView visualizadorTurnoViewDerecha;
+    private VisualizadorTurnoView visualizadorTurnoViewIzquierda;
     private PanelDeControlView panelDeControlView;
     private boolean equipoAzulEnBatalla = false;
     private boolean equipoRojoEnBatalla = false;
@@ -40,6 +43,8 @@ public class JuegoView extends BorderPane {
         this.tableroView = new TableroView(juego);
         this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesRojasView(new Bando(juego.getJugador1()), juego);
         this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesAzulesView(new Bando(juego.getJugador2()), juego);
+        this.visualizadorTurnoViewDerecha = new VisualizadorTurnoView(new Bando(juego.getJugador1()));
+        this.visualizadorTurnoViewIzquierda = new VisualizadorTurnoView(new Bando(juego.getJugador2()));
         this.panelDeControlView = new PanelDeControlViewCasilleroVacio();
 
         this.setCenter(tableroView);
@@ -56,13 +61,13 @@ public class JuegoView extends BorderPane {
     }
 
     public void iniciarBatallaEquipoAzul(){
-        this.setLeft(null);
+        this.setLeft(visualizadorTurnoViewIzquierda);
         this.equipoAzulEnBatalla = true;
         this.iniciarBatalla();
     }
 
     public void iniciarBatallaEquipoRojo(){
-        this.setRight(null);
+        this.setRight(visualizadorTurnoViewDerecha);
         this.equipoRojoEnBatalla = true;
         this.iniciarBatalla();
     }
