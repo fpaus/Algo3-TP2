@@ -1,16 +1,13 @@
 package Algo3TP2.Vistas.MercadoDeUnidadesView;
 
-import Algo3TP2.Controladores.ComprarUnidadHandler;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.ObservadorPuntos;
+import Algo3TP2.Observers.ObservadorPuntos;
 import Algo3TP2.Properties;
 import Algo3TP2.Vistas.BotonesPanelDeControl.BotonFinalizarCompra;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;

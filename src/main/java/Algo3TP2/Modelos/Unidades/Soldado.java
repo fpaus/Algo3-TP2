@@ -1,7 +1,7 @@
 package Algo3TP2.Modelos.Unidades;
 
-import Algo3TP2.Observable;
-import Algo3TP2.Observador;
+import Algo3TP2.Observers.Observable;
+import Algo3TP2.Observers.Observador;
 import Algo3TP2.Properties;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;

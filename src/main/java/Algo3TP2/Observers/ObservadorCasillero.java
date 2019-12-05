@@ -1,4 +1,4 @@
-package Algo3TP2;
+package Algo3TP2.Observers;
 
 import Algo3TP2.Modelos.Unidades.Unidad;
 

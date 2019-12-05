@@ -2,8 +2,7 @@ package Algo3TP2.Vistas.VisualizadorTurnosView;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;
-import Algo3TP2.Modelos.Jugador.Jugador;
-import Algo3TP2.Observador;
+import Algo3TP2.Observers.Observador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;

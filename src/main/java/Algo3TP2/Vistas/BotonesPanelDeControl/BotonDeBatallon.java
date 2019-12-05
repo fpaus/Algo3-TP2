@@ -4,7 +4,7 @@ import Algo3TP2.Controladores.FormarBatallonHandler;
 
 import Algo3TP2.Modelos.Unidades.Soldado;
 import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonNoFormadoException;
-import Algo3TP2.Observador;
+import Algo3TP2.Observers.Observador;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
