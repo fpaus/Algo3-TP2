@@ -56,6 +56,10 @@ public class CasilleroView extends Pane implements ObservadorCasillero {
         this.setOnMouseClicked(new ClickCasilleroSeleccionarHandler(this.casillero, juego));
     }
 
+    public void cambiarSetOnMouseClickedAaccionPasiva(){
+        this.setOnMouseClicked(null);
+    }
+
     public void cambiarAModoSetearUnidad(Unidad unidad) {
         this.setOnMouseClicked(new ClickColocarUnidadEnCasilleroHandler(this.casillero, unidad, casillero.getBando()));
     }

@@ -24,10 +24,12 @@ public class TableroView extends GridPane {
 
     HashMap<Coordenada, CasilleroView> casillerosView;
     private Juego juego;
+    private JuegoViewEstado estado;
 
     public TableroView(Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
         this.juego = juego;
+        this.estado = new JuegoViewEstadoFaseSetUnidades();
 
         this.setAlignment(Pos.CENTER);
         Image imagen = new Image("file:src/resources/Fondos/mapa_tablero.png");
@@ -56,7 +58,7 @@ public class TableroView extends GridPane {
     }
 
     public void cambiarAModoSeleccionDeUnidad(){
-        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoSeleccionDeUnidad(this.juego));
+        this.estado.cambiarAModoSeleccionDeUnidad(this.casillerosView, this.juego);
         this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor.png")));
     }
 
@@ -68,5 +70,10 @@ public class TableroView extends GridPane {
     public void cambiarAModoSetearUnidad(Unidad unidad, UnidadView unidadImage) {
         casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarAModoSetearUnidad(unidad));
         this.setCursor(new ImageCursor(unidadImage.getImage()));
+    }
+
+    public void setEstadoModoBatalla(){
+        this.estado = new JuegoViewEstadoFaseBatalla();
+        this.cambiarAModoSeleccionDeUnidad();
     }
 }

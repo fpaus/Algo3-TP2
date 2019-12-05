@@ -22,6 +22,7 @@ import javafx.scene.text.Text;
 public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
 
     private Text textOroRestante;
+    protected BotonFinalizarCompra botonFinalizarCompra;
 
     public MercadoDeUnidadesView(Bando bando, Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
@@ -65,9 +66,9 @@ public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
         stackPaneBilletera.getChildren().addAll(imagenMarcoBilletera, textOroRestante);
 
         // Boton Finalizar
-        BotonFinalizarCompra botonFinalizar = new BotonFinalizarCompra();
+        this.botonFinalizarCompra = new BotonFinalizarCompra();
 
-        this.getChildren().addAll(stackPaneNombreJugador, stackPaneBilletera, botonFinalizar);
+        this.getChildren().addAll(stackPaneNombreJugador, stackPaneBilletera, botonFinalizarCompra);
     }
 
     @Override

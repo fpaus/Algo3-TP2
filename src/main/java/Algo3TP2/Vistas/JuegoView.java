@@ -24,6 +24,8 @@ public class JuegoView extends BorderPane {
     private MercadoDeUnidadesView mercadoDeUnidadesViewDerecha;
     private MercadoDeUnidadesView mercadoDeUnidadesViewIzquierda;
     private PanelDeControlView panelDeControlView;
+    private boolean equipoAzulEnBatalla = false;
+    private boolean equipoRojoEnBatalla = false;
 
 
     public static JuegoView getJuegoView() {
@@ -51,6 +53,24 @@ public class JuegoView extends BorderPane {
     public void setPanelDeControlView(PanelDeControlView panelDeControlSoldadoView) {
         this.panelDeControlView = panelDeControlSoldadoView;
         this.setBottom(panelDeControlSoldadoView);
+    }
+
+    public void iniciarBatallaEquipoAzul(){
+        this.setLeft(null);
+        this.equipoAzulEnBatalla = true;
+        this.iniciarBatalla();
+    }
+
+    public void iniciarBatallaEquipoRojo(){
+        this.setRight(null);
+        this.equipoRojoEnBatalla = true;
+        this.iniciarBatalla();
+    }
+
+    private void iniciarBatalla(){
+        if(equipoAzulEnBatalla && equipoRojoEnBatalla){
+            this.tableroView.setEstadoModoBatalla();
+        }
     }
 
     public TableroView getTableroView() {
