@@ -10,7 +10,7 @@ import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePued
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.UnidadCuradaEsEnemigaExcepcion;
-import Algo3TP2.Vistas.JuegoView;
+import Algo3TP2.Vistas.JuegoView.JuegoView;
 import Algo3TP2.Vistas.TableroView;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

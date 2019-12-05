@@ -1,10 +1,8 @@
-package Algo3TP2.Vistas;
+package Algo3TP2.Vistas.JuegoView;
 
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Vistas.CasilleroView.CasilleroView;
-import javafx.scene.ImageCursor;
-import javafx.scene.image.Image;
 
 import java.util.HashMap;
 
