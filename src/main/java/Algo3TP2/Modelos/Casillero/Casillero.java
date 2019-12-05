@@ -1,6 +1,7 @@
 package Algo3TP2.Modelos.Casillero;
 
 import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroEnemigoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador.Jugador;
@@ -36,6 +37,14 @@ public class Casillero implements ObservableCasillero {
 
     public void setUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
         estado.setUnidad(this, unidad);
+    }
+
+    public void setUnidadAlInicioDelJuego(Unidad unidad)
+            throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion {
+        if (!this.bando.equals(unidad.getBando())) {
+            throw new CasilleroEnemigoExcepcion();
+        }
+        unidad.colocarEnCasillero(this);
     }
 
     public Unidad getUnidad() throws CasilleroVacioExcepcion {

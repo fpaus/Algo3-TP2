@@ -1,6 +1,7 @@
 package Algo3TP2.Modelos.Jugador;
 
 import Algo3TP2.Modelos.Casillero.Casillero;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroEnemigoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.JugadorSinUnidadesExcepcion;
@@ -13,25 +14,30 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAta
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
+import Algo3TP2.ObservableCasillero;
+import Algo3TP2.ObservablePuntosJugador;
+import Algo3TP2.ObservadorPuntos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Jugador {
+public class Jugador implements ObservablePuntosJugador {
 
     private String nombre;
     private Puntos puntos;
     private List<Unidad> unidadesDeJugador;
+    private ArrayList<ObservadorPuntos> observadores;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.puntos = new Puntos();
         this.unidadesDeJugador = new ArrayList<Unidad>();
+        this.observadores = new ArrayList<ObservadorPuntos>();
     }
 
-    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion, CasilleroOcupadoExcepcion {
-        puntos.comprarUnidad(unidad).colocarEnCasillero(casillero);
-        unidadesDeJugador.add(unidad);
+    public void colocarUnidadEnCasillero(Unidad unidad, Casillero casillero) throws PuntosInsuficientesExcepcion, CasilleroOcupadoExcepcion, CasilleroEnemigoExcepcion {
+        puntos.comprarUnidad(unidad, this);
+        casillero.setUnidadAlInicioDelJuego(unidad);
     }
 
     public void moverUnidadACasillero(UnidadMovible unidad, Direccion horizontal, Direccion vertical)
@@ -78,5 +84,14 @@ public class Jugador {
     @Override
     public String toString() {
         return this.nombre;
+    }
+
+    public void enlazarObservador(ObservadorPuntos observadorPuntos){
+        this.observadores.add(observadorPuntos);
+    }
+
+    @Override
+    public void notificarObservadores(int puntos) {
+        this.observadores.forEach(observadorPuntos -> observadorPuntos.actualizar(puntos));
     }
 }

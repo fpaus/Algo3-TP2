@@ -11,12 +11,13 @@ public class Puntos {
         this.puntosDisponibles = Properties.puntosInicialesDisponibles;
     }
 
-    public Unidad comprarUnidad(Unidad unidad) throws PuntosInsuficientesExcepcion {
+    public void comprarUnidad(Unidad unidad, Jugador jugador) throws PuntosInsuficientesExcepcion {
         if (unidad.getCosto() > puntosDisponibles) {
             throw new PuntosInsuficientesExcepcion();
         }
         this.puntosDisponibles -= unidad.getCosto();
-        return unidad;
+        jugador.anadirUnidad(unidad);
+        jugador.notificarObservadores(this.puntosDisponibles);
     }
 
     public boolean quedanPuntos() {
