@@ -74,25 +74,6 @@ public class BatallonFormado extends Batallon {
         return soldadosParaBatallon;
     }
 
-    protected ArrayList<Soldado> reunirBatallonConVecino(Soldado soldado, Casillero casilleroSoldado) {
-        ArrayList<Soldado> soldadosParaBatallon = new ArrayList<Soldado>();
-        ArrayList<Casillero> casillerosVecinos = casilleroSoldado.getTodosLosCasillerosVecinos();
 
-        casillerosVecinos.forEach(casillero -> {
-            try {
-                Unidad unidad = casillero.getUnidad();
-                if (unidad.getBando().equals(soldado.getBando())) {
-                    if (unidad.getClass() == Soldado.class) {
-                        if (!soldadosParaBatallon.contains((Soldado) unidad)) {
-                            soldadosParaBatallon.add((Soldado) unidad);
-                        }
-                    }
-                }
-            } catch (CasilleroVacioExcepcion ex) {
-            }
-        });
-
-        return soldadosParaBatallon;
-    }
 
 }

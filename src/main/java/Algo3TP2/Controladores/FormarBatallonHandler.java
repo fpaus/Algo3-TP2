@@ -1,6 +1,7 @@
 package Algo3TP2.Controladores;
 
 import Algo3TP2.Modelos.Unidades.Soldado;
+import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonNoFormadoException;
 import Algo3TP2.Vistas.BotonesPanelDeControl.BotonDeBatallon;
 import javafx.event.ActionEvent;
@@ -18,10 +19,14 @@ public class FormarBatallonHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.toggleBatallon();
+        try {
+            this.toggleBatallon();
+        } catch (BatallonIncompletoExcepcion e) {
+            AlertBox.display("Alert", e.getMessage());
+        }
     }
 
-    private void toggleBatallon() {
+    private void toggleBatallon() throws BatallonIncompletoExcepcion {
         try {
             soldadoParaBatallon.verificarBatallonFormado();
             soldadoParaBatallon.disolverBatallon();
@@ -30,7 +35,7 @@ public class FormarBatallonHandler implements EventHandler<ActionEvent> {
             soldadoParaBatallon.formarBatallon();
 
         }
-        //this.boton.setImage(this.soldadoParaBatallon);
+        // this.boton.setImage(this.soldadoParaBatallon);
     }
 
 }
