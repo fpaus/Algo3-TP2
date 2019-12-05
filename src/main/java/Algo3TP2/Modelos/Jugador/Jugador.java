@@ -15,9 +15,8 @@ import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
-import Algo3TP2.ObservableCasillero;
-import Algo3TP2.ObservablePuntosJugador;
-import Algo3TP2.ObservadorPuntos;
+import Algo3TP2.Observers.ObservablePuntosJugador;
+import Algo3TP2.Observers.ObservadorPuntos;
 
 import java.util.ArrayList;
 import java.util.List;

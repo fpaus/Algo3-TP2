@@ -5,10 +5,9 @@ import Algo3TP2.Controladores.ClickAtaqueCasilleroHandler;
 import Algo3TP2.Controladores.ClickCasilleroSeleccionarHandler;
 import Algo3TP2.Controladores.ClickColocarUnidadEnCasilleroHandler;
 import Algo3TP2.Modelos.Juego;
-import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.ObservadorCasillero;
+import Algo3TP2.Observers.ObservadorCasillero;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Coordenada;
@@ -17,7 +16,6 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
 import javafx.geometry.Pos;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 

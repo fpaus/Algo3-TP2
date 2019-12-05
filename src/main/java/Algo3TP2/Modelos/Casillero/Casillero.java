@@ -11,8 +11,8 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
-import Algo3TP2.ObservableCasillero;
-import Algo3TP2.ObservadorCasillero;
+import Algo3TP2.Observers.ObservableCasillero;
+import Algo3TP2.Observers.ObservadorCasillero;
 
 import java.util.ArrayList;
 
