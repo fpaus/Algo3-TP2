@@ -9,10 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class BotonDeBatallon extends Button {
-    Image formarBatallon = new Image("file:src/resources/PanelDeControl/BotonesAcciones/batallon_formar_rojo.png");
+    Image formarBatallon = new Image("file:src/resources/PanelDeControl/BotonesAcciones/batallon_formar.png");
     // Image disolverBatallonAzul = new
     // Image("file:src/resources/PanelDeControl/BotonesAcciones/batallon_formar_azul.png");
-    Image disolverBatallon = new Image("file:src/resources/PanelDeControl/BotonesAcciones/batallon_disolver_rojo.png");
+    Image disolverBatallon = new Image("file:src/resources/PanelDeControl/BotonesAcciones/batallon_disolver.png");
 
     // Image formarBatalonAzul = new
     // Image("file:src/resources/PanelDeControl/BotonesAcciones/batallon_disolver_azul.png");
