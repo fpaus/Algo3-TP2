@@ -6,6 +6,7 @@ import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.ObservadorPuntos;
 import Algo3TP2.Properties;
+import Algo3TP2.Vistas.BotonesPanelDeControl.BotonFinalizarCompra;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -36,7 +37,7 @@ public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
         this.setPadding(new Insets(5, 5, 0, 5));
 
         // Imagen Título del Mercado
-        ImageView imageViewMercadoTitulo = new ImageView(new Image("file:src/resources/Mercado/titulo_mercado.png"));
+        //ImageView imageViewMercadoTitulo = new ImageView(new Image("file:src/resources/Mercado/titulo_mercado.png"));
 
         // Nombre Jugador
         StackPane stackPaneNombreJugador = new StackPane();
@@ -63,7 +64,10 @@ public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
 
         stackPaneBilletera.getChildren().addAll(imagenMarcoBilletera, textOroRestante);
 
-        this.getChildren().addAll(imageViewMercadoTitulo, stackPaneNombreJugador, stackPaneBilletera);
+        // Boton Finalizar
+        BotonFinalizarCompra botonFinalizar = new BotonFinalizarCompra();
+
+        this.getChildren().addAll(stackPaneNombreJugador, stackPaneBilletera, botonFinalizar);
     }
 
     @Override
