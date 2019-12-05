@@ -1,9 +1,8 @@
-package Algo3TP2.Vistas;
+package Algo3TP2.Vistas.PanelDeControlView;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 public class PanelDeControlView extends GridPane {
