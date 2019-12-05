@@ -9,13 +9,17 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.AtaqueDeJineteConEspada;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.EstrategiaDeAtaque;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesJinete.JineteAtacaConArcoException;
+import Algo3TP2.Observers.Observable;
+import Algo3TP2.Observers.Observador;
 import Algo3TP2.Properties;
 
 import java.util.ArrayList;
 
-public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
+public class Jinete extends UnidadMovible implements IUnidadDeAtaque, Observable {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
+    private ArrayList<Observador> observadoresEstrategiaDeAtaque;
 
     public Jinete(Bando bando) {
         this.costo = Properties.costoJinete;
@@ -56,4 +60,15 @@ public class Jinete extends UnidadMovible implements IUnidadDeAtaque {
         this.setEstrategiaDeAtaque(new AtaqueDeJIneteConArcoYFlecha());
     }
 
+    // Estas funciones fueron creadas para actualizar el boton de ataque.
+    public void verificarJineteAtacaConEspada() throws JineteAtacaConArcoException {
+
+    }
+    public void enlazarObservadorEstrategiaDeAtaque(Observador observador){
+        this.observadoresEstrategiaDeAtaque.add(observador);
+    }
+    @Override
+    public void notificarObservadores() {
+        this.observadoresEstrategiaDeAtaque.forEach(observador -> observador.actualizar());
+    }
 }

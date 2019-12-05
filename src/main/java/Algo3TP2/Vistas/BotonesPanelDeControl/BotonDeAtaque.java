@@ -13,8 +13,8 @@ public class BotonDeAtaque extends Button {
                 "-fx-background-radius:0; " +
                 "-fx-border-color:transparent; " +
                 "-fx-border-width: 0 3 3 0;");
-        ImageView espada_imageView = new ImageView(armaDeAtaqueImage);
-        this.setGraphic(espada_imageView);
+        ImageView ataqueImageView = new ImageView(armaDeAtaqueImage);
+        this.setGraphic(ataqueImageView);
         this.setOnAction(new AtaqueDeUnidadHandler(unidad));
     }
 }
