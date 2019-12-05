@@ -13,8 +13,9 @@ public class UnidadView extends ImageView {
     protected Image unidadImage;
 
     public UnidadView(){
-        this.setFitWidth(ViewProperties.anchoUnidadView); // Esto deforma todas la unidades, si es posible cambiarlo.
+        this.setFitWidth(ViewProperties.anchoUnidadView);
         this.setFitHeight(ViewProperties.largoUnidadView);
+        this.setPreserveRatio(true); // Evita que las unidades se deformen.
     }
 
     /*protected void setUnidadImage(Image unidadImage){

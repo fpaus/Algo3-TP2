@@ -69,7 +69,8 @@ public class TableroView extends GridPane {
 
     public void cambiarAModoSetearUnidad(Unidad unidad, UnidadView unidadImage) {
         casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarAModoSetearUnidad(unidad));
-        this.setCursor(new ImageCursor(unidadImage.getImage()));
+        ImageCursor imageCursor = new ImageCursor(unidadImage.getImage(), ViewProperties.anchoDelCasillero/2, ViewProperties.largoDelCasillero/2);
+        this.setCursor(imageCursor);
     }
 
     public void setEstadoModoBatalla(){
