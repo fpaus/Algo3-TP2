@@ -39,7 +39,13 @@ public class ClickCasilleroSeleccionarHandler implements EventHandler<MouseEvent
             PanelDeControlView panelDeControlView = new PanelDeControlViewCasilleroVacio();
             juegoView.setPanelDeControlView(panelDeControlView);
         } catch (UnidadInvalidaException e) {
-            AlertBox.display("Alert",e.getMessage());
+            try {
+                PanelDeControlView panelDeControlView =
+                        UnidadesViewEnJuego.getUnidadView().getUnidadPanelSinControlesView(casillero.getUnidad());
+                juegoView.setPanelDeControlView(panelDeControlView);
+            } catch (CasilleroVacioExcepcion casilleroVacioExcepcion) {
+                casilleroVacioExcepcion.printStackTrace();
+            }
         }
     }
 }

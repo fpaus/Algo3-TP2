@@ -10,6 +10,7 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
+import Algo3TP2.Vistas.JuegoView.JuegoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -36,6 +37,7 @@ public class MoverUnidadHandler implements EventHandler<ActionEvent> {
         Jugador jugadorTurnoActual = juego.getJugadorTurnoActual();
         try {
             jugadorTurnoActual.moverUnidadACasillero(unidadMovible, this.horizontal, this.vertical);
+            JuegoView.getJuegoView().setPanelDeControlViewEnBlanco();
             this.juego.avanzarTurno();
         } catch (CasilleroFueraDelLosLimitesDelTableroExcepcion | CasilleroOcupadoExcepcion | UnidadInvalidaException | BatallonIncompletoExcepcion ex){
             AlertBox.display("Alert", ex.getMessage());

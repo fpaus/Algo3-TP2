@@ -9,8 +9,10 @@ import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
+import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Vistas.JuegoView.JuegoView;
 import Algo3TP2.Vistas.TableroView;
+import Algo3TP2.Vistas.UnidadesViewEnJuego;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -32,6 +34,7 @@ public class ClickAtaqueCasilleroHandler implements EventHandler<MouseEvent> {
 
         try {
             jugadorTurnoActual.atacarConUnidadACasillero(unidadAtacante, casilleroVictima);
+            JuegoView.getJuegoView().setPanelDeControlViewEnBlanco();
             juego.avanzarTurno();
         } catch (CasilleroVacioExcepcion | DistanciaDeAtaqueIncorrectaExcepcion | UnidadInvalidaException | UnidadAtacadaEsAliadaExcepcion  e) {
             AlertBox.display("Alert",e.getMessage());
