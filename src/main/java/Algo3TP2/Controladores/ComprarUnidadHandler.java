@@ -6,7 +6,7 @@ import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.UnidadAbstractFactory.UnidadFactory;
 import Algo3TP2.UnidadAbstractFactory.UnidadesAbstractFactory;
-import Algo3TP2.Vistas.JuegoView;
+import Algo3TP2.Vistas.JuegoView.JuegoView;
 import Algo3TP2.Vistas.TableroView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
 import javafx.event.ActionEvent;

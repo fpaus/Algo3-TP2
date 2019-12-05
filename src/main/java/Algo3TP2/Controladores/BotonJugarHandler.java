@@ -2,9 +2,8 @@
 package Algo3TP2.Controladores;
 
 import Algo3TP2.Modelos.Juego;
-import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.ViewProperties;
-import Algo3TP2.Vistas.JuegoView;
+import Algo3TP2.Vistas.JuegoView.JuegoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
