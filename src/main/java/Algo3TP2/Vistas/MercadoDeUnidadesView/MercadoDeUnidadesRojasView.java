@@ -16,7 +16,7 @@ public class MercadoDeUnidadesRojasView extends MercadoDeUnidadesView {
     public MercadoDeUnidadesRojasView(Bando bando, Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         super(bando, juego);
 
-        // Botones placeholders
+        // Botones
         Image botonUnidad1Image = new Image("file:src/resources/Mercado/boton_comprar_soldado_rojo.png");
         ComprarUnidadHandler botonUnidad1Handler = new ComprarUnidadHandler(colorEquipo, "Soldado", bando, juego);
         Button botonUnidad1 = new BotonComprarUnidad(botonUnidad1Handler, botonUnidad1Image);

@@ -8,6 +8,11 @@ import Algo3TP2.Vistas.BotonesPanelDeControl.BotonComprarUnidad;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class MercadoDeUnidadesAzulesView extends MercadoDeUnidadesView {
 
@@ -16,7 +21,7 @@ public class MercadoDeUnidadesAzulesView extends MercadoDeUnidadesView {
     public MercadoDeUnidadesAzulesView(Bando bando, Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
         super(bando, juego);
 
-        // Botones placeholders
+        // Botones
         Image botonUnidad1Image = new Image("file:src/resources/Mercado/boton_comprar_soldado_azul.png");
         ComprarUnidadHandler botonUnidad1Handler = new ComprarUnidadHandler(colorEquipo, "Soldado", bando, juego);
         Button botonUnidad1 = new BotonComprarUnidad(botonUnidad1Handler, botonUnidad1Image);

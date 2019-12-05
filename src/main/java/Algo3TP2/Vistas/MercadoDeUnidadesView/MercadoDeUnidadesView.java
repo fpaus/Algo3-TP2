@@ -13,10 +13,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
 
-    private Label labelOroRestante;
+    private Text textOroRestante;
 
     public MercadoDeUnidadesView(Bando bando, Juego juego) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
 
@@ -27,27 +31,44 @@ public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
                 BackgroundRepeat.REPEAT,
                 BackgroundRepeat.REPEAT,
                 BackgroundPosition.CENTER,
-                new BackgroundSize(183,640, false, false, false, false));
+                new BackgroundSize(183, 640, false, false, false, false));
         this.setBackground(new Background(imagenDeFondo));
-        this.setPadding(new Insets(20, 5, 0, 5));
+        this.setPadding(new Insets(5, 5, 0, 5));
 
+        // Imagen Título del Mercado
         ImageView imageViewMercadoTitulo = new ImageView(new Image("file:src/resources/Mercado/titulo_mercado.png"));
 
+        // Nombre Jugador
+        StackPane stackPaneNombreJugador = new StackPane();
+
+        ImageView imagenMarcoNombre = new ImageView(new Image("file:src/resources/Mercado/marco_nombre_jugador.png"));
+
+        Text textNombreJugador = new Text();
+        textNombreJugador.setText(bando.getDuenio().toString());
+        textNombreJugador.setFont(Font.loadFont("file:src/resources/Fonts/fuente_medieval.ttf", 20));
+        textNombreJugador.setFill(Color.WHITE);
+
+        stackPaneNombreJugador.getChildren().addAll(imagenMarcoNombre, textNombreJugador);
+
+        // Billetera Jugador
         bando.getDuenio().enlazarObservador(this);
         StackPane stackPaneBilletera = new StackPane();
-        this.labelOroRestante = new Label(Integer.toString(Properties.puntosInicialesDisponibles));
-        labelOroRestante.setStyle(" -fx-font-size:20px; " +
-                "                   -fx-text-fill: #ffcc39;" +
-                "                   -fx-font-weight: bold;");
-        stackPaneBilletera.getChildren().add(new ImageView(new Image("file:src/resources/Mercado/marco_billetera.png")));
-        stackPaneBilletera.getChildren().add(labelOroRestante);
 
-        this.getChildren().addAll(imageViewMercadoTitulo, stackPaneBilletera);
+        ImageView imagenMarcoBilletera = new ImageView(new Image("file:src/resources/Mercado/marco_billetera.png"));
+        this.textOroRestante = new Text();
+        this.textOroRestante.setText(Integer.toString(Properties.puntosInicialesDisponibles));
+        this.textOroRestante.setFont(Font.loadFont("file:src/resources/Fonts/fuente_medieval.ttf", 25));
+        this.textOroRestante.setFill(Paint.valueOf("#ffcc39"));
+
+
+        stackPaneBilletera.getChildren().addAll(imagenMarcoBilletera, textOroRestante);
+
+        this.getChildren().addAll(imageViewMercadoTitulo, stackPaneNombreJugador, stackPaneBilletera);
     }
 
     @Override
     public void actualizar(int puntos) {
-        this.labelOroRestante.setText(Integer.toString(puntos));
+        this.textOroRestante.setText(Integer.toString(puntos));
     }
 }
 
