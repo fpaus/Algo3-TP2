@@ -5,6 +5,7 @@ import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
 
 public abstract class UnidadMovible extends Unidad {
 
@@ -15,47 +16,47 @@ public abstract class UnidadMovible extends Unidad {
     }
 
     public void moverEnDireccion(Direccion horizontal, Direccion vertical)
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoEnDireccion(this, this.casillero, horizontal, vertical);
     }
 
     public void moverHaciaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
-            CasilleroOcupadoExcepcion {
+            CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaArriba(this, this.casillero);
     }
 
     public void moverHaciaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion,
-            CasilleroOcupadoExcepcion {
+            CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaAbajo(this, this.casillero);
     }
 
     public void moverHaciaLaDerecha() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion {
+            , CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaDerecha(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierda() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion {
+            , CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaIzquierda(this, this.casillero);
     }
 
     public void moverHaciaLaDerechaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion {
+            , CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaDerechaArriba(this, this.casillero);
     }
 
     public void moverHaciaLaDerechaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion {
+            , CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaDerechaAbajo(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierdaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion {
+            , CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaIzquierdaArriba(this, this.casillero);
     }
 
     public void moverHaciaLaIzquierdaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion
-            , CasilleroOcupadoExcepcion {
+            , CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         movimientos.ejecutarMovimientoHaciaLaIzquierdaAbajo(this, this.casillero);
     }
 

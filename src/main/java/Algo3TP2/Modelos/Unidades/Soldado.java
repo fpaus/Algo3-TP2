@@ -96,115 +96,97 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque, Observabl
     }
 
     @Override
-    public void moverHaciaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+    public void moverHaciaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaArriba();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaArriba();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
-    public void moverHaciaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+    public void moverHaciaAbajo() throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaAbajo();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaAbajo();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
-    public void moverHaciaLaDerecha() throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+    public void moverHaciaLaDerecha() throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaLaDerecha();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaLaDerecha();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
     public void moverHaciaLaIzquierda()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaLaIzquierda();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaLaIzquierda();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
     public void moverHaciaLaDerechaArriba()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaLaDerechaArriba();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaLaDerechaArriba();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
     public void moverHaciaLaDerechaAbajo()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaLaDerechaAbajo();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaLaDerechaAbajo();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
     public void moverHaciaLaIzquierdaArriba()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaLaIzquierdaArriba();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaLaIzquierdaArriba();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
     public void moverHaciaLaIzquierdaAbajo()
-            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion {
+            throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
             this.moverComoBatallonHaciaLaIzquierdaAbajo();
         } catch (BatallonNoFormadoException e) {
             super.moverHaciaLaIzquierdaAbajo();
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
 
     @Override
     public void moverEnDireccion(Direccion horizontal, Direccion vertical)
-            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion {
+            throws CasilleroOcupadoExcepcion, CasilleroFueraDelLosLimitesDelTableroExcepcion, BatallonIncompletoExcepcion {
         try {
             this.batallonMovimiento.moverComoBatallon(this, horizontal, vertical);
         } catch (BatallonNoFormadoException e) {
             super.moverEnDireccion(horizontal, vertical);
-        } catch (BatallonIncompletoExcepcion e) {
-            // magia?
         }
         this.disolverBatallon();
     }
