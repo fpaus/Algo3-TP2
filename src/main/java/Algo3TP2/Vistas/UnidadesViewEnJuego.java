@@ -1,6 +1,7 @@
 package Algo3TP2.Vistas;
 
 import Algo3TP2.Modelos.Unidades.Unidad;
+import Algo3TP2.Vistas.PanelDeControlView.PanelDeControlView;
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 
 import java.util.HashMap;

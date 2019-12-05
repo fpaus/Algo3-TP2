@@ -1,4 +1,4 @@
-package Algo3TP2.Vistas.PanelDeControlUnidadView;
+package Algo3TP2.Vistas.PanelDeControlView.PanelDeControlUnidadesView;
 
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
