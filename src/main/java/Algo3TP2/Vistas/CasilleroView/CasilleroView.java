@@ -16,10 +16,12 @@ import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
+import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 
-public class CasilleroView extends Pane implements ObservadorCasillero {
+public class CasilleroView extends StackPane implements ObservadorCasillero {
 
     private int largoDelCasillero;
     private int anchoDelCasillero;
@@ -27,14 +29,15 @@ public class CasilleroView extends Pane implements ObservadorCasillero {
     private CasilleroViewEstado estado;
 
     public CasilleroView(Tablero tablero, Coordenada coordenada) throws CasilleroFueraDelLosLimitesDelTableroExcepcion {
-
         this.estado = new CasilleroViewVacio(this);
         this.largoDelCasillero = ViewProperties.largoDelCasillero;
         this.anchoDelCasillero = ViewProperties.anchoDelCasillero;
         this.casillero = tablero.getCasilleroEnCoordenada(coordenada);
         this.casillero.enlazarObservador(this);
-        this.setMinWidth(this.anchoDelCasillero);
-        this.setMinHeight(this.largoDelCasillero);
+
+        this.setAlignment(Pos.CENTER);
+        this.setPrefSize(this.largoDelCasillero, this.anchoDelCasillero); // Para que los casilleros vacíos tengan tamaño mínimo.
+        this.setMaxSize(this.largoDelCasillero, this.anchoDelCasillero); // Para que no se agranden.
     }
 
     protected void setEstado(CasilleroViewEstado estado){

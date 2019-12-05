@@ -37,9 +37,6 @@ public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
         this.setBackground(new Background(imagenDeFondo));
         this.setPadding(new Insets(5, 5, 0, 5));
 
-        // Imagen Título del Mercado
-        //ImageView imageViewMercadoTitulo = new ImageView(new Image("file:src/resources/Mercado/titulo_mercado.png"));
-
         // Nombre Jugador
         StackPane stackPaneNombreJugador = new StackPane();
 
@@ -61,7 +58,6 @@ public class MercadoDeUnidadesView extends VBox implements ObservadorPuntos {
         this.textOroRestante.setText(Integer.toString(Properties.puntosInicialesDisponibles));
         this.textOroRestante.setFont(Font.loadFont("file:src/resources/Fonts/fuente_medieval.ttf", 25));
         this.textOroRestante.setFill(Paint.valueOf("#ffcc39"));
-
 
         stackPaneBilletera.getChildren().addAll(imagenMarcoBilletera, textOroRestante);
 
