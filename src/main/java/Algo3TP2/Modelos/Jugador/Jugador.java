@@ -9,12 +9,14 @@ import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.PuntosInsuficientesExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Tablero.Direccion.Direccion;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
+import Algo3TP2.Modelos.Unidades.*;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.DistanciaDeAtaqueIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAtacadaEsAliadaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
-import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
-import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.Modelos.Unidades.UnidadMovible;
+import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePuedeCurarExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
+import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.UnidadCuradaEsEnemigaExcepcion;
 import Algo3TP2.Observers.ObservablePuntosJugador;
 import Algo3TP2.Observers.ObservadorPuntos;
 
@@ -56,6 +58,15 @@ public class Jugador implements ObservablePuntosJugador {
         unidad.atacar(casillero.getUnidad());
     }
 
+    public void curarConCuranderoACasillero(Curandero curandero, Casillero casilleroUnidadACurar)
+            throws CasilleroVacioExcepcion, AliadoConSaludCompletaNoSePuedeCurarExcepcion, DistanciaParaCurarIncorrectaExcepcion, UnidadCuradaEsEnemigaExcepcion, CatapultaNoPuedeSerCuradaExcepcion {
+        try {
+            curandero.curar((UnidadMovible) casilleroUnidadACurar.getUnidad());
+        } catch (ClassCastException e){
+            curandero.curar((Catapulta) casilleroUnidadACurar.getUnidad());
+        }
+    }
+
     public void matarUnidad(Unidad unidad) throws UnidadInvalidaException {
         if (!unidadesDeJugador.contains(unidad)) {
             throw new UnidadInvalidaException();
@@ -94,4 +105,6 @@ public class Jugador implements ObservablePuntosJugador {
     public void notificarObservadores(int puntos) {
         this.observadores.forEach(observadorPuntos -> observadorPuntos.actualizar(puntos));
     }
+
+
 }

@@ -5,6 +5,7 @@ import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.Coordenada;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
 import Algo3TP2.Modelos.Tablero.Tablero;
+import Algo3TP2.Modelos.Unidades.Curandero;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.ViewProperties;
@@ -65,6 +66,11 @@ public class TableroView extends GridPane {
     public void cambiarAModoRealizarAtaque(IUnidadDeAtaque unidadDeAtaque) {
         casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoAtaque(unidadDeAtaque, this.juego));
         this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor_ataque.png")));
+    }
+
+    public void cambiarAModoRealizarCuracion(Curandero curandero) {
+        casillerosView.forEach((coordenada, casilleroView) -> casilleroView.cambiarSetOnMouseClickedAModoCuracion(curandero, this.juego));
+        this.setCursor(new ImageCursor(new Image("file:src/resources/Punteros/cursor_curar.png")));
     }
 
     public void cambiarAModoSetearUnidad(Unidad unidad, UnidadView unidadImage) {

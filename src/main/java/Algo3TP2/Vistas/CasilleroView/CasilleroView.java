@@ -4,7 +4,9 @@ package Algo3TP2.Vistas.CasilleroView;
 import Algo3TP2.Controladores.ClickAtaqueCasilleroHandler;
 import Algo3TP2.Controladores.ClickCasilleroSeleccionarHandler;
 import Algo3TP2.Controladores.ClickColocarUnidadEnCasilleroHandler;
+import Algo3TP2.Controladores.ClickCuracionCasilleroHandler;
 import Algo3TP2.Modelos.Juego;
+import Algo3TP2.Modelos.Unidades.Curandero;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Observers.ObservadorCasillero;
@@ -51,6 +53,10 @@ public class CasilleroView extends StackPane implements ObservadorCasillero {
 
     public void cambiarSetOnMouseClickedAModoAtaque(IUnidadDeAtaque unidadAtacante, Juego juego){
         this.setOnMouseClicked(new ClickAtaqueCasilleroHandler(unidadAtacante, this.casillero, juego));
+    }
+
+    public void cambiarSetOnMouseClickedAModoCuracion(Curandero curandero, Juego juego){
+        this.setOnMouseClicked(new ClickCuracionCasilleroHandler(curandero, this.casillero, juego));
     }
 
     public void cambiarSetOnMouseClickedAModoSeleccionDeUnidad(Juego juego){

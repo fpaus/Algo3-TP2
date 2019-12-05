@@ -45,7 +45,7 @@ public class Curandero extends UnidadMovible {
     }
 
     //Curar Solo para catapultas
-    public void curar(Unidad unidadACurar)
+    public void curar(Catapulta unidadACurar)
             throws CatapultaNoPuedeSerCuradaExcepcion {
         throw new CatapultaNoPuedeSerCuradaExcepcion();
     }
