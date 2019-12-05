@@ -24,11 +24,9 @@ public class Turnador {
             this.jugadorActual = this.jugador1;
         }
         this.jugadorActual.controlarCondicionDePerdida();
-        System.out.println("Turno avanzado");
     }
 
     public Jugador getJugadorTurnoActual() {
-        System.out.println("Turno actual " + this.jugadorActual.toString());
         return this.jugadorActual;
     }
 }

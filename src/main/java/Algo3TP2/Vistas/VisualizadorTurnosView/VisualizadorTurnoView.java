@@ -1,6 +1,9 @@
 package Algo3TP2.Vistas.VisualizadorTurnosView;
 
 import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Juego;
+import Algo3TP2.Modelos.Jugador.Jugador;
+import Algo3TP2.Observador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
@@ -11,14 +14,19 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 
-public class VisualizadorTurnoView extends VBox {
+public class VisualizadorTurnoView extends VBox implements Observador {
 
     private ImageView imagenEsTuTurno = new ImageView();
     private StackPane stackPaneImagenTurno = new StackPane();
+    private boolean jugoElUltimoTurno;
 
-    public VisualizadorTurnoView(Bando bando){
+    public VisualizadorTurnoView(Bando bando, Juego juego){
 
         imagenEsTuTurno.setImage(new Image("file:src/resources/VisualizadorTurnos/es_tu_turno.png"));
+
+        juego.enlazarObservadorDeTurno(this);
+        this.jugoElUltimoTurno = juego.getJugadorTurnoActual() == bando.getDuenio();
+        if(jugoElUltimoTurno){this.mostrarMensajeTurno();}
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(5);
@@ -53,6 +61,17 @@ public class VisualizadorTurnoView extends VBox {
         stackPaneImagenTurno.getChildren().add(imagenEsTuTurno);
     }
     public void removerMensajeTurno(){
-        stackPaneImagenTurno.getChildren().removeAll();
+        stackPaneImagenTurno.getChildren().remove(imagenEsTuTurno);
+    }
+
+    @Override
+    public void actualizar() {
+        if(jugoElUltimoTurno){
+            removerMensajeTurno();
+            jugoElUltimoTurno = false;
+        }else {
+            mostrarMensajeTurno();
+            jugoElUltimoTurno = true;
+        }
     }
 }
