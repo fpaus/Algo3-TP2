@@ -1,6 +1,7 @@
 package Algo3TP2.Vistas.PanelDeControlUnidadView;
 
 import Algo3TP2.Modelos.Unidades.Unidad;
+import Algo3TP2.Observador;
 import Algo3TP2.Vistas.PanelDeControlView;
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;
@@ -12,11 +13,16 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class PanelDeControlUnidadView extends PanelDeControlView {
+public class PanelDeControlUnidadView extends PanelDeControlView implements Observador {
 
     private Text vidaText = new Text();
+    private Unidad unidad;
+    private String unidadVidaInicial;
 
     public PanelDeControlUnidadView(Unidad unidad){
+
+        this.unidad = unidad;
+        unidad.enlazarObservadorVida(this);
 
         StackPane stackPaneUnidadActual = new StackPane(); // StackPane para el marco y la unidad que se ve dentro.
         VBox contenedorUnidadYVida = new VBox();
@@ -33,14 +39,20 @@ public class PanelDeControlUnidadView extends PanelDeControlView {
 
         ImageView marcoUnidadSeleccionada = new ImageView (new Image("file:src/resources/PanelDeControl/marco_unidad.png"));
 
-        this.setVidaText();
-        contenedorUnidadYVida.getChildren().addAll(vidaText, imagenUnidadSeleccioanda);
+        this.unidadVidaInicial = unidad.getVidaString();
+        this.setVidaActualText(unidadVidaInicial);
+        contenedorUnidadYVida.getChildren().addAll(this.vidaText, imagenUnidadSeleccioanda);
         stackPaneUnidadActual.getChildren().addAll(marcoUnidadSeleccionada, contenedorUnidadYVida);
 
         this.add(stackPaneUnidadActual, 0 ,0);
     }
 
-    public void setVidaText(){
-        this.vidaText.setText("20/20");
+    public void setVidaActualText(String vidaActual){
+        this.vidaText.setText(vidaActual+"/"+this.unidadVidaInicial);
+    }
+
+    @Override
+    public void actualizar() {
+        this.setVidaActualText(this.unidad.getVidaString());
     }
 }

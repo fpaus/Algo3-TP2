@@ -61,7 +61,7 @@ public abstract class UnidadMovible extends Unidad {
     }
 
     public void recibirCuracion(float vida) {
-        this.vida.recibirCuracion(vida);
+        this.vida.recibirCuracion(vida, this);
     }
 
     public void moverACasillero(Casillero casillero) {
