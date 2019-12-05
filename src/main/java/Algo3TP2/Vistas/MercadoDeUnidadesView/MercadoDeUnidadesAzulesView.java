@@ -1,5 +1,6 @@
 package Algo3TP2.Vistas.MercadoDeUnidadesView;
 
+import Algo3TP2.Controladores.BotonFinalizarComprarDeUnidadesAzulesHandler;
 import Algo3TP2.Controladores.ComprarUnidadHandler;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;
@@ -7,12 +8,6 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Vistas.BotonesPanelDeControl.BotonComprarUnidad;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 
 public class MercadoDeUnidadesAzulesView extends MercadoDeUnidadesView {
 
@@ -39,5 +34,7 @@ public class MercadoDeUnidadesAzulesView extends MercadoDeUnidadesView {
         Button botonUnidad4 = new BotonComprarUnidad(botonUnidad4Handler, botonUnidad4Image);
 
         this.getChildren().addAll(botonUnidad1, botonUnidad2, botonUnidad3, botonUnidad4);
+
+        this.botonFinalizarCompra.setOnAction(new BotonFinalizarComprarDeUnidadesAzulesHandler());
     }
 }
