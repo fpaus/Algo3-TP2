@@ -33,6 +33,7 @@ public class ClickCuracionCasilleroHandler implements EventHandler<MouseEvent> {
 
         try {
             jugadorTurnoActual.curarConCuranderoACasillero(curandero, casilleroUnidadACurar);
+            JuegoView.getJuegoView().setPanelDeControlViewEnBlanco();
             juego.avanzarTurno();
         } catch (CasilleroVacioExcepcion | AliadoConSaludCompletaNoSePuedeCurarExcepcion | DistanciaParaCurarIncorrectaExcepcion
                 | UnidadCuradaEsEnemigaExcepcion | CatapultaNoPuedeSerCuradaExcepcion e) {

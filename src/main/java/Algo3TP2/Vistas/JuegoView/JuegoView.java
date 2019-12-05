@@ -90,4 +90,8 @@ public class JuegoView extends BorderPane {
     public void close(){
         this.stagePrincipal.close();
     }
+
+    public void setPanelDeControlViewEnBlanco() {
+        this.setPanelDeControlView(new PanelDeControlView());
+    }
 }

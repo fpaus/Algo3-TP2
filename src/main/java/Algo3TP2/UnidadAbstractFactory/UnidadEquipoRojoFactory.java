@@ -4,10 +4,7 @@ import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
 import Algo3TP2.Modelos.Unidades.*;
-import Algo3TP2.Vistas.PanelDeControlView.PanelDeControlUnidadesView.PanelDeControlCatapultaView;
-import Algo3TP2.Vistas.PanelDeControlView.PanelDeControlUnidadesView.PanelDeControlCuranderoView;
-import Algo3TP2.Vistas.PanelDeControlView.PanelDeControlUnidadesView.PanelDeControlJineteView;
-import Algo3TP2.Vistas.PanelDeControlView.PanelDeControlUnidadesView.PanelDeControlSoldadoView;
+import Algo3TP2.Vistas.PanelDeControlView.PanelDeControlUnidadesView.*;
 import Algo3TP2.Vistas.UnidadesView.CatapultaView.CatapultaRojaView;
 import Algo3TP2.Vistas.UnidadesView.CuranderoView.CuranderoRojoView;
 import Algo3TP2.Vistas.UnidadesView.JineteView.JineteRojoView;
@@ -24,18 +21,22 @@ public class UnidadEquipoRojoFactory implements UnidadFactory {
             unidad = new Soldado(bando);
             unidadesViewEnJuego.setUnidadView(unidad, new SoldadoRojoView());
             unidadesViewEnJuego.setUnidadPanelDeControlView(unidad, new PanelDeControlSoldadoView(unidad, juego));
+            unidadesViewEnJuego.setUnidadPanelSinControlesView(unidad, new PanelDeControlUnidadView(unidad));
         }else if (unidadTipo.equalsIgnoreCase("Jinete")){
             unidad = new Jinete(bando);
             unidadesViewEnJuego.setUnidadView(unidad, new JineteRojoView());
             unidadesViewEnJuego.setUnidadPanelDeControlView(unidad, new PanelDeControlJineteView(unidad, juego));
+            unidadesViewEnJuego.setUnidadPanelSinControlesView(unidad, new PanelDeControlUnidadView(unidad));
         }else if (unidadTipo.equalsIgnoreCase("Curandero")){
             unidad = new Curandero(bando);
             unidadesViewEnJuego.setUnidadView(unidad, new CuranderoRojoView());
             unidadesViewEnJuego.setUnidadPanelDeControlView(unidad, new PanelDeControlCuranderoView(unidad, juego));
+            unidadesViewEnJuego.setUnidadPanelSinControlesView(unidad, new PanelDeControlUnidadView(unidad));
         }else if (unidadTipo.equalsIgnoreCase("Catapulta")){
             unidad = new Catapulta(bando);
             unidadesViewEnJuego.setUnidadView(unidad, new CatapultaRojaView());
             unidadesViewEnJuego.setUnidadPanelDeControlView(unidad, new PanelDeControlCatapultaView(unidad));
+            unidadesViewEnJuego.setUnidadPanelSinControlesView(unidad, new PanelDeControlUnidadView(unidad));
         }else {
             throw new UnidadInvalidaException();
         }
