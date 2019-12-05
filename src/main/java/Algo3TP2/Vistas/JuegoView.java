@@ -46,8 +46,8 @@ public class JuegoView extends BorderPane {
         this.tableroView = new TableroView(juego);
         this.mercadoDeUnidadesViewDerecha = new MercadoDeUnidadesRojasView(new Bando(juego.getJugador1()), juego);
         this.mercadoDeUnidadesViewIzquierda = new MercadoDeUnidadesAzulesView(new Bando(juego.getJugador2()), juego);
-        this.visualizadorTurnoViewDerecha = new VisualizadorTurnoView(new Bando(juego.getJugador1()));
-        this.visualizadorTurnoViewIzquierda = new VisualizadorTurnoView(new Bando(juego.getJugador2()));
+        this.visualizadorTurnoViewDerecha = new VisualizadorTurnoView(new Bando(juego.getJugador1()), juego);
+        this.visualizadorTurnoViewIzquierda = new VisualizadorTurnoView(new Bando(juego.getJugador2()), juego);
         this.panelDeControlView = new PanelDeControlViewCasilleroVacio();
 
         this.setCenter(tableroView);
