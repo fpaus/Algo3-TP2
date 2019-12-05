@@ -1,4 +1,4 @@
-package Algo3TP2.Vistas;
+package Algo3TP2.Vistas.JuegoView;
 
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.Coordenada;

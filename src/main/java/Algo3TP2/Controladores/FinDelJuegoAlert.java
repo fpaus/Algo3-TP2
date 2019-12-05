@@ -1,8 +1,7 @@
 package Algo3TP2.Controladores;
 
-import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Jugador.Jugador;
-import Algo3TP2.Vistas.JuegoView;
+import Algo3TP2.Vistas.JuegoView.JuegoView;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

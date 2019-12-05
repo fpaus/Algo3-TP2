@@ -1,4 +1,4 @@
-package Algo3TP2.Vistas;
+package Algo3TP2.Vistas.JuegoView;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;
@@ -7,6 +7,8 @@ import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesAzulesView;
 import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesRojasView;
 import Algo3TP2.Vistas.MercadoDeUnidadesView.MercadoDeUnidadesView;
 import Algo3TP2.Vistas.PanelDeControlUnidadView.PanelDeControlViewCasilleroVacio;
+import Algo3TP2.Vistas.PanelDeControlView;
+import Algo3TP2.Vistas.TableroView;
 import Algo3TP2.Vistas.VisualizadorTurnosView.VisualizadorTurnoView;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
