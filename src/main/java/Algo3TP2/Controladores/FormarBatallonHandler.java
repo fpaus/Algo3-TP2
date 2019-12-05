@@ -30,7 +30,7 @@ public class FormarBatallonHandler implements EventHandler<ActionEvent> {
             soldadoParaBatallon.formarBatallon();
 
         }
-        this.boton.setImage(this.soldadoParaBatallon);
+        //this.boton.setImage(this.soldadoParaBatallon);
     }
 
 }

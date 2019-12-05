@@ -1,5 +1,7 @@
 package Algo3TP2.Modelos.Unidades;
 
+import Algo3TP2.Observable;
+import Algo3TP2.Observador;
 import Algo3TP2.Properties;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
@@ -18,10 +20,13 @@ import Algo3TP2.Modelos.Unidades.EstrategiasDeAtaque.ExcepcionesAtaque.UnidadAta
 import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonIncompletoExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesBatallon.BatallonNoFormadoException;
 
-public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
+import java.util.ArrayList;
+
+public class Soldado extends UnidadMovible implements IUnidadDeAtaque, Observable {
 
     private EstrategiaDeAtaque estrategiaDeAtaque;
     private Batallon batallonMovimiento;
+    private ArrayList<Observador> observadoresBatallon;
 
     public Soldado(Bando bando) {
         this.costo = Properties.costoSoldado;
@@ -29,6 +34,7 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         this.estrategiaDeAtaque = new AtaqueDeSoldado();
         this.bando = bando;
         this.batallonMovimiento = new BatallonDisuelto();
+        this.observadoresBatallon = new ArrayList<Observador>();
     }
 
     @Override
@@ -77,10 +83,12 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
 
     public void formarBatallon() {
         this.batallonMovimiento = new BatallonFormado();
+        this.notificarObservadores();
     }
 
     public void disolverBatallon() {
         this.batallonMovimiento = new BatallonDisuelto();
+        this.notificarObservadores();
     }
 
     public void verificarBatallonFormado() throws BatallonNoFormadoException {
@@ -201,4 +209,12 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque {
         this.disolverBatallon();
     }
 
+    public void enlazarobservadorBatallon(Observador observador){
+        this.observadoresBatallon.add(observador);
+    }
+
+    @Override
+    public void notificarObservadores() {
+        this.observadoresBatallon.forEach(observador -> observador.actualizar());
+    }
 }
