@@ -81,7 +81,8 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque, Observabl
         this.batallonMovimiento.moverComoBatallon(this, new Derecha(), new Arriba());
     }
 
-    public void formarBatallon() {
+    public void formarBatallon() throws BatallonIncompletoExcepcion {
+        this.verificarSiSePuedeFormarBatallon();
         this.batallonMovimiento = new BatallonFormado();
         this.notificarObservadores();
     }
@@ -94,7 +95,9 @@ public class Soldado extends UnidadMovible implements IUnidadDeAtaque, Observabl
     public void verificarBatallonFormado() throws BatallonNoFormadoException {
         this.batallonMovimiento.verificarBatallonFormado();
     }
-
+    private void verificarSiSePuedeFormarBatallon() throws BatallonIncompletoExcepcion {
+        this.batallonMovimiento.verificarSiSePuedeFormarBatallon(this);
+    }
     @Override
     public void moverHaciaArriba() throws CasilleroFueraDelLosLimitesDelTableroExcepcion, CasilleroOcupadoExcepcion, BatallonIncompletoExcepcion {
         try {
