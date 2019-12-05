@@ -35,8 +35,10 @@ public class ClickAtaqueCasilleroHandler implements EventHandler<MouseEvent> {
             jugadorTurnoActual.atacarConUnidadACasillero(unidadAtacante, casilleroVictima);
             System.out.println("unidad Atacada");
             juego.avanzarTurno();
-        } catch (CasilleroVacioExcepcion | DistanciaDeAtaqueIncorrectaExcepcion | UnidadInvalidaException | UnidadAtacadaEsAliadaExcepcion | JugadorSinUnidadesExcepcion e) {
+        } catch (CasilleroVacioExcepcion | DistanciaDeAtaqueIncorrectaExcepcion | UnidadInvalidaException | UnidadAtacadaEsAliadaExcepcion  e) {
             AlertBox.display("Alert",e.getMessage());
+        } catch (JugadorSinUnidadesExcepcion e){
+            FinDelJuegoAlert.display(jugadorTurnoActual);
         } finally {
             TableroView tableroView = JuegoView.getJuegoView().getTableroView();
             tableroView.cambiarAModoSeleccionDeUnidad();

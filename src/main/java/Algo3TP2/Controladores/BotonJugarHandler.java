@@ -31,7 +31,7 @@ public class BotonJugarHandler implements EventHandler<ActionEvent> {
         this.juego.inicializarJuego(jugadorUnoNombreInput.getText(), jugadorDosNombreInput.getText(), ViewProperties.tamanioTablero);
 
         try {
-            JuegoView.inicializarJuegoView(this.juego);
+            JuegoView.inicializarJuegoView(this.juego, this.stage);
             JuegoView juegoView = JuegoView.getJuegoView();
             Scene siguienteEscena = new Scene(juegoView);
             this.stage.setScene(siguienteEscena);
