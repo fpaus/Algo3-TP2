@@ -33,7 +33,6 @@ public class MercadoDeUnidadesRojasView extends MercadoDeUnidadesView {
         ComprarUnidadHandler botonUnidad4Handler = new ComprarUnidadHandler(colorEquipo, "Catapulta", bando, juego);
         Button botonUnidad4 = new BotonComprarUnidad(botonUnidad4Handler, botonUnidad4Image);
 
-
         this.getChildren().addAll(botonUnidad1, botonUnidad2, botonUnidad3, botonUnidad4);
     }
 }
