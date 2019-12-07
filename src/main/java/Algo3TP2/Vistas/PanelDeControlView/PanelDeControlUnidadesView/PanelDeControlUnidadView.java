@@ -1,7 +1,7 @@
 package Algo3TP2.Vistas.PanelDeControlView.PanelDeControlUnidadesView;
 
 import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.Observers.Observador;
+import Algo3TP2.Controladores.Observers.Observador;
 import Algo3TP2.Vistas.PanelDeControlView.PanelDeControlView;
 import Algo3TP2.Vistas.UnidadesView.UnidadView;
 import Algo3TP2.Vistas.UnidadesViewEnJuego;

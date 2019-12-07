@@ -1,4 +1,4 @@
-package Algo3TP2.UnidadAbstractFactory;
+package Algo3TP2.Controladores.UnidadAbstractFactory;
 
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;

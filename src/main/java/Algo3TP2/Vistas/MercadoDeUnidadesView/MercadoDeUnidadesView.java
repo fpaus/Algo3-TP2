@@ -3,7 +3,7 @@ package Algo3TP2.Vistas.MercadoDeUnidadesView;
 import Algo3TP2.Modelos.Bando;
 import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDelTableroExcepcion;
-import Algo3TP2.Observers.ObservadorPuntos;
+import Algo3TP2.Controladores.Observers.ObservadorPuntos;
 import Algo3TP2.Properties;
 import Algo3TP2.Vistas.BotonesPanelDeControl.BotonFinalizarCompra;
 import javafx.geometry.Insets;

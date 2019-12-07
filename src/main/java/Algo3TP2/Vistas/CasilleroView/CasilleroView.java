@@ -9,7 +9,7 @@ import Algo3TP2.Modelos.Juego;
 import Algo3TP2.Modelos.Unidades.Curandero;
 import Algo3TP2.Modelos.Unidades.IUnidadDeAtaque;
 import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.Observers.ObservadorCasillero;
+import Algo3TP2.Controladores.Observers.ObservadorCasillero;
 import Algo3TP2.ViewProperties;
 import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Tablero.Coordenada;

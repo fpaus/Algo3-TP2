@@ -17,8 +17,8 @@ import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.AliadoConSaludCompletaNoSePued
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.CatapultaNoPuedeSerCuradaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.DistanciaParaCurarIncorrectaExcepcion;
 import Algo3TP2.Modelos.Unidades.ExcepcionesCurar.UnidadCuradaEsEnemigaExcepcion;
-import Algo3TP2.Observers.ObservablePuntosJugador;
-import Algo3TP2.Observers.ObservadorPuntos;
+import Algo3TP2.Controladores.Observers.ObservablePuntosJugador;
+import Algo3TP2.Controladores.Observers.ObservadorPuntos;
 
 import java.util.ArrayList;
 import java.util.List;

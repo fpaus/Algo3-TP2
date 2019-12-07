@@ -2,7 +2,7 @@ package Algo3TP2.Modelos.Casillero;
 
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Unidades.Unidad;
-import Algo3TP2.Observers.ObservadorCasillero;
+import Algo3TP2.Controladores.Observers.ObservadorCasillero;
 
 import java.util.ArrayList;
 
