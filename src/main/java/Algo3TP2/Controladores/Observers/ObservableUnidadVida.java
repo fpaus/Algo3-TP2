@@ -1,4 +1,4 @@
-package Algo3TP2.Observers;
+package Algo3TP2.Controladores.Observers;
 
 public interface ObservableUnidadVida {
 

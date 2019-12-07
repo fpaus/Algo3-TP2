@@ -5,8 +5,8 @@ import Algo3TP2.Modelos.Casillero.Casillero;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.UnidadInvalidaException;
-import Algo3TP2.Observers.ObservableUnidadVida;
-import Algo3TP2.Observers.Observador;
+import Algo3TP2.Controladores.Observers.ObservableUnidadVida;
+import Algo3TP2.Controladores.Observers.Observador;
 
 import java.util.ArrayList;
 

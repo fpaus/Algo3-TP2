@@ -4,8 +4,8 @@ package Algo3TP2.Modelos;
 import Algo3TP2.Modelos.Jugador.ExcepcionesJugador.JugadorSinUnidadesExcepcion;
 import Algo3TP2.Modelos.Jugador.Jugador;
 import Algo3TP2.Modelos.Tablero.Tablero;
-import Algo3TP2.Observers.Observable;
-import Algo3TP2.Observers.Observador;
+import Algo3TP2.Controladores.Observers.Observable;
+import Algo3TP2.Controladores.Observers.Observador;
 
 import java.util.ArrayList;
 
