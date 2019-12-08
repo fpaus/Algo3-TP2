@@ -15,10 +15,11 @@ public class UnidadView extends ImageView {
     public UnidadView(){
         this.setFitWidth(ViewProperties.anchoUnidadView);
         this.setFitHeight(ViewProperties.largoUnidadView);
+        this.setPreserveRatio(true); // Evita que las unidades se deformen.
     }
 
-    protected void setUnidadImage(Image unidadImage){
+    /*protected void setUnidadImage(Image unidadImage){
         this.unidadImage = unidadImage;
         this.setImage(unidadImage);
-    }
+    }*/
 }

@@ -1,6 +1,7 @@
 package Algo3TP2.Modelos.Casillero;
 
 import Algo3TP2.Modelos.Bando;
+import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroEnemigoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroOcupadoExcepcion;
 import Algo3TP2.Modelos.Casillero.ExcepcionesCasillero.CasilleroVacioExcepcion;
 import Algo3TP2.Modelos.Jugador.Jugador;
@@ -10,16 +11,20 @@ import Algo3TP2.Modelos.Tablero.ExcepcionesTablero.CasilleroFueraDelLosLimitesDe
 import Algo3TP2.Modelos.Tablero.Tablero;
 import Algo3TP2.Modelos.Unidades.Unidad;
 import Algo3TP2.Modelos.Unidades.UnidadMovible;
+import Algo3TP2.Controladores.Observers.ObservableCasillero;
+import Algo3TP2.Controladores.Observers.ObservadorCasillero;
 
 import java.util.ArrayList;
 
-public class Casillero {
+public class Casillero implements ObservableCasillero {
 
     private Coordenada coordenada;
     private Bando bando;
     private CasilleroEstado estado; //Patron de diseño State
+    private ArrayList<ObservadorCasillero> observadores;
 
     public Casillero(Coordenada coordenada, Jugador jugador) {
+        this.observadores = new ArrayList<ObservadorCasillero>();
         this.coordenada = coordenada;
         this.bando = new Bando(jugador);
         estado = new CasilleroVacio();
@@ -27,10 +32,19 @@ public class Casillero {
 
     protected void setEstado(CasilleroEstado estado) {
         this.estado = estado;
+        this.notificarObservadores();
     }
 
     public void setUnidad(Unidad unidad) throws CasilleroOcupadoExcepcion {
         estado.setUnidad(this, unidad);
+    }
+
+    public void setUnidadAlInicioDelJuego(Unidad unidad)
+            throws CasilleroEnemigoExcepcion, CasilleroOcupadoExcepcion {
+        if (!this.bando.equals(unidad.getBando())) {
+            throw new CasilleroEnemigoExcepcion();
+        }
+        unidad.colocarEnCasillero(this);
     }
 
     public Unidad getUnidad() throws CasilleroVacioExcepcion {
@@ -49,7 +63,7 @@ public class Casillero {
         return this.coordenada;
     }
 
-    public void aceptarUnidad(UnidadMovible unidad) throws CasilleroOcupadoExcepcion, CasilleroVacioExcepcion {
+    public void aceptarUnidad(UnidadMovible unidad) throws CasilleroOcupadoExcepcion {
 
         this.setUnidad(unidad);
         unidad.moverACasillero(this);
@@ -75,5 +89,14 @@ public class Casillero {
     @Override
     public String toString() {
         return coordenada.toString();
+    }
+
+    public void enlazarObservador(ObservadorCasillero observadorCasillero){
+        this.observadores.add(observadorCasillero);
+    }
+
+    @Override
+    public void notificarObservadores() {
+        this.estado.notificarObservadores(this.observadores);
     }
 }

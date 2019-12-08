@@ -30,7 +30,7 @@ public class AlgoChess extends Application {
         Juego juego = new Juego();
 
         InitializerView initializerView = new InitializerView(stage, juego);
-        Scene escenaBienvenidos = new Scene(initializerView, 800,600);
+        Scene escenaBienvenidos = new Scene(initializerView, 500,400);
 
         stage.setScene(escenaBienvenidos);
         stage.show();

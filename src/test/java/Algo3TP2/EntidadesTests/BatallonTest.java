@@ -37,6 +37,7 @@ public class BatallonTest {
         tablero.posicionarUnidad(soldado3, new Coordenada(2, 3));
 
         // Act
+        soldado1.formarBatallon();
         soldado1.moverComoBatallonHaciaLaDerecha();
 
         // Assert
@@ -52,6 +53,9 @@ public class BatallonTest {
         Soldado soldado2 = new Soldado(bandoAliado);
         tablero.posicionarUnidad(soldado2, new Coordenada(2, 2));
 
+        // Act
+        soldado1.formarBatallon();
+
         // Assert
         soldado1.moverComoBatallonHaciaLaDerecha();
     }
@@ -60,6 +64,9 @@ public class BatallonTest {
     public void unSoldadosSePuedenMoverComoBatallonTest() throws Exception {
         Soldado soldado1 = new Soldado(bandoAliado);
         tablero.posicionarUnidad(soldado1, new Coordenada(2, 1));
+
+        // Act
+        soldado1.formarBatallon();
 
         // Assert
         soldado1.moverComoBatallonHaciaLaDerecha();

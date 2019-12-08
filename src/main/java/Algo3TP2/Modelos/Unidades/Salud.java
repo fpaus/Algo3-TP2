@@ -12,21 +12,22 @@ public class Salud {
     }
 
 
-    public void recibirDanio(float danio) {
+    public void recibirDanio(float danio, Unidad unidad) {
         if (this.vida > danio) {
             this.vida -= danio;
         } else {
             this.vida = 0;
         }
+        unidad.notificarObservadoresUnidadVida();
     }
 
-    public void recibirCuracion(float vida) {
+    public void recibirCuracion(float vida, Unidad unidad) {
         if (this.vidaMaxima - this.vida > vida) {
             this.vida += vida;
         } else {
             this.vida = this.vidaMaxima;
         }
-
+        unidad.notificarObservadoresUnidadVida();
     }
 
     public float getPuntosDeVida() {
@@ -35,5 +36,9 @@ public class Salud {
 
     public float getPuntosVidaMaxima() {
         return this.vidaMaxima;
+    }
+
+    public String toString(){
+        return Integer.toString((int)Math.ceil(this.vida));
     }
 }
